@@ -1,1 +1,1 @@
-export * from "./DeckHeader";
+export * from "./deck-header";
