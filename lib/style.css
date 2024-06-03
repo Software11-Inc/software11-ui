@@ -1,5 +1,11 @@
 :root {
-    --spacing: 1rem;
+  --spacing: 1rem;
 
-    --header-height: calc(var(--spacing) * 2 + 2rem);
+  --header-height: calc(var(--spacing) * 2 + 2rem);
+
+  --border-radius: 0.25rem;
+
+  --shadow: 0 0 4px var(--joy-palette-primary-100);
+  --focus-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--joy-palette-primary-100),
+    0 1px 2px 0 black;
 }
