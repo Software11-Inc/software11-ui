@@ -1,0 +1,5 @@
+:root {
+    --spacing: 1rem;
+
+    --header-height: calc(var(--spacing) * 2 + 2rem);
+}
