@@ -10,4 +10,4 @@ export interface ButtonProps extends ButtonBaseProps  {
   label: string;
 }
 
-export const DeckHeader = ({ label, ...rest }: ButtonProps) => <MuiButton {...rest}>{label}</MuiButton>;
+export const DeckHeader: React.FC<ButtonProps> = ({ label, ...rest }: ButtonProps) => <MuiButton {...rest}>{label}</MuiButton>;
