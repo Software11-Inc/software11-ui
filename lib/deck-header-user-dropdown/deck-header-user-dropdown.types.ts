@@ -1,8 +1,7 @@
 export interface DeckHeaderUserDropdownProps {
   fullName: string;
-  role: string;
   email: string;
   avatarUrl: string;
-  placement: "bottom-end" | "bottom-start";
+  isRight: boolean;
   onLogout: () => void;
 }
