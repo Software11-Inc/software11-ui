@@ -1,4 +1,3 @@
-import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import React from "react";
 import { className, iconButtonStyle } from "./deck-icon-button.style";
@@ -15,19 +14,17 @@ export const DeckIconButton: React.FC<DeckIconButtonProps> = ({
   icon,
 }) => {
   return (
-    <Box>
-      <IconButton
-        sx={iconButtonStyle(rounded, size)}
-        size={size}
-        color={color}
-        variant={variant}
-        disabled={disabled}
-        hidden={hidden}
-        className={[className, hidden ? "hidden" : ""].join(" ")}
-        onClick={onClick}
-      >
-        {icon}
-      </IconButton>
-    </Box>
+    <IconButton
+      sx={iconButtonStyle(rounded, size)}
+      size={size}
+      color={color}
+      variant={variant}
+      disabled={disabled}
+      hidden={hidden}
+      className={[className, hidden ? "hidden" : ""].join(" ")}
+      onClick={onClick}
+    >
+      {icon}
+    </IconButton>
   );
 };
