@@ -26,12 +26,11 @@ export const decorators = [
 
 const preview: Preview = {
   parameters: {
+    viewport: {
+      defaultViewport: "mobile1",
+    },
     controls: {
       expanded: true,
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
     },
   },
 
