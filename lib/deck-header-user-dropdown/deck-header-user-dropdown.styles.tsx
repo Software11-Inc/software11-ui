@@ -37,6 +37,7 @@ export const columnStyle: SxProps = {
 
 export const menuStyle: SxProps = {
   width: "calc(100vw - 3rem)",
+  maxWidth: "18rem",
   borderColor: "background.level1",
   boxShadow: "shadow.level1",
   p: 0,

@@ -12,7 +12,12 @@ export const DeckHeaderNavigation: React.FC<DeckHeaderNavigationProps> = ({
 }) => {
   return (
     <Box sx={navigationStyles}>
-      <DeckIconButton rounded={true} icon={<ChevronLeft />} onClick={onBack} />
+      <DeckIconButton
+        size="sm"
+        rounded={true}
+        icon={<ChevronLeft />}
+        onClick={onBack}
+      />
       <DeckLabel
         size="sm"
         title={{ text: title, limit: 1 }}

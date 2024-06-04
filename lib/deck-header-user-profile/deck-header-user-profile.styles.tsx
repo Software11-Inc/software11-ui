@@ -4,6 +4,7 @@ export const userProfileStyles: SxProps = {
   display: "flex",
   alignItems: "center",
   gap: 1,
+  flex: 1,
 
   position: "relative",
 };
