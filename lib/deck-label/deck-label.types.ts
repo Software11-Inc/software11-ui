@@ -1,6 +1,7 @@
 interface RowProperties {
   text: string;
   limit?: number;
+  bold?: boolean;
 }
 
 export interface DeckLabelProps {

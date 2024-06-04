@@ -39,7 +39,6 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
             className: "deck-header-user-dropdown__button",
             onClick: () => setVisible(!visible),
             sx: {
-              fontSize: "12px",
               p: 0,
               minWidth: "1.25rem",
               minHeight: "1.25rem",

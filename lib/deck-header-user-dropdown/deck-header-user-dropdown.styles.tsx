@@ -5,6 +5,7 @@ export const avatarSmStyle: SxProps = {
   height: "1.25rem",
   aspectRatio: "1",
   boxShadow: "unset",
+  fontSize: "12px",
 };
 
 export const avatarLgStyle: SxProps = {

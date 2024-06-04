@@ -14,14 +14,17 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
   return (
     <Box className={className} sx={deckLabelStyle(color, size, order, mt)}>
       {title?.text && (
-        <Box className={`${className}__title`} sx={textStyle(title.limit)}>
+        <Box
+          className={`${className}__title`}
+          sx={textStyle(title.limit, true)}
+        >
           <span>{title.text}</span>
         </Box>
       )}
       {description?.text && (
         <Box
           className={`${className}__description`}
-          sx={textStyle(description.limit)}
+          sx={textStyle(description.limit, description?.bold)}
         >
           <span>{description.text}</span>
         </Box>

@@ -47,6 +47,7 @@ export const deckLabelStyle = (
   };
 };
 
-export const textStyle = (limit = 2): SxProps => ({
+export const textStyle = (limit = 2, bold = false): SxProps => ({
   WebkitLineClamp: limit,
+  fontWeight: bold ? "bold" : "normal",
 });
