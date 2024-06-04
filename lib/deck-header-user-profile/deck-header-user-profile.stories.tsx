@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckHeaderUserProfile } from "./deck-header-user-profile.component";
 
 export default {
-  title: "Layout/Header/User Profile",
+  title: "Layout/Header/Components/User Profile",
   component: DeckHeaderUserProfile,
 } as Meta<typeof DeckHeaderUserProfile>;
 

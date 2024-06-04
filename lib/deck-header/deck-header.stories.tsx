@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckHeader } from "./deck-header.component";
 
 export default {
-  title: "Layout/Header/Deck Header",
+  title: "Layout/Header/Header",
   component: DeckHeader,
 } as Meta<typeof DeckHeader>;
 

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckHeaderUserDropdown } from "./deck-header-user-dropdown.component";
 
 export default {
-  title: "Layout/Header/User Dropdown",
+  title: "Layout/Header/Components/User Dropdown",
   component: DeckHeaderUserDropdown,
   parameters: {
     controls: { expanded: false },
