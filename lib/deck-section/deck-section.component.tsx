@@ -36,10 +36,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
       className={[className, hidden ? "hidden" : ""].join(" ")}
       sx={sectionStyle}
     >
-      <Accordion
-        expanded={hasItems && expanded}
-        onChange={(_, expanded) => (!immutable ? setExpanded(expanded) : {})}
-      >
+      <Accordion expanded={hasItems && expanded}>
         <AccordionSummary
           indicator={null}
           slotProps={{
@@ -53,7 +50,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
                 ) {
                   return;
                 }
-                setExpanded(!expanded);
+                !immutable ? setExpanded(!expanded) : null;
               },
             },
           }}
