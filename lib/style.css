@@ -3,7 +3,7 @@
 
   --header-height: calc(var(--spacing) * 2 + 2rem);
 
-  --border-radius: 0.25rem;
+  --border-radius: 0.5rem;
 
   --shadow: 0 0 4px var(--joy-palette-primary-100);
   --focus-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--joy-palette-primary-100),
@@ -13,4 +13,69 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+/** Deck Status  */
+
+@keyframes pulse-animation-waiting {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(17, 238, 116, 0);
+  }
+}
+
+@keyframes pulse-animation-success {
+  0% {
+    box-shadow: 0 0 0 0px rgba(17, 238, 116, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(17, 238, 116, 0);
+  }
+}
+
+@keyframes pulse-animation-warning {
+  0% {
+    box-shadow: 0 0 0 0px rgba(238, 161, 17, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(238, 161, 17, 0);
+  }
+}
+
+@keyframes pulse-animation-error {
+  0% {
+    box-shadow: 0 0 0 0px rgba(238, 17, 17, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(238, 17, 17, 0);
+  }
+}
+
+@keyframes pulse-animation-processing {
+  0% {
+    box-shadow: 0 0 0 0px rgba(17, 212, 238, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0.5rem rgba(17, 212, 238, 0);
+  }
+}
+
+/** Spin Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
