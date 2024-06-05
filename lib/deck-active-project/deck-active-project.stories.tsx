@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckActiveProject } from "./deck-active-project.component";
 
 export default {
-  title: "Pages/Home/Components/Active Project",
+  title: "Pages/Home/Active Project",
   component: DeckActiveProject,
   parameters: {
     controls: {

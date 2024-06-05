@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckActivePage } from "./deck-active-page.component";
 
 export default {
-  title: "Pages/Home/Components/Active Page",
+  title: "Pages/Home/Active Page",
   component: DeckActivePage,
   parameters: {
     controls: { expanded: false },
