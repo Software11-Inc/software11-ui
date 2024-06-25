@@ -6,7 +6,8 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "paths": {
-      "s11-ui": ["./lib/main.ts"]
+      "s11-ui": ["./lib/main.ts"],
+      "@models": ["./lib/models"]
     },
 
     /* Bundler mode */
@@ -24,8 +25,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Vitest */
-    "types": ["vitest/globals"],
-
+    "types": ["vitest/globals"]
   },
   "include": ["src", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]

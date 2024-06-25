@@ -84,6 +84,12 @@ export const accordionGroupStyles = (
 
           [`& > .${accordionDetailsClasses.content}`]: {
             p: 0,
+            bgcolor: getBackgroundColor(level + 1),
+
+            [`& > *:first-of-type`]: {
+              borderTop: "1px solid",
+              borderColor: "divider",
+            },
           },
         },
       },
@@ -111,10 +117,6 @@ export const accordionGroupStyles = (
         [`& > .${accordionDetailsClasses.root}`]: {
           [`& > .${accordionDetailsClasses.content}`]: {
             p: 0,
-            borderTop: "1px solid",
-            borderColor: getBackgroundColor(level + 2),
-            bgcolor: getBackgroundColor(level + 1),
-
             ...(!compact && {
               borderRadius: `0 0 var(--border-radius) var(--border-radius)`,
               overflow: "hidden",
@@ -124,6 +126,21 @@ export const accordionGroupStyles = (
       },
       [`& > .${accordionClasses.root}:last-child`]: {
         borderBottom: "unset",
+      },
+
+      ["&.deck-highlighted"]: {
+        [`& > .${accordionClasses.root}:not(.${accordionClasses.expanded})`]: {
+          [`& > .${accordionSummaryClasses.root}`]: {
+            [`& > .${accordionSummaryClasses.button}`]: {
+              boxShadow: "var(--focus-shadow)",
+              bgcolor: getBackgroundColor(level + 1),
+
+              "&:hover": {
+                bgcolor: getBackgroundColor(level + 2),
+              },
+            },
+          },
+        },
       },
     },
   };

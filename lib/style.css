@@ -6,6 +6,11 @@
   --border-radius: 0.5rem;
 
   --shadow: 0 0 4px var(--joy-palette-primary-100);
+
+  --highlight-shadow: 0 0 0 2px var(--joy-palette-background-level1),
+    0 0 0 4px var(--joy-palette-background-surface), 0 1px 2px 0 black;
+  --highlight-shadow-hover: 0 0 0 2px var(--joy-palette-background-level1),
+    0 0 0 4px var(--joy-palette-background-body), 0 1px 2px 0 black;
   --focus-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--joy-palette-primary-100),
     0 1px 2px 0 black;
 
@@ -13,6 +18,10 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+}
+
+.flex-spacer {
+  flex: 1;
 }
 
 /** Deck Status  */
