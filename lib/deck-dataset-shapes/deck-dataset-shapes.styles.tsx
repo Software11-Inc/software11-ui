@@ -1,6 +1,12 @@
 import { SxProps } from "@mui/joy/styles/types";
 import { getBackgroundColor } from "../accordion.style";
 
+export const emptyHeaderStyle: SxProps = {
+  display: "flex",
+  alignItems: "center",
+  gap: 1,
+};
+
 export const headerStyle: SxProps = {
   display: "grid",
   gridTemplateColumns: "auto 1fr auto",
@@ -90,4 +96,14 @@ export const hintStyle: SxProps = {
   py: 0.5,
   bgcolor: "background.surface",
   borderRadius: "0 0 var(--border-radius) var(--border-radius)",
+};
+
+export const actionButtonStyle: SxProps = {
+  px: 1.5,
+  py: 1,
+  flex: 1,
+  fontSize: 11,
+  lineHeight: "14px",
+  textTransform: "uppercase",
+  whiteSpace: "nowrap",
 };

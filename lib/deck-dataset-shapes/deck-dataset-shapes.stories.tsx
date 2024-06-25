@@ -17,6 +17,7 @@ export const Default: StoryFn<typeof DeckDatasetShapes> = (args) => (
 );
 
 Default.args = {
+  loaded: true,
   name: "Dataset 1",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   hasChanges: false,

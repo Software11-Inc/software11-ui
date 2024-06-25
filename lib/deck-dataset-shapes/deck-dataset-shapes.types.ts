@@ -10,6 +10,7 @@ export interface DeckDatasetShapesProps {
   shapes: FigureShapeMap;
   apiChanges: ShapeChangeMap;
   userChanges: ShapeChangeMap;
+  loaded: boolean;
 
   onOpenDataset: () => void;
   onSyncDataset: () => void;
