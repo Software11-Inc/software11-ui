@@ -1,3 +1,4 @@
+import { DatasetType, IDefaultFigure, IFigure, ITableFigure } from "@models";
 import AddRounded from "@mui/icons-material/AddRounded";
 import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
@@ -7,8 +8,6 @@ import { Size } from "../accordion.style";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
-import { DatasetType } from "../models/dataset.model";
-import { IDefaultFigure, IFigure, ITableFigure } from "../models/figure.model";
 import {
   actionButtonsStyle,
   className,
