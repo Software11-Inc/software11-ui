@@ -7,4 +7,9 @@ export interface DeckDatasetDataGroupProps extends IDataCommonProps {
   apiChanges: ShapeChangeMap;
   userChanges: ShapeChangeMap;
   shapes: FigureShapeMap;
+
+  onAddShape: (figureID: string) => void;
+  onResetShapes: (figureID: string, shapeIDs: string[]) => void;
+  onSyncShapes: (figureID: string, shapeIDs: string[]) => void;
+  onSettings: (figureID: string) => void;
 }

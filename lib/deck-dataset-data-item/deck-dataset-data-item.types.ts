@@ -1,4 +1,4 @@
-import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange } from "@models";
+import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange, ShapeChangeMap } from "@models";
 
 export interface DeckDatasetDataItemProps extends IDataCommonProps {
   figure: IFigure;
@@ -6,4 +6,8 @@ export interface DeckDatasetDataItemProps extends IDataCommonProps {
   apiChanges: IShapeChange[];
   userChanges: IShapeChange[];
   type: DatasetType;
+  onAdd: () => void;
+  onReset: () => void;
+  onSync: () => void;
+  onSettings: () => void;
 }

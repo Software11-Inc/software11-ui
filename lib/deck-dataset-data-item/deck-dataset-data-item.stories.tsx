@@ -16,6 +16,18 @@ export default {
       options: ["sm", "md", "lg"],
       control: { type: "select" },
     },
+    onAdd: {
+      action: "add-shape",
+    },
+    onReset: {
+      action: "reset-shapes",
+    },
+    onSync: {
+      action: "sync-shapes",
+    },
+    onSettings: {
+      action: "open-settings",
+    },
   },
 } as Meta<typeof DeckDatasetDataItem>;
 

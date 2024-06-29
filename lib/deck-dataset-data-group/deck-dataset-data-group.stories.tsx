@@ -15,6 +15,18 @@ export default {
       options: sizes,
       control: { type: "select" },
     },
+    onAddShape: {
+      action: "add-shape",
+    },
+    onResetShapes: {
+      action: "reset-shapes",
+    },
+    onSyncShapes: {
+      action: "sync-shapes",
+    },
+    onSettings: {
+      action: "open-settings",
+    },
   },
 } as Meta<typeof DeckDatasetDataGroup>;
 

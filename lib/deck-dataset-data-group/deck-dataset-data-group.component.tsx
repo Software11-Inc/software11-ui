@@ -23,6 +23,10 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   shapes = {},
   apiChanges = {},
   userChanges = {},
+  onAddShape,
+  onResetShapes,
+  onSyncShapes,
+  onSettings,
 }) => {
   const groupClassName = "deck-dataset-data-group";
   const [open, setOpen] = React.useState(false);
@@ -74,6 +78,10 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
               const figureApiChanges = apiChanges[item.id] || [];
               const figureUserChanges = userChanges[item.id] || [];
 
+              const ID = String(item.id);
+              const apiShapeIDs = figureApiChanges.map((change) => change.shapeID);
+              const userShapeIDs = figureUserChanges.map((change) => change.shapeID);
+
               return (
                 <DeckDatasetDataItem
                   key={item.id}
@@ -84,6 +92,10 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   type={type}
                   compact={true}
                   {...{ hasActions, hasStatus, level: level + 1, size }}
+                  onAdd={() => onAddShape(ID)}
+                  onReset={() => onResetShapes(ID, userShapeIDs)}
+                  onSync={() => onSyncShapes(ID, apiShapeIDs)}
+                  onSettings={() => onSettings(ID)}
                 />
               );
             })}

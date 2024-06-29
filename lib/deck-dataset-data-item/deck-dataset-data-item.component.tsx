@@ -21,6 +21,10 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   compact,
   level,
   size = "sm",
+  onAdd,
+  onReset,
+  onSettings,
+  onSync,
 }) => {
   const hasShapes = shapes && shapes.length > 0;
   const hasApiChanges = apiChanges && apiChanges.length > 0;
@@ -42,7 +46,11 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
         <Box sx={columnStyle}>
           <DataItem item={figure} {...{ type, size, hasApiChanges, hasUserChanges }} />
         </Box>
-        {hasActions && <DeckDatasetDataItemActions {...{ hasShapes, hasApiChanges, hasUserChanges }} />}
+        {hasActions && (
+          <DeckDatasetDataItemActions
+            {...{ hasShapes, hasApiChanges, hasUserChanges, onAdd, onReset, onSettings, onSync }}
+          />
+        )}
       </Box>
     </React.Fragment>
   );
@@ -126,7 +134,11 @@ export const DeckDatasetDataItemActions: React.FC<{
   hasShapes?: boolean;
   hasApiChanges?: boolean;
   hasUserChanges?: boolean;
-}> = ({ hasShapes, hasApiChanges, hasUserChanges }) => {
+  onAdd: () => void;
+  onReset: () => void;
+  onSettings: () => void;
+  onSync: () => void;
+}> = ({ hasShapes, hasApiChanges, hasUserChanges, onAdd, onReset, onSettings, onSync }) => {
   const hasChanges = hasApiChanges || hasUserChanges;
   return (
     <React.Fragment>
@@ -137,7 +149,7 @@ export const DeckDatasetDataItemActions: React.FC<{
             size="sm"
             variant={hasShapes ? "plain" : "soft"}
             color="success"
-            onClick={() => {}}
+            onClick={onAdd}
           />
         )}
         {hasChanges && (
@@ -152,11 +164,13 @@ export const DeckDatasetDataItemActions: React.FC<{
             variant="plain"
             color={hasUserChanges ? "danger" : "warning"}
             size="sm"
-            onClick={() => {}}
+            onClick={() => {
+              hasUserChanges ? onReset() : onSync();
+            }}
           />
         )}
         {hasShapes && (
-          <DeckIconButton icon={<SettingsOutlined />} variant="plain" color="primary" size="sm" onClick={() => {}} />
+          <DeckIconButton icon={<SettingsOutlined />} variant="plain" color="primary" size="sm" onClick={onSettings} />
         )}
       </Box>
     </React.Fragment>
