@@ -32,6 +32,13 @@ const preview: Preview = {
     controls: {
       expanded: true,
     },
+    backgrounds: {
+      default: "light",
+      values: [
+        { name: "light", value: lightTheme.palette.background.body },
+        { name: "dark", value: lightTheme.colorSchemes.dark.palette.background.body },
+      ],
+    },
   },
 
   decorators,

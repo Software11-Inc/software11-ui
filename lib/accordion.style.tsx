@@ -84,11 +84,6 @@ export const accordionGroupStyles = (
           [`& > .${accordionDetailsClasses.content}`]: {
             p: 0,
             bgcolor: getBackgroundColor(level + 1),
-
-            [`& > *:first-of-type`]: {
-              borderTop: "1px solid",
-              borderColor: "divider",
-            },
           },
         },
       },
@@ -120,6 +115,8 @@ export const accordionGroupStyles = (
               borderRadius: `0 0 var(--border-radius) var(--border-radius)`,
               overflow: "hidden",
             }),
+            border: "1px solid",
+            borderColor: "divider",
           },
         },
       },
