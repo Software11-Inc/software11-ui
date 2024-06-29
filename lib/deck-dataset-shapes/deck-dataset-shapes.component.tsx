@@ -51,15 +51,10 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
-  const classList = [className, highlighted ? highlightedClass : ``]
-    .join(" ")
-    .trim();
+  const classList = [className, highlighted ? highlightedClass : ``].join(" ").trim();
   const [open, setOpen] = React.useState(false);
 
-  const shapeCount = Object.keys(shapes).reduce(
-    (acc, shapeID) => acc + shapes[shapeID].length,
-    0
-  );
+  const shapeCount = Object.keys(shapes).reduce((acc, shapeID) => acc + shapes[shapeID].length, 0);
 
   const apiChangedFigures = Object.keys(apiChanges ?? {});
 
@@ -96,17 +91,12 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
             <Box sx={emptyHeaderStyle}>
               <MobiledataOffRounded sx={{ mx: 0.5 }} />
               <Box>
-                <Typography
-                  fontSize={12}
-                  lineHeight={1.2}
-                  textTransform="uppercase"
-                  color="primary"
-                >
+                <Typography fontSize={12} lineHeight={1.2} textTransform="uppercase" color="primary">
                   Dataset not synced
                 </Typography>
                 <Typography fontSize={8} lineHeight={1.3} fontWeight={"normal"}>
-                  It seems the dataset is not synchronized with the application,
-                  but the slide contains data from the dataset.
+                  It seems the dataset is not synchronized with the application, but the slide contains data from the
+                  dataset.
                 </Typography>
               </Box>
             </Box>
@@ -126,19 +116,13 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   limit: 1,
                 }}
               />
-              <Badge
-                size="sm"
-                color="warning"
-                invisible={!hasChanges || loading}
-              >
+              <Badge size="sm" color="warning" invisible={!hasChanges || loading}>
                 <DeckIconButton
                   size="sm"
                   icon={
                     <SyncRounded
                       sx={{
-                        animation: loading
-                          ? "spin 2s linear infinite"
-                          : "unset",
+                        animation: loading ? "spin 2s linear infinite" : "unset",
                       }}
                     />
                   }
@@ -187,20 +171,13 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   const value = figureShapes[0].latestFigureValue;
                   const count = figureShapes.length;
                   const highlight =
-                    highlighted &&
-                    figureShapes.some((shape) =>
-                      highlightedShapes?.includes(String(shape.shapeIndex))
-                    );
+                    highlighted && figureShapes.some((shape) => highlightedShapes?.includes(String(shape.shapeIndex)));
                   const apiChanged = apiChangedFigures.includes(figureID);
                   const userChanged = userChangedFigures.includes(figureID);
                   const changed = apiChanged || userChanged;
 
-                  const apiChangedIDs = Object.values(
-                    apiChanges[figureID] ?? {}
-                  ).map((change) => change.shapeID);
-                  const userChangedIDs = Object.values(
-                    userChanges[figureID] ?? {}
-                  ).map((change) => change.shapeID);
+                  const apiChangedIDs = Object.values(apiChanges[figureID] ?? {}).map((change) => change.shapeID);
+                  const userChangedIDs = Object.values(userChanges[figureID] ?? {}).map((change) => change.shapeID);
                   return (
                     <Box
                       key={figureID}
@@ -213,12 +190,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                         .join(" ")
                         .trim()}
                     >
-                      <Box
-                        sx={itemInnerStyle}
-                        className={[highlight ? highlightedClass : null]
-                          .join(" ")
-                          .trim()}
-                      >
+                      <Box sx={itemInnerStyle} className={[highlight ? highlightedClass : null].join(" ").trim()}>
                         {apiChanged && !userChanged && (
                           <DeckIconButton
                             color="warning"
@@ -226,9 +198,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             size="sm"
                             variant="plain"
                             disabled={loading}
-                            onClick={() =>
-                              onSyncFigure(figureID, apiChangedIDs)
-                            }
+                            onClick={() => onSyncFigure(figureID, apiChangedIDs)}
                           />
                         )}
                         {userChanged && (
@@ -238,21 +208,13 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             size="sm"
                             variant="plain"
                             disabled={loading}
-                            onClick={() =>
-                              onResetFigure(figureID, userChangedIDs)
-                            }
+                            onClick={() => onResetFigure(figureID, userChangedIDs)}
                           />
                         )}
                         {!changed && <DeckStatus status={0} />}
                         <DeckLabel
                           size="sm"
-                          color={
-                            userChanged
-                              ? "danger"
-                              : apiChanged
-                                ? "warning"
-                                : "primary"
-                          }
+                          color={userChanged ? "danger" : apiChanged ? "warning" : "primary"}
                           title={{
                             text: value,
                             limit: 1,
@@ -285,11 +247,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                       </Box>
                       {userChanged && (
                         <Box sx={hintStyle}>
-                          <Typography
-                            fontSize={10}
-                            lineHeight={1.2}
-                            color="danger"
-                          >
+                          <Typography fontSize={10} lineHeight={1.2} color="danger">
                             It looks like you manually changed the value.
                           </Typography>
                         </Box>

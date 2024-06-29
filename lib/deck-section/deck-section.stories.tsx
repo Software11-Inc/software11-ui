@@ -61,9 +61,7 @@ export default {
   },
 } as Meta<typeof DeckSection>;
 
-const SkeletonContent: React.FC<{ animation?: "pulse" | "wave" }> = ({
-  animation = "pulse",
-}) => (
+const SkeletonContent: React.FC<{ animation?: "pulse" | "wave" }> = ({ animation = "pulse" }) => (
   <Box
     sx={{
       height: "3rem",
@@ -112,9 +110,7 @@ Default.args = {
   separatorIcon: <WidgetsRounded />,
   actionIcon: <SyncRounded />,
   content: (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", gap: "var(--spacing)" }}
-    >
+    <Box sx={{ display: "flex", flexDirection: "column", gap: "var(--spacing)" }}>
       <SkeletonContent animation="wave" />
       <SkeletonContent animation="wave" />
       <SkeletonContent animation="wave" />

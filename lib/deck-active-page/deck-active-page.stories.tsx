@@ -30,9 +30,7 @@ export default {
   },
 } as Meta<typeof DeckActivePage>;
 
-export const Sheet: StoryFn<typeof DeckActivePage> = (args) => (
-  <DeckActivePage {...args} />
-);
+export const Sheet: StoryFn<typeof DeckActivePage> = (args) => <DeckActivePage {...args} />;
 
 Sheet.args = {
   pages: [
@@ -59,9 +57,7 @@ Sheet.args = {
   },
 };
 
-export const Slide: StoryFn<typeof DeckActivePage> = (args) => (
-  <DeckActivePage {...args} />
-);
+export const Slide: StoryFn<typeof DeckActivePage> = (args) => <DeckActivePage {...args} />;
 
 Slide.args = {
   pages: [

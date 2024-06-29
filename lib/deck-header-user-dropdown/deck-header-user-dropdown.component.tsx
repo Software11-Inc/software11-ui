@@ -68,11 +68,7 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
         <Box sx={columnStyle}>
           <Box sx={sectionStyle}>
             <Avatar src={avatarUrl} alt={fullName} sx={avatarLgStyle} />
-            <DeckLabel
-              size="lg"
-              title={{ text: fullName, limit: 1 }}
-              description={{ text: email, limit: 1 }}
-            />
+            <DeckLabel size="lg" title={{ text: fullName, limit: 1 }} description={{ text: email, limit: 1 }} />
           </Box>
           <Divider />
           <Box sx={sectionStyle}>

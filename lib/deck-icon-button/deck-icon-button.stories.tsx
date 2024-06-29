@@ -36,9 +36,7 @@ export default {
   },
 } as Meta<typeof DeckIconButton>;
 
-const Template: StoryFn<typeof DeckIconButton> = (args) => (
-  <DeckIconButton {...args} />
-);
+const Template: StoryFn<typeof DeckIconButton> = (args) => <DeckIconButton {...args} />;
 
 export const SyncButton = Template.bind({});
 

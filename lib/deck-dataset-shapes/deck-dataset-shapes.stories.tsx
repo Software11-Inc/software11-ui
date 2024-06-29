@@ -12,9 +12,7 @@ export default {
   },
 } as Meta<typeof DeckDatasetShapes>;
 
-export const Default: StoryFn<typeof DeckDatasetShapes> = (args) => (
-  <DeckDatasetShapes {...args} />
-);
+export const Default: StoryFn<typeof DeckDatasetShapes> = (args) => <DeckDatasetShapes {...args} />;
 
 Default.args = {
   loaded: true,

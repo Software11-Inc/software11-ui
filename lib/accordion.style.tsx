@@ -1,9 +1,8 @@
+import { Size } from "@models";
 import accordionClasses from "@mui/joy/Accordion/accordionClasses";
 import accordionDetailsClasses from "@mui/joy/AccordionDetails/accordionDetailsClasses";
 import accordionSummaryClasses from "@mui/joy/AccordionSummary/accordionSummaryClasses";
 import { SxProps } from "@mui/joy/styles/types/theme";
-
-export type Size = "sm" | "md" | "lg";
 
 const sizePaddingMap = {
   sm: 1,

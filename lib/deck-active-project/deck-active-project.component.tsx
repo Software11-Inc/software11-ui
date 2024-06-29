@@ -27,10 +27,7 @@ export const DeckActiveProject: React.FC<DeckActiveProjectProps> = ({
   const [open, setOpen] = React.useState(false);
 
   return (
-    <AccordionGroup
-      className={className}
-      sx={accordionGroupStyles(className, false, 0, "sm", true)}
-    >
+    <AccordionGroup className={className} sx={accordionGroupStyles(className, false, 0, "sm", true)}>
       <Accordion expanded={open}>
         <AccordionSummary
           slotProps={{

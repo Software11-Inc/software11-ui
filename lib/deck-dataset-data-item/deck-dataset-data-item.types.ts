@@ -1,5 +1,4 @@
-import { DatasetType, IDynamicShape, IFigure, IShapeChange } from "@models";
-import { Size } from "../accordion.style";
+import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange } from "@models";
 
 export interface DeckDatasetDataItemProps extends IDataCommonProps {
   figure: IFigure;
@@ -7,12 +6,4 @@ export interface DeckDatasetDataItemProps extends IDataCommonProps {
   apiChanges: IShapeChange[];
   userChanges: IShapeChange[];
   type: DatasetType;
-}
-
-export interface IDataCommonProps {
-  hasStatus?: boolean;
-  hasActions?: boolean;
-  compact?: boolean;
-  size?: Size;
-  level?: number;
 }

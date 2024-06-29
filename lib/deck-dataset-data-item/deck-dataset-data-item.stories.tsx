@@ -19,9 +19,7 @@ export default {
   },
 } as Meta<typeof DeckDatasetDataItem>;
 
-export const ExcelFigure: StoryFn<typeof DeckDatasetDataItem> = (args) => (
-  <DeckDatasetDataItem {...args} />
-);
+export const ExcelFigure: StoryFn<typeof DeckDatasetDataItem> = (args) => <DeckDatasetDataItem {...args} />;
 
 ExcelFigure.storyName = "Table Figure (default)";
 
@@ -48,9 +46,7 @@ ExcelFigure.args = {
   } as ITableFigure,
 };
 
-export const ExcelFigureInserted: StoryFn<typeof DeckDatasetDataItem> = (
-  args
-) => <DeckDatasetDataItem {...args} />;
+export const ExcelFigureInserted: StoryFn<typeof DeckDatasetDataItem> = (args) => <DeckDatasetDataItem {...args} />;
 
 ExcelFigureInserted.storyName = "Table Figure (with shapes)";
 
@@ -104,9 +100,7 @@ ExcelFigureInserted.args = {
   } as ITableFigure,
 };
 
-export const ExcelFigureApiChanges: StoryFn<typeof DeckDatasetDataItem> = (
-  args
-) => <DeckDatasetDataItem {...args} />;
+export const ExcelFigureApiChanges: StoryFn<typeof DeckDatasetDataItem> = (args) => <DeckDatasetDataItem {...args} />;
 
 ExcelFigureApiChanges.storyName = "Table Figure (unsynced)";
 
@@ -153,9 +147,7 @@ ExcelFigureApiChanges.args = {
   } as ITableFigure,
 };
 
-export const ExcelFigureUserChanges: StoryFn<typeof DeckDatasetDataItem> = (
-  args
-) => <DeckDatasetDataItem {...args} />;
+export const ExcelFigureUserChanges: StoryFn<typeof DeckDatasetDataItem> = (args) => <DeckDatasetDataItem {...args} />;
 
 ExcelFigureUserChanges.storyName = "Table Figure (user changes)";
 
@@ -202,9 +194,7 @@ ExcelFigureUserChanges.args = {
   } as ITableFigure,
 };
 
-export const DefaultFigure: StoryFn<typeof DeckDatasetDataItem> = (args) => (
-  <DeckDatasetDataItem {...args} />
-);
+export const DefaultFigure: StoryFn<typeof DeckDatasetDataItem> = (args) => <DeckDatasetDataItem {...args} />;
 
 DefaultFigure.args = {
   type: "default",

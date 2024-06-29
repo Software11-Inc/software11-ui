@@ -41,9 +41,7 @@ export default {
   },
 } as Meta<typeof DeckHeaderUserDropdown>;
 
-const Template: StoryFn<typeof DeckHeaderUserDropdown> = (args) => (
-  <DeckHeaderUserDropdown {...args} />
-);
+const Template: StoryFn<typeof DeckHeaderUserDropdown> = (args) => <DeckHeaderUserDropdown {...args} />;
 
 export const Default = Template.bind({});
 
