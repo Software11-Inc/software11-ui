@@ -30,24 +30,23 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
   hidden;
   const hasItems = typeof separator.count === "undefined" ? true : Boolean(separator.count);
 
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: (e: any) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains(actionClassName) || target.classList.contains("MuiSvgIcon-root")) {
+          return;
+        }
+        !immutable ? setExpanded(!expanded) : null;
+      },
+    },
+  } as any;
+
   return (
     <AccordionGroup className={[className, hidden ? "hidden" : ""].join(" ")} sx={sectionStyle}>
       <Accordion expanded={hasItems && expanded}>
-        <AccordionSummary
-          indicator={null}
-          slotProps={{
-            button: {
-              component: "div",
-              onClick: (e) => {
-                const target = e.target as HTMLElement;
-                if (target.classList.contains(actionClassName) || target.classList.contains("MuiSvgIcon-root")) {
-                  return;
-                }
-                !immutable ? setExpanded(!expanded) : null;
-              },
-            },
-          }}
-        >
+        <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
           {separatorIcon && <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>}
           <DeckLabel
             title={{

@@ -4,7 +4,7 @@ import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
 import React from "react";
-import { accordionGroupStyles } from "../accordion.style";
+import { accordionGroupStyles, accordionTransition } from "../accordion.style";
 import { DeckDatasetDataItem } from "../deck-dataset-data-item/deck-dataset-data-item.component";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
@@ -30,34 +30,32 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const hasUserChanges = Object.keys(userChanges).length > 0;
   const status = hasUserChanges ? 2 : hasApiChanges ? 1 : 0;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
+
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: (e: any) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains("MuiSvgIcon-root")) {
+          return;
+        }
+        setOpen(!open);
+      },
+    },
+    indicator: {
+      onClick: () => setOpen(!open),
+    },
+  } as any;
+
   return (
     <React.Fragment>
       <AccordionGroup
         className={groupClassName}
         sx={accordionGroupStyles(groupClassName, compact, level, size, !compact)}
-        transition={{
-          initial: "0.3s ease-out",
-          expanded: "0.2s ease",
-        }}
+        transition={accordionTransition}
       >
         <Accordion expanded={open}>
-          <AccordionSummary
-            slotProps={{
-              button: {
-                component: "div",
-                onClick: (e) => {
-                  const target = e.target as HTMLElement;
-                  if (target.classList.contains("MuiSvgIcon-root")) {
-                    return;
-                  }
-                  setOpen(!open);
-                },
-              },
-              indicator: {
-                onClick: () => setOpen(!open),
-              },
-            }}
-          >
+          <AccordionSummary slotProps={accordionSummarySlotProps}>
             <Box sx={headerStyle}>
               {hasStatus && <DeckStatus status={status} />}
               <DeckLabel

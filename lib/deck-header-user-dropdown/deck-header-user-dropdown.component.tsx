@@ -28,27 +28,30 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
 }) => {
   const [visible, setVisible] = React.useState(false);
   const placement = isRight ? "bottom-end" : "bottom-start";
+
+  const menuButtonSlotProps = {
+    root: {
+      className: "deck-header-user-dropdown__button",
+      onClick: () => setVisible(!visible),
+      sx: {
+        p: 0,
+        minWidth: "1.25rem",
+        minHeight: "1.25rem",
+        borderRadius: "50%",
+        "&:hover": {
+          boxShadow: "var(--focus-shadow)",
+        },
+      },
+    },
+  } as any;
+
   return (
     <Dropdown open={visible} className="deck-header-user-dropdown">
       <MenuButton
         slots={{
           root: IconButton,
         }}
-        slotProps={{
-          root: {
-            className: "deck-header-user-dropdown__button",
-            onClick: () => setVisible(!visible),
-            sx: {
-              p: 0,
-              minWidth: "1.25rem",
-              minHeight: "1.25rem",
-              borderRadius: "50%",
-              "&:hover": {
-                boxShadow: "var(--focus-shadow)",
-              },
-            },
-          },
-        }}
+        slotProps={menuButtonSlotProps}
       >
         <Avatar src={avatarUrl} alt={fullName} sx={avatarSmStyle} />
       </MenuButton>

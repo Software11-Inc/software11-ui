@@ -14,7 +14,7 @@ import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import React from "react";
-import { accordionGroupStyles } from "../accordion.style";
+import { accordionGroupStyles, accordionTransition } from "../accordion.style";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
@@ -64,10 +64,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
     <AccordionGroup
       className={classList}
       sx={accordionGroupStyles(className, false, 1, "sm", true)}
-      transition={{
-        initial: "0.3s ease-out",
-        expanded: "0.2s ease",
-      }}
+      transition={accordionTransition}
     >
       <Accordion expanded={open} defaultExpanded={!loaded}>
         <AccordionSummary

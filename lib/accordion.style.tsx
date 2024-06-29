@@ -144,3 +144,8 @@ export const accordionGroupStyles = (
     },
   };
 };
+
+export const accordionTransition = {
+  initial: "0.3s ease-out",
+  expanded: "0.2s ease",
+};
