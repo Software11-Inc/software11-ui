@@ -1,9 +1,10 @@
 import { ITableFigure } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetDataItem } from "./deck-dataset-data-item.component";
+import { sizes } from "../story-types";
 
 export default {
-  title: "Pages/Dataset Details/Powerpoint/Data Item",
+  title: "Powerpoint/Pages/Dataset Details/Data Item",
   argTypes: {
     type: {
       options: ["default", "excel-table", "excel-matrix", "excel-default"],
@@ -13,7 +14,7 @@ export default {
       },
     },
     size: {
-      options: ["sm", "md", "lg"],
+      options: sizes,
       control: { type: "select" },
     },
     onAdd: {
