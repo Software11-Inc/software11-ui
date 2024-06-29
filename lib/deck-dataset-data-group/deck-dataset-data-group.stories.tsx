@@ -1,12 +1,12 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { sizes } from "../story-types";
+import { datasetTypes, sizes } from "../story-types";
 import { DeckDatasetDataGroup } from "./deck-dataset-data-group.component";
 
 export default {
   title: "Powerpoint/Pages/Dataset Details/Data Group",
   argTypes: {
     type: {
-      options: ["default", "excel-table", "excel-matrix", "excel-default"],
+      options: datasetTypes,
       control: { type: "select" },
       table: {
         disable: true,
