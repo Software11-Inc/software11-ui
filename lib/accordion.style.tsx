@@ -115,7 +115,7 @@ export const accordionGroupStyles = (
               borderRadius: `0 0 var(--border-radius) var(--border-radius)`,
               overflow: "hidden",
             }),
-            border: "1px solid",
+            borderTop: "1px solid",
             borderColor: "divider",
           },
         },
