@@ -30,7 +30,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   const hasApiChanges = apiChanges && apiChanges.length > 0;
   const hasUserChanges = userChanges && userChanges.length > 0;
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
-  const order = hasUserChanges ? -3 : hasApiChanges ? -2 : hasShapes ? -1 : 0;
+  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
   const figureClassName = [
     className,
     hasShapes ? "has-shapes" : "",
