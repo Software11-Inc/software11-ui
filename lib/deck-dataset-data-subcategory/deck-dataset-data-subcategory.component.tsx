@@ -10,6 +10,8 @@ import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
 import { dataColumn, headerStyle } from "./deck-dataset-data-subcategory.styles";
 import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
+import { createGroupMap } from "../utils";
+import { IDynamicShape, IShapeChange, ITableFigure } from "@models";
 
 export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProps> = ({
   groupName,
@@ -76,7 +78,10 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
           <AccordionDetails>
             <Box sx={dataColumn(true)}>
               {entites.map(([subcategoryName, subcategoryItems]) => {
-                console.log(subcategoryName, subcategoryItems);
+                const figureIDs = subcategoryItems.map((item: ITableFigure) => String(item?.id));
+                const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
+                const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
+                const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
                 return (
                   <DeckDatasetDataGroup
                     key={subcategoryName}
@@ -88,9 +93,9 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     hasStatus={hasStatus}
                     level={level + 1}
                     size={size}
-                    apiChanges={{}}
-                    userChanges={{}}
-                    shapes={{}}
+                    apiChanges={groupApiChanges}
+                    userChanges={groupUserChanges}
+                    shapes={groupShapes}
                     onAddShape={() => {}}
                     onResetShapes={() => {}}
                     onSyncShapes={() => {}}

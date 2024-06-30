@@ -509,4 +509,111 @@ Matrix.args = {
       ],
     },
   },
+  shapes: {
+    "figure-1": [
+      {
+        shapeID: "shape-1",
+        shapeIndex: 1,
+        instanceID: "instance-1",
+        slideID: "slide-1",
+        figureName: "figure-1",
+        latestFigureValue: "Value 1",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-1",
+        },
+      },
+    ],
+    "figure-2": [
+      {
+        shapeID: "shape-2",
+        shapeIndex: 2,
+        instanceID: "instance-2",
+        slideID: "slide-2",
+        figureName: "figure-2",
+        latestFigureValue: "Value 2",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-2",
+        },
+      },
+    ],
+    "figure-3": [
+      {
+        shapeID: "shape-3",
+        shapeIndex: 3,
+        instanceID: "instance-3",
+        slideID: "slide-3",
+        figureName: "figure-3",
+        latestFigureValue: "Value 3",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-3",
+        },
+      },
+    ],
+    "figure-6": [
+      {
+        shapeID: "shape-6",
+        shapeIndex: 6,
+        instanceID: "instance-6",
+        slideID: "slide-6",
+        figureName: "figure-6",
+        latestFigureValue: "Value 6",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-6",
+        },
+      },
+    ],
+    "figure-8": [
+      {
+        shapeID: "shape-8",
+        shapeIndex: 8,
+        instanceID: "instance-8",
+        slideID: "slide-8",
+        figureName: "figure-8",
+        latestFigureValue: "Value 8",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-8",
+        },
+      },
+    ],
+    "figure-9": [
+      {
+        shapeID: "shape-9",
+        shapeIndex: 9,
+        instanceID: "instance-9",
+        slideID: "slide-9",
+        figureName: "figure-9",
+        latestFigureValue: "Value 9",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-9",
+        },
+      },
+    ],
+    "figure-12": [
+      {
+        shapeID: "shape-12",
+        shapeIndex: 12,
+        instanceID: "instance-12",
+        slideID: "slide-12",
+        figureName: "figure-12",
+        latestFigureValue: "Value 12",
+        synced: false,
+        sourceDataset: {
+          datasetID: "dataset-1",
+          datasetFigureID: "figure-12",
+        },
+      },
+    ],
+  },
 };
