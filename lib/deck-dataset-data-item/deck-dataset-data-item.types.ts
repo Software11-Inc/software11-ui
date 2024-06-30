@@ -1,4 +1,4 @@
-import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange, ShapeChangeMap } from "@models";
+import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange } from "@models";
 
 export interface DeckDatasetDataItemProps extends IDataCommonProps {
   figure: IFigure;

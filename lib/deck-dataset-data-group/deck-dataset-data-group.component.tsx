@@ -30,9 +30,10 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
 }) => {
   const groupClassName = "deck-dataset-data-group";
   const [open, setOpen] = React.useState(false);
+  const hasShapes = Object.keys(shapes).length > 0;
   const hasApiChanges = Object.keys(apiChanges).length > 0;
   const hasUserChanges = Object.keys(userChanges).length > 0;
-  const status = hasUserChanges ? 2 : hasApiChanges ? 1 : 0;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
 
   const accordionSummarySlotProps = {
