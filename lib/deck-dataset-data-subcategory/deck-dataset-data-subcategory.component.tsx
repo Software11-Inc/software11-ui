@@ -25,6 +25,10 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   size = "sm",
   hasStatus = false,
   hasActions = false,
+  onAddShape,
+  onResetShapes,
+  onSettings,
+  onSyncShapes,
 }) => {
   const groupClassName = "deck-dataset-data-subcategory";
   const [open, setOpen] = React.useState(false);
@@ -96,10 +100,10 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     apiChanges={groupApiChanges}
                     userChanges={groupUserChanges}
                     shapes={groupShapes}
-                    onAddShape={() => {}}
-                    onResetShapes={() => {}}
-                    onSyncShapes={() => {}}
-                    onSettings={() => {}}
+                    onAddShape={onAddShape}
+                    onResetShapes={onResetShapes}
+                    onSyncShapes={onSyncShapes}
+                    onSettings={onSettings}
                   />
                 );
               })}
