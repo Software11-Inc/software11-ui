@@ -616,4 +616,22 @@ Matrix.args = {
       },
     ],
   },
+  apiChanges: {
+    "figure-8": [
+      {
+        shapeID: "shape-8",
+        shapeIndex: 8,
+        value: "Value 8 from API",
+      },
+    ],
+  },
+  userChanges: {
+    "figure-12": [
+      {
+        shapeID: "shape-12",
+        shapeIndex: 12,
+        value: "Value 12 from User",
+      },
+    ],
+  },
 };

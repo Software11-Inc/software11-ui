@@ -42,7 +42,6 @@ export const accordionGroupStyles = (
       flexDirection: "column",
       border: "unset",
       order,
-      bgcolor: getBackgroundColor(level),
 
       ...(!compact && {
         gap: 2,
