@@ -32,7 +32,8 @@ export const accordionGroupStyles = (
   compact: boolean,
   level: number,
   size: Size,
-  hasShadow: boolean
+  hasShadow: boolean,
+  order: number = 0
 ): SxProps => {
   const paddingInline = sizePaddingMap[size];
   return {
@@ -40,6 +41,7 @@ export const accordionGroupStyles = (
       display: "flex",
       flexDirection: "column",
       border: "unset",
+      order,
 
       ...(!compact && {
         gap: 2,

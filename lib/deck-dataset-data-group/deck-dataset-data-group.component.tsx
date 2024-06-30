@@ -35,6 +35,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const hasUserChanges = Object.keys(userChanges).length > 0;
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
+  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 
   const accordionSummarySlotProps = {
     button: {
@@ -56,7 +57,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
     <React.Fragment>
       <AccordionGroup
         className={groupClassName}
-        sx={accordionGroupStyles(groupClassName, compact, level, size, !compact)}
+        sx={accordionGroupStyles(groupClassName, compact, level, size, !compact, order)}
         transition={accordionTransition}
       >
         <Accordion expanded={open}>
@@ -85,7 +86,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
 
               return (
                 <DeckDatasetDataItem
-                  key={item.id}
+                  key={ID}
                   figure={item}
                   shapes={figureShapes}
                   apiChanges={figureApiChanges}
