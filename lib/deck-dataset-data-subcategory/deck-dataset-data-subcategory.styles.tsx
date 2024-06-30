@@ -6,3 +6,10 @@ export const headerStyle: SxProps = {
   gap: 1,
   flex: 1,
 };
+
+export const dataColumn = (compact: boolean = false): SxProps => ({
+  display: "flex",
+  flexDirection: "column",
+  flex: 1,
+  gap: compact ? 0 : 2,
+});

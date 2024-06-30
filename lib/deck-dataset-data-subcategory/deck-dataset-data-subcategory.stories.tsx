@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetDataSubcategory } from "./deck-dataset-data-subcategory.component";
 
 export default {
-  title: "Powerpoint/Pages/Dataset Details/Data Subcategory",
+  title: "Powerpoint/Pages/Dataset Details/Data/Components/Subcategory",
   component: DeckDatasetDataSubcategory,
 } as Meta<typeof DeckDatasetDataSubcategory>;
 

@@ -3,7 +3,7 @@ import { datasetTypes, sizes } from "../story-types";
 import { DeckDatasetDataGroup } from "./deck-dataset-data-group.component";
 
 export default {
-  title: "Powerpoint/Pages/Dataset Details/Data Group",
+  title: "Powerpoint/Pages/Dataset Details/Data/Components/Group",
   argTypes: {
     type: {
       options: datasetTypes,

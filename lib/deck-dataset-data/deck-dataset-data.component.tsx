@@ -5,21 +5,9 @@ import Box from "@mui/joy/Box";
 import { dataColumn } from "./deck-dataset-data.styles";
 import { DeckDatasetDataSubcategory } from "../deck-dataset-data-subcategory/deck-dataset-data-subcategory.component";
 import { ITableFigure } from "../models/figure.model";
-import { FigureShapeMap, IDynamicShape, IShapeChange, ShapeChangeMap } from "../models/shape.model";
-
-// Generic function to create a map based on figureIDs and a source object
-function createGroupMap<T>(figureIDs: string[], source: Record<string, T>): Record<string, T> {
-  return figureIDs.reduce(
-    (acc, figureID) => {
-      const item = source[figureID];
-      if (item) {
-        acc[figureID] = item;
-      }
-      return acc;
-    },
-    {} as Record<string, T>
-  );
-}
+import { IDynamicShape, IShapeChange } from "../models/shape.model";
+import { createGroupMap } from "../utils";
+import { OnceGroupedTableFigure } from "../models/figure-groups.model";
 
 export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   data,
@@ -66,12 +54,23 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
               );
             }
             case "excel-matrix": {
+              const figureIDs: string[] = Object.values(items as OnceGroupedTableFigure)
+                .reduce((accumulator, value) => accumulator.concat(value), [])
+                .map((item) => String(item.id));
+
+              const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
+              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
+              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+
               return (
                 <DeckDatasetDataSubcategory
                   key={groupName}
                   groupName={groupName}
                   items={items}
                   type={type}
+                  shapes={groupShapes}
+                  apiChanges={groupApiChanges}
+                  userChanges={groupUserChanges}
                   hasStatus={hasStatus}
                   hasActions={hasActions}
                   level={level}

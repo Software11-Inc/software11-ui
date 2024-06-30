@@ -8,13 +8,16 @@ import { accordionGroupStyles, accordionTransition } from "../accordion.style";
 import Box from "@mui/joy/Box";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
-import { headerStyle } from "./deck-dataset-data-subcategory.styles";
+import { dataColumn, headerStyle } from "./deck-dataset-data-subcategory.styles";
 import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
 
 export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProps> = ({
   groupName,
   items,
   type,
+  shapes = {},
+  apiChanges = {},
+  userChanges = {},
   compact = false,
   level = 0,
   size = "sm",
@@ -24,8 +27,13 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   const groupClassName = "deck-dataset-data-subcategory";
   const [open, setOpen] = React.useState(false);
 
-  const color = "primary";
-  const status = 0;
+  const hasShapes = Object.keys(shapes).length > 0;
+  const hasApiChanges = Object.keys(apiChanges).length > 0;
+  const hasUserChanges = Object.keys(userChanges).length > 0;
+
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
+  const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
+  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 
   const accordionSummarySlotProps = {
     button: {
@@ -44,12 +52,12 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   } as any;
 
   const entites = Object.entries(items || {});
-  console.log(entites);
+
   return (
     <React.Fragment>
       <AccordionGroup
         className={groupClassName}
-        sx={accordionGroupStyles(groupClassName, compact, level, size, !compact)}
+        sx={accordionGroupStyles(groupClassName, compact, level, size, !compact, order)}
         transition={accordionTransition}
       >
         <Accordion expanded={open}>
@@ -66,7 +74,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
             </Box>
           </AccordionSummary>
           <AccordionDetails>
-            <Box>
+            <Box sx={dataColumn(true)}>
               {entites.map(([subcategoryName, subcategoryItems]) => {
                 console.log(subcategoryName, subcategoryItems);
                 return (
