@@ -3,6 +3,7 @@ import { DeckDatasetData } from "./deck-dataset-data.component";
 
 export default {
   title: "Powerpoint/Pages/Dataset Details/Data",
+  component: DeckDatasetData,
 } as Meta<typeof DeckDatasetData>;
 
 export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
@@ -10,6 +11,11 @@ export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetDa
 Default.storyName = "Excel Table";
 
 Default.args = {
+  hasStatus: true,
+  hasActions: true,
+  compact: false,
+  level: 0,
+  size: "sm",
   data: {
     "Group 1": [
       {

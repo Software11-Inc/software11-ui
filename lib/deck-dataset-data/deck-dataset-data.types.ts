@@ -1,5 +1,5 @@
-import { OnceGroupedTableFigure } from "../models/figure-groups.model";
+import { IDataCommonProps, OnceGroupedTableFigure } from "../models/figure-groups.model";
 
-export interface DeckDatasetDataProps {
+export interface DeckDatasetDataProps extends IDataCommonProps {
   data: OnceGroupedTableFigure;
 }

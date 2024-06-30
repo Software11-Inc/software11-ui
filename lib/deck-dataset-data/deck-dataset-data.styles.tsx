@@ -1,8 +1,8 @@
 import { SxProps } from "@mui/joy/styles/types";
 
-export const columnStyle: SxProps = {
+export const dataColumn = (compact: boolean = false): SxProps => ({
   display: "flex",
   flexDirection: "column",
   flex: 1,
-  gap: 1,
-};
+  gap: compact ? 0 : 2,
+});
