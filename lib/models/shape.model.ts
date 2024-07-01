@@ -39,12 +39,14 @@ export interface IDynamicShape extends IShape {
     datasetFigureID: string;
   };
 }
+/** A type alias for a string that represents a figure ID */
+type FigureID = string;
 
 /**
  * The `FigureShapeMap` type represents a map of figure names to an array of shapes.
  * Each figure name is associated with an array of shapes that represent the figure.
  */
-export type FigureShapeMap = Record<string, IDynamicShape[]>;
+export type FigureShapeMap = Record<FigureID, IDynamicShape[]>;
 
 /**
  * The `IShapeChange` interface represents a change in a shape.
@@ -54,9 +56,6 @@ export interface IShapeChange extends IShape {
   /** The new value of the shape */
   value: string;
 }
-
-/** A type alias for a string that represents a figure ID */
-type FigureID = string;
 
 /**
  * The `ShapeChangeMap` type represents a map of figure IDs to an array of shape changes.
@@ -71,4 +70,10 @@ type DatasetID = string;
  * The `DatasetShapeChangeMap` type represents a map of dataset IDs to a `FigureShapeMap`.
  * Each dataset ID is associated with a `FigureShapeMap`.
  */
-export type DatasetShapeChangeMap = Record<DatasetID, FigureShapeMap>;
+export type DatasetShapeChangeMap = Record<DatasetID, ShapeChangeMap>;
+
+/**
+ * The `DatasetShapeMap` type represents a map of dataset IDs to a `FigureShapeMap`.
+ * Each dataset ID is associated with a `FigureShapeMap`.
+ */
+export type DatasetShapeMap = Record<DatasetID, FigureShapeMap>;
