@@ -23,8 +23,8 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   apiChanges: ShapeChangeMap;
   userChanges: ShapeChangeMap;
 
-  onAddShape: (figureID: string) => void;
-  onResetShapes: (figureID: string, shapeIDs: string[]) => void;
-  onSyncShapes: (figureID: string, shapeIDs: string[]) => void;
-  onSettings: (figureID: string) => void;
+  onAddShape?: (figureID: string) => void;
+  onResetShapes?: (figureID: string, shapeIDs: string[]) => void;
+  onSyncShapes?: (figureID: string, shapeIDs: string[]) => void;
+  onSettings?: (figureID: string) => void;
 }

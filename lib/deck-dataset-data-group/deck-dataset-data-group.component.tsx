@@ -84,6 +84,14 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
               const apiShapeIDs = figureApiChanges.map((change) => change.shapeID);
               const userShapeIDs = figureUserChanges.map((change) => change.shapeID);
 
+              const createHandler =
+                (handler: any, ...args: any) =>
+                () => {
+                  if (typeof handler === "function") {
+                    handler(...args);
+                  }
+                };
+
               return (
                 <DeckDatasetDataItem
                   key={ID}
@@ -94,10 +102,10 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   type={type}
                   compact={true}
                   {...{ hasActions, hasStatus, level: level + 1, size }}
-                  onAdd={() => onAddShape(ID)}
-                  onReset={() => onResetShapes(ID, userShapeIDs)}
-                  onSync={() => onSyncShapes(ID, apiShapeIDs)}
-                  onSettings={() => onSettings(ID)}
+                  onAdd={createHandler(onAddShape, ID)}
+                  onReset={createHandler(onResetShapes, ID, userShapeIDs)}
+                  onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}
+                  onSettings={createHandler(onSettings, ID)}
                 />
               );
             })}
