@@ -4,6 +4,18 @@ import { DeckDatasetData } from "./deck-dataset-data.component";
 export default {
   title: "Powerpoint/Pages/Dataset Details/Data",
   component: DeckDatasetData,
+  onAddShape: {
+    action: "add-shape",
+  },
+  onResetShapes: {
+    action: "reset-shapes",
+  },
+  onSyncShapes: {
+    action: "sync-shapes",
+  },
+  onSettings: {
+    action: "open-settings",
+  },
 } as Meta<typeof DeckDatasetData>;
 
 export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
@@ -634,4 +646,8 @@ Matrix.args = {
       },
     ],
   },
+  onAddShape: () => {},
+  onResetShapes: () => {},
+  onSyncShapes: () => {},
+  onSettings: () => {},
 };

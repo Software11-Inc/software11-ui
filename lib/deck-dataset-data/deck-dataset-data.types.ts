@@ -1,16 +1,5 @@
-import {
-  DatasetType,
-  FigureShapeMap,
-  IDataCommonProps,
-  OnceGroupedTableFigure,
-  ShapeChangeMap,
-  TwiceGroupedTableFigure,
-} from "@models";
+import { IDataGroupCommonProps, OnceGroupedTableFigure, TwiceGroupedTableFigure } from "@models";
 
-export interface DeckDatasetDataProps extends IDataCommonProps {
+export interface DeckDatasetDataProps extends IDataGroupCommonProps {
   data: OnceGroupedTableFigure | TwiceGroupedTableFigure;
-  type: DatasetType;
-  shapes: FigureShapeMap;
-  apiChanges: ShapeChangeMap;
-  userChanges: ShapeChangeMap;
 }

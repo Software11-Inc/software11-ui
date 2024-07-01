@@ -20,6 +20,10 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   hasStatus,
   level,
   size,
+  onAddShape,
+  onResetShapes,
+  onSettings,
+  onSyncShapes,
 }) => {
   const entries = Object.entries(data || {});
   return (
@@ -41,10 +45,10 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   userChanges={groupUserChanges}
                   shapes={groupShapes}
                   type={type}
-                  onAddShape={() => {}}
-                  onResetShapes={() => {}}
-                  onSettings={() => {}}
-                  onSyncShapes={() => {}}
+                  onAddShape={onAddShape}
+                  onResetShapes={onResetShapes}
+                  onSettings={onSettings}
+                  onSyncShapes={onSyncShapes}
                   compact={compact}
                   hasActions={hasActions}
                   hasStatus={hasStatus}
@@ -76,6 +80,10 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   level={level}
                   size={size}
                   compact={compact}
+                  onAddShape={onAddShape}
+                  onResetShapes={onResetShapes}
+                  onSettings={onSettings}
+                  onSyncShapes={onSyncShapes}
                 />
               );
             }
