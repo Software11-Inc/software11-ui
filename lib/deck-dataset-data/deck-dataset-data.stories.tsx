@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetData } from "./deck-dataset-data.component";
 
 export default {
-  title: "Powerpoint/Pages/Dataset Details/Data",
+  title: "Powerpoint/Dataset Details/Data",
   component: DeckDatasetData,
   onAddShape: {
     action: "add-shape",

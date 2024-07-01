@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetShapes } from "./deck-dataset-shapes.component";
 
 export default {
-  title: "Pages/Home/Powerpoint/Dataset Shapes",
+  title: "Powerpoint/Home/Dataset Shapes",
   argTypes: {
     onSyncDataset: { action: "sync-dataset" },
     onResetFigure: { action: "reset-figure" },

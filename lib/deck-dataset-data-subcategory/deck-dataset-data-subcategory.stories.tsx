@@ -3,7 +3,7 @@ import { DeckDatasetDataSubcategory } from "./deck-dataset-data-subcategory.comp
 import { datasetTypes, sizes } from "../story-types";
 
 export default {
-  title: "Powerpoint/Pages/Dataset Details/Data/Components/Subcategory",
+  title: "Powerpoint/Dataset Details/Data/Components/Subcategory",
   component: DeckDatasetDataSubcategory,
   argTypes: {
     type: {

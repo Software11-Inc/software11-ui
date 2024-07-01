@@ -4,7 +4,7 @@ import { DeckDatasetDataItem } from "./deck-dataset-data-item.component";
 import { datasetTypes, sizes } from "../story-types";
 
 export default {
-  title: "Powerpoint/Pages/Dataset Details/Data/Components/Item",
+  title: "Powerpoint/Dataset Details/Data/Components/Item",
   argTypes: {
     type: {
       options: datasetTypes,
