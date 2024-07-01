@@ -28,36 +28,26 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
 }) => {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
   hidden;
-  const hasItems =
-    typeof separator.count === "undefined" ? true : Boolean(separator.count);
+  const hasItems = typeof separator.count === "undefined" ? true : Boolean(separator.count);
+
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: (e: any) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains(actionClassName) || target.classList.contains("MuiSvgIcon-root")) {
+          return;
+        }
+        !immutable ? setExpanded(!expanded) : null;
+      },
+    },
+  } as any;
 
   return (
-    <AccordionGroup
-      className={[className, hidden ? "hidden" : ""].join(" ")}
-      sx={sectionStyle}
-    >
+    <AccordionGroup className={[className, hidden ? "hidden" : ""].join(" ")} sx={sectionStyle}>
       <Accordion expanded={hasItems && expanded}>
-        <AccordionSummary
-          indicator={null}
-          slotProps={{
-            button: {
-              component: "div",
-              onClick: (e) => {
-                const target = e.target as HTMLElement;
-                if (
-                  target.classList.contains(actionClassName) ||
-                  target.classList.contains("MuiSvgIcon-root")
-                ) {
-                  return;
-                }
-                !immutable ? setExpanded(!expanded) : null;
-              },
-            },
-          }}
-        >
-          {separatorIcon && (
-            <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>
-          )}
+        <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
+          {separatorIcon && <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>}
           <DeckLabel
             title={{
               text: separator.title.toUpperCase(),
@@ -69,10 +59,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
             }}
           />
           {hasItems && (
-            <Box
-              className={indicatorClassName}
-              sx={{ color: `${separator.color}.100` }}
-            >
+            <Box className={indicatorClassName} sx={{ color: `${separator.color}.100` }}>
               {separator.count}
             </Box>
           )}

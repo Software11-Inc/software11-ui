@@ -23,9 +23,7 @@ export default {
   },
 } as Meta<typeof DeckHeaderNavigation>;
 
-const Template: StoryFn<typeof DeckHeaderNavigation> = (args) => (
-  <DeckHeaderNavigation {...args} />
-);
+const Template: StoryFn<typeof DeckHeaderNavigation> = (args) => <DeckHeaderNavigation {...args} />;
 
 export const Default = Template.bind({});
 

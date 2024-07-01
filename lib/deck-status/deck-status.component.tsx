@@ -11,8 +11,7 @@ export const DeckStatus: React.FC<DeckStatusProps> = ({ status, loading }) => {
     className = statusClassNameMap[-1].state;
     console.error(error);
   }
-  const classes =
-    `circle pulse ${className} ${loading ? "loading" : ""}`.trim();
+  const classes = `circle pulse ${className} ${loading ? "loading" : ""}`.trim();
   return (
     <Box className="state-status" sx={statusStyle}>
       <div className={classes}></div>

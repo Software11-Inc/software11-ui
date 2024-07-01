@@ -67,10 +67,9 @@ export const sectionStyle: SxProps = {
         [`& > .${accordionDetailsClasses.content}`]: {
           px: "var(--spacing)",
         },
-        [`& > .${accordionDetailsClasses.content}.${accordionDetailsClasses.expanded}`]:
-          {
-            p: "var(--spacing)",
-          },
+        [`& > .${accordionDetailsClasses.content}.${accordionDetailsClasses.expanded}`]: {
+          p: "var(--spacing)",
+        },
       },
     },
   },

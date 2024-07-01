@@ -28,27 +28,30 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
 }) => {
   const [visible, setVisible] = React.useState(false);
   const placement = isRight ? "bottom-end" : "bottom-start";
+
+  const menuButtonSlotProps = {
+    root: {
+      className: "deck-header-user-dropdown__button",
+      onClick: () => setVisible(!visible),
+      sx: {
+        p: 0,
+        minWidth: "1.25rem",
+        minHeight: "1.25rem",
+        borderRadius: "50%",
+        "&:hover": {
+          boxShadow: "var(--focus-shadow)",
+        },
+      },
+    },
+  } as any;
+
   return (
     <Dropdown open={visible} className="deck-header-user-dropdown">
       <MenuButton
         slots={{
           root: IconButton,
         }}
-        slotProps={{
-          root: {
-            className: "deck-header-user-dropdown__button",
-            onClick: () => setVisible(!visible),
-            sx: {
-              p: 0,
-              minWidth: "1.25rem",
-              minHeight: "1.25rem",
-              borderRadius: "50%",
-              "&:hover": {
-                boxShadow: "var(--focus-shadow)",
-              },
-            },
-          },
-        }}
+        slotProps={menuButtonSlotProps}
       >
         <Avatar src={avatarUrl} alt={fullName} sx={avatarSmStyle} />
       </MenuButton>
@@ -68,11 +71,7 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
         <Box sx={columnStyle}>
           <Box sx={sectionStyle}>
             <Avatar src={avatarUrl} alt={fullName} sx={avatarLgStyle} />
-            <DeckLabel
-              size="lg"
-              title={{ text: fullName, limit: 1 }}
-              description={{ text: email, limit: 1 }}
-            />
+            <DeckLabel size="lg" title={{ text: fullName, limit: 1 }} description={{ text: email, limit: 1 }} />
           </Box>
           <Divider />
           <Box sx={sectionStyle}>

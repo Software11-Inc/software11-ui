@@ -45,9 +45,7 @@ export default {
   },
 } as Meta<typeof DeckActiveProject>;
 
-export const Default: StoryFn<typeof DeckActiveProject> = (args) => (
-  <DeckActiveProject {...args} />
-);
+export const Default: StoryFn<typeof DeckActiveProject> = (args) => <DeckActiveProject {...args} />;
 
 Default.args = {
   projectName: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

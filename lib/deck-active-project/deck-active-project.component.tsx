@@ -26,29 +26,26 @@ export const DeckActiveProject: React.FC<DeckActiveProjectProps> = ({
   const className = `deck-active-project`;
   const [open, setOpen] = React.useState(false);
 
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: (e: any) => {
+        const target = e.target as HTMLElement;
+        if (target.classList.contains("MuiSvgIcon-root")) {
+          return;
+        }
+        setOpen(!open);
+      },
+    },
+    indicator: {
+      onClick: () => setOpen(!open),
+    },
+  } as any;
+
   return (
-    <AccordionGroup
-      className={className}
-      sx={accordionGroupStyles(className, false, 0, "sm", true)}
-    >
+    <AccordionGroup className={className} sx={accordionGroupStyles(className, false, 0, "sm", true)}>
       <Accordion expanded={open}>
-        <AccordionSummary
-          slotProps={{
-            button: {
-              component: "div",
-              onClick: (e) => {
-                const target = e.target as HTMLElement;
-                if (target.classList.contains("MuiSvgIcon-root")) {
-                  return;
-                }
-                setOpen(!open);
-              },
-            },
-            indicator: {
-              onClick: () => setOpen(!open),
-            },
-          }}
-        >
+        <AccordionSummary slotProps={accordionSummarySlotProps}>
           <Box sx={headerStyle}>
             <DeckStatus status={projectStatus} loading={loading} />
             <DeckLabel

@@ -6,9 +6,7 @@ export default {
   component: DeckHeaderUserProfile,
 } as Meta<typeof DeckHeaderUserProfile>;
 
-const Template: StoryFn<typeof DeckHeaderUserProfile> = (args) => (
-  <DeckHeaderUserProfile {...args} />
-);
+const Template: StoryFn<typeof DeckHeaderUserProfile> = (args) => <DeckHeaderUserProfile {...args} />;
 
 export const Default = Template.bind({});
 

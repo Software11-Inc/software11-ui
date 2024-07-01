@@ -1,14 +1,10 @@
 import { SxProps } from "@mui/joy/styles/types";
-import { Size, getBackgroundColor } from "../accordion.style";
+import { getBackgroundColor } from "../accordion.style";
+import { Size } from "@models";
 
 export const className = "deck-dataset-data-item";
 
-export const dataItemStyle = (
-  level = 1,
-  size: Size = "sm",
-  compact = false,
-  order = 0
-): SxProps => ({
+export const dataItemStyle = (level = 1, size: Size = "sm", compact = false, order = 0): SxProps => ({
   [`&.${className}`]: {
     display: "flex",
     alignItems: "center",

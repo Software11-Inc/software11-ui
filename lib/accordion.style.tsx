@@ -1,9 +1,8 @@
+import { Size } from "@models";
 import accordionClasses from "@mui/joy/Accordion/accordionClasses";
 import accordionDetailsClasses from "@mui/joy/AccordionDetails/accordionDetailsClasses";
 import accordionSummaryClasses from "@mui/joy/AccordionSummary/accordionSummaryClasses";
 import { SxProps } from "@mui/joy/styles/types/theme";
-
-export type Size = "sm" | "md" | "lg";
 
 const sizePaddingMap = {
   sm: 1,
@@ -33,7 +32,8 @@ export const accordionGroupStyles = (
   compact: boolean,
   level: number,
   size: Size,
-  hasShadow: boolean
+  hasShadow: boolean,
+  order: number = 0
 ): SxProps => {
   const paddingInline = sizePaddingMap[size];
   return {
@@ -41,6 +41,7 @@ export const accordionGroupStyles = (
       display: "flex",
       flexDirection: "column",
       border: "unset",
+      order,
 
       ...(!compact && {
         gap: 2,
@@ -85,11 +86,6 @@ export const accordionGroupStyles = (
           [`& > .${accordionDetailsClasses.content}`]: {
             p: 0,
             bgcolor: getBackgroundColor(level + 1),
-
-            [`& > *:first-of-type`]: {
-              borderTop: "1px solid",
-              borderColor: "divider",
-            },
           },
         },
       },
@@ -121,6 +117,8 @@ export const accordionGroupStyles = (
               borderRadius: `0 0 var(--border-radius) var(--border-radius)`,
               overflow: "hidden",
             }),
+            borderTop: "1px solid",
+            borderColor: "divider",
           },
         },
       },
@@ -144,4 +142,9 @@ export const accordionGroupStyles = (
       },
     },
   };
+};
+
+export const accordionTransition = {
+  initial: "0.125s ease-out",
+  expanded: "0.125s ease-out",
 };

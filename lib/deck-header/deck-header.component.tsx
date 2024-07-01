@@ -20,18 +20,8 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
   return (
     <Box className={className} sx={headerStyle}>
       <Box className={`${className}-content`}>
-        <div
-          className={[
-            "animation",
-            "animation-navigation",
-            showNavigation ? "visible" : "hidden",
-          ].join(" ")}
-        >
-          <DeckHeaderNavigation
-            title={title}
-            description={description}
-            onBack={onBack}
-          />
+        <div className={["animation", "animation-navigation", showNavigation ? "visible" : "hidden"].join(" ")}>
+          <DeckHeaderNavigation title={title} description={description} onBack={onBack} />
         </div>
         <div className={[`animation`, `animation-profile`].join(" ")}>
           <DeckHeaderUserProfile
@@ -43,13 +33,7 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
             onLogout={onLogout}
           />
         </div>
-        <div
-          className={[
-            `animation`,
-            `animation-actions`,
-            !showNavigation ? "visible" : "hidden",
-          ].join(" ")}
-        >
+        <div className={[`animation`, `animation-actions`, !showNavigation ? "visible" : "hidden"].join(" ")}>
           <DeckHeaderUserActions onLogout={onLogout} />
         </div>
       </Box>
