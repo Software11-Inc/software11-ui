@@ -12,3 +12,4 @@ export * from "./library-slide.model";
 export * from "./project.model";
 export * from "./shape.model";
 export * from "./user.model";
+export * from "./sheet.model";
