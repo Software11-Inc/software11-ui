@@ -9,3 +9,5 @@ export * from "./figure-groups.model";
 export * from "./figure.model";
 export * from "./shape.model";
 export * from "./user.model";
+export * from "./library-image.model";
+export * from "./library-slide.model";
