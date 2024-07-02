@@ -1,5 +1,5 @@
 export type ApiAction = "additions" | "edits" | "deletions";
 
-export type ApiChange<T> = {
+export type IApiChange<T> = {
   [key in ApiAction]?: Partial<T>[];
 };

@@ -1,7 +1,7 @@
 import { DefaultColorPalette, VariantProp } from "@mui/joy/styles/types";
 import * as React from "react";
 
-export interface ActionButton {
+export interface IActionButton {
   key: string;
   iconStart?: React.ReactElement;
   iconEnd?: React.ReactElement;
