@@ -43,10 +43,10 @@ export const DeckHeaderUserDropdown: React.FC<DeckHeaderUserDropdownProps> = ({
         },
       },
     },
-  } as any;
+  } as never;
 
   return (
-    <Dropdown open={visible} className="deck-header-user-dropdown">
+    <Dropdown open={visible}>
       <MenuButton
         slots={{
           root: IconButton,
