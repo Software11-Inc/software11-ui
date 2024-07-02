@@ -13,3 +13,4 @@ export * from "./project.model";
 export * from "./shape.model";
 export * from "./user.model";
 export * from "./sheet.model";
+export * from "./slide.model";
