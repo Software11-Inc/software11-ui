@@ -246,3 +246,42 @@ body {
   padding-top: 0;
   margin-top: -1px;
 }
+
+/** SCROLLBAR */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--project-color-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--project-color);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.small-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.small-scroll::-webkit-scrollbar-track {
+  background-color: var(--joy-palette-background-surface);
+  box-shadow: unset;
+  border: unset;
+}
+.small-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--joy-palette-primary-500);
+  border-radius: 10px;
+  border: unset;
+  cursor: pointer;
+}
+
+.small-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--joy-palette-background-level3);
+}
