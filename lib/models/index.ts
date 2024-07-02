@@ -2,6 +2,7 @@ export * from "./action-button.model";
 export * from "./changes.model";
 export * from "./common.model";
 export * from "./dataset-changes.model";
+export * from "./dataset-tree.model";
 export * from "./dataset.model";
 export * from "./date.model";
 export * from "./default-item.model";
