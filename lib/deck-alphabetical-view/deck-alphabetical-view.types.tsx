@@ -1,3 +1,5 @@
+import { Observable } from "rxjs/internal/Observable";
+
 export enum Alphabet {
   ANY = "#",
   A = "A",
@@ -38,6 +40,7 @@ export interface IDeckAlphabeticalController {
   alphabet: AlphabetMap;
   observe(): void;
   disconnect(): void;
+  scrollSpy(): Observable<void>;
 }
 
 export type LayoutPlacement = "page" | "drawer";

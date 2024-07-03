@@ -19,6 +19,7 @@ import {
 } from "./deck-alphabetical-view.styles";
 import { Subject } from "rxjs/internal/Subject";
 import { DeckSearchBar } from "../deck-search-bar";
+import { takeUntil } from "rxjs/internal/operators/takeUntil";
 
 export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;
@@ -39,6 +40,13 @@ export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps
 
   componentDidMount(): void {
     this._initObserver();
+    const { type } = this.props;
+    switch (type) {
+      case "page": {
+        this._controller.scrollSpy().pipe(takeUntil(this._destroy$)).subscribe();
+        break;
+      }
+    }
   }
 
   componentWillUnmount(): void {

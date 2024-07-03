@@ -4,6 +4,7 @@ import { DeckAlphabeticalController } from "./deck-alphabetical-view.controller"
 import React from "react";
 import Box from "@mui/joy/Box";
 import { DeckLabel } from "../deck-label";
+import { DeckHeader } from "../deck-header";
 
 export default {
   title: "UI/Alphabetical View",
@@ -15,17 +16,43 @@ export default {
 
 export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
   <React.Fragment>
-    <div className="page">
-      <div className="page-content">
-        <DeckAlphabeticalView {...args} />
-      </div>
+    <div className="app">
+      <main className="app-content">
+        <div className="page">
+          <DeckHeader
+            title={""}
+            description={""}
+            fullName={""}
+            role={""}
+            email={""}
+            avatarUrl={""}
+            showNavigation={false}
+            onLogout={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+            onBack={function (): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
+          <div className="page-content">
+            <div className="page-section active">
+              <DeckAlphabeticalView {...args} />
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </React.Fragment>
 );
 
+Default.parameters = {
+  layout: "fullscreen",
+};
+
 Default.args = {
   hasSearch: true,
   controller: new DeckAlphabeticalController(),
+  type: "page",
   items: {
     ANY: [
       { id: "1", name: "#1" },
@@ -115,7 +142,6 @@ Default.args = {
     ],
   },
   itemTemplate: (item: any) => {
-    console.log(item);
     return (
       <Box
         sx={{

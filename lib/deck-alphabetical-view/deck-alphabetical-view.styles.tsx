@@ -35,7 +35,7 @@ export const alphabeticalViewStyle: SxProps = {
 
     [`& .${alphabeticalViewSearchClass}`]: {
       position: "sticky",
-      top: "1rem",
+      top: "calc(var(--header-height) + 1rem)",
       zIndex: 1000,
       backgroundColor: "background.paper",
     },
