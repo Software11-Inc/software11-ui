@@ -66,6 +66,7 @@ export const alphabeticalViewStyle: SxProps = {
     bottom: ".5rem",
     top: ".5rem",
     zIndex: 1000,
+    transition: "0.125s ease-in-out",
 
     [`& .${alphabeticalViewNavInnerClass}`]: {
       height: "100%",
