@@ -16,6 +16,8 @@ export const alphabeticalViewNavButtonClass = "alphabetical-view--nav-button";
 
 export const alphabeticalViewNavButtonLetterClass = "alphabetical-view--nav-button--letter";
 
+export const alphabeticalViewSearchClass = "alphabetical-view--search";
+
 export const alphabeticalViewStyle: SxProps = {
   display: "flex",
   flexDirection: "column",
