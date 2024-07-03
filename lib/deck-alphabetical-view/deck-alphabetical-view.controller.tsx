@@ -5,6 +5,8 @@ import { debounceTime } from "rxjs/internal/operators/debounceTime";
 import { map } from "rxjs/internal/operators/map";
 import { alphabeticalViewNavClass } from "./deck-alphabetical-view.styles";
 import { Alphabet, AlphabetKey, AlphabetMap, IDeckAlphabeticalController } from "./deck-alphabetical-view.types";
+import { startWith } from "rxjs/internal/operators/startWith";
+import { fromEvent } from "rxjs/internal/observable/fromEvent";
 
 export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   public alphabet!: AlphabetMap;
@@ -105,7 +107,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
    * @returns {Observable<void>} An observable that emits whenever the style of the navigation container is updated.
    */
   public scrollSpy = (): Observable<void> => {
-    return combineLatest([this._internalTrigger.asObservable()]).pipe(
+    return combineLatest([fromEvent(window, "scroll").pipe(startWith(0)), this._internalTrigger.asObservable()]).pipe(
       debounceTime(1),
       map(() => {
         const headerHeight = this._getHeaderHeight();
