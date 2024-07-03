@@ -19,5 +19,6 @@ export * from "./deck-icon-button";
 export * from "./deck-label";
 export * from "./deck-logo";
 export * from "./deck-menu-button";
+export * from "./deck-search-bar";
 
 export * from "@models";
