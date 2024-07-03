@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckDatasetDataSubcategory } from "./deck-dataset-data-subcategory.component";
 import { datasetTypes, sizes } from "../story-types";
+import { DeckDatasetDataSubcategory } from "./deck-dataset-data-subcategory.component";
 
 export default {
   title: "Powerpoint/Dataset Details/Data/Components/Subcategory",

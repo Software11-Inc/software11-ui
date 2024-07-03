@@ -1,11 +1,11 @@
-import * as React from "react";
-import { DeckDatasetDataProps } from "./deck-dataset-data.types";
-import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
+import { IDynamicShape, IShapeChange, ITableFigure, OnceGroupedTableFigure } from "@models";
 import Box from "@mui/joy/Box";
-import { dataColumn } from "./deck-dataset-data.styles";
+import * as React from "react";
+import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
 import { DeckDatasetDataSubcategory } from "../deck-dataset-data-subcategory/deck-dataset-data-subcategory.component";
 import { createGroupMap } from "../utils";
-import { IDynamicShape, IShapeChange, ITableFigure, OnceGroupedTableFigure } from "@models";
+import { dataColumn } from "./deck-dataset-data.styles";
+import { DeckDatasetDataProps } from "./deck-dataset-data.types";
 
 export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   data,

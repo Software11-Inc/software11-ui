@@ -1,9 +1,9 @@
-import Input from "@mui/joy/Input";
+import SearchRounded from "@mui/icons-material/SearchRounded";
 import FormControl from "@mui/joy/FormControl";
 import FormHelperText from "@mui/joy/FormHelperText";
-import SearchRounded from "@mui/icons-material/SearchRounded";
-import { IDeckSearchBarProps } from "./deck-search-bar.types";
+import Input from "@mui/joy/Input";
 import { containerStype, formHelperTextSxProps, searchStyle } from "./deck-search-bar.styles";
+import { IDeckSearchBarProps } from "./deck-search-bar.types";
 
 export const DeckSearchBar: React.FC<IDeckSearchBarProps> = ({ onSearch, compact, onBlur, onFocus, showHint }) => {
   return (

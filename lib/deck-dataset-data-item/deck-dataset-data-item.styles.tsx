@@ -1,6 +1,6 @@
+import { Size } from "@models";
 import { SxProps } from "@mui/joy/styles/types";
 import { getBackgroundColor } from "../accordion.style";
-import { Size } from "@models";
 
 export const className = "deck-dataset-data-item";
 

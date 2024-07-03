@@ -1,17 +1,17 @@
-import React from "react";
-import { DeckDatasetDataSubcategoryProps } from "./deck-dataset-data-subcategory.types";
-import AccordionGroup from "@mui/joy/AccordionGroup";
+import { IDynamicShape, IShapeChange, ITableFigure } from "@models";
 import Accordion from "@mui/joy/Accordion";
-import AccordionSummary from "@mui/joy/AccordionSummary";
 import AccordionDetails from "@mui/joy/AccordionDetails";
-import { accordionGroupStyles, accordionTransition } from "../accordion.style";
+import AccordionGroup from "@mui/joy/AccordionGroup";
+import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
+import React from "react";
+import { accordionGroupStyles, accordionTransition } from "../accordion.style";
+import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
-import { dataColumn, headerStyle } from "./deck-dataset-data-subcategory.styles";
-import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
 import { createGroupMap } from "../utils";
-import { IDynamicShape, IShapeChange, ITableFigure } from "@models";
+import { dataColumn, headerStyle } from "./deck-dataset-data-subcategory.styles";
+import { DeckDatasetDataSubcategoryProps } from "./deck-dataset-data-subcategory.types";
 
 export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProps> = ({
   groupName,

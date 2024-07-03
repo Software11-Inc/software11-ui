@@ -288,3 +288,62 @@ body {
 .small-scroll::-webkit-scrollbar-thumb:hover {
   background-color: var(--joy-palette-background-level3);
 }
+
+/** EXCEL ICON */
+
+.st0 {
+  fill: #185c37;
+}
+.st1 {
+  fill: #21a366;
+}
+.st2 {
+  fill: #107c41;
+}
+.st3 {
+  opacity: 0.1;
+  enable-background: new;
+}
+.st4 {
+  opacity: 0.2;
+  enable-background: new;
+}
+.st5 {
+  fill: url(#SVGID_1_);
+}
+.st6 {
+  fill: #ffffff;
+}
+.st7 {
+  fill: #33c481;
+}
+.ti1 {
+  fill: #cff09e;
+}
+.ti2 {
+  fill: #507c5c;
+}
+
+.pp-st0 {
+  fill: #ed6c47;
+}
+.pp-st1 {
+  fill: #ff8f6b;
+}
+.pp-st2 {
+  fill: #d35230;
+}
+.pp-st3 {
+  opacity: 0.1;
+  enable-background: new;
+}
+.pp-st4 {
+  opacity: 0.2;
+  enable-background: new;
+}
+.pp-st5 {
+  fill: url(#SVGID_2_);
+}
+.pp-st6 {
+  fill: #ffffff;
+}

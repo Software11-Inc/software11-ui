@@ -1,10 +1,8 @@
-import React from "react";
-import {
-  IAlphabeticalViewProps,
-  IAlphabeticalViewState,
-  IDeckAlphabeticalController,
-} from "./deck-alphabetical-view.types";
 import Box from "@mui/joy/Box";
+import React from "react";
+import { Subject } from "rxjs/internal/Subject";
+import { takeUntil } from "rxjs/internal/operators/takeUntil";
+import { DeckSearchBar } from "../deck-search-bar";
 import {
   alphabeticalViewContentClass,
   alphabeticalViewNavButtonClass,
@@ -17,9 +15,11 @@ import {
   alphabeticalViewSectionTitleClass,
   alphabeticalViewStyle,
 } from "./deck-alphabetical-view.styles";
-import { Subject } from "rxjs/internal/Subject";
-import { DeckSearchBar } from "../deck-search-bar";
-import { takeUntil } from "rxjs/internal/operators/takeUntil";
+import {
+  IAlphabeticalViewProps,
+  IAlphabeticalViewState,
+  IDeckAlphabeticalController,
+} from "./deck-alphabetical-view.types";
 
 export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;
