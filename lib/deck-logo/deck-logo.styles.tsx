@@ -10,16 +10,16 @@ export const boxStyle: SxProps = {
 };
 
 export const typographyStyle1: SxProps = {
-  backgroundColor: "var(--project-color)",
-  color: "var(--project-color-light)",
-  borderRadius: ".3rem 0",
+  bgcolor: "primary.500",
+  color: "primary.100",
+  borderRadius: ".375rem 0",
   padding: "0.3rem 0.5rem",
   fontSize: "24px",
   lineHeight: "24px",
 };
 
 export const typographyStyle2: SxProps = {
-  color: "var(--project-color)",
+  color: "primary.500",
   fontSize: "24px",
   lineHeight: "24px",
 };
