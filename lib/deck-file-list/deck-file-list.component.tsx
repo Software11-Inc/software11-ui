@@ -1,6 +1,6 @@
 import Box from "@mui/joy/Box";
 import React from "react";
-import { ExcelIcon, GoogleSheetIcon, PowerpointIcon } from "../deck-icons";
+import { ExcelIcon, GoogleSheetIcon, GoogleSlidesIcon, PowerpointIcon } from "../deck-icons";
 import { fileListClass, fileListItemClass, fileListItemStyle, fileListStyle } from "./deck-file-list.styles";
 import { IDeckFileListProps } from "./deck-file-list.types";
 
@@ -23,8 +23,12 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 })
         component = <PowerpointIcon />;
         break;
       }
-      case "google-sheet": {
+      case "google sheet": {
         component = <GoogleSheetIcon />;
+        break;
+      }
+      case "google slide": {
+        component = <GoogleSlidesIcon />;
         break;
       }
       default: {

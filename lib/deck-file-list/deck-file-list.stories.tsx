@@ -10,5 +10,5 @@ const Template: StoryFn<typeof DeckFileList> = (args) => <DeckFileList {...args}
 export const Default = Template.bind({});
 
 Default.args = {
-  types: ["excel", "powerpoint", "google-sheet"],
+  types: ["excel", "powerpoint", "google sheet", "google slide"],
 };
