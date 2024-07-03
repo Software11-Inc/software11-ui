@@ -13,6 +13,7 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 })
 
   const getIcon = (type: string) => {
     let component = null;
+
     switch (type) {
       case "excel": {
         component = <ExcelIcon />;
@@ -31,6 +32,11 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 })
         break;
       }
     }
+
+    if (!component) {
+      return null;
+    }
+
     return React.cloneElement(component as any, { width: SIZE, height: SIZE });
   };
 

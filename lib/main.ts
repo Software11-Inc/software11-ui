@@ -25,4 +25,6 @@ export * from "./deck-file-list";
 
 export * from "./deck-select-project";
 
+export * from "./deck-icons";
+
 export * from "@models";
