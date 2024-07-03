@@ -14,7 +14,7 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 })
   const getIcon = (type: string) => {
     let component = null;
 
-    switch (type) {
+    switch (type.toLowerCase()) {
       case "excel": {
         component = <ExcelIcon />;
         break;

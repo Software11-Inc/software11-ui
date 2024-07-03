@@ -46,9 +46,11 @@ export const alphabeticalViewStyle: SxProps = {
         flexDirection: "column",
         gap: 2,
       },
+
       [`&:first-of-type .${alphabeticalViewSectionTitleClass}`]: {
         paddingTop: "unset",
       },
+
       [`.${alphabeticalViewSectionTitleClass}`]: {
         fontSize: "1.5rem",
         fontWeight: 600,
