@@ -1,8 +1,6 @@
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { Alphabet, AlphabetKey, AlphabetMap, IDeckAlphabeticalController } from "./deck-alphabetical-view.types";
 import { combineLatest } from "rxjs/internal/observable/combineLatest";
-import { fromEvent } from "rxjs/internal/observable/fromEvent";
-import { startWith } from "rxjs/internal/operators/startWith";
 import { debounceTime } from "rxjs/internal/operators/debounceTime";
 import { map } from "rxjs/internal/operators/map";
 import { Observable } from "rxjs/internal/Observable";
