@@ -223,6 +223,7 @@ body {
   flex-direction: column;
   padding: 1rem;
   transition: 0.2s ease-in-out;
+  position: relative;
 }
 
 .page-section:first-child {
@@ -233,6 +234,7 @@ body {
 
 .page-section.active {
   flex: 1;
+  z-index: 1;
 }
 
 .page-section:first-of-type {
