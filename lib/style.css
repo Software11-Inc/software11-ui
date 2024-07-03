@@ -229,7 +229,7 @@ body {
 .page-section:first-child {
   background-color: var(--joy-palette-background-surface);
   border-bottom: 1px solid var(--joy-palette-background-level1);
-  box-shadow: inset 0 -4px 4px -4px var(--project-color-light);
+  box-shadow: inset 0 -4px 4px -4px var(--joy-palette-primary-100);
 }
 
 .page-section.active {
@@ -255,11 +255,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--project-color-light);
+  background-color: var(--joy-palette-primary-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--project-color);
+  background-color: var(--joy-palette-primary-500);
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
