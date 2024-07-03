@@ -13,7 +13,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
 
   private _bodyStyleObserver!: MutationObserver;
 
-  private _internalTrigger: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
+  public internalTrigger: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
 
   constructor() {
     this._initAlphabet();
@@ -43,7 +43,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   private _initObserver = (): void => {
     this._bodyStyleObserver = new MutationObserver((mutations) => {
       mutations.forEach(() => {
-        this._internalTrigger.next();
+        this.internalTrigger.next();
       });
     });
   };
@@ -107,7 +107,10 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
    * @returns {Observable<void>} An observable that emits whenever the style of the navigation container is updated.
    */
   public scrollSpy = (): Observable<void> => {
-    return combineLatest([fromEvent(window, "scroll").pipe(startWith(0)), this._internalTrigger.asObservable()]).pipe(
+    return combineLatest([
+      fromEvent(window, "scroll").pipe(startWith(0), debounceTime(100)),
+      this.internalTrigger.asObservable(),
+    ]).pipe(
       debounceTime(1),
       map(() => {
         const headerHeight = this._getHeaderHeight();

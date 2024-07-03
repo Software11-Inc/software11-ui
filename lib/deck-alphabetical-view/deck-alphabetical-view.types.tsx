@@ -1,4 +1,5 @@
 import { Observable } from "rxjs/internal/Observable";
+import { Subject } from "rxjs/internal/Subject";
 
 export enum Alphabet {
   ANY = "#",
@@ -37,6 +38,7 @@ export type AlphabetMap = Record<AlphabetKey, string>;
 export type AlphabeticalGrouped = Partial<Record<AlphabetKey, any[]>>;
 
 export interface IDeckAlphabeticalController {
+  internalTrigger: Subject<void>;
   alphabet: AlphabetMap;
   observe(): void;
   disconnect(): void;
