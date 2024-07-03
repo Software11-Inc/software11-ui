@@ -3,7 +3,7 @@ import { DefaultVariantProp } from "@mui/joy/styles/types";
 
 // Define the props for the ActionButton component
 export interface IDeckTextButtonProps {
-  icon: React.ReactElement;
+  icon?: React.ReactElement;
   text?: string;
   action: () => void;
   disabled?: boolean;
