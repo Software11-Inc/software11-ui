@@ -77,7 +77,7 @@ export const alphabeticalViewStyle: SxProps = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "calc(100% / 26)",
+        height: "calc((100% - 2rem) / 26)",
         cursor: "pointer",
         userSelect: "none",
         paddingInline: "0.25rem",
