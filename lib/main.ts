@@ -23,6 +23,7 @@ export * from "./deck-logo";
 export * from "./deck-menu-button";
 export * from "./deck-search-bar";
 export * from "./deck-file-list";
+export * from "./deck-text-button";
 
 export * from "./deck-select-project";
 
