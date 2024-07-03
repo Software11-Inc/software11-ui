@@ -5,7 +5,7 @@ export const projectCardContentClass = "project-card--content";
 
 export const projectCardStyle: SxProps = {
   display: "grid",
-  gridTemplateColumns: "5rem 1fr",
+  gridTemplateColumns: "3rem 1fr",
   alignItems: "center",
   bgcolor: "background.body",
   boxShadow: "var(--shadow)",
