@@ -78,7 +78,7 @@ export const alphabeticalViewStyle: SxProps = {
         height: "calc(100% / 26)",
         cursor: "pointer",
         userSelect: "none",
-        aspectRatio: 1,
+        paddingInline: "0.25rem",
         color: "primary.300",
 
         "&.active": { color: "primary.500" },
