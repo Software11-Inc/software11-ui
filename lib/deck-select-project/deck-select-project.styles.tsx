@@ -11,6 +11,7 @@ export const projectCardStyle: SxProps = {
   boxShadow: "var(--shadow)",
   borderRadius: "var(--border-radius)",
   overflow: "hidden",
+  minHeight: "3rem",
 
   [`& .${projectCardContentClass}`]: {
     display: "flex",
