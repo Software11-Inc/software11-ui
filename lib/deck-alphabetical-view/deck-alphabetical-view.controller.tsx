@@ -86,18 +86,6 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   };
 
   /**
-   * This method is used to get the height of the footer.
-   * It selects the footer element from the document and returns its client height.
-   * If the footer element is not found, it returns 0.
-   *
-   * @returns {number} The height of the footer.
-   */
-  private _getFooterHeight = (): number => {
-    const footer = document.querySelector(".page-footer");
-    return footer?.clientHeight || 0;
-  };
-
-  /**
    * This method is used to adjust the position of the alphabetical navigation container based on the scroll position.
    * It listens to the scroll events of the window and the internal trigger observable.
    * When either of these observables emit a new value, it calculates the new top, bottom, and right positions of the navigation container and updates its style.
