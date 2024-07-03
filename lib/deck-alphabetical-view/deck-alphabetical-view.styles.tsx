@@ -59,6 +59,10 @@ export const alphabeticalViewStyle: SxProps = {
         padding: "0.5rem .5rem",
         color: "primary.200",
       },
+
+      "&:first-of-type": {
+        marginTop: "1rem",
+      },
     },
   },
 
