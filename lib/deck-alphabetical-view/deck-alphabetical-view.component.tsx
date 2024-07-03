@@ -11,12 +11,14 @@ import {
   alphabeticalViewNavButtonLetterClass,
   alphabeticalViewNavClass,
   alphabeticalViewNavInnerClass,
+  alphabeticalViewSearchClass,
   alphabeticalViewSectionClass,
   alphabeticalViewSectionItemClass,
   alphabeticalViewSectionTitleClass,
   alphabeticalViewStyle,
 } from "./deck-alphabetical-view.styles";
 import { Subject } from "rxjs/internal/Subject";
+import { DeckSearchBar } from "../deck-search-bar";
 
 export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;
@@ -92,7 +94,7 @@ export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps
   };
 
   render(): React.ReactNode {
-    const { items, itemTemplate } = this.props;
+    const { items, itemTemplate, hasSearch, onSearch } = this.props;
     const { letters, activeLetter } = this.state;
 
     const entries = Object.entries(items);
@@ -103,6 +105,12 @@ export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps
     return (
       <Box sx={alphabeticalViewStyle}>
         <Box className={alphabeticalViewContentClass}>
+          {hasSearch && (
+            <Box className={alphabeticalViewSearchClass}>
+              <DeckSearchBar onSearch={onSearch} />
+            </Box>
+          )}
+
           {entries.map(([letter, group]) => {
             return (
               <React.Fragment key={letter}>

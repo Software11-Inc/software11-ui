@@ -48,6 +48,8 @@ export interface IAlphabeticalViewProps {
   itemTemplate: (item: any) => React.ReactNode;
   emptyTemplate?: React.ReactNode;
   type: LayoutPlacement;
+  hasSearch?: boolean;
+  onSearch: (value: string) => void;
 }
 
 export interface IAlphabeticalViewState {

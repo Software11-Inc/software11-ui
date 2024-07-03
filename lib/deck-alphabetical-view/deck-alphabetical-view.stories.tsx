@@ -8,6 +8,9 @@ import { DeckLabel } from "../deck-label";
 export default {
   title: "UI/Alphabetical View",
   component: DeckAlphabeticalView,
+  argTypes: {
+    onSearch: { action: "search" },
+  },
 } as Meta<typeof DeckAlphabeticalView>;
 
 export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
@@ -21,6 +24,7 @@ export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
 );
 
 Default.args = {
+  hasSearch: true,
   controller: new DeckAlphabeticalController(),
   items: {
     ANY: [

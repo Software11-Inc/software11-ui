@@ -33,6 +33,13 @@ export const alphabeticalViewStyle: SxProps = {
     display: "flex",
     flexDirection: "column",
 
+    [`& .${alphabeticalViewSearchClass}`]: {
+      position: "sticky",
+      top: "1rem",
+      zIndex: 1000,
+      backgroundColor: "background.paper",
+    },
+
     [`& .${alphabeticalViewSectionClass}`]: {
       [`.${alphabeticalViewSectionItemClass}`]: {
         display: "flex",
