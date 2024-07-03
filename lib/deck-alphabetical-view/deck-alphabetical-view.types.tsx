@@ -32,7 +32,7 @@ export type AlphabetKey = keyof typeof Alphabet;
 
 export type AlphabetMap = Record<AlphabetKey, string>;
 
-export type AlphabeticalGrouped = Partial<Record<AlphabetKey, any>>;
+export type AlphabeticalGrouped = Partial<Record<AlphabetKey, any[]>>;
 
 export interface IDeckAlphabeticalController {
   alphabet: AlphabetMap;
@@ -45,7 +45,7 @@ export type LayoutPlacement = "page" | "drawer";
 export interface IAlphabeticalViewProps {
   controller: IDeckAlphabeticalController;
   items: AlphabeticalGrouped;
-  itemTemplate: (item: any[]) => React.ReactNode;
+  itemTemplate: (item: any) => React.ReactNode;
   emptyTemplate?: React.ReactNode;
   type: LayoutPlacement;
 }

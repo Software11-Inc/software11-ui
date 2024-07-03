@@ -4,6 +4,8 @@ export const alphabeticalViewContentClass = "alphabetical-view--content";
 
 export const alphabeticalViewSectionClass = "alphabetical-view--section";
 
+export const alphabeticalViewSectionItemClass = "alphabetical-view--section-item";
+
 export const alphabeticalViewSectionTitleClass = "alphabetical-view--section-title";
 
 export const alphabeticalViewNavClass = "alphabetical-view--nav";
@@ -30,6 +32,11 @@ export const alphabeticalViewStyle: SxProps = {
     flexDirection: "column",
 
     [`& .${alphabeticalViewSectionClass}`]: {
+      [`.${alphabeticalViewSectionItemClass}`]: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 1,
+      },
       [`&:first-of-type .${alphabeticalViewSectionTitleClass}`]: {
         paddingTop: "unset",
       },

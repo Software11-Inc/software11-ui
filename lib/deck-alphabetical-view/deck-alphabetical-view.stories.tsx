@@ -3,6 +3,7 @@ import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
 import { DeckAlphabeticalController } from "./deck-alphabetical-view.controller";
 import React from "react";
 import Box from "@mui/joy/Box";
+import { DeckLabel } from "../deck-label";
 
 export default {
   title: "UI/Alphabetical View",
@@ -22,9 +23,15 @@ export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
 Default.args = {
   controller: new DeckAlphabeticalController(),
   items: {
+    ANY: [
+      { id: "1", name: "#1" },
+      { id: "2", name: "#2" },
+      { id: "3", name: "#3" },
+    ],
     A: [
       { id: "1", name: "A1" },
       { id: "2", name: "A2" },
+      { id: "3", name: "A3" },
     ],
     B: [
       { id: "3", name: "B1" },
@@ -103,18 +110,23 @@ Default.args = {
       { id: "40", name: "Z2" },
     ],
   },
-  itemTemplate: (items) =>
-    items.map((item: any) => (
+  itemTemplate: (item: any) => {
+    console.log(item);
+    return (
       <Box
         sx={{
           p: 1,
           borderRadius: "var(--border-radius)",
-          boxShadow: "var(--shadow)",
-          my: 1,
+          bgcolor: "background.surface",
         }}
         key={item.id}
       >
-        {item.name}
+        <DeckLabel
+          title={{
+            text: item.name,
+          }}
+        />
       </Box>
-    )),
+    );
+  },
 };

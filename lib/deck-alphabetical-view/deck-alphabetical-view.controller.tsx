@@ -67,28 +67,4 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   public disconnect(): void {
     this._bodyStyleObserver.disconnect();
   }
-
-  //   /**
-  //    * This method is used to get the height of the header.
-  //    * It selects the header element from the document and returns its client height.
-  //    * If the header element is not found, it returns 0.
-  //    *
-  //    * @returns {number} The height of the header.
-  //    */
-  //   private _getHeaderHeight = (): number => {
-  //     const header = document.querySelector(".page-header");
-  //     return header?.clientHeight || 0;
-  //   };
-
-  //   /**
-  //    * This method is used to get the height of the footer.
-  //    * It selects the footer element from the document and returns its client height.
-  //    * If the footer element is not found, it returns 0.
-  //    *
-  //    * @returns {number} The height of the footer.
-  //    */
-  //   private _getFooterHeight = (): number => {
-  //     const footer = document.querySelector(".page-footer");
-  //     return footer?.clientHeight || 0;
-  //   };
 }
