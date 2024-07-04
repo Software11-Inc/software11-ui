@@ -172,13 +172,13 @@ body {
 .page-content-subheader {
   position: sticky;
   top: var(--header-height);
-  padding: 0 var(--horizontal-spacing);
+  padding: 0 var(--spacing);
   z-index: 10;
   margin-top: -1px;
 }
 
 .page-content-subheader.semi-bg {
-  padding: 0 var(--horizontal-spacing);
+  padding: 0 var(--spacing);
 }
 
 .page-content-subheader.semi-bg::before {
