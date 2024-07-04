@@ -159,7 +159,7 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  margin-left: calc(-1 * var(--horizontal-spacing));
+  margin-left: calc(-1 * var(--spacing));
 }
 
 /* Page Header */
@@ -207,8 +207,8 @@ body {
 }
 
 .page-inner-content {
-  padding: var(--vertical-spacing) var(--horizontal-spacing);
-  gap: calc(var(--vertical-spacing) / 2);
+  padding: var(--spacing) var(--spacing);
+  gap: calc(var(--spacing) / 2);
 }
 
 .page-content-header {
