@@ -39,6 +39,7 @@ export const alphabeticalViewStyle: SxProps = {
       zIndex: 1000,
       padding: "1rem",
       margin: "calc(var(--spacing) * -1)",
+      marginBottom: "0",
       bgcolor: "background.body",
     },
 
@@ -58,10 +59,6 @@ export const alphabeticalViewStyle: SxProps = {
         fontWeight: 600,
         padding: "0.5rem .5rem",
         color: "primary.200",
-      },
-
-      "&:first-of-type": {
-        marginTop: "1rem",
       },
     },
   },
