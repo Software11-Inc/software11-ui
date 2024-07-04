@@ -26,6 +26,8 @@ export * from "./deck-file-list";
 export * from "./deck-text-button";
 export * from "./deck-select-tags";
 
+export * from "./deck-lottie-loading";
+
 export * from "./deck-select-project";
 
 export * from "./deck-icons";
