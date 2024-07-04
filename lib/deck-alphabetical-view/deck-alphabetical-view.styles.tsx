@@ -18,6 +18,8 @@ export const alphabeticalViewNavButtonLetterClass = "alphabetical-view--nav-butt
 
 export const alphabeticalViewSearchClass = "alphabetical-view--search";
 
+export const alphabeticalViewLoadingClass = "alphabetical-view--loading";
+
 export const alphabeticalViewStyle: SxProps = {
   display: "flex",
   flexDirection: "column",
@@ -41,6 +43,13 @@ export const alphabeticalViewStyle: SxProps = {
       margin: "calc(var(--spacing) * -1)",
       marginBottom: "0",
       bgcolor: "background.body",
+    },
+
+    [`& .${alphabeticalViewLoadingClass}`]: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flex: 1,
     },
 
     [`& .${alphabeticalViewSectionClass}`]: {

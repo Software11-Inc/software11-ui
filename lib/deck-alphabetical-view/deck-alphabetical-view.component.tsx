@@ -5,6 +5,7 @@ import { takeUntil } from "rxjs/internal/operators/takeUntil";
 import { DeckSearchBar } from "../deck-search-bar";
 import {
   alphabeticalViewContentClass,
+  alphabeticalViewLoadingClass,
   alphabeticalViewNavButtonClass,
   alphabeticalViewNavButtonLetterClass,
   alphabeticalViewNavClass,
@@ -20,6 +21,7 @@ import {
   IAlphabeticalViewState,
   IDeckAlphabeticalController,
 } from "./deck-alphabetical-view.types";
+import { DeckLottieLoading } from "../deck-lottie-loading";
 
 export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;
@@ -102,7 +104,7 @@ export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps
   };
 
   render(): React.ReactNode {
-    const { items, itemTemplate, hasSearch, onSearch } = this.props;
+    const { items, itemTemplate, hasSearch, onSearch, loaded } = this.props;
     const { letters, activeLetter } = this.state;
 
     const entries = Object.entries(items);
@@ -118,17 +120,24 @@ export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps
               <DeckSearchBar onSearch={onSearch} />
             </Box>
           )}
-
-          {entries.map(([letter, group]) => {
-            return (
-              <React.Fragment key={letter}>
-                <Box className={alphabeticalViewSectionClass} data-id={letter}>
-                  <Box className={alphabeticalViewSectionTitleClass}>{letters[letter as keyof typeof letters]}</Box>
-                  <Box className={alphabeticalViewSectionItemClass}>{group.map((item: any) => itemTemplate(item))}</Box>
-                </Box>
-              </React.Fragment>
-            );
-          })}
+          {!loaded && (
+            <Box className={alphabeticalViewLoadingClass}>
+              <DeckLottieLoading />
+            </Box>
+          )}
+          {loaded &&
+            entries.map(([letter, group]) => {
+              return (
+                <React.Fragment key={letter}>
+                  <Box className={alphabeticalViewSectionClass} data-id={letter}>
+                    <Box className={alphabeticalViewSectionTitleClass}>{letters[letter as keyof typeof letters]}</Box>
+                    <Box className={alphabeticalViewSectionItemClass}>
+                      {group.map((item: any) => itemTemplate(item))}
+                    </Box>
+                  </Box>
+                </React.Fragment>
+              );
+            })}
         </Box>
         <Box className={alphabeticalViewNavClass}>
           <Box className={alphabeticalViewNavInnerClass}>

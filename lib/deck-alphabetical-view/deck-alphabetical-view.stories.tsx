@@ -35,6 +35,7 @@ export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
             }}
           />
           <div className="page-content">
+            <div className="page-section sticky"></div>
             <div className="page-section active">
               <DeckAlphabeticalView {...args} />
             </div>
@@ -51,6 +52,8 @@ Default.parameters = {
 
 Default.args = {
   hasSearch: true,
+  loaded: true,
+  loading: false,
   controller: new DeckAlphabeticalController(),
   type: "page",
   items: {

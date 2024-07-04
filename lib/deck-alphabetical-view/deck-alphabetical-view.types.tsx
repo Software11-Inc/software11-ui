@@ -48,6 +48,8 @@ export interface IDeckAlphabeticalController {
 export type LayoutPlacement = "page" | "drawer";
 
 export interface IAlphabeticalViewProps {
+  loaded: boolean;
+  loading: boolean;
   controller: IDeckAlphabeticalController;
   items: AlphabeticalGrouped;
   itemTemplate: (item: any) => React.ReactNode;
