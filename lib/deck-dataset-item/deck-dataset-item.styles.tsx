@@ -21,6 +21,8 @@ export const iconBoxStyle = (changed: boolean): SxProps => ({
   px: 0.5,
   display: "flex",
   flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
   filter: `grayscale(${changed ? 0 : 1})`,
   width: "1.5rem",
   transition: "all 1s ease-in-out",
