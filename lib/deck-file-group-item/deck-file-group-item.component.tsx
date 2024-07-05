@@ -12,7 +12,11 @@ import { IDeckFileGroupItemProps } from "./deck-file-group-item.types";
 
 const SIZE = 16;
 
-export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({ file, itemTemplate }) => {
+export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
+  file,
+  itemTemplate,
+  defaultExpanded = false,
+}) => {
   const hasTemplate = !!itemTemplate;
   const getIcon = (type?: string) => {
     if (!type) {
@@ -59,7 +63,7 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({ file, ite
           bgcolor: "background.body",
         }}
       >
-        <Accordion>
+        <Accordion defaultExpanded={defaultExpanded}>
           <AccordionSummary>
             <Box sx={fileHeaderStyle}>
               <Box sx={fileIconStyle}>{getIcon(file.header?.type)}</Box>
