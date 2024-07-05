@@ -17,6 +17,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   loaded: true,
+  loading: false,
   item: {
     id: "1",
     name: "Dataset Name",

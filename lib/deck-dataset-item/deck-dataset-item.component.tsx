@@ -8,6 +8,7 @@ import { DatasetType } from "../models/dataset.model";
 import * as fromUtils from "../utils";
 import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
+import SyncRounded from "@mui/icons-material/SyncRounded";
 
 export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
   switch (type) {
@@ -21,7 +22,8 @@ export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
 
 export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
   item,
-  loaded,
+  loaded = false,
+  loading = false,
   actionIcon,
   onClick,
   onMouseEnter,
@@ -30,7 +32,16 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
     <React.Fragment>
       <Box sx={mainBoxStyle} key={item.id}>
         <Box sx={iconBoxStyle(loaded)}>
-          <DatasetIcon type={item.type} />
+          {!loading && <DatasetIcon type={item.type} />}
+          {loading && (
+            <SyncRounded
+              color="success"
+              sx={{
+                fontSize: "18px",
+                animation: "spin 2s linear infinite",
+              }}
+            />
+          )}
         </Box>
         <DeckLabel
           title={{
