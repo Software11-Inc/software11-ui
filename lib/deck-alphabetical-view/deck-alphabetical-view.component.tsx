@@ -23,12 +23,12 @@ import {
 } from "./deck-alphabetical-view.types";
 import { DeckLottieLoading } from "../deck-lottie-loading";
 
-export class DeckAlphabeticalView extends React.Component<IAlphabeticalViewProps, IAlphabeticalViewState> {
+export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewProps<T>, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;
   private _observer!: IntersectionObserver;
   private readonly _destroy$ = new Subject<void>();
 
-  constructor(props: IAlphabeticalViewProps) {
+  constructor(props: IAlphabeticalViewProps<T>) {
     super(props);
     if (!props.controller) {
       throw new Error("Controller is required");

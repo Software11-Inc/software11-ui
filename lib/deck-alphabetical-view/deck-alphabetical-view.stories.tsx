@@ -14,7 +14,12 @@ export default {
   },
 } as Meta<typeof DeckAlphabeticalView>;
 
-export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
+type ExampleItem = {
+  id: string;
+  name: string;
+};
+
+export const Default: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args) => (
   <React.Fragment>
     <div className="app">
       <main className="app-content">
@@ -37,7 +42,7 @@ export const Default: StoryFn<typeof DeckAlphabeticalView> = (args) => (
           <div className="page-content">
             <div className="page-section sticky"></div>
             <div className="page-section active">
-              <DeckAlphabeticalView {...args} />
+              <DeckAlphabeticalView<ExampleItem> {...args} />
             </div>
           </div>
         </div>
