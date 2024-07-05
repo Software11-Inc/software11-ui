@@ -11,6 +11,7 @@ export * from "./figure.model";
 export * from "./library-image.model";
 export * from "./library-slide.model";
 export * from "./log.model";
+export * from "./plugin.model";
 export * from "./project.model";
 export * from "./shape.model";
 export * from "./sheet.model";
