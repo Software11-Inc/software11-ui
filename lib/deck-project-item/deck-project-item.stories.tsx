@@ -6,7 +6,7 @@ import { DeckFileSheetItem } from "../deck-file-sheet-item";
 import { DeckProjectItem } from "./deck-project-item.component";
 
 export default {
-  title: "DeckProjectItem",
+  title: "Pages/Library/Data/Project",
   component: DeckProjectItem,
 } as Meta<typeof DeckProjectItem>;
 
