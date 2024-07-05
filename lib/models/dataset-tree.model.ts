@@ -1,4 +1,3 @@
-import { AlphabetKey } from "../deck-alphabetical-view";
 import { Dataset } from "./dataset.model";
 import { IDate } from "./date.model";
 import { IUser } from "./user.model";
@@ -29,13 +28,12 @@ export interface IKeyData {
   description: string;
 }
 
-type SheetName = string;
-export type SheetGroup = Record<SheetName, Dataset[]>;
+export interface IFile {
+  header: IKeyData;
+  data: IFileSheet[];
+}
 
-type FileName = string;
-export type FileGroup = Record<FileName, { key: IKeyData; value: SheetGroup }>;
-
-type ProjectName = string;
-export type ProjectGroup = Record<ProjectName, { key: IKeyData; value: FileGroup }>;
-
-export type DatasetTree = Partial<Record<AlphabetKey, ProjectGroup>>;
+export interface IFileSheet {
+  header: IKeyData;
+  data: Dataset[];
+}

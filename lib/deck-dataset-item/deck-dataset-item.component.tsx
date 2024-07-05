@@ -28,7 +28,7 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <Box sx={mainBoxStyle}>
+      <Box sx={mainBoxStyle} key={item.id}>
         <Box sx={iconBoxStyle(loaded)}>
           <DatasetIcon type={item.type} />
         </Box>

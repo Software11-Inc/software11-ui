@@ -3,7 +3,7 @@ import { DeckDatasetItem } from "./deck-dataset-item.component";
 import { Dataset } from "@models";
 
 export default {
-  title: "Pages/Library/Data/Dataset List Item",
+  title: "Pages/Library/Data/Dataset",
   component: DeckDatasetItem,
   argTypes: {
     onClick: { action: "clicked" },
