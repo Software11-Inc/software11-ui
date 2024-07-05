@@ -33,4 +33,6 @@ export * from "./deck-select-project";
 
 export * from "./deck-icons";
 
+export * from "./deck-dataset-item";
+
 export * from "@models";
