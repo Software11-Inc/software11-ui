@@ -38,5 +38,6 @@ export * from "./deck-file-group-item";
 export * from "./deck-file-sheet-item";
 export * from "./deck-project-item";
 export * from "./deck-slide-item";
+export * from "./deck-plugin-item";
 
 export * from "@models";
