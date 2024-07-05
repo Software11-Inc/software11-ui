@@ -1,7 +1,6 @@
 import Box from "@mui/joy/Box";
-import { IDeckPluginItemProps } from "./deck-plugin-item.types";
+import Button from "@mui/joy/Button";
 import React from "react";
-import { DeckLabel } from "../deck-label";
 import {
   descriptionStyle,
   nameStyle,
@@ -12,7 +11,7 @@ import {
   pluginItemTagStyles,
   pluginItemTagTextStyles,
 } from "./deck-plugin-item.styles";
-import Button from "@mui/joy/Button";
+import { IDeckPluginItemProps } from "./deck-plugin-item.types";
 
 export const DeckPluginItem: React.FC<IDeckPluginItemProps> = ({ plugin, active, onToggle, onOpen }) => {
   return (
