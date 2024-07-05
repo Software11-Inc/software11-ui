@@ -52,7 +52,7 @@ export interface IAlphabeticalViewProps<T> {
   loading: boolean;
   controller: IDeckAlphabeticalController;
   items: AlphabeticalGrouped<T>;
-  itemTemplate: (item: T[]) => React.ReactNode;
+  itemTemplate: (item: T) => React.ReactNode;
   emptyTemplate?: React.ReactNode;
   type: LayoutPlacement;
   hasSearch?: boolean;
