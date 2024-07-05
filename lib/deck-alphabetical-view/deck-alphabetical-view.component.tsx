@@ -2,6 +2,7 @@ import Box from "@mui/joy/Box";
 import React from "react";
 import { Subject } from "rxjs/internal/Subject";
 import { takeUntil } from "rxjs/internal/operators/takeUntil";
+import { DeckLottieLoading } from "../deck-lottie-loading";
 import { DeckSearchBar } from "../deck-search-bar";
 import {
   alphabeticalViewContentClass,
@@ -21,7 +22,6 @@ import {
   IAlphabeticalViewState,
   IDeckAlphabeticalController,
 } from "./deck-alphabetical-view.types";
-import { DeckLottieLoading } from "../deck-lottie-loading";
 
 export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewProps<T>, IAlphabeticalViewState> {
   private readonly _controller: IDeckAlphabeticalController;

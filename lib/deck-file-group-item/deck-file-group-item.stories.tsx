@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { DeckFileGroupItem } from "./deck-file-group-item.component";
 import { Dataset, IFileSheet } from "@models";
+import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetItem } from "../deck-dataset-item";
 import { DeckFileSheetItem } from "../deck-file-sheet-item/deck-file-sheet-item.component";
+import { DeckFileGroupItem } from "./deck-file-group-item.component";
 
 export default {
   title: "Pages/Library/Data/File",

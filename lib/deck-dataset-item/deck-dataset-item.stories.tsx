@@ -1,6 +1,6 @@
+import { Dataset } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetItem } from "./deck-dataset-item.component";
-import { Dataset } from "@models";
 
 export default {
   title: "Pages/Library/Data/Dataset",

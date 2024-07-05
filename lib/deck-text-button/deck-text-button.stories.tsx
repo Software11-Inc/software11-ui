@@ -1,5 +1,5 @@
-import { DeckTextButton } from "./deck-text-button.component";
 import { Meta, StoryFn } from "@storybook/react";
+import { DeckTextButton } from "./deck-text-button.component";
 
 export default {
   title: "UI/Buttons/Text Button",

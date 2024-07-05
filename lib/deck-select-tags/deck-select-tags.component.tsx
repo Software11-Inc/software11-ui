@@ -8,8 +8,8 @@ import FormHelperText from "@mui/joy/FormHelperText";
 import FormLabel from "@mui/joy/FormLabel";
 import Input from "@mui/joy/Input";
 import React from "react";
-import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
 import { addOutlinedSx, boxSx, buttonSx, formHelperTextSx, formLabelSx } from "./deck-select-tags.styles";
+import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
 
 export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckSelectTagsState> {
   constructor(props: IDeckSelectTagsProps, context: IDeckSelectTagsState) {

@@ -1,7 +1,7 @@
-import React from "react";
-import { IDeckProjectItemProps } from "./deck-project-item.types";
-import { DeckLabel } from "../deck-label";
 import Box from "@mui/joy/Box";
+import React from "react";
+import { DeckLabel } from "../deck-label";
+import { IDeckProjectItemProps } from "./deck-project-item.types";
 
 export const DeckProjectItem: React.FC<IDeckProjectItemProps> = ({ project, itemTemplate }) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import { IDeckFileSheetItemProps } from "./deck-file-sheet-item.types";
 import { DeckLabel } from "../deck-label";
+import { IDeckFileSheetItemProps } from "./deck-file-sheet-item.types";
 
 export const DeckFileSheetItem: React.FC<IDeckFileSheetItemProps> = ({ sheet, itemTemplate }) => {
   return (

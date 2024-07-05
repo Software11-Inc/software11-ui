@@ -1,9 +1,9 @@
-import React from "react";
-import { IDeckFooterProps } from "./deck-footer.types";
 import Box from "@mui/joy/Box";
-import { footerActionStyle, innerBoxSxProps, mainBoxSxProps } from "./deck-footer.styles";
 import Button from "@mui/joy/Button";
 import IconButton from "@mui/joy/IconButton";
+import React from "react";
+import { footerActionStyle, innerBoxSxProps, mainBoxSxProps } from "./deck-footer.styles";
+import { IDeckFooterProps } from "./deck-footer.types";
 
 export const DeckFooter: React.FC<IDeckFooterProps> = ({ hidden, className, actions, back, fit = false, next }) => {
   return (

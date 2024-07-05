@@ -1,12 +1,12 @@
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { Observable } from "rxjs/internal/Observable";
 import { combineLatest } from "rxjs/internal/observable/combineLatest";
+import { fromEvent } from "rxjs/internal/observable/fromEvent";
 import { debounceTime } from "rxjs/internal/operators/debounceTime";
 import { map } from "rxjs/internal/operators/map";
+import { startWith } from "rxjs/internal/operators/startWith";
 import { alphabeticalViewNavClass } from "./deck-alphabetical-view.styles";
 import { Alphabet, AlphabetKey, AlphabetMap, IDeckAlphabeticalController } from "./deck-alphabetical-view.types";
-import { startWith } from "rxjs/internal/operators/startWith";
-import { fromEvent } from "rxjs/internal/observable/fromEvent";
 
 export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   public alphabet!: AlphabetMap;

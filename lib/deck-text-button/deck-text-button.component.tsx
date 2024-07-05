@@ -1,8 +1,8 @@
-import Button from "@mui/joy/Button";
-import { IDeckTextButtonProps } from "./deck-text-button.types";
-import { iconButtonSxProps } from "./deck-text-button.styles";
 import Box from "@mui/joy/Box";
+import Button from "@mui/joy/Button";
 import React from "react";
+import { iconButtonSxProps } from "./deck-text-button.styles";
+import { IDeckTextButtonProps } from "./deck-text-button.types";
 
 export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
   icon,

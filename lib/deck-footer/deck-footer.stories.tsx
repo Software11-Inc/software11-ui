@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { DeckFooter } from "./deck-footer.component";
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 import { DeckTextButton } from "../deck-text-button";
+import { DeckFooter } from "./deck-footer.component";
 
 export default {
   title: "Layout/Footer",

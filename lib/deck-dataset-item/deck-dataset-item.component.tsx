@@ -1,13 +1,13 @@
-import React from "react";
-import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
-import { DatasetType } from "../models/dataset.model";
-import { KeyValueIcon, TableIcon } from "../deck-icons";
-import Box from "@mui/joy/Box";
-import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import ChevronRight from "@mui/icons-material/ChevronRight";
-import { DeckLabel } from "../deck-label";
-import * as fromUtils from "../utils";
+import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
+import React from "react";
+import { KeyValueIcon, TableIcon } from "../deck-icons";
+import { DeckLabel } from "../deck-label";
+import { DatasetType } from "../models/dataset.model";
+import * as fromUtils from "../utils";
+import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
+import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
 
 export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
   switch (type) {
