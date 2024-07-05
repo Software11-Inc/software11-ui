@@ -35,7 +35,7 @@ export type AlphabetKey = keyof typeof Alphabet;
 
 export type AlphabetMap = Record<AlphabetKey, string>;
 
-export type AlphabeticalGrouped = Partial<Record<AlphabetKey, any[]>>;
+export type AlphabeticalGrouped<T> = Partial<Record<AlphabetKey, T[]>>;
 
 export interface IDeckAlphabeticalController {
   internalTrigger: Subject<void>;
