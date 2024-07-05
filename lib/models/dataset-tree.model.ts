@@ -28,6 +28,11 @@ export interface IKeyData {
   description: string;
 }
 
+export interface IProjectGroup {
+  header: IKeyData;
+  data: IFile[];
+}
+
 export interface IFile {
   header: IKeyData;
   data: IFileSheet[];
