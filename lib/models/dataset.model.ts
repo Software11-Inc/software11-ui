@@ -6,7 +6,14 @@ import { IDefaultFigure, IExcelFigure } from "./figure.model";
  * Defines the possible types of datasets within the system,
  * including various Excel-specific formats and custom or default types.
  */
-export type DatasetType = "custom" | "default" | "excel-table" | "excel-data" | "excel-matrix" | "excel-default";
+export type DatasetType =
+  | "custom"
+  | "default"
+  | "excel-table"
+  | "excel-data"
+  | "excel-matrix"
+  | "excel-default"
+  | "google-sheet-table";
 
 /**
  * Specifies the possible positions for headers in datasets,
