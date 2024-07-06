@@ -46,6 +46,8 @@ export const statusStyle: SxProps = {
   height: "1.5rem",
   transition: "all 3s ease-in-out",
 
+  flexShrink: 0,
+
   "& .circle": {
     borderRadius: "50%",
     width: "0.5rem",
