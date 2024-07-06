@@ -71,6 +71,7 @@ const DataItem: React.FC<{
     case "excel-data":
     case "excel-matrix":
     case "excel-table":
+    case "google-sheet-table":
       return <DeckDatasetDataExcelItem item={item as ITableFigure} {...props} />;
   }
 };
