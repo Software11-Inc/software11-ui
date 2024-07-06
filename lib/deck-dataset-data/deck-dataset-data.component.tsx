@@ -29,7 +29,8 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
       <Box sx={dataColumn(compact)}>
         {entries.map(([groupName, items]) => {
           switch (type) {
-            case "excel-table": {
+            case "excel-table":
+            case "google-sheet-table": {
               const figureIDs = items.map((item: ITableFigure) => item?.id);
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
               const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
