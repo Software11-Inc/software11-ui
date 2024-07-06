@@ -27,6 +27,7 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
   actionIcon,
   onClick,
   onMouseEnter,
+  hasAction = true,
 }) => {
   return (
     <React.Fragment>
@@ -52,15 +53,17 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
           }}
         />
         <div className="flex-spacer"></div>
-        <IconButton
-          size="sm"
-          variant="plain"
-          sx={{ display: "flex", p: 0 }}
-          onClick={onClick}
-          onMouseEnter={onMouseEnter}
-        >
-          {actionIcon || <ChevronRight />}
-        </IconButton>
+        {hasAction && (
+          <IconButton
+            size="sm"
+            variant="plain"
+            sx={{ display: "flex", p: 0 }}
+            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+          >
+            {actionIcon || <ChevronRight />}
+          </IconButton>
+        )}
       </Box>
     </React.Fragment>
   );

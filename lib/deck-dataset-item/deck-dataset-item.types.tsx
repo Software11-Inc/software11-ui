@@ -5,6 +5,7 @@ export interface IDeckDatasetItemProps {
   loaded?: boolean;
   loading?: boolean;
   actionIcon?: React.ReactElement;
+  hasAction?: boolean;
   onClick?: () => void;
   onMouseEnter?: () => void;
 }
