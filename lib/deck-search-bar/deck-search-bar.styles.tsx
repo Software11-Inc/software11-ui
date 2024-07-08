@@ -23,4 +23,5 @@ export const searchStyle = (): SxProps => ({
   flex: 1,
   alignItems: "center",
   boxShadow: "unset",
+  minWidth: "4rem",
 });
