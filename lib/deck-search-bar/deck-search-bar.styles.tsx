@@ -10,6 +10,7 @@ export const containerStype = (compact = false): SxProps => ({
   }),
   height: "2rem",
   zIndex: 1,
+  minWidth: "4rem",
 
   [`&:has(&.${inputClasses.focused})`]: {
     bgcolor: "red",
@@ -23,5 +24,4 @@ export const searchStyle = (): SxProps => ({
   flex: 1,
   alignItems: "center",
   boxShadow: "unset",
-  minWidth: "4rem",
 });
