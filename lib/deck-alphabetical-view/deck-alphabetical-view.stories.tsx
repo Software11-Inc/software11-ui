@@ -5,6 +5,7 @@ import { DeckHeader } from "../deck-header";
 import { DeckLabel } from "../deck-label";
 import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
 import { DeckAlphabeticalController } from "./deck-alphabetical-view.controller";
+import Skeleton from "@mui/joy/Skeleton";
 
 export default {
   title: "UI/Alphabetical View",
@@ -40,7 +41,16 @@ export const Default: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args)
             }}
           />
           <div className="page-content">
-            <div className="page-section sticky"></div>
+            <Box
+              className="page-section sticky deck-sticky"
+              sx={{
+                display: "flex",
+                pb: "1rem !important",
+                height: "2.5rem",
+              }}
+            >
+              <Skeleton height={"1.5rem"} sx={{ position: "relative" }} />
+            </Box>
             <div className="page-section active">
               <DeckAlphabeticalView<ExampleItem> {...args} />
             </div>
@@ -56,7 +66,7 @@ Default.parameters = {
 };
 
 Default.args = {
-  hasSearch: true,
+  hasSearch: false,
   loaded: true,
   loading: false,
   controller: new DeckAlphabeticalController(),

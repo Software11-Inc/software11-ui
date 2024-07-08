@@ -1,3 +1,4 @@
+import { selectClasses } from "@mui/joy/Select";
 import { SxProps } from "@mui/joy/styles/types";
 
 export const selectStyle: SxProps = {
@@ -11,6 +12,18 @@ export const selectStyle: SxProps = {
   ["&:hover"]: {
     bgcolor: "background.level1",
     boxShadow: "var(--focus-shadow)",
+  },
+
+  [`.${selectClasses.listbox}`]: {
+    backgroundColor: "var(--joy-palette-background-surface)",
+    padding: "unset",
+    boxShadow: "var(--shadow)",
+    borderRadius: "var(--border-radius)",
+    borderColor: "var(--joy-palette-background-level1)",
+
+    "&:hover": {
+      boxShadow: "var(--focus-shadow)",
+    },
   },
 };
 

@@ -32,7 +32,11 @@ export const DeckActivePage: React.FC<DeckActivePageProps> = ({ activePage, page
         variant="outlined"
         color="primary"
         sx={selectStyle}
-        slotProps={{ listbox: { placement: "bottom-start" } }}
+        slotProps={{
+          listbox: {
+            placement: "bottom-start",
+          },
+        }}
         renderValue={getRenderValue}
         onChange={onSelectChange}
       >

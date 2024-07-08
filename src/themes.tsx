@@ -106,20 +106,6 @@ export const lightTheme = extendTheme({
         },
       },
     },
-    JoySelect: {
-      styleOverrides: {
-        listbox: {
-          backgroundColor: "var(--joy-palette-background-surface)",
-          padding: "unset",
-          boxShadow: "var(--shadow)",
-          borderRadius: "var(--border-radius)",
-          borderColor: "var(--joy-palette-background-level1)",
-
-          "&:hover": {
-            boxShadow: "var(--focus-shadow)",
-          },
-        },
-      },
-    },
+    JoySelect: {},
   },
 });

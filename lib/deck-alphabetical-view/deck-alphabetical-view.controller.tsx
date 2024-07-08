@@ -88,6 +88,21 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   };
 
   /**
+   * Calculates the total height of all elements with the "deck-sticky" class.
+   * This is used to determine the height occupied by sticky containers, which can
+   * affect the layout or scrolling behavior of the page.
+   *
+   * @returns {number} The total height of all "deck-sticky" elements.
+   */
+  private _getStickyContainersHeight = (): number => {
+    // Select all elements with the "deck-sticky" class
+    const stickyContainers = document.querySelectorAll(".deck-sticky");
+
+    // Accumulate the total height of these elements
+    return Array.from(stickyContainers).reduce((totalHeight, container) => totalHeight + container.clientHeight, 0);
+  };
+
+  /**
    * This method is used to get the height of the footer.
    * It selects the footer element from the document and returns its client height.
    * If the footer element is not found, it returns 0.
@@ -113,7 +128,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
     ]).pipe(
       debounceTime(1),
       map(() => {
-        const headerHeight = this._getHeaderHeight();
+        const headerHeight = this._getHeaderHeight() + this._getStickyContainersHeight();
         const footerHeight = this._getFooterHeight();
 
         const nav = document.querySelector(`.${alphabeticalViewNavClass}`);
