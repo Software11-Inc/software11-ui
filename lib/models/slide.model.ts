@@ -10,8 +10,19 @@ export interface ISlide {
   index: number;
 }
 
+/**
+ * Interface representing a selected shape within a slide.
+ * It captures the unique identifiers for both the shape and its parent slide,
+ * along with any associated tags for categorization or metadata purposes.
+ */
 export interface ISelectedShape {
-  shapeId: string;
+  /** Unique identifier for the shape within a slide */
+  shapeIndex: string;
+
+  /** Identifier for the slide containing the shape */
+  slideID: string;
+
+  /** Array of tags associated with the shape for categorization or metadata */
   tags: string[];
 }
 
