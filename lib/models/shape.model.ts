@@ -72,6 +72,9 @@ type FigureID = string;
 export interface IShapeData {
   /** The value property represents the specific data or identifier associated with a shape. */
   value: string;
+
+  /** The index of the shape in the array of shapes on a specific slide */
+  index: number;
 }
 
 /**
