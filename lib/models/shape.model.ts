@@ -7,40 +7,98 @@ export interface IShape {
 }
 
 /**
- * The `IDynamicShape` interface represents a shape in a slide deck.
- * Each shape has a unique identifier, an index, and an instance ID.
- * The shape is associated with a specific slide, represented by `slideID`.
- * Each shape is also associated with a figure, represented by `figureName` and `latestFigureValue`.
- * The `synced` property indicates whether the shape is synced with the source dataset.
- * The `sourceDataset` property contains details about the source dataset.
+ * Defines the source of a shape within a dataset.
+ * This interface is used to specify the origin of a shape by identifying
+ * both the dataset and the specific figure within that dataset.
+ */
+export interface IShapeSource {
+  /** Unique identifier for the dataset from which the shape originates */
+  datasetID: string;
+
+  /** Unique identifier for the specific figure within the dataset */
+  datasetFigureID: string;
+}
+
+/**
+ * Extends the IShape interface to represent dynamic shapes within a slide deck.
+ * Dynamic shapes are linked to data sources and can reflect updates from these sources.
  */
 export interface IDynamicShape extends IShape {
-  /** Unique identifier for the instance of the shape */
+  /**
+   * Unique identifier for the instance of the shape.
+   * This ID differentiates this instance from other instances of the same shape.
+   */
   instanceID: string;
 
-  /** Identifier of the container associated with the shape */
+  /**
+   * Identifier of the slide that contains this shape.
+   * This links the shape to its specific location within the deck.
+   */
   slideID: string;
 
-  /** Name of the figure associated with the shape */
+  /**
+   * Name of the figure associated with the shape.
+   * This name corresponds to a specific data figure within the source dataset.
+   */
   figureName: string;
 
-  /** Latest value of the figure */
+  /**
+   * The latest value of the figure.
+   * Represents the most current data point for the shape, reflecting any updates from the source.
+   */
   latestFigureValue: string;
 
-  /** Flag indicating whether the shape is synced with the source dataset */
+  /**
+   * Flag indicating whether the shape is synced with the source dataset.
+   * True if the shape's data is current with its source, false otherwise.
+   */
   synced: boolean;
 
-  /** Source dataset details */
-  sourceDataset: {
-    /** Identifier of the source dataset */
-    datasetID: string;
-
-    /** Identifier of the figure in the source dataset */
-    datasetFigureID: string;
-  };
+  /**
+   * Details about the source dataset from which the shape derives its data.
+   * This includes identifiers and metadata necessary to fetch and update the shape's data.
+   */
+  sourceDataset: IShapeSource;
 }
+
 /** A type alias for a string that represents a figure ID */
 type FigureID = string;
+
+/**
+ * Represents the data associated with a shape in the model.
+ * This interface is used to define the structure of shape data,
+ * which currently includes a value property.
+ */
+export interface IShapeData {
+  /** The value property represents the specific data or identifier associated with a shape. */
+  value: string;
+}
+
+/**
+ * Represents additional information required for dynamic shape creation.
+ * This includes identifiers for the project, file, and container where the shape will be added.
+ */
+export interface IDynamicShapeCreationAddition {
+  /** Unique identifier for the project */
+  projectID: string;
+  /** Unique identifier for the file */
+  fileID: string;
+  /** Unique identifier for the container */
+  containerID: string;
+}
+
+/**
+ * Defines the structure for creating dynamic shapes within a project.
+ * This includes the type of shape, its data, and the source dataset.
+ */
+export interface IDynamicShapeCreation {
+  /** Type of the shape to be created (e.g., "circle", "rectangle") */
+  shapeType: string;
+  /** Data specific to the shape being created */
+  shapeData: IShapeData;
+  /** Source dataset from which the shape is derived */
+  sourceDataset: IShapeSource;
+}
 
 /**
  * The `FigureShapeMap` type represents a map of figure names to an array of shapes.
