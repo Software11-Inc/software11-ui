@@ -208,7 +208,7 @@ body {
 
 .page-inner-content {
   padding: var(--spacing) var(--spacing);
-  gap: calc(var(--spacing) / 2);
+  gap: var(--spacing);
 }
 
 .page-content-header {
