@@ -10,6 +10,11 @@ export interface ISlide {
   index: number;
 }
 
+export interface ISelectedShape {
+  shapeId: string;
+  tags: string[];
+}
+
 /**
  * Encapsulates information about the current state of a presentation, including the active slide and all slides.
  *
@@ -20,4 +25,5 @@ export interface ISlide {
 export interface ISlideInfo {
   activeSlide: ISlide;
   slides: ISlide[];
+  selectedShapes: ISelectedShape[];
 }
