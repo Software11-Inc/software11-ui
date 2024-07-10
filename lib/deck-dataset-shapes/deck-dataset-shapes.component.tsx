@@ -86,8 +86,8 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
         >
           {!loaded && (
             <Box sx={emptyHeaderStyle}>
-              {loading && <SyncRounded color="primary" sx={{ mx: 0.5, animation: "spin 2s linear infinite" }} />}
-              {!loading && <MobiledataOffRounded color="primary" sx={{ mx: 0.5 }} />}
+              {loading && <SyncRounded sx={{ mx: 0.5, color: "primary.500", animation: "spin 2s linear infinite" }} />}
+              {!loading && <MobiledataOffRounded sx={{ mx: 0.5, color: "primary.500" }} />}
               <Box>
                 <Typography fontSize={12} lineHeight={1.2} textTransform="uppercase" color="primary" fontWeight="bold">
                   {loading ? "Syncing..." : "Dataset not synced"}
