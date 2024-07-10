@@ -52,7 +52,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
   const classList = [className, highlighted ? highlightedClass : ``].join(" ").trim();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(!loaded);
 
   const shapeCount = Object.keys(shapes).reduce((acc, shapeID) => acc + shapes[shapeID].length, 0);
 
@@ -86,7 +86,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
         >
           {!loaded && (
             <Box sx={emptyHeaderStyle}>
-              <MobiledataOffRounded />
+              <MobiledataOffRounded sx={{ mx: 0.5 }} />
               <Box>
                 <Typography fontSize={12} lineHeight={1.2} textTransform="uppercase" color="primary" fontWeight="bold">
                   Dataset not synced
