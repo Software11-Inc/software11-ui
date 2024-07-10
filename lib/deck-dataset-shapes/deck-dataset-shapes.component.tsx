@@ -264,6 +264,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                 color="success"
                 sx={actionButtonStyle}
                 onClick={onSyncDataset}
+                disabled={loading}
               >
                 Sync
               </Button>
