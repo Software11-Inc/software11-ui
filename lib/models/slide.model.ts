@@ -24,6 +24,8 @@ export interface ISelectedShape {
   /** Identifier for the slide containing the shape */
   slideID: string;
 
+  value?: string;
+
   source?: IShapeSource;
 }
 
