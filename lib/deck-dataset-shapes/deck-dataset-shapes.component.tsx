@@ -86,10 +86,11 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
         >
           {!loaded && (
             <Box sx={emptyHeaderStyle}>
-              <MobiledataOffRounded sx={{ mx: 0.5 }} />
+              {loading && <SyncRounded color="primary" sx={{ mx: 0.5, animation: "spin 2s linear infinite" }} />}
+              {!loading && <MobiledataOffRounded color="primary" sx={{ mx: 0.5 }} />}
               <Box>
                 <Typography fontSize={12} lineHeight={1.2} textTransform="uppercase" color="primary" fontWeight="bold">
-                  Dataset not synced
+                  {loading ? "Syncing..." : "Dataset not synced"}
                 </Typography>
                 <Typography fontSize={8} lineHeight={1.3} fontWeight="normal">
                   It seems the dataset is not synchronized with the application, but the slide contains data from the
