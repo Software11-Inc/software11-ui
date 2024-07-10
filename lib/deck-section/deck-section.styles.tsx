@@ -18,19 +18,19 @@ export const sectionStyle: SxProps = {
       display: "none",
     },
 
-    [`& .${accordionClasses.root}`]: {
+    [`& > .${accordionClasses.root}`]: {
       p: 0,
 
-      [`& .${accordionSummaryClasses.root}`]: {
+      [`& > .${accordionSummaryClasses.root}`]: {
         p: 0,
         m: 0,
 
-        [`& .${accordionSummaryClasses.button}`]: {
+        [`& > .${accordionSummaryClasses.button}`]: {
           m: 0,
           p: 0,
           gap: 0,
 
-          [`& .${indicatorClassName}`]: {
+          [`& > .${indicatorClassName}`]: {
             display: "flex",
             mx: 1,
             fontSize: "18px",
@@ -54,14 +54,14 @@ export const sectionStyle: SxProps = {
           "&:hover": {
             bgcolor: "transparent",
 
-            [`& .${indicatorClassName}`]: {
+            [`& > .${indicatorClassName}`]: {
               color: "primary.500",
             },
           },
         },
       },
 
-      [`& .${accordionDetailsClasses.root}`]: {
+      [`& > .${accordionDetailsClasses.root}`]: {
         m: 0,
 
         [`& > .${accordionDetailsClasses.content}`]: {
