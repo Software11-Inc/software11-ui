@@ -1,3 +1,5 @@
+import { IShapeSource } from "./shape.model";
+
 /**
  * Represents a single slide within a presentation, providing a unique identifier and its position.
  *
@@ -22,8 +24,7 @@ export interface ISelectedShape {
   /** Identifier for the slide containing the shape */
   slideID: string;
 
-  /** Array of tags associated with the shape for categorization or metadata */
-  tags: string[];
+  source?: IShapeSource;
 }
 
 /**
