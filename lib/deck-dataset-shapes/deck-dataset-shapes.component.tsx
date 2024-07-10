@@ -151,13 +151,13 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
               <Box sx={contentHeaderStyle}>
                 <Box sx={horizontalBoxStyle}>
                   <Box sx={counterStyle}>
-                    <ViewInArRounded sx={{ fontSize: 14 }} color="primary" />
+                    <ViewInArRounded sx={{ fontSize: 14, color: "var(--joy-palette-primary-500)" }} />
                     <Typography fontSize={12} fontWeight="bold" color="primary">
                       {Object.keys(shapes).length}
                     </Typography>
                   </Box>
                   <Box sx={counterStyle}>
-                    <InterestsRounded sx={{ fontSize: 14 }} color="primary" />
+                    <InterestsRounded sx={{ fontSize: 14, color: "var(--joy-palette-primary-500)" }} />
                     <Typography fontSize={12} fontWeight="bold" color="primary">
                       {shapeCount}
                     </Typography>
