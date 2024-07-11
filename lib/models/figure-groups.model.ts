@@ -1,6 +1,6 @@
 import { Size } from "./common.model";
 import { DatasetType } from "./dataset.model";
-import { IDefaultFigure, ITableFigure } from "./figure.model";
+import { ITableFigure } from "./figure.model";
 import { FigureShapeMap, ShapeChangeMap } from "./shape.model";
 
 /**
