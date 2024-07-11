@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetData } from "./deck-dataset-data.component";
+import { ITableFigure } from "../models/figure.model";
 
 export default {
   title: "Powerpoint/Dataset Details/Data",
@@ -332,7 +333,7 @@ Default.args = {
   onAddShape: (figureID: string) => console.log("Add shape", figureID),
   onResetShapes: (figureID: string, shapeIDs: string[]) => console.log("Reset shapes", figureID, shapeIDs),
   onSyncShapes: (figureID: string, shapeIDs: string[]) => console.log("Sync shapes", figureID, shapeIDs),
-  onSettings: (figure: any) => console.log("Open settings", figure),
+  onSettings: (figure: ITableFigure) => console.log("Open settings", figure),
 };
 
 export const Matrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
@@ -653,5 +654,5 @@ Matrix.args = {
   onAddShape: (figureID: string) => console.log("Add shape", figureID),
   onResetShapes: (figureID: string, shapeIDs: string[]) => console.log("Reset shapes", figureID, shapeIDs),
   onSyncShapes: (figureID: string, shapeIDs: string[]) => console.log("Sync shapes", figureID, shapeIDs),
-  onSettings: (figure: any) => console.log("Open settings", figure),
+  onSettings: (figure: ITableFigure) => console.log("Open settings", figure),
 };
