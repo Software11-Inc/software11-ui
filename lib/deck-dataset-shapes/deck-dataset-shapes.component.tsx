@@ -178,10 +178,10 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
               <Box sx={contentStyle}>
                 {Object.keys(shapes).map((figureID) => {
                   const figureShapes = shapes[figureID];
-                  const shapeIDs = figureShapes.map((s) => s.shapeID);
-                  const name = figureShapes[0].figureName;
-                  const value = figureShapes[0].latestFigureValue;
-                  const count = figureShapes.length;
+                  const shapeIDs = figureShapes?.map((s) => s.shapeID);
+                  const name = figureShapes[0]?.figureName;
+                  const value = figureShapes[0]?.latestFigureValue;
+                  const count = figureShapes?.length;
                   const highlight =
                     highlighted && figureShapes.some((shape) => highlightedShapes?.includes(String(shape.shapeIndex)));
                   const apiChanged = apiChangedFigures.includes(figureID);
