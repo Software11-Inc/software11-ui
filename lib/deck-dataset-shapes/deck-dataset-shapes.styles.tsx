@@ -63,10 +63,11 @@ export const itemInnerStyle: SxProps = {
   },
 
   "&.deck-highlighted": {
+    bgcolor: "background.body",
     boxShadow: "var(--highlight-shadow)",
 
     "&:hover": {
-      boxShadow: "var(--highlight-shadow-hover)",
+      boxShadow: "var(--shadow)",
     },
   },
 };

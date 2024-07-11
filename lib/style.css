@@ -7,7 +7,7 @@
 
   --shadow: 0 0 4px var(--joy-palette-primary-100);
 
-  --highlight-shadow: 0 0 0 2px var(--joy-palette-background-level1), 0 0 0 4px var(--joy-palette-background-surface),
+  --highlight-shadow: 0 0 0 2px var(--joy-palette-background-level1), 0 0 0 4px var(--joy-palette-background-body),
     0 1px 2px 0 black;
   --highlight-shadow-hover: 0 0 0 2px var(--joy-palette-background-level1), 0 0 0 4px var(--joy-palette-background-body),
     0 1px 2px 0 black;
