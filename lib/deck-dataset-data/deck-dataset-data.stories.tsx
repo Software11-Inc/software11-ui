@@ -332,7 +332,7 @@ Default.args = {
   onAddShape: (figureID: string) => console.log("Add shape", figureID),
   onResetShapes: (figureID: string, shapeIDs: string[]) => console.log("Reset shapes", figureID, shapeIDs),
   onSyncShapes: (figureID: string, shapeIDs: string[]) => console.log("Sync shapes", figureID, shapeIDs),
-  onSettings: (figureID: string) => console.log("Open settings", figureID),
+  onSettings: (figure: any) => console.log("Open settings", figure),
 };
 
 export const Matrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
