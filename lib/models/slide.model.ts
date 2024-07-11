@@ -27,6 +27,8 @@ export interface ISelectedShape {
   value?: string;
 
   source?: IShapeSource;
+
+  shapeID?: string;
 }
 
 /**
