@@ -1,6 +1,6 @@
 import { Size } from "./common.model";
 import { DatasetType } from "./dataset.model";
-import { ITableFigure } from "./figure.model";
+import { IDefaultFigure, ITableFigure } from "./figure.model";
 import { FigureShapeMap, ShapeChangeMap } from "./shape.model";
 
 /**
@@ -43,5 +43,5 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   onAddShape?: (figureID: string) => void; // Optional handler for adding a shape
   onResetShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for resetting shapes
   onSyncShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for syncing shapes
-  onSettings?: (figureID: string) => void; // Optional handler for accessing settings
+  onSettings?: (figure: ITableFigure | IDefaultFigure) => void; // Optional handler for accessing settings
 }

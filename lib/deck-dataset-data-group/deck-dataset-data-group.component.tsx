@@ -105,7 +105,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   onAdd={createHandler(onAddShape, ID)}
                   onReset={createHandler(onResetShapes, ID, userShapeIDs)}
                   onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}
-                  onSettings={createHandler(onSettings, ID)}
+                  onSettings={createHandler(onSettings, item)}
                 />
               );
             })}
