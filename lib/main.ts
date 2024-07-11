@@ -42,4 +42,4 @@ export * from "./deck-plugin-item";
 
 export * from "@models";
 
-export * as deckUtil from "./utils";
+export * from "./utils";
