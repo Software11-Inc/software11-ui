@@ -19,7 +19,7 @@ export interface ISlide {
  */
 export interface ISelectedShape {
   /** Unique identifier for the shape within a slide */
-  shapeIndex: string;
+  shapeIndex: number;
 
   /** Identifier for the slide containing the shape */
   slideID: string;
