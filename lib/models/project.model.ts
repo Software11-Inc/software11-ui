@@ -1,3 +1,4 @@
+import { IDate } from "./date.model";
 import { IDefaultItem } from "./default-item.model";
 
 /** Defines the type of projects supported */
@@ -15,6 +16,7 @@ export interface IWorkspaceFileContainer {
   containerName: string; // Name of the container
   containerIndex: number; // Index of the container
   sheetID?: string; // Optional sheet ID
+  generationDate?: IDate; // Optional date when the container was generated
 }
 
 /** Interface for workspace file details */
@@ -25,7 +27,7 @@ export interface IWorkspaceFile {
   fileID?: string; // Optional file ID
   fileContainers?: IWorkspaceFileContainer[]; // Optional array of file containers
   generationUser?: string; // Optional user who generated the file
-  generationDate?: Date; // Optional date when the file was generated
+  generationDate?: IDate; // Optional date when the file was generated
   description?: string; // Optional description of the file
 }
 
