@@ -4,7 +4,13 @@ import { getBackgroundColor } from "../accordion.style";
 
 export const className = "deck-dataset-data-item";
 
-export const dataItemStyle = (level = 1, size: Size = "sm", compact = false, order = 0): SxProps => ({
+export const dataItemStyle = (
+  className: string,
+  level = 1,
+  size: Size = "sm",
+  compact = false,
+  order = 0
+): SxProps => ({
   [`&.${className}`]: {
     display: "flex",
     alignItems: "center",

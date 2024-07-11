@@ -8,6 +8,7 @@ export * from "./deck-dataset-data-group";
 export * from "./deck-dataset-data-item";
 export * from "./deck-dataset-data-subcategory";
 export * from "./deck-dataset-shapes";
+export * from "./deck-dataset-data-shape-item";
 
 export * from "./deck-footer";
 export * from "./deck-header";

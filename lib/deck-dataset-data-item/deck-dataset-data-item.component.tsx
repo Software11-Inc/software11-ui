@@ -41,7 +41,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
     .trim();
   return (
     <React.Fragment>
-      <Box sx={dataItemStyle(level, size, compact, order)} className={figureClassName}>
+      <Box sx={dataItemStyle(className, level, size, compact, order)} className={figureClassName}>
         {hasStatus && <DeckStatus status={status} />}
         <Box sx={columnStyle}>
           <DataItem item={figure} {...{ type, size, hasApiChanges, hasUserChanges }} />
@@ -56,7 +56,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   );
 };
 
-const DataItem: React.FC<{
+export const DataItem: React.FC<{
   item: IFigure;
   type: DatasetType;
   size: Size;
