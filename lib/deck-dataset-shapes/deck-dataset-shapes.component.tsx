@@ -60,10 +60,13 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
 
   const userChangedFigures = Object.keys(userChanges ?? {});
 
+  const hasUserChanges = userChangedFigures.length > 0;
+  const hasApiChanges = apiChangedFigures.length > 0;
+  const order = hasUserChanges ? -3 : hasApiChanges ? -2 : 0;
   return (
     <AccordionGroup
       className={classList}
-      sx={accordionGroupStyles(className, false, 1, "sm", true)}
+      sx={accordionGroupStyles(className, false, 1, "sm", true, order)}
       transition={accordionTransition}
     >
       <Accordion expanded={open} defaultExpanded={!loaded}>
@@ -112,7 +115,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
           )}
           {loaded && (
             <Box sx={headerStyle}>
-              <DeckStatus status={hasChanges ? 1 : 0} loading={loading} />
+              <DeckStatus status={hasUserChanges ? 2 : hasApiChanges ? 1 : 0} loading={loading} />
 
               <DeckLabel
                 size="sm"
