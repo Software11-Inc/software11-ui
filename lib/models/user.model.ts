@@ -4,6 +4,7 @@ import { IDate } from "./date.model";
  * Interface representing a basic user with optional properties for personal and authentication details.
  */
 export interface IUser {
+  userId?: string; // Optional unique identifier for the user
   email?: string; // Optional email of the user
   firstName?: string; // Optional first name of the user
   lastName?: string; // Optional last name of the user

@@ -18,6 +18,7 @@ export * from "./deck-header-user-dropdown";
 export * from "./deck-header-user-profile";
 export * from "./deck-section";
 
+export * from "./deck-author";
 export * from "./deck-alphabetical-view";
 export * from "./deck-file-list";
 export * from "./deck-icon-button";
