@@ -3,9 +3,9 @@ import React from "react";
 import { className, deckLabelStyle, textStyle } from "./deck-label.styles";
 import { DeckLabelProps } from "./deck-label.types";
 
-export const DeckLabel: React.FC<DeckLabelProps> = ({ title, description, color, size, order, mt }) => {
+export const DeckLabel: React.FC<DeckLabelProps> = ({ title, description, color, size, order, mt, gap }) => {
   return (
-    <Box className={className} sx={deckLabelStyle(color, size, order, mt)}>
+    <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap)}>
       {title?.text && (
         <Box className={`${className}__title`} sx={textStyle(title.limit, true)}>
           <span>{title.text}</span>

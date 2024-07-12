@@ -11,4 +11,5 @@ export interface DeckLabelProps {
   size?: "sm" | "md" | "lg";
   mt?: number;
   order?: number;
+  gap?: number;
 }
