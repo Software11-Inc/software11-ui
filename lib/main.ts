@@ -44,3 +44,4 @@ export * from "./deck-plugin-item";
 export * from "@models";
 
 export * from "./utils";
+export * from "./accordion.style";
