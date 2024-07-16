@@ -41,6 +41,7 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   shapes: FigureShapeMap; // Map of figure shapes
   apiChanges: ShapeChangeMap; // Map of changes from the API
   userChanges: ShapeChangeMap; // Map of changes made by the user
+  figureLoadingIDs?: string[]; // Optional list of figure IDs that are loading
 
   onAddShape?: (figureID: string) => void; // Optional handler for adding a shape
   onResetShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for resetting shapes

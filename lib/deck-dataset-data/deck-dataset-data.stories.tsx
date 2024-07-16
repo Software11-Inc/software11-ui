@@ -17,6 +17,9 @@ export default {
   onSettings: {
     action: "open-settings",
   },
+  loading: {
+    control: { type: "boolean" },
+  },
 } as Meta<typeof DeckDatasetData>;
 
 export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
@@ -24,6 +27,9 @@ export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetDa
 Default.storyName = "Excel Table";
 
 Default.args = {
+  disabled: false,
+  loading: false,
+  figureLoadingIDs: ["figure-1", "figure-2", "figure-3", "figure-6", "figure-8"],
   hasStatus: true,
   hasActions: true,
   compact: false,

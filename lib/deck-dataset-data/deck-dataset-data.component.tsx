@@ -12,12 +12,15 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   shapes = {},
   apiChanges = {},
   userChanges = {},
+  figureLoadingIDs = [],
   compact = false,
   type,
   hasActions = false,
   hasStatus = false,
   level = 0,
   size = "sm",
+  disabled = false,
+  loading = false,
   onAddShape,
   onResetShapes,
   onSettings,
@@ -35,6 +38,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
               const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
               const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+              const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
               return (
                 <DeckDatasetDataGroup
                   key={groupName}
@@ -53,6 +57,9 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   hasStatus={hasStatus}
                   level={level}
                   size={size}
+                  figureLoadingIDs={groupLoadingIDs}
+                  loading={loading}
+                  disabled={disabled}
                 />
               );
             }
@@ -64,6 +71,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
               const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
               const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+              const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
 
               return (
                 <DeckDatasetDataSubcategory
@@ -83,6 +91,9 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   onResetShapes={onResetShapes}
                   onSettings={onSettings}
                   onSyncShapes={onSyncShapes}
+                  figureLoadingIDs={groupLoadingIDs}
+                  loading={loading}
+                  disabled={disabled}
                 />
               );
             }

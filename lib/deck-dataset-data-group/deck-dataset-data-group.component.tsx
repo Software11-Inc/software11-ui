@@ -23,6 +23,9 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   shapes = {},
   apiChanges = {},
   userChanges = {},
+  disabled = false,
+  loading = false,
+  figureLoadingIDs = [],
   onAddShape,
   onResetShapes,
   onSyncShapes,
@@ -36,6 +39,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
+
+  const isGroupLoading = items.some((item) => figureLoadingIDs.includes(String(item.id))) || loading;
 
   const accordionSummarySlotProps = {
     button: {
@@ -57,13 +62,13 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
     <React.Fragment>
       <AccordionGroup
         className={groupClassName}
-        sx={accordionGroupStyles(groupClassName, compact, level, size, !compact, order)}
+        sx={accordionGroupStyles(groupClassName, compact, isGroupLoading ? level + 1 : level, size, !compact, order)}
         transition={accordionTransition}
       >
         <Accordion expanded={open}>
           <AccordionSummary slotProps={accordionSummarySlotProps}>
             <Box sx={headerStyle}>
-              {hasStatus && <DeckStatus status={status} />}
+              {hasStatus && <DeckStatus status={status} loading={isGroupLoading} />}
               <DeckLabel
                 title={{
                   text: groupName,
@@ -84,6 +89,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
               const apiShapeIDs = figureApiChanges.map((change) => change.shapeID);
               const userShapeIDs = figureUserChanges.map((change) => change.shapeID);
 
+              const isLoading = figureLoadingIDs.includes(ID) || loading;
+
               const createHandler =
                 (handler: any, ...args: any) =>
                 () => {
@@ -102,6 +109,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   type={type}
                   compact={true}
                   {...{ hasActions, hasStatus, level: level + 1, size }}
+                  loading={isLoading}
+                  disabled={disabled}
                   onAdd={createHandler(onAddShape, ID)}
                   onReset={createHandler(onResetShapes, ID, userShapeIDs)}
                   onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}

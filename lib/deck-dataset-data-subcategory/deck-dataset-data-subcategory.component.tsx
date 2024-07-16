@@ -20,11 +20,14 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   shapes = {},
   apiChanges = {},
   userChanges = {},
+  figureLoadingIDs = [],
   compact = false,
   level = 0,
   size = "sm",
   hasStatus = false,
   hasActions = false,
+  disabled = false,
+  loading = false,
   onAddShape,
   onResetShapes,
   onSettings,
@@ -86,6 +89,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                 const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
                 const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
                 const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+                const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
                 return (
                   <DeckDatasetDataGroup
                     key={subcategoryName}
@@ -100,6 +104,9 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     apiChanges={groupApiChanges}
                     userChanges={groupUserChanges}
                     shapes={groupShapes}
+                    loading={loading}
+                    figureLoadingIDs={groupLoadingIDs}
+                    disabled={disabled}
                     onAddShape={onAddShape}
                     onResetShapes={onResetShapes}
                     onSyncShapes={onSyncShapes}
