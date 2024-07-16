@@ -191,6 +191,20 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
 
                   const apiChangedIDs = Object.values(apiChanges[figureID] ?? {}).map((change) => change.shapeID);
                   const userChangedIDs = Object.values(userChanges[figureID] ?? {}).map((change) => change.shapeID);
+
+                  let figureValue = value;
+
+                  switch (true) {
+                    case userChanged:
+                      figureValue = userChanges[figureID][0]?.value;
+                      break;
+                    case apiChanged:
+                      figureValue = apiChanges[figureID][0]?.value;
+                      break;
+                    default: {
+                      break;
+                    }
+                  }
                   return (
                     <Box
                       key={figureID}
@@ -229,7 +243,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                           size="sm"
                           color={userChanged ? "danger" : apiChanged ? "warning" : "primary"}
                           title={{
-                            text: value,
+                            text: figureValue,
                             limit: 1,
                           }}
                           description={{
