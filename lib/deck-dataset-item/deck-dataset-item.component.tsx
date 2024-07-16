@@ -1,4 +1,5 @@
 import ChevronRight from "@mui/icons-material/ChevronRight";
+import SyncRounded from "@mui/icons-material/SyncRounded";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import React from "react";
@@ -8,7 +9,6 @@ import { DatasetType } from "../models/dataset.model";
 import * as fromUtils from "../utils";
 import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
-import SyncRounded from "@mui/icons-material/SyncRounded";
 
 export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
   switch (type) {

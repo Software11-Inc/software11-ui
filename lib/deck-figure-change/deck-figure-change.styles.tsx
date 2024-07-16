@@ -29,6 +29,8 @@ export const valueStyle = (changed: boolean = false, wrap: boolean = false): SxP
   ...textStyle,
   fontSize: "12px",
   lineHeight: "1.2",
+  color: "var(--joy-palette-text-primary)",
+  fontWeight: "bold",
 
   userSelect: "text",
 

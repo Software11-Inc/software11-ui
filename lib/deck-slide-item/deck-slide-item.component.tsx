@@ -1,15 +1,15 @@
-import React from "react";
-import { IDeckSlideItemProps } from "./deck-slide-item.types";
 import Box from "@mui/joy/Box";
+import Button from "@mui/joy/Button";
+import React from "react";
+import { DeckLabel } from "../deck-label";
+import * as fromUtils from "../utils";
 import {
   slideItemButtonStyle,
   slideItemContentStyle,
   slideItemImageStyle,
   slideItemStyle,
 } from "./deck-slide-item.styles";
-import { DeckLabel } from "../deck-label";
-import * as fromUtils from "../utils";
-import Button from "@mui/joy/Button";
+import { IDeckSlideItemProps } from "./deck-slide-item.types";
 
 export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({ item, onInsert }) => {
   return (

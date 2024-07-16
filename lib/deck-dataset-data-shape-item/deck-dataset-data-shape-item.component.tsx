@@ -1,14 +1,14 @@
+import ContentCopyRounded from "@mui/icons-material/ContentCopyRounded";
+import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
+import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
 import Box from "@mui/joy/Box";
 import React from "react";
 import { dataItemStyle } from "../deck-dataset-data-item/deck-dataset-data-item.styles";
-import ContentCopyRounded from "@mui/icons-material/ContentCopyRounded";
-import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
+import { DeckIconButton } from "../deck-icon-button";
 import { className } from "../deck-icon-button/deck-icon-button.style";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
 import { IDeckDatasetDataShapeItemProps } from "./deck-dataset-data-shape-item.types";
-import { DeckIconButton } from "../deck-icon-button";
-import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
 
 export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> = ({
   figureName,

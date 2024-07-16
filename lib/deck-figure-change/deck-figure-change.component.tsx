@@ -133,11 +133,18 @@ const CreateFigure: React.FC<{ item: IFigureChange }> = ({ item }) => {
         }}
       >
         <DeckLabel
+          color="neutral"
           title={{
-            text: "New Figure",
+            text: item.finalName,
+          }}
+          size="md"
+        />
+        <DeckLabel
+          title={{
+            text: "New value",
           }}
           description={{
-            text: "In this version, a new figure was added.",
+            text: "In this version, a new figure value was added.",
           }}
           color="neutral"
         />
@@ -160,6 +167,13 @@ const EditFigure: React.FC<{ item: IFigureChange }> = ({ item }) => {
   const isValueChanged = Boolean(item.initialValue) && !isValueEqual(item.initialValue, item.finalValue);
   return (
     <React.Fragment>
+      <DeckLabel
+        color="neutral"
+        title={{
+          text: item.finalName,
+        }}
+        size="md"
+      />
       <Box
         sx={{
           display: "flex",

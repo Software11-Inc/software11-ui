@@ -1,11 +1,11 @@
 import Box from "@mui/joy/Box";
+import Skeleton from "@mui/joy/Skeleton";
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 import { DeckHeader } from "../deck-header";
 import { DeckLabel } from "../deck-label";
 import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
 import { DeckAlphabeticalController } from "./deck-alphabetical-view.controller";
-import Skeleton from "@mui/joy/Skeleton";
 
 export default {
   title: "UI/Alphabetical View",

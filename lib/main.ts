@@ -6,9 +6,9 @@ export * from "./deck-active-project";
 export * from "./deck-dataset-data";
 export * from "./deck-dataset-data-group";
 export * from "./deck-dataset-data-item";
+export * from "./deck-dataset-data-shape-item";
 export * from "./deck-dataset-data-subcategory";
 export * from "./deck-dataset-shapes";
-export * from "./deck-dataset-data-shape-item";
 
 export * from "./deck-footer";
 export * from "./deck-header";
@@ -18,8 +18,9 @@ export * from "./deck-header-user-dropdown";
 export * from "./deck-header-user-profile";
 export * from "./deck-section";
 
-export * from "./deck-author";
 export * from "./deck-alphabetical-view";
+export * from "./deck-author";
+export * from "./deck-figure-change";
 export * from "./deck-file-list";
 export * from "./deck-icon-button";
 export * from "./deck-label";
@@ -38,11 +39,12 @@ export * from "./deck-icons";
 export * from "./deck-dataset-item";
 export * from "./deck-file-group-item";
 export * from "./deck-file-sheet-item";
+export * from "./deck-plugin-item";
 export * from "./deck-project-item";
 export * from "./deck-slide-item";
-export * from "./deck-plugin-item";
 
 export * from "@models";
 
-export * from "./utils";
 export * from "./accordion.style";
+export * from "./utils";
+

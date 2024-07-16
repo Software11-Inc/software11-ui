@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckDatasetData } from "./deck-dataset-data.component";
 import { ITableFigure } from "../models/figure.model";
+import { DeckDatasetData } from "./deck-dataset-data.component";
 
 export default {
   title: "Powerpoint/Dataset Details/Data",

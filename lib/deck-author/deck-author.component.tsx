@@ -1,9 +1,9 @@
-import React from "react";
-import { IDeckAuthorProps } from "./deck-author.types";
-import Box from "@mui/joy/Box";
-import { avatarStyle, boxStyle, typographyStyle } from "./deck-author.styles";
 import Avatar from "@mui/joy/Avatar";
+import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
+import React from "react";
+import { avatarStyle, boxStyle, typographyStyle } from "./deck-author.styles";
+import { IDeckAuthorProps } from "./deck-author.types";
 
 export const DeckAuthor: React.FC<IDeckAuthorProps> = ({ user, showName = true }): React.ReactElement => {
   if (!user) {

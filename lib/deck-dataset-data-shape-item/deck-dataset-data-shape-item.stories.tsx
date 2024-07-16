@@ -1,6 +1,6 @@
+import { IDynamicShape } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetDataShapeItem } from "./deck-dataset-data-shape-item.component";
-import { IDynamicShape } from "@models";
 
 export default {
   title: "DeckDatasetDataShapeItem",
