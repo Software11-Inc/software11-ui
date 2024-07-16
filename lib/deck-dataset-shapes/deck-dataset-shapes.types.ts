@@ -11,6 +11,7 @@ export interface DeckDatasetShapesProps {
   apiChanges: ShapeChangeMap;
   userChanges: ShapeChangeMap;
   loaded: boolean;
+  disabled?: boolean;
 
   onOpenDataset: () => void;
   onSyncDataset: () => void;

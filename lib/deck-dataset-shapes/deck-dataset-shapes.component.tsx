@@ -47,6 +47,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   onResetFigure,
   onOpenDataset,
   onSelectShapes,
+  disabled = false,
   loaded,
 }) => {
   const className = `deck-active-project`;
@@ -138,7 +139,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                       }}
                     />
                   }
-                  disabled={loading}
+                  disabled={disabled || loading}
                   variant={hasChanges && !loading ? "soft" : "plain"}
                   color={hasChanges ? "warning" : "primary"}
                   onClick={onSyncDataset}
@@ -209,7 +210,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             icon={<RotateLeftRounded />}
                             size="sm"
                             variant="plain"
-                            disabled={loading}
+                            disabled={disabled || loading}
                             onClick={() => onSyncFigure(figureID, apiChangedIDs)}
                           />
                         )}
@@ -219,7 +220,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             icon={<RotateLeftRounded />}
                             size="sm"
                             variant="plain"
-                            disabled={loading}
+                            disabled={disabled || loading}
                             onClick={() => onResetFigure(figureID, userChangedIDs)}
                           />
                         )}
@@ -254,7 +255,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                           size="sm"
                           variant="plain"
                           onClick={() => onSelectShapes(shapeIDs)}
-                          disabled={loading}
+                          disabled={disabled || loading}
                         />
                       </Box>
                       {userChanged && (
@@ -279,7 +280,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                 color="success"
                 sx={actionButtonStyle}
                 onClick={onSyncDataset}
-                disabled={loading}
+                disabled={disabled || loading}
               >
                 Sync
               </Button>
