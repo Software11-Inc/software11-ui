@@ -12,6 +12,7 @@ export const changesHeaderIcon: SxProps = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  px: "2px",
 };
 
 export const textStyle: SxProps = {
