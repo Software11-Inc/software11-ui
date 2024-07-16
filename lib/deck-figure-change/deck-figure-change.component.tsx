@@ -22,12 +22,12 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
     additions = [],
     deletions = [],
     edits = [],
-    author = null,
     generationDate = {
       _seconds: 0,
       _nanoseconds: 0,
     },
   },
+  defaultExpanded = false,
 }) => {
   const getTypeIcon = (type: ChangeType) => {
     switch (type) {
@@ -57,6 +57,7 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
           onClick: () => {},
           hidden: true,
         }}
+        defaultExpanded={defaultExpanded}
         content={
           <React.Fragment>
             <AccordionGroup
@@ -68,7 +69,6 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
                 ...edits.map((item) => ({ ...item, type: ChangeType.EDITS })),
                 ...deletions.map((item) => ({ ...item, type: ChangeType.DELETIONS })),
               ].map((item) => {
-                console.log("|item|", item);
                 return (
                   <Accordion key={item?.id}>
                     <AccordionSummary>
