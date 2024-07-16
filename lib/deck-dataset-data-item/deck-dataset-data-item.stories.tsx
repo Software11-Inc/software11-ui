@@ -32,6 +32,9 @@ export default {
     loading: {
       control: { type: "boolean" },
     },
+    disabled: {
+      control: { type: "boolean" },
+    },
   },
 } as Meta<typeof DeckDatasetDataItem>;
 

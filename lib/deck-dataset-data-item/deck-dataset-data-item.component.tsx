@@ -22,6 +22,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   level = 0,
   size = "sm",
   loading = false,
+  disabled = false,
   onAdd,
   onReset,
   onSettings,
@@ -49,7 +50,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
         </Box>
         {hasActions && (
           <DeckDatasetDataItemActions
-            {...{ hasShapes, hasApiChanges, hasUserChanges, loading, onAdd, onReset, onSettings, onSync }}
+            {...{ hasShapes, hasApiChanges, hasUserChanges, disabled, loading, onAdd, onReset, onSettings, onSync }}
           />
         )}
       </Box>
@@ -137,11 +138,22 @@ export const DeckDatasetDataItemActions: React.FC<{
   hasApiChanges?: boolean;
   hasUserChanges?: boolean;
   loading?: boolean;
+  disabled?: boolean;
   onAdd: () => void;
   onReset: () => void;
   onSettings: () => void;
   onSync: () => void;
-}> = ({ hasShapes, hasApiChanges, hasUserChanges, loading = false, onAdd, onReset, onSettings, onSync }) => {
+}> = ({
+  hasShapes,
+  hasApiChanges,
+  hasUserChanges,
+  loading = false,
+  disabled = false,
+  onAdd,
+  onReset,
+  onSettings,
+  onSync,
+}) => {
   const hasChanges = hasApiChanges || hasUserChanges;
   return (
     <React.Fragment>
@@ -153,7 +165,7 @@ export const DeckDatasetDataItemActions: React.FC<{
             variant={hasShapes ? "plain" : "soft"}
             color="success"
             onClick={onAdd}
-            disabled={loading}
+            disabled={disabled || loading}
           />
         )}
         {hasChanges && (
@@ -171,7 +183,7 @@ export const DeckDatasetDataItemActions: React.FC<{
             onClick={() => {
               hasUserChanges ? onReset() : onSync();
             }}
-            disabled={loading}
+            disabled={disabled || loading}
           />
         )}
         {hasShapes && (
@@ -181,7 +193,7 @@ export const DeckDatasetDataItemActions: React.FC<{
             color="primary"
             size="sm"
             onClick={onSettings}
-            disabled={loading}
+            disabled={disabled || loading}
           />
         )}
       </Box>
