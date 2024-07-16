@@ -189,8 +189,9 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   const userChanged = userChangedFigures.includes(figureID);
                   const changed = apiChanged || userChanged;
 
-                  const apiChangedIDs = Object.values(apiChanges[figureID] ?? {}).map((change) => change.shapeID);
-                  const userChangedIDs = Object.values(userChanges[figureID] ?? {}).map((change) => change.shapeID);
+                  const figureApiChanges = apiChanges[figureID] ?? {};
+
+                  const figureUserChanges = userChanges[figureID] ?? {};
 
                   let figureValue = value;
 
@@ -225,7 +226,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             size="sm"
                             variant="plain"
                             disabled={disabled || loading}
-                            onClick={() => onSyncFigure(figureID, apiChangedIDs)}
+                            onClick={() => onSyncFigure(figureID, figureApiChanges)}
                           />
                         )}
                         {userChanged && (
@@ -235,7 +236,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                             size="sm"
                             variant="plain"
                             disabled={disabled || loading}
-                            onClick={() => onResetFigure(figureID, userChangedIDs)}
+                            onClick={() => onResetFigure(figureID, figureUserChanges)}
                           />
                         )}
                         {!changed && <DeckStatus status={0} />}

@@ -1,4 +1,4 @@
-import { FigureShapeMap, ShapeChangeMap } from "@models";
+import { FigureShapeMap, IShapeChange, ShapeChangeMap } from "@models";
 
 export interface DeckDatasetShapesProps {
   name?: string;
@@ -15,7 +15,7 @@ export interface DeckDatasetShapesProps {
 
   onOpenDataset: () => void;
   onSyncDataset: () => void;
-  onResetFigure: (figureID: string, shapeIDs: string[]) => void;
-  onSyncFigure: (figureID: string, shapeIDs: string[]) => void;
+  onResetFigure: (figureID: string, shapeIDs: IShapeChange[]) => void;
+  onSyncFigure: (figureID: string, shapeIDs: IShapeChange[]) => void;
   onSelectShapes: (shapeIDs: string[]) => void;
 }
