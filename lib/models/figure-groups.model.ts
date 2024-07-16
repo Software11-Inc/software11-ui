@@ -28,6 +28,7 @@ export interface IDataCommonProps {
   compact?: boolean; // Optional flag for compact view mode
   size?: Size; // Optional size of the component
   level?: number; // Optional level for hierarchical data representation
+  loading?: boolean; // Optional flag indicating if data is loading
 }
 
 /**

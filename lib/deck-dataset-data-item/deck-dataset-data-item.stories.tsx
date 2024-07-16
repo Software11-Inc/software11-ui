@@ -29,6 +29,9 @@ export default {
     onSettings: {
       action: "open-settings",
     },
+    loading: {
+      control: { type: "boolean" },
+    },
   },
 } as Meta<typeof DeckDatasetDataItem>;
 
@@ -46,6 +49,7 @@ ExcelFigure.args = {
   apiChanges: [],
   userChanges: [],
   shapes: [],
+  loading: false,
   figure: {
     id: "figure-1",
     name: {

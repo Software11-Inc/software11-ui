@@ -21,6 +21,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   compact = false,
   level = 0,
   size = "sm",
+  loading = false,
   onAdd,
   onReset,
   onSettings,
@@ -41,14 +42,14 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
     .trim();
   return (
     <React.Fragment>
-      <Box sx={dataItemStyle(className, level, size, compact, order)} className={figureClassName}>
-        {hasStatus && <DeckStatus status={status} />}
+      <Box sx={dataItemStyle(className, loading ? level + 1 : level, size, compact, order)} className={figureClassName}>
+        {hasStatus && <DeckStatus status={status} loading={loading} />}
         <Box sx={columnStyle}>
           <DataItem item={figure} {...{ type, size, hasApiChanges, hasUserChanges }} />
         </Box>
         {hasActions && (
           <DeckDatasetDataItemActions
-            {...{ hasShapes, hasApiChanges, hasUserChanges, onAdd, onReset, onSettings, onSync }}
+            {...{ hasShapes, hasApiChanges, hasUserChanges, loading, onAdd, onReset, onSettings, onSync }}
           />
         )}
       </Box>
@@ -135,11 +136,12 @@ export const DeckDatasetDataItemActions: React.FC<{
   hasShapes?: boolean;
   hasApiChanges?: boolean;
   hasUserChanges?: boolean;
+  loading?: boolean;
   onAdd: () => void;
   onReset: () => void;
   onSettings: () => void;
   onSync: () => void;
-}> = ({ hasShapes, hasApiChanges, hasUserChanges, onAdd, onReset, onSettings, onSync }) => {
+}> = ({ hasShapes, hasApiChanges, hasUserChanges, loading = false, onAdd, onReset, onSettings, onSync }) => {
   const hasChanges = hasApiChanges || hasUserChanges;
   return (
     <React.Fragment>
@@ -151,6 +153,7 @@ export const DeckDatasetDataItemActions: React.FC<{
             variant={hasShapes ? "plain" : "soft"}
             color="success"
             onClick={onAdd}
+            disabled={loading}
           />
         )}
         {hasChanges && (
@@ -168,10 +171,18 @@ export const DeckDatasetDataItemActions: React.FC<{
             onClick={() => {
               hasUserChanges ? onReset() : onSync();
             }}
+            disabled={loading}
           />
         )}
         {hasShapes && (
-          <DeckIconButton icon={<SettingsOutlined />} variant="plain" color="primary" size="sm" onClick={onSettings} />
+          <DeckIconButton
+            icon={<SettingsOutlined />}
+            variant="plain"
+            color="primary"
+            size="sm"
+            onClick={onSettings}
+            disabled={loading}
+          />
         )}
       </Box>
     </React.Fragment>
