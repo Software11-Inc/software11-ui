@@ -32,11 +32,11 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
   const getTypeIcon = (type: ChangeType) => {
     switch (type) {
       case ChangeType.ADDITIONS:
-        return <ControlPointRounded sx={{ color: "var(--joy-palette-success-500)" }} />;
+        return <ControlPointRounded sx={{ color: "var(--joy-palette-success-500)", fontSize: 16 }} />;
       case ChangeType.EDITS:
-        return <ArrowCircleUpRounded sx={{ color: "var(--joy-palette-warning-500)" }} />;
+        return <ArrowCircleUpRounded sx={{ color: "var(--joy-palette-warning-500)", fontSize: 16 }} />;
       case ChangeType.DELETIONS:
-        return <HistoryToggleOffRounded sx={{ color: "var(--joy-palette-primary-500)" }} />;
+        return <HistoryToggleOffRounded sx={{ color: "var(--joy-palette-primary-500)", fontSize: 16 }} />;
       default:
         return null;
     }
