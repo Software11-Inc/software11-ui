@@ -32,7 +32,6 @@ import {
 } from "./deck-dataset-shapes.styles";
 import { DeckDatasetShapesProps } from "./deck-dataset-shapes.types";
 import { ShapeChangeMap } from "../models/shape.model";
-import { get } from "http";
 
 export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   name,
