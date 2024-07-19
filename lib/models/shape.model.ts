@@ -138,3 +138,22 @@ export type DatasetShapeChangeMap = Record<DatasetID, ShapeChangeMap>;
  * Each dataset ID is associated with a `FigureShapeMap`.
  */
 export type DatasetShapeMap = Record<DatasetID, FigureShapeMap>;
+
+/**
+ * Interface representing a selected shape within a slide.
+ * It captures the unique identifiers for both the shape and its parent slide,
+ * along with any associated tags for categorization or metadata purposes.
+ */
+export interface ISelectedShape {
+  /** Unique identifier for the shape within a slide */
+  shapeIndex: number;
+
+  /** Identifier for the slide containing the shape */
+  slideID: string;
+
+  value?: string;
+
+  source?: IShapeSource;
+
+  shapeID?: string;
+}
