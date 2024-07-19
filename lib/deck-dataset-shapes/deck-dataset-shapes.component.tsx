@@ -31,6 +31,8 @@ import {
   itemStyle,
 } from "./deck-dataset-shapes.styles";
 import { DeckDatasetShapesProps } from "./deck-dataset-shapes.types";
+import { ShapeChangeMap } from "../models/shape.model";
+import { get } from "http";
 
 export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   name,
@@ -39,8 +41,6 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   loading,
   highlighted,
   highlightedShapes,
-  apiChanges,
-  userChanges,
   shapes,
   onSyncDataset,
   onSyncFigure,
@@ -49,20 +49,42 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   onSelectShapes,
   disabled = false,
   loaded,
+  apiChanges: apiChangesInput,
+  userChanges: userChangesInput,
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
   const classList = [className, highlighted ? highlightedClass : ``].join(" ").trim();
   const [open, setOpen] = React.useState(!loaded);
 
-  const shapeCount = Object.keys(shapes).reduce((acc, shapeID) => acc + shapes[shapeID].length, 0);
+  const figureIDs = Object.keys(shapes);
 
-  const apiChangedFigures = Object.keys(apiChanges ?? {});
+  const getFigureShapes = (figureID: string) => shapes[figureID] ?? [];
 
-  const userChangedFigures = Object.keys(userChanges ?? {});
+  const shapeCount = figureIDs.reduce((acc, figureID) => acc + shapes[figureID].length, 0);
 
-  const hasUserChanges = userChangedFigures.length > 0;
-  const hasApiChanges = apiChangedFigures.length > 0;
+  const filterShapes = (changes: ShapeChangeMap): ShapeChangeMap => {
+    const changeList = Object.keys(changes ?? {}).reduce((acc, figureID) => {
+      const shapeChanges = changes[figureID];
+      const shapeIDs = getFigureShapes(figureID).map((shape) => shape.shapeID);
+      if (!shapeIDs.length) {
+        return acc;
+      }
+      const filteredChanges = shapeChanges.filter((change) => shapeIDs.includes(change.shapeID));
+      return {
+        ...acc,
+        [figureID]: filteredChanges,
+      };
+    }, {});
+
+    return changeList;
+  };
+
+  const apiChanges = filterShapes(apiChangesInput);
+  const userChanges = filterShapes(userChangesInput);
+
+  const hasUserChanges = Object.keys(userChanges).length > 0;
+  const hasApiChanges = Object.keys(apiChanges).length > 0;
   const order = hasUserChanges ? -3 : hasApiChanges ? -2 : 0;
   return (
     <AccordionGroup
@@ -185,8 +207,8 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   const count = figureShapes?.length;
                   const highlight =
                     highlighted && figureShapes.some((shape) => highlightedShapes?.includes(String(shape.shapeIndex)));
-                  const apiChanged = apiChangedFigures.includes(figureID);
-                  const userChanged = userChangedFigures.includes(figureID);
+                  const apiChanged = apiChanges[figureID]?.length > 0;
+                  const userChanged = userChanges[figureID]?.length > 0;
                   const changed = apiChanged || userChanged;
 
                   const figureApiChanges = apiChanges[figureID] ?? {};

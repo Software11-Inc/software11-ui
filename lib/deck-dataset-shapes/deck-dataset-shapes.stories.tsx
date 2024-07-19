@@ -53,6 +53,13 @@ Default.args = {
         value: "100",
       },
     ],
+    "figure-10": [
+      {
+        shapeID: "shape-1",
+        shapeIndex: 0,
+        value: "100",
+      },
+    ],
   },
   shapes: {
     "figure-1": [
