@@ -1,6 +1,6 @@
 {
   "name": "s11-ui",
-  "version": "0.4.56",
+  "version": "0.4.57",
   "type": "module",
   "files": [
     "dist"
