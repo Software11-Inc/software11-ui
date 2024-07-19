@@ -92,6 +92,7 @@ export const actionContainerStyle: SxProps = {
     minWidth: "auto",
     minHeight: "auto",
     textTransform: "uppercase",
+    alignItems: "center",
 
     "--Icon-fontSize": "12px",
     boxShadow: "var(--shadow)",
