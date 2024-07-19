@@ -16,6 +16,7 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
   file,
   itemTemplate,
   defaultExpanded = false,
+  emptyTemplate = null,
 }) => {
   const hasTemplate = !!itemTemplate;
   const getIcon = (type?: string) => {
@@ -85,6 +86,7 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
                 ))}
               </Box>
             )}
+            {!hasTemplate && emptyTemplate}
           </AccordionDetails>
         </Accordion>
       </AccordionGroup>
