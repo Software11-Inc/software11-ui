@@ -20,6 +20,7 @@ export const contentHeaderStyle: SxProps = {
   flexDirection: "column",
   gap: 1,
   p: 1,
+  px: 1.5,
   borderBottom: "1px solid",
   borderColor: "divider",
 };

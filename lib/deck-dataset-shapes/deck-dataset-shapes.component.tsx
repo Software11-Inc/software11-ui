@@ -8,13 +8,13 @@ import ViewInArRounded from "@mui/icons-material/ViewInArRounded";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
-import AccordionSummary from "@mui/joy/AccordionSummary";
+import AccordionSummary, { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
 import Badge from "@mui/joy/Badge";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import React from "react";
-import { accordionGroupStyles, accordionTransition } from "../accordion.style";
+import { accordionGroupStyles, accordionTransition, getBackgroundColor } from "../accordion.style";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
@@ -88,7 +88,12 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   return (
     <AccordionGroup
       className={classList}
-      sx={accordionGroupStyles(className, false, 1, "sm", true, order)}
+      sx={{
+        ...accordionGroupStyles(className, false, 1, "sm", !loading, order),
+        [`& .${accordionSummaryClasses.button}`]: {
+          bgcolor: getBackgroundColor(loading ? 2 : 0),
+        },
+      }}
       transition={accordionTransition}
     >
       <Accordion expanded={open} defaultExpanded={!loaded}>
