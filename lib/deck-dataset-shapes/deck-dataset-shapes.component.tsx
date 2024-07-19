@@ -207,7 +207,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                 {Object.keys(shapes).map((figureID) => {
                   const figureShapes = shapes[figureID];
                   const shapeIDs = figureShapes?.map((s) => s.shapeID);
-                  const loading = loadingShapes.some((shapeID) => shapeIDs.includes(shapeID));
+                  const loading = shapeIDs.some((id) => loadingShapes.includes(id));
                   const name = figureShapes[0]?.figureName;
                   const value = figureShapes[0]?.latestFigureValue;
                   const count = figureShapes?.length;
