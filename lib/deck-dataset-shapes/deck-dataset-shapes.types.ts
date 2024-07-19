@@ -5,6 +5,7 @@ export interface DeckDatasetShapesProps {
   description?: string;
   hasChanges?: boolean;
   loading?: boolean;
+  loadingShapes?: string[];
   highlighted?: boolean;
   highlightedShapes?: string[];
   shapes: FigureShapeMap;

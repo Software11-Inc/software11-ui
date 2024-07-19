@@ -22,6 +22,7 @@ Default.args = {
   loading: false,
   highlighted: false,
   highlightedShapes: ["1"],
+  loadingShapes: ["shape-2", "shape-3", "shape-5"],
   apiChanges: {
     "figure-1": [
       {

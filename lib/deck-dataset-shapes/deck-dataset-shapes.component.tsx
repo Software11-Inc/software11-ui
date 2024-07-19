@@ -50,6 +50,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   loaded,
   apiChanges: apiChangesInput,
   userChanges: userChangesInput,
+  loadingShapes = [],
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
@@ -206,6 +207,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                 {Object.keys(shapes).map((figureID) => {
                   const figureShapes = shapes[figureID];
                   const shapeIDs = figureShapes?.map((s) => s.shapeID);
+                  const loading = loadingShapes.some((shapeID) => shapeIDs.includes(shapeID));
                   const name = figureShapes[0]?.figureName;
                   const value = figureShapes[0]?.latestFigureValue;
                   const count = figureShapes?.length;
@@ -248,24 +250,36 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                         {apiChanged && !userChanged && (
                           <DeckIconButton
                             color="warning"
-                            icon={<RotateLeftRounded />}
+                            icon={
+                              <RotateLeftRounded
+                                sx={{
+                                  animation: loading ? "spin 2s linear infinite" : "unset",
+                                }}
+                              />
+                            }
                             size="sm"
                             variant="plain"
-                            disabled={disabled || loading}
+                            disabled={disabled}
                             onClick={() => onSyncFigure(figureID, figureApiChanges)}
                           />
                         )}
                         {userChanged && (
                           <DeckIconButton
                             color="danger"
-                            icon={<RotateLeftRounded />}
+                            icon={
+                              <RotateLeftRounded
+                                sx={{
+                                  animation: loading ? "spin 2s linear infinite" : "unset",
+                                }}
+                              />
+                            }
                             size="sm"
                             variant="plain"
-                            disabled={disabled || loading}
+                            disabled={disabled}
                             onClick={() => onResetFigure(figureID, figureUserChanges)}
                           />
                         )}
-                        {!changed && <DeckStatus status={0} />}
+                        {!changed && <DeckStatus status={0} loading={loading} />}
                         <DeckLabel
                           size="sm"
                           color={userChanged ? "danger" : apiChanged ? "warning" : "primary"}
