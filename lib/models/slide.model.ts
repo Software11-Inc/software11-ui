@@ -1,4 +1,4 @@
-import { ISelectedShape, IShapeSource } from "./shape.model";
+import { ISelectedShape } from "./shape.model";
 
 /**
  * Represents a single slide within a presentation, providing a unique identifier and its position.
