@@ -81,7 +81,7 @@ export interface IShapeData {
  * Represents additional information required for dynamic shape creation.
  * This includes identifiers for the project, file, and container where the shape will be added.
  */
-export interface IDynamicShapeCreationAddition {
+export interface IDynamicShapeAddition {
   /** Unique identifier for the project */
   projectID: string;
   /** Unique identifier for the file */
@@ -89,6 +89,13 @@ export interface IDynamicShapeCreationAddition {
   /** Unique identifier for the container */
   containerID: string;
 }
+
+export interface IDynamicShapeSync {
+  sourceDataset: IShapeSource;
+  shapeInstanceID: string;
+}
+
+export interface IDynamicShapeSyncResponse extends IDynamicShape {}
 
 /**
  * Defines the structure for creating dynamic shapes within a project.
