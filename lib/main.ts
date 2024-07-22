@@ -52,6 +52,7 @@ export * from "./deck-repeater-form-field";
 export * from "./deck-repeater-form-filter";
 export * from "./deck-repeater-form-sort";
 export * from "./deck-repeater-form";
+export * from "./deck-repeater-select-figure-drawer";
 
 export * from "@models";
 
