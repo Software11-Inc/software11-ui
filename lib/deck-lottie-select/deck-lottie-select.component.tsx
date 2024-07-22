@@ -3,13 +3,17 @@ import React from "react";
 import animationData from "./deck-lottie-select.json";
 
 export const DeckLottieSelect: React.FC<{ active: boolean }> = ({ active }) => {
+  const [selected, setSelected] = React.useState(false);
   const ref = React.useRef<LottieRefCurrentProps>(null);
 
   React.useEffect(() => {
-    if (!active) {
-      onDeselect();
-    } else {
-      onSelect();
+    if (active !== selected) {
+      if (!active) {
+        onDeselect();
+      } else {
+        onSelect();
+      }
+      setSelected(active);
     }
   }, [active]);
 
