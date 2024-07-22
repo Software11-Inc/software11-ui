@@ -35,6 +35,7 @@ export * from "./deck-lottie-loading";
 export * from "./deck-lottie-build";
 export * from "./deck-lottie-building";
 export * from "./deck-lottie-select";
+export * from "./deck-lottie-info";
 
 export * from "./deck-select-project";
 
