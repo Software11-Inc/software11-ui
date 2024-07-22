@@ -29,6 +29,7 @@ export * from "./deck-menu-button";
 export * from "./deck-search-bar";
 export * from "./deck-select-tags";
 export * from "./deck-text-button";
+export * from "./deck-status";
 
 export * from "./deck-lottie-loading";
 export * from "./deck-lottie-build";
