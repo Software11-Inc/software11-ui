@@ -49,6 +49,7 @@ export * from "./deck-project-item";
 export * from "./deck-slide-item";
 
 export * from "./deck-repeater-form-field";
+export * from "./deck-repeater-form-filter";
 
 export * from "@models";
 
