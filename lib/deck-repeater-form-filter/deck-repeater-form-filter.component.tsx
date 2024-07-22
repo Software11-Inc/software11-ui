@@ -10,8 +10,10 @@ import { ITableFigure } from "@models";
 import { DeckIconButton } from "../deck-icon-button";
 import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
 import IconButton from "@mui/joy/IconButton";
+import { DeckRepeaterSelectFigureDrawer } from "../deck-repeater-select-figure-drawer";
 
 export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
+  figures = [],
   filter = null,
   filterOperators = [],
   headers = [],
@@ -46,6 +48,8 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     updateFilter("value", figure?.figure?.value);
     setOpen(false);
   };
+  console.log("figures", figures);
+  const availableFigures = figures.filter((figure) => figure?.name?.cell === filter?.key);
 
   return (
     <Box sx={filterGroupStyles}>
@@ -84,11 +88,21 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
         value={filter?.value ?? ""}
         onChange={(_: any, value: any) => updateFilter("value", value)}
         {...selectProps}
-        endDecorator={!isSelected ? null : <DeckIconButton icon={<FilterListRounded />} />}
+        endDecorator={
+          !isSelected ? null : <DeckIconButton icon={<FilterListRounded />} onClick={() => setOpen(true)} />
+        }
       />
       <IconButton size="sm" variant="soft" color="primary" onClick={onRemove}>
         <DeleteOutlineRounded />
       </IconButton>
+      <DeckRepeaterSelectFigureDrawer
+        figures={availableFigures}
+        open={open}
+        onClose={() => setOpen(false)}
+        onSelect={(value: ITableFigure) => {
+          onSelect(value);
+        }}
+      />
     </Box>
   );
 };

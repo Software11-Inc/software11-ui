@@ -60,14 +60,14 @@ export const DeckRepeaterSelectFigureDrawer: React.FC<IDeckRepeaterSelectFigureD
       />
       <Divider sx={{ bgcolor: "var(--joy-palette-divider)" }} />
       <DialogContent className="small-scroll">
-        {figures.map((figure) => (
-          <Box key={figure.id} sx={itemStyle} onClick={() => onSelect(figure)}>
+        {figures.map((item) => (
+          <Box key={item.id} sx={itemStyle} onClick={() => onSelect(item)}>
             <Box sx={{ display: "flex", height: "2rem" }}>
-              <DeckLottieSelect active={isSelected(figure.id)} />
+              <DeckLottieSelect active={isSelected(item.id)} />
             </Box>
             <DeckLabel
-              title={{ text: figure?.figure?.value ?? figure?.figure?.cell ?? "" }}
-              description={{ text: `${figure?.figure?.cell}` }}
+              title={{ text: item?.figure?.value ?? item?.figure?.cell ?? "" }}
+              description={{ text: `${item?.name?.value ?? item?.name?.cell ?? ""}` }}
               size="sm"
             />
           </Box>
