@@ -16,8 +16,6 @@ export const alphabeticalViewNavButtonClass = "alphabetical-view--nav-button";
 
 export const alphabeticalViewNavButtonLetterClass = "alphabetical-view--nav-button--letter";
 
-export const alphabeticalViewSearchClass = "alphabetical-view--search";
-
 export const alphabeticalViewLoadingClass = "alphabetical-view--loading";
 
 export const alphabeticalViewStyle: SxProps = {
@@ -34,16 +32,6 @@ export const alphabeticalViewStyle: SxProps = {
     flex: 1,
     display: "flex",
     flexDirection: "column",
-
-    [`& .${alphabeticalViewSearchClass}`]: {
-      position: "sticky",
-      top: "calc(var(--header-height) + 1px)",
-      zIndex: 1000,
-      padding: "1rem",
-      margin: "calc(var(--spacing) * -1)",
-      marginBottom: "0",
-      bgcolor: "background.body",
-    },
 
     [`& .${alphabeticalViewLoadingClass}`]: {
       display: "flex",

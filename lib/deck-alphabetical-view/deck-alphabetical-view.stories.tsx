@@ -66,7 +66,6 @@ Default.parameters = {
 };
 
 Default.args = {
-  hasSearch: false,
   loaded: true,
   loading: false,
   controller: new DeckAlphabeticalController(),

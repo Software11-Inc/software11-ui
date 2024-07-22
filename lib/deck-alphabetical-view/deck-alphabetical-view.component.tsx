@@ -3,7 +3,6 @@ import React from "react";
 import { Subject } from "rxjs/internal/Subject";
 import { takeUntil } from "rxjs/internal/operators/takeUntil";
 import { DeckLottieLoading } from "../deck-lottie-loading";
-import { DeckSearchBar } from "../deck-search-bar";
 import {
   alphabeticalViewContentClass,
   alphabeticalViewLoadingClass,
@@ -11,7 +10,6 @@ import {
   alphabeticalViewNavButtonLetterClass,
   alphabeticalViewNavClass,
   alphabeticalViewNavInnerClass,
-  alphabeticalViewSearchClass,
   alphabeticalViewSectionClass,
   alphabeticalViewSectionItemClass,
   alphabeticalViewSectionTitleClass,
@@ -104,7 +102,7 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
   };
 
   render(): React.ReactNode {
-    const { items, itemTemplate, hasSearch, onSearch, loaded } = this.props;
+    const { items, itemTemplate, loaded } = this.props;
     const { letters, activeLetter } = this.state;
 
     const entries = Object.entries(items);
@@ -115,11 +113,6 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
     return (
       <Box sx={alphabeticalViewStyle}>
         <Box className={alphabeticalViewContentClass}>
-          {hasSearch && (
-            <Box className={alphabeticalViewSearchClass}>
-              <DeckSearchBar onSearch={onSearch} />
-            </Box>
-          )}
           {!loaded && (
             <Box className={alphabeticalViewLoadingClass}>
               <DeckLottieLoading />
