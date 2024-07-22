@@ -1,18 +1,16 @@
-import React from "react";
-import Drawer from "@mui/joy/Drawer";
-import DialogTitle from "@mui/joy/DialogTitle";
-import DialogActions, { dialogActionsClasses } from "@mui/joy/DialogActions";
-import ModalClose from "@mui/joy/ModalClose";
-import { IDeckRepeaterSelectFigureDrawerProps } from "./deck-repeater-select-figure-drawer.types";
-import { DeckLabel } from "../deck-label";
-import DialogContent from "@mui/joy/DialogContent";
 import Box from "@mui/joy/Box";
-import { itemStyle } from "./deck-repeater-select-figure.drawer.styles";
-import { DeckLottieSelect } from "../deck-lottie-select";
-import { DeckIconButton } from "../deck-icon-button";
+import DialogActions, { dialogActionsClasses } from "@mui/joy/DialogActions";
+import DialogContent from "@mui/joy/DialogContent";
+import DialogTitle from "@mui/joy/DialogTitle";
 import Divider from "@mui/joy/Divider";
+import Drawer from "@mui/joy/Drawer";
+import ModalClose from "@mui/joy/ModalClose";
+import React from "react";
+import { DeckLabel } from "../deck-label";
+import { DeckLottieSelect } from "../deck-lottie-select";
 import { DeckTextButton } from "../deck-text-button";
-import { ITableFigure } from "../models/figure.model";
+import { IDeckRepeaterSelectFigureDrawerProps } from "./deck-repeater-select-figure-drawer.types";
+import { itemStyle } from "./deck-repeater-select-figure.drawer.styles";
 
 export const DeckRepeaterSelectFigureDrawer: React.FC<IDeckRepeaterSelectFigureDrawerProps> = ({
   figures = [],
