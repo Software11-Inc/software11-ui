@@ -40,13 +40,13 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     sx: { fontSize: 12 },
   } as any;
 
-  const [key, setKey] = React.useState(filter?.key);
-  const [operator, setOperator] = React.useState(filter?.operator);
-  const [value, setValue] = React.useState(filter?.value);
+  const [key, setKey] = React.useState(filter?.key ?? "");
+  const [operator, setOperator] = React.useState(filter?.operator ?? "");
+  const [value, setValue] = React.useState(filter?.value ?? "");
 
   React.useEffect(() => {
     if (!filter?.key && headers.length > 0) {
-      setKey(headers[0]?.cell);
+      setKey(headers[0]?.cell ?? "");
     } else if (filter?.key) {
       setKey(filter.key);
     }
@@ -55,7 +55,7 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     } else if (filter?.operator) {
       setOperator(filter.operator);
     }
-    setValue(filter?.value);
+    setValue(filter?.value ?? "");
   }, [filter, filterOperators, headers]);
 
   const [open, setOpen] = React.useState(false);
@@ -84,7 +84,11 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     updateFilter(field, value);
   };
 
+  console.log("figures", figures);
   console.log("availableFigures", availableFigures);
+  console.log("key", key);
+  console.log("operator", operator);
+  console.log("value", value);
 
   return (
     <Box sx={filterGroupStyles}>
