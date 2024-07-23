@@ -6,7 +6,7 @@ import { filterGroupStyles } from "./deck-repeater-form-filter.styles";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
 import Input from "@mui/joy/Input";
-import { ITableFigure } from "@models";
+import { IFilterItem, ITableFigure } from "@models";
 import { DeckIconButton } from "../deck-icon-button";
 import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
 import IconButton from "@mui/joy/IconButton";
@@ -40,24 +40,59 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     sx: { fontSize: 12 },
   } as any;
 
+  const [key, setKey] = React.useState(filter?.key);
+  const [operator, setOperator] = React.useState(filter?.operator);
+  const [value, setValue] = React.useState(filter?.value);
+
+  React.useEffect(() => {
+    if (!filter?.key && headers.length > 0) {
+      setKey(headers[0]?.cell);
+    } else if (filter?.key) {
+      setKey(filter.key);
+    }
+    if (!filter?.operator && filterOperators.length > 0) {
+      setOperator(filterOperators[0]?.key);
+    } else if (filter?.operator) {
+      setOperator(filter.operator);
+    }
+    setValue(filter?.value);
+  }, [filter, filterOperators, headers]);
+
   const [open, setOpen] = React.useState(false);
 
   const isSelected = String(filter?.key).length > 0;
 
   const onSelect = (figure: ITableFigure) => {
-    updateFilter("value", figure?.figure?.value);
+    _updateFilter("value", figure?.figure?.value);
     setOpen(false);
   };
-  console.log("figures", figures);
-  const availableFigures = figures.filter((figure) => figure?.name?.cell === filter?.key);
+
+  const availableFigures = figures.filter((figure) => figure?.name?.cell === key);
+
+  const _updateFilter = (field: keyof IFilterItem, value: any) => {
+    switch (field) {
+      case "key":
+        setKey(value);
+        break;
+      case "operator":
+        setOperator(value);
+        break;
+      case "value":
+        setValue(value);
+        break;
+    }
+    updateFilter(field, value);
+  };
+
+  console.log("availableFigures", availableFigures);
 
   return (
     <Box sx={filterGroupStyles}>
       <Select
         name="name"
         placeholder="Name"
-        value={filter?.key ?? ""}
-        onChange={(_, value) => updateFilter("key", value)}
+        value={key}
+        onChange={(_, value) => _updateFilter("key", value)}
         slotProps={selectSlotProps}
         {...selectProps}
       >
@@ -70,9 +105,8 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
       <Select
         name="operator"
         placeholder="Operator"
-        value={filter?.operator ?? ""}
-        onChange={(_, value) => updateFilter("operator", value)}
-        indicator={null}
+        value={operator}
+        onChange={(_, value) => _updateFilter("operator", value)}
         slotProps={selectSlotProps}
         {...selectProps}
       >
@@ -85,8 +119,8 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
       <Input
         name="value"
         placeholder="Value"
-        value={filter?.value ?? ""}
-        onChange={(_: any, value: any) => updateFilter("value", value)}
+        value={value}
+        onChange={(_: any, value: any) => _updateFilter("value", value)}
         {...selectProps}
         endDecorator={
           !isSelected ? null : <DeckIconButton icon={<FilterListRounded />} onClick={() => setOpen(true)} />
