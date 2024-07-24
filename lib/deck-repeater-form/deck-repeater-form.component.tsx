@@ -11,7 +11,6 @@ import Button from "@mui/joy/Button";
 import AddRounded from "@mui/icons-material/AddRounded";
 import Divider from "@mui/joy/Divider";
 import { IFilterOperator, ISortOperator } from "@models";
-import FilterListRounded from "@mui/icons-material/FilterListRounded";
 
 export const filterOperators: IFilterOperator[] = [
   { key: "EQUAL", label: "=" },

@@ -1,6 +1,5 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckRepeaterForm } from "./deck-repeater-form.component";
-import { Default } from "../deck-active-project/deck-active-project.stories";
 
 export default {
   title: "DeckRepeaterForm",

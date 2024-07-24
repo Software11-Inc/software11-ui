@@ -4,7 +4,7 @@ import Box from "@mui/joy/Box";
 import { sortGroupStyles, textStyle } from "./deck-repeater-form-sort.styles";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
-import { ISortItem, ISortOperator, SortOperatorType } from "../models/template.model";
+import { ISortItem, SortOperatorType } from "../models/template.model";
 import IconButton from "@mui/joy/IconButton";
 import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
 
