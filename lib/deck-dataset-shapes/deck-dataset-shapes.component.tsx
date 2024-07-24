@@ -18,6 +18,7 @@ import { accordionGroupStyles, accordionTransition, getBackgroundColor } from ".
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
+import { ShapeChangeMap } from "../models/shape.model";
 import {
   actionButtonStyle,
   contentHeaderStyle,
@@ -31,7 +32,6 @@ import {
   itemStyle,
 } from "./deck-dataset-shapes.styles";
 import { DeckDatasetShapesProps } from "./deck-dataset-shapes.types";
-import { ShapeChangeMap } from "../models/shape.model";
 
 export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   name,

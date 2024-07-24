@@ -1,16 +1,16 @@
-import React from "react";
-import { DeckRepeaterFormFilterProps } from "./deck-repeater-form-filter.types";
+import { IFilterItem, ITableFigure } from "@models";
+import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
 import FilterListRounded from "@mui/icons-material/FilterListRounded";
 import Box from "@mui/joy/Box";
-import { filterGroupStyles } from "./deck-repeater-form-filter.styles";
+import IconButton from "@mui/joy/IconButton";
+import Input from "@mui/joy/Input";
 import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
-import Input from "@mui/joy/Input";
-import { IFilterItem, ITableFigure } from "@models";
+import React from "react";
 import { DeckIconButton } from "../deck-icon-button";
-import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
-import IconButton from "@mui/joy/IconButton";
 import { DeckRepeaterSelectFigureDrawer } from "../deck-repeater-select-figure-drawer";
+import { filterGroupStyles } from "./deck-repeater-form-filter.styles";
+import { DeckRepeaterFormFilterProps } from "./deck-repeater-form-filter.types";
 
 export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
   figures = [],

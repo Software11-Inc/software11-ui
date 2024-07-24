@@ -13,6 +13,7 @@ const Template: StoryFn<IDeckSlideUploadItem> = (args) => <DeckSlideUploadItem {
 export const Default = Template.bind({});
 
 Default.args = {
+  slideName: "Slide 1",
   item: {
     name: "Slide 1",
     tags: ["tag1", "tag2"],

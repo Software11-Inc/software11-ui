@@ -1,6 +1,7 @@
 import { ILibrarySlide } from "../models/library-slide.model";
 
 export interface IDeckSlideUploadItem {
+  slideName?: string;
   previewImage?: string;
   base64Image?: string;
   loaded?: boolean;

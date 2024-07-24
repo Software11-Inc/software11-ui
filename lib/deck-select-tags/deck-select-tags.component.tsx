@@ -4,13 +4,11 @@ import Button from "@mui/joy/Button";
 import Chip from "@mui/joy/Chip";
 import ChipDelete from "@mui/joy/ChipDelete";
 import FormControl from "@mui/joy/FormControl";
-import FormHelperText from "@mui/joy/FormHelperText";
-import FormLabel from "@mui/joy/FormLabel";
 import Input from "@mui/joy/Input";
 import React from "react";
-import { addOutlinedSx, boxSx, buttonSx, formHelperTextSx, formLabelSx } from "./deck-select-tags.styles";
-import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
 import { DeckLabel } from "../deck-label";
+import { addOutlinedSx, boxSx, buttonSx } from "./deck-select-tags.styles";
+import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
 
 export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckSelectTagsState> {
   constructor(props: IDeckSelectTagsProps, context: IDeckSelectTagsState) {

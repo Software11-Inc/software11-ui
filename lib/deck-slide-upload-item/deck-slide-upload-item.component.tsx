@@ -1,4 +1,21 @@
+import AddRounded from "@mui/icons-material/AddRounded";
+import EditNoteRounded from "@mui/icons-material/EditNoteRounded";
+import HideImageRounded from "@mui/icons-material/HideImageRounded";
+import Accordion from "@mui/joy/Accordion";
+import AccordionDetails from "@mui/joy/AccordionDetails";
+import AccordionGroup from "@mui/joy/AccordionGroup";
+import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
+import Button from "@mui/joy/Button";
+import CircularProgress from "@mui/joy/CircularProgress";
+import Divider from "@mui/joy/Divider";
+import Input from "@mui/joy/Input";
+import React from "react";
+import { accordionGroupStyles, accordionTransition } from "../accordion.style";
+import { DeckLabel } from "../deck-label";
+import { DeckSelectTags } from "../deck-select-tags";
+import { DeckStatus } from "../deck-status";
+import { Status } from "../deck-status/deck-status.types";
 import { IDeckSlideUploadItem } from "./deck-slide-upload-item.types";
 import {
   accordionBoxStyle,
@@ -11,25 +28,9 @@ import {
   uploadImageStyle,
   uploadItemStyle,
 } from "./deck-slide-upload.styles";
-import AccordionGroup from "@mui/joy/AccordionGroup";
-import Accordion from "@mui/joy/Accordion";
-import AccordionSummary from "@mui/joy/AccordionSummary";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import { accordionGroupStyles, accordionTransition } from "../accordion.style";
-import Divider from "@mui/joy/Divider";
-import { DeckStatus } from "../deck-status";
-import { DeckLabel } from "../deck-label";
-import Input from "@mui/joy/Input";
-import { DeckSelectTags } from "../deck-select-tags";
-import Button from "@mui/joy/Button";
-import AddRounded from "@mui/icons-material/AddRounded";
-import HideImageRounded from "@mui/icons-material/HideImageRounded";
-import EditNoteRounded from "@mui/icons-material/EditNoteRounded";
-import React from "react";
-import { Status } from "../deck-status/deck-status.types";
-import CircularProgress from "@mui/joy/CircularProgress";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
+  slideName = "",
   base64Image,
   item,
   loaded = false,
@@ -144,7 +145,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                   <DeckStatus status={status} />
                   <DeckLabel
                     title={{
-                      text: "Slide 1",
+                      text: slideName,
                       limit: 1,
                     }}
                     description={{
