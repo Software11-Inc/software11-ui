@@ -83,41 +83,39 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
 
   return (
     <Box sx={uploadItemStyle(ignore)}>
-      {base64Image ? (
-        <Box sx={uploadImageStyle(ignore)}>
-          {loaded ? (
-            <React.Fragment>
-              <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" />
-              {ignore ? null : (
-                <Box sx={uploadImageOverlay} className={imageOverlayClass}>
-                  <Button
-                    color="warning"
-                    slotProps={{ root: buttonProps }}
-                    startDecorator={<HideImageRounded sx={{ fontSize: 14 }} />}
-                  >
-                    Remove from queue
-                  </Button>
-                </Box>
-              )}
-            </React.Fragment>
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "100%",
-                bgcolor: "var(--joy-palette-background-surface)",
-                minWidth: "8.5rem",
-                flex: 1,
-              }}
-            >
-              <CircularProgress />
-            </Box>
-          )}
-        </Box>
-      ) : null}
+      <Box sx={uploadImageStyle(ignore)}>
+        {loaded ? (
+          <React.Fragment>
+            {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
+            {ignore ? null : (
+              <Box sx={uploadImageOverlay} className={imageOverlayClass}>
+                <Button
+                  color="warning"
+                  slotProps={{ root: buttonProps }}
+                  startDecorator={<HideImageRounded sx={{ fontSize: 14 }} />}
+                >
+                  Remove from queue
+                </Button>
+              </Box>
+            )}
+          </React.Fragment>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              height: "100%",
+              bgcolor: "var(--joy-palette-background-surface)",
+              minWidth: "8.5rem",
+              flex: 1,
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        )}
+      </Box>
       <Divider orientation={ignore ? "vertical" : "horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />
       <Box
         sx={{
