@@ -7,7 +7,6 @@ export const formLabelSx = {
 export const boxSx = {
   display: "flex",
   flexWrap: "wrap",
-  mb: 1,
   gap: 1,
 };
 
@@ -15,6 +14,7 @@ export const buttonSx = {
   mr: -0.5,
   mt: "1px",
   fontSize: 11,
+  lineHeight: "14px",
 };
 
 export const addOutlinedSx = { fontSize: 14 };

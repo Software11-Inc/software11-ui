@@ -10,6 +10,7 @@ import Input from "@mui/joy/Input";
 import React from "react";
 import { addOutlinedSx, boxSx, buttonSx, formHelperTextSx, formLabelSx } from "./deck-select-tags.styles";
 import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
+import { DeckLabel } from "../deck-label";
 
 export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckSelectTagsState> {
   constructor(props: IDeckSelectTagsProps, context: IDeckSelectTagsState) {
@@ -59,8 +60,19 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
     const { inputTag } = this.state;
     return (
       <React.Fragment>
-        <FormControl>
-          <FormLabel sx={formLabelSx}>Tags</FormLabel>
+        <FormControl
+          sx={{
+            gap: 1,
+          }}
+        >
+          <DeckLabel
+            title={{
+              text: "Tags",
+            }}
+            description={{
+              text: "Tag with descriptive words so you can index and search them later, ie. revenue, cogs, costs, people, etc.",
+            }}
+          />
           {tags.length ? (
             <Box sx={boxSx}>
               {tags?.map((tag, index) => {
@@ -68,6 +80,14 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
                   <Chip
                     color="primary"
                     key={tag + index}
+                    sx={{
+                      fontSize: 12,
+                      lineHeight: 1.2,
+                      display: "flex",
+                      alignItems: "center",
+                      borderRadius: "var(--border-radius)",
+                      gap: 1,
+                    }}
                     endDecorator={<ChipDelete onClick={() => this.removeTag(tag)} />}
                   >
                     {tag}
@@ -84,6 +104,9 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
             variant="soft"
             color="primary"
             value={inputTag}
+            sx={{
+              fontSize: 12,
+            }}
             onChange={({ target }) => this.updateInputTag(target.value)}
             onKeyDown={(e) => this.onKeyDownOnTags(e)}
             endDecorator={
@@ -94,15 +117,10 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
                 startDecorator={<AddOutlined sx={addOutlinedSx} />}
                 onClick={() => this.addTag(inputTag)}
               >
-                ADD
+                <span>ADD</span>
               </Button>
             }
           />
-
-          <FormHelperText sx={formHelperTextSx}>
-            Tag your dataset with descriptive words so you can index and search them later, ie. revenue, cogs, costs,
-            people, etc.
-          </FormHelperText>
         </FormControl>
       </React.Fragment>
     );
