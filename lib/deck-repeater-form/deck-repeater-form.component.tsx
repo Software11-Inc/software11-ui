@@ -60,6 +60,7 @@ export const DeckRepeaterForm: React.FC<IDeckRepeaterFormProps> = ({
             sx={{
               fontSize: 20,
               color: "var(--joy-palette-primary)",
+              mx: 1,
             }}
           />
           <DeckLabel

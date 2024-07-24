@@ -203,6 +203,12 @@ Primary.args = {
       value: "Main",
     },
   ],
+  sort: [
+    {
+      key: "A1",
+      operator: "ASC",
+    },
+  ],
 };
 
 Primary.parameters = {
