@@ -1,6 +1,5 @@
 import { SxProps } from "@mui/joy/styles/types";
 import { inputFocusStyle } from "../input.style";
-import { i } from "vitest/dist/reporters-yx5ZTtEV.js";
 
 export const imageOverlayClass = "deck-slide-upload-item-overlay";
 
