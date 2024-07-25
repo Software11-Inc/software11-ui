@@ -1,5 +1,6 @@
 import { SxProps } from "@mui/joy/styles/types";
 import { inputFocusStyle } from "../input.style";
+import { i } from "vitest/dist/reporters-yx5ZTtEV.js";
 
 export const imageOverlayClass = "deck-slide-upload-item-overlay";
 
@@ -8,7 +9,14 @@ export const uploadItemStyle = (ignore = false): SxProps => ({
   flexDirection: ignore ? "row" : "column",
   borderRadius: "var(--border-radius)",
   overflow: "hidden",
-  boxShadow: "var(--shadow)",
+  boxShadow: ignore ? "none" : "var(--shadow)",
+  bgcolor: ignore ? "var(--joy-palette-background-surface)" : "var(--joy-palette-background-body)",
+  transition: ".3s",
+  border: "1px solid transparent",
+
+  ...(ignore && {
+    borderColor: "var(--joy-palette-background-level1)",
+  }),
 
   [`&:hover .${imageOverlayClass}`]: {
     backdropFilter: "blur(2px)",
@@ -27,7 +35,7 @@ export const uploadImageStyle = (ignore = false): SxProps => ({
     width: "100%",
     height: "100%",
     objectFit: "contain",
-    filter: ignore ? "grayscale(50%)" : "none",
+    filter: ignore ? "grayscale(25%)" : "none",
   },
 });
 
