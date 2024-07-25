@@ -1,6 +1,5 @@
 import AddRounded from "@mui/icons-material/AddRounded";
 import EditNoteRounded from "@mui/icons-material/EditNoteRounded";
-import HideImageRounded from "@mui/icons-material/HideImageRounded";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
@@ -37,6 +36,8 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   saved = false,
   ignore = false,
   onSave = () => {},
+  onIgnore = () => {},
+  onContinue = () => {},
 }) => {
   const buttonProps = {
     sx: {
@@ -89,7 +90,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
             {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
             {ignore ? null : (
               <Box sx={uploadImageOverlay} className={imageOverlayClass}>
-                <Button color="warning" slotProps={{ root: buttonProps }}>
+                <Button color="warning" slotProps={{ root: buttonProps }} onClick={onIgnore}>
                   Remove from queue
                 </Button>
               </Box>
@@ -189,7 +190,11 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         </AccordionGroup>
         {ignore && (
           <Box sx={ignoreBoxStyle}>
-            <Button slotProps={{ root: buttonProps }} fullWidth startDecorator={<AddRounded sx={{ fontSize: 14 }} />}>
+            <Button
+              slotProps={{ root: buttonProps }}
+              fullWidth
+              startDecorator={<AddRounded sx={{ fontSize: 14 }} onClick={onContinue} />}
+            >
               Add to queue
             </Button>
           </Box>

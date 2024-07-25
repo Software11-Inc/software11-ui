@@ -9,4 +9,6 @@ export interface IDeckSlideUploadItem {
   ignore?: boolean;
   item?: Partial<ILibrarySlide>;
   onSave?: (name?: string, tags?: string[]) => void;
+  onIgnore?: () => void;
+  onContinue?: () => void;
 }
