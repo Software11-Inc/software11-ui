@@ -189,7 +189,13 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         </AccordionGroup>
         {ignore && (
           <Box sx={ignoreBoxStyle}>
-            <Button sx={buttonSx} fullWidth startDecorator={<AddRounded sx={{ fontSize: 14 }} />} onClick={onContinue}>
+            <Button
+              sx={buttonSx}
+              color="neutral"
+              fullWidth
+              startDecorator={<AddRounded sx={{ fontSize: 14 }} />}
+              onClick={onContinue}
+            >
               Add to queue
             </Button>
           </Box>
