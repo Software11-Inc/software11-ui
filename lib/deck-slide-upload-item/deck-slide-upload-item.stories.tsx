@@ -6,6 +6,12 @@ import { base64Image } from "./image-example";
 export default {
   title: "lib/deck-slide-upload-item",
   component: DeckSlideUploadItem,
+  argTypes: {
+    onSave: { action: "onSave" },
+    onIgnore: { action: "onIgnore" },
+    onContinue: { action: "onContinue" },
+    onEdit: { action: "onEdit" },
+  },
 } as Meta<typeof DeckSlideUploadItem>;
 
 const Template: StoryFn<IDeckSlideUploadItem> = (args) => <DeckSlideUploadItem {...args} />;

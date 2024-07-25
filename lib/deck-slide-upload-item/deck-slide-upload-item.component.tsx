@@ -38,18 +38,17 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   onSave = () => {},
   onIgnore = () => {},
   onContinue = () => {},
+  onEdit = () => {},
 }) => {
-  const buttonProps = {
-    sx: {
-      fontSize: 10,
-      py: 0.5,
-      px: 1.5,
-      minHeight: "unset",
-      textTransform: "uppercase",
-      borderRadius: "calc(var(--border-radius)/2)",
-      whiteSpace: "nowrap",
-    },
-  } as any;
+  const buttonSx = {
+    fontSize: 10,
+    py: 0.5,
+    px: 1.5,
+    minHeight: "unset",
+    textTransform: "uppercase",
+    borderRadius: "calc(var(--border-radius)/2)",
+    whiteSpace: "nowrap",
+  };
   const className = "deck-slide-upload-item";
   const [name, setName] = React.useState("");
   const [tags, setTags] = React.useState<string[]>([]);
@@ -69,7 +68,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
       onClick: (e: any) => {
         const target = e.target as HTMLElement;
         if (target.classList.contains("MuiSvgIcon-root")) {
-          e.stopPropagation();
+          // e.stopPropagation();
           return;
         }
       },
@@ -90,7 +89,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
             {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
             {ignore ? null : (
               <Box sx={uploadImageOverlay} className={imageOverlayClass}>
-                <Button color="warning" slotProps={{ root: buttonProps }} onClick={onIgnore}>
+                <Button color="warning" onClick={onIgnore} sx={buttonSx}>
                   Remove from queue
                 </Button>
               </Box>
@@ -150,7 +149,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                   />
                 </Box>
                 {ignore ? null : !saved ? null : (
-                  <Button slotProps={{ root: buttonProps }} startDecorator={<EditNoteRounded sx={{ fontSize: 14 }} />}>
+                  <Button sx={buttonSx} onClick={onEdit} startDecorator={<EditNoteRounded sx={{ fontSize: 14 }} />}>
                     Change name
                   </Button>
                 )}
@@ -190,11 +189,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         </AccordionGroup>
         {ignore && (
           <Box sx={ignoreBoxStyle}>
-            <Button
-              slotProps={{ root: buttonProps }}
-              fullWidth
-              startDecorator={<AddRounded sx={{ fontSize: 14 }} onClick={onContinue} />}
-            >
+            <Button sx={buttonSx} fullWidth startDecorator={<AddRounded sx={{ fontSize: 14 }} onClick={onContinue} />}>
               Add to queue
             </Button>
           </Box>
