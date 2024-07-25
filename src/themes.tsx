@@ -65,13 +65,12 @@ export const lightTheme = extendTheme({
     JoyInput: {
       styleOverrides: {
         root: {
-          "&:focus, &:focus-visible, &:focus-within": {
-            boxShadow: "0 0 0 2px #ffffff, 0 0 0 4px var(--project-color-light), 0 1px 2px 0 black",
-            borderColor: "transparent",
-            outline: "none",
-
-            ["&:before"]: { "--Input-focused": 0 },
-          },
+          // "&:focus, &:focus-visible, &:focus-within": {
+          //   boxShadow: "0 0 0 2px #ffffff, 0 0 0 4px var(--project-color-light), 0 1px 2px 0 black",
+          //   borderColor: "transparent",
+          //   outline: "none",
+          //   ["&:before"]: { "--Input-focused": 0 },
+          // },
         },
       },
     },

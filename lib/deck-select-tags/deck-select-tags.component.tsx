@@ -9,6 +9,7 @@ import React from "react";
 import { DeckLabel } from "../deck-label";
 import { addOutlinedSx, boxSx, buttonSx } from "./deck-select-tags.styles";
 import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
+import { inputFocusStyle } from "../input.style";
 
 export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckSelectTagsState> {
   constructor(props: IDeckSelectTagsProps, context: IDeckSelectTagsState) {
@@ -104,6 +105,7 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
             value={inputTag}
             sx={{
               fontSize: 12,
+              ...inputFocusStyle,
             }}
             onChange={({ target }) => this.updateInputTag(target.value)}
             onKeyDown={(e) => this.onKeyDownOnTags(e)}

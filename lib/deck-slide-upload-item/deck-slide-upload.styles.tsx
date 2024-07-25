@@ -1,4 +1,5 @@
 import { SxProps } from "@mui/joy/styles/types";
+import { inputFocusStyle } from "../input.style";
 
 export const imageOverlayClass = "deck-slide-upload-item-overlay";
 
@@ -66,6 +67,8 @@ export const accordionDetailsBoxStyle = {
 
 export const inputStyle = {
   fontSize: 12,
+
+  ...inputFocusStyle,
 };
 
 export const dividerStyle = {
