@@ -40,7 +40,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
 }) => {
   const buttonProps = {
     sx: {
-      fontSize: 9,
+      fontSize: 10,
       py: 0.5,
       px: 1.5,
       minHeight: "unset",
@@ -89,11 +89,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
             {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
             {ignore ? null : (
               <Box sx={uploadImageOverlay} className={imageOverlayClass}>
-                <Button
-                  color="warning"
-                  slotProps={{ root: buttonProps }}
-                  startDecorator={<HideImageRounded sx={{ fontSize: 14 }} />}
-                >
+                <Button color="warning" slotProps={{ root: buttonProps }}>
                   Remove from queue
                 </Button>
               </Box>
@@ -143,11 +139,11 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                   <DeckStatus status={status} />
                   <DeckLabel
                     title={{
-                      text: slideName,
+                      text: valid ? name : slideName,
                       limit: 1,
                     }}
                     description={{
-                      text: name,
+                      text: valid ? slideName : "Enter a new name",
                       limit: 1,
                     }}
                   />
