@@ -27,7 +27,7 @@ export const uploadImageStyle = (ignore = false): SxProps => ({
     width: "100%",
     height: "100%",
     objectFit: "contain",
-    filter: ignore ? "grayscale(100%)" : "none",
+    filter: ignore ? "grayscale(50%)" : "none",
   },
 });
 
