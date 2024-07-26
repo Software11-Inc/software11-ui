@@ -3,7 +3,7 @@ import { inputFocusStyle } from "../input.style";
 
 export const imageOverlayClass = "deck-slide-upload-item-overlay";
 
-export const uploadItemStyle = (ignore = false): SxProps => ({
+export const uploadItemStyle = (ignore = false, loading = false): SxProps => ({
   display: "flex",
   flexDirection: ignore ? "row" : "column",
   borderRadius: "var(--border-radius)",
@@ -16,6 +16,10 @@ export const uploadItemStyle = (ignore = false): SxProps => ({
 
   ...(ignore && {
     borderColor: "var(--joy-palette-background-level1)",
+  }),
+
+  ...(loading && {
+    boxShadow: "var(--focus-shadow)",
   }),
 
   [`&:hover .${imageOverlayClass}`]: {

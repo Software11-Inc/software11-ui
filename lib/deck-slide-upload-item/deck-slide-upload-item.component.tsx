@@ -63,16 +63,18 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
       setTags(item?.tags || []);
     }
   }, [item]);
-
+  const getRandomBetween = (a: number, b: number) => {
+    return Math.floor(Math.random() * b) + a;
+  };
   React.useEffect(() => {
     if (loading) {
       const interval = setInterval(() => {
         setProgress((oldProgress) => {
           if (oldProgress === 95) {
             // clearInterval(interval);
-            return 15;
+            return getRandomBetween(0, 75);
           }
-          const diff = Math.random() * 5;
+          const diff = getRandomBetween(1, 12);
           return Math.min(oldProgress + diff, 95);
         });
       }, 250);
@@ -102,7 +104,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   const valid = name.length > 0;
 
   return (
-    <Box sx={uploadItemStyle(ignore)}>
+    <Box sx={uploadItemStyle(ignore, loading)}>
       <Box sx={uploadImageStyle(ignore)}>
         {loaded ? (
           <React.Fragment>
@@ -142,6 +144,10 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               bottom: 0,
               left: 0,
               right: 0,
+
+              "&:before": {
+                transition: "1s",
+              },
             }}
           />
         )}
