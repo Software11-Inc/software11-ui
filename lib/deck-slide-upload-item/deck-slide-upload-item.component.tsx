@@ -68,14 +68,14 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
     if (loading) {
       const interval = setInterval(() => {
         setProgress((oldProgress) => {
-          if (oldProgress === 100) {
-            clearInterval(interval);
-            return 0;
+          if (oldProgress === 95) {
+            // clearInterval(interval);
+            return 15;
           }
-          const diff = Math.random() * 10;
-          return Math.min(oldProgress + diff, 100);
+          const diff = Math.random() * 5;
+          return Math.min(oldProgress + diff, 95);
         });
-      }, 500);
+      }, 250);
       return () => clearInterval(interval);
     }
   }, [loading]);
