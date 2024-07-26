@@ -11,7 +11,7 @@ export const uploadItemStyle = (ignore = false): SxProps => ({
   boxShadow: ignore ? "none" : "var(--shadow)",
   bgcolor: ignore ? "var(--joy-palette-background-surface)" : "var(--joy-palette-background-body)",
   transition: ".3s",
-  border: "1px solid transparent",
+  border: "1px solid var(--joy-palette-divider)",
 
   ...(ignore && {
     borderColor: "var(--joy-palette-background-level1)",
