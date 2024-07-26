@@ -25,6 +25,8 @@ Default.args = {
     tags: ["tag1", "tag2"],
   },
   loaded: true,
+  loading: false,
+  disabled: false,
   ignore: false,
   saved: false,
   base64Image: base64Image,

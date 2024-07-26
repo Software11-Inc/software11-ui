@@ -27,6 +27,7 @@ import {
   uploadImageStyle,
   uploadItemStyle,
 } from "./deck-slide-upload.styles";
+import { LinearProgress } from "@mui/joy";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
@@ -35,6 +36,8 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   loaded = false,
   saved = false,
   ignore = false,
+  loading = false,
+  disabled = false,
   onSave = () => {},
   onIgnore = () => {},
   onContinue = () => {},
@@ -53,12 +56,29 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   const [name, setName] = React.useState("");
   const [tags, setTags] = React.useState<string[]>([]);
 
+  const [progress, setProgress] = React.useState(0);
   React.useEffect(() => {
     if (item) {
       setName(item?.name || "");
       setTags(item?.tags || []);
     }
   }, [item]);
+
+  React.useEffect(() => {
+    if (loading) {
+      const interval = setInterval(() => {
+        setProgress((oldProgress) => {
+          if (oldProgress === 100) {
+            clearInterval(interval);
+            return 0;
+          }
+          const diff = Math.random() * 10;
+          return Math.min(oldProgress + diff, 100);
+        });
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [loading]);
 
   const status = ignore ? Status.WAITING : saved ? Status.PROCESSING : Status.WAITING;
 
@@ -87,7 +107,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         {loaded ? (
           <React.Fragment>
             {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
-            {ignore ? null : (
+            {ignore || disabled ? null : (
               <Box sx={uploadImageOverlay} className={imageOverlayClass}>
                 <Button color="warning" onClick={onIgnore} sx={buttonSx}>
                   Remove from queue
@@ -110,6 +130,20 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
           >
             <CircularProgress />
           </Box>
+        )}
+        {loading && (
+          <LinearProgress
+            determinate
+            value={progress}
+            size="sm"
+            sx={{
+              height: "2px",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+          />
         )}
       </Box>
       <Divider orientation={ignore ? "vertical" : "horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />
@@ -136,7 +170,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                     gap: 1,
                   }}
                 >
-                  <DeckStatus status={status} />
+                  <DeckStatus status={status} loading={loading} />
                   <DeckLabel
                     title={{
                       text: valid ? name : slideName,
@@ -148,7 +182,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                     }}
                   />
                 </Box>
-                {ignore ? null : !saved ? null : (
+                {ignore || disabled ? null : !saved ? null : (
                   <Button sx={buttonSx} onClick={onEdit} startDecorator={<EditNoteRounded sx={{ fontSize: 14 }} />}>
                     Change name
                   </Button>

@@ -5,8 +5,10 @@ export interface IDeckSlideUploadItem {
   previewImage?: string;
   base64Image?: string;
   loaded?: boolean;
+  loading?: boolean;
   saved?: boolean;
   ignore?: boolean;
+  disabled?: boolean;
   item?: Partial<ILibrarySlide>;
   onSave?: (name?: string, tags?: string[]) => void;
   onEdit?: () => void;
