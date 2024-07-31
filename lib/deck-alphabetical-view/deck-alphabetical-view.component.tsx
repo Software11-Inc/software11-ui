@@ -60,7 +60,6 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
       if (entry.isIntersecting) {
         if (entry.isIntersecting) {
           const key = (entry.target as any).dataset.id;
-          console.log("---> key", key);
           this.setState({
             activeLetter: key,
           });
@@ -82,7 +81,6 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
     this._observer = new IntersectionObserver(this._handleObserver, options);
 
     const sections = document.querySelectorAll(`.${alphabeticalViewSectionClass}`);
-    console.log("---> sections", sections);
     sections.forEach((section) => {
       this._observer.observe(section);
     });

@@ -114,6 +114,11 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
     return footer?.clientHeight || 0;
   };
 
+  private _getBodyPadding = (): string => {
+    const body = document.querySelector("body");
+    return body?.style.paddingRight || "0px";
+  };
+
   /**
    * This method is used to adjust the position of the alphabetical navigation container based on the scroll position.
    * It listens to the scroll events of the window and the internal trigger observable.
@@ -130,6 +135,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
       map(() => {
         const headerHeight = this._getHeaderHeight() + this._getStickyContainersHeight();
         const footerHeight = this._getFooterHeight();
+        const bodyPadding = this._getBodyPadding();
 
         const nav = document.querySelector(`.${alphabeticalViewNavClass}`);
         if (!nav) {
@@ -139,7 +145,9 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
         const top = `calc(${headerHeight}px + 1rem)`;
         const bottom = `calc(${footerHeight}px + 1rem)`;
 
-        nav.setAttribute("style", `top: ${top}; bottom: ${bottom};`);
+        const right = bodyPadding.length > 0 ? `calc(${bodyPadding} + 0.5rem)` : "0.5rem";
+
+        nav.setAttribute("style", `top: ${top}; bottom: ${bottom}; right: ${right};`);
       })
     );
   };

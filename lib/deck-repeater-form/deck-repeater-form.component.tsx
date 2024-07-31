@@ -42,7 +42,6 @@ export const DeckRepeaterForm: React.FC<IDeckRepeaterFormProps> = ({
   addSort = () => {},
   removeSort = () => {},
 }) => {
-  console.log("DeckRepeaterForm", { figures, filter, headers });
   const buttonProps = {
     sx: {
       fontSize: 12,
