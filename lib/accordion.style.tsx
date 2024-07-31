@@ -13,17 +13,17 @@ const sizePaddingMap = {
 export const getBackgroundColor = (level: number): string => {
   switch (level) {
     case 0:
-      return "background.body";
+      return "var(--joy-palette-background-body)";
     case 1:
-      return "background.surface";
+      return "var(--joy-palette-background-surface)";
     case 2:
-      return "background.level1";
+      return "var(--joy-palette-background-level1)";
     case 3:
-      return "background.level2";
+      return "var(--joy-palette-background-level2)";
     case 4:
-      return "background.level3";
+      return "var(--joy-palette-background-level3)";
     default:
-      return "background.body";
+      return "var(--joy-palette-background-body)";
   }
 };
 

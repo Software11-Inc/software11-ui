@@ -11,6 +11,7 @@ import { DeckIconButton } from "../deck-icon-button";
 import { DeckRepeaterSelectFigureDrawer } from "../deck-repeater-select-figure-drawer";
 import { filterGroupStyles } from "./deck-repeater-form-filter.styles";
 import { DeckRepeaterFormFilterProps } from "./deck-repeater-form-filter.types";
+import { getInputFocusStyle } from "../theming";
 
 export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
   figures = [],
@@ -24,7 +25,7 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     size: "sm",
     variant: "soft",
     color: "primary",
-    sx: { fontSize: 12 },
+    sx: { fontSize: 12, ...getInputFocusStyle("primary", "soft") },
   } as any;
 
   const selectSlotProps = {
@@ -33,6 +34,9 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
       sx: {
         padding: 0,
       },
+    },
+    root: {
+      sx: { fontSize: 12, ...getInputFocusStyle("primary", "soft") },
     },
   } as any;
 
@@ -83,12 +87,6 @@ export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
     }
     updateFilter(field, value);
   };
-
-  console.log("figures", figures);
-  console.log("availableFigures", availableFigures);
-  console.log("key", key);
-  console.log("operator", operator);
-  console.log("value", value);
 
   return (
     <Box sx={filterGroupStyles}>

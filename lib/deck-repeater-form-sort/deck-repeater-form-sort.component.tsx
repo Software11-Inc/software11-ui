@@ -7,6 +7,7 @@ import React from "react";
 import { ISortItem, SortOperatorType } from "../models/template.model";
 import { sortGroupStyles, textStyle } from "./deck-repeater-form-sort.styles";
 import { DeckRepeaterFormSortProps } from "./deck-repeater-form-sort.types";
+import { getInputFocusStyle } from "../theming";
 
 export const DeckRepeaterFormSort: React.FC<DeckRepeaterFormSortProps> = ({
   headers = [],
@@ -19,7 +20,7 @@ export const DeckRepeaterFormSort: React.FC<DeckRepeaterFormSortProps> = ({
     size: "sm",
     variant: "soft",
     color: "primary",
-    sx: { fontSize: 12 },
+    sx: { fontSize: 12, ...getInputFocusStyle("primary", "soft") },
   } as any;
 
   const selectSlotProps = {
@@ -28,6 +29,9 @@ export const DeckRepeaterFormSort: React.FC<DeckRepeaterFormSortProps> = ({
       sx: {
         padding: 0,
       },
+    },
+    root: {
+      sx: { fontSize: 12, ...getInputFocusStyle("primary", "soft") },
     },
   } as any;
 
