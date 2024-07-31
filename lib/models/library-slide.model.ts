@@ -7,6 +7,6 @@ import { IDefaultItem } from "./default-item.model";
  */
 export interface ILibrarySlide extends IDefaultItem {
   previewImage?: string; // Optional URL for the slide's preview image
-  storedFileUrl?: string; // Optional URL where the slide's file is stored
+  storedFileURL?: string[]; // Optional URL where the slide's file is stored
   latestUpdateTime?: IDate; // Optional date of the latest update to the slide
 }
