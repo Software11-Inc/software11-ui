@@ -32,6 +32,7 @@ const Template: StoryFn<typeof DeckLabel> = (args) => <DeckLabel {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  required: true,
   title: {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac lobortis dui.",
     limit: 1,

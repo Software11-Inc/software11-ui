@@ -23,8 +23,14 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       [`& > .${className}__title`]: {
         lineHeight: "1.2",
         fontWeight: "bold",
-        color: `${color}.500`,
+        color: `var(--joy-palette-${color}-500)`,
         fontSize: titleFontSize,
+
+        "& > .deck-required": {
+          color: "var(--joy-palette-danger-500)",
+          fontSize: "12px",
+          marginLeft: "0.25rem",
+        },
       },
 
       [`& > .${className}__description`]: {

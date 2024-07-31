@@ -12,4 +12,5 @@ export interface DeckLabelProps {
   mt?: number;
   order?: number;
   gap?: number;
+  required?: boolean;
 }
