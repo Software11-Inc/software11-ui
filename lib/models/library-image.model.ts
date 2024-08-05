@@ -6,5 +6,5 @@ import { IDefaultItem } from "./default-item.model";
  */
 export interface ILibraryImage extends IDefaultItem {
   previewImageURL?: string; // Optional URL for the image's preview
-  storedFileUrl?: string; // Optional URL where the actual image file is stored
+  storedFileURL?: string; // Optional URL where the actual image file is stored
 }
