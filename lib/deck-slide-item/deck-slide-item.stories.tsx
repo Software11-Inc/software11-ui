@@ -18,7 +18,7 @@ Default.args = {
   item: {
     id: "1",
     name: "Slide Name",
-    previewImage: "https://via.placeholder.com/450",
+    previewImageURL: "https://via.placeholder.com/450",
     latestUpdateTime: {
       _seconds: 1632201600,
     },
