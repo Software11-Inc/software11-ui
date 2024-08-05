@@ -44,6 +44,9 @@ export const itemStyle: SxProps = {
   },
 };
 
+const highlightInnerColor = getBackgroundColor(1);
+const highlightOuterColor = "var(--joy-palette-primary-500)";
+
 export const itemInnerStyle: SxProps = {
   display: "grid",
   gridTemplateColumns: "1.5rem auto 2rem 1.5rem",
@@ -65,11 +68,7 @@ export const itemInnerStyle: SxProps = {
 
   "&.deck-highlighted": {
     bgcolor: "background.body",
-    boxShadow: "var(--highlight-shadow)",
-
-    "&:hover": {
-      boxShadow: "var(--shadow)",
-    },
+    boxShadow: `0 0 0 2px ${highlightInnerColor}, 0 0 0 4px ${highlightOuterColor}, 0 1px 2px 0 black`,
   },
 };
 

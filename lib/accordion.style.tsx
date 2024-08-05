@@ -27,6 +27,9 @@ export const getBackgroundColor = (level: number): string => {
   }
 };
 
+const highlightInnerColor = getBackgroundColor(0);
+const highlightOuterColor = "var(--joy-palette-primary-500)";
+
 export const accordionGroupStyles = (
   className: string,
   compact: boolean,
@@ -130,7 +133,7 @@ export const accordionGroupStyles = (
         [`& > .${accordionClasses.root}:not(.${accordionClasses.expanded})`]: {
           [`& > .${accordionSummaryClasses.root}`]: {
             [`& > .${accordionSummaryClasses.button}`]: {
-              boxShadow: "var(--focus-shadow)",
+              boxShadow: `0 0 0 2px ${highlightInnerColor}, 0 0 0 4px ${highlightOuterColor}, 0 1px 2px 0 black`,
               bgcolor: getBackgroundColor(level + 1),
 
               "&:hover": {
