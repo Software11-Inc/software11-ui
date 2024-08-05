@@ -5,6 +5,6 @@ import { IDefaultItem } from "./default-item.model";
  * It includes optional properties for managing image resources.
  */
 export interface ILibraryImage extends IDefaultItem {
-  previewImage?: string; // Optional URL for the image's preview
+  previewImageURL?: string; // Optional URL for the image's preview
   storedFileUrl?: string; // Optional URL where the actual image file is stored
 }
