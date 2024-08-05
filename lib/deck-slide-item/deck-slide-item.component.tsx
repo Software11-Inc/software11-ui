@@ -16,7 +16,7 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({ item, onInsert })
     <React.Fragment>
       <Box sx={slideItemStyle}>
         <Box sx={slideItemImageStyle}>
-          <img src={item?.previewImage} alt={item.name} />
+          <img src={item?.previewImageURL} alt={item.name} />
         </Box>
         <Box sx={slideItemContentStyle}>
           <DeckLabel
