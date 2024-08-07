@@ -20,7 +20,6 @@ export const slideItemImageStyle: SxProps = {
   img: {
     width: "100%",
     height: "auto",
-    borderRadius: "var(--border-radius)",
     objectFit: "cover",
   },
 };
