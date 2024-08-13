@@ -284,7 +284,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               color="primary"
               fullWidth
               startDecorator={<SettingsSuggestRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
-              onClick={onContinue}
+              onClick={onEdit}
               disabled={loading || disabled}
             >
               Change
