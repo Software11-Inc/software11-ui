@@ -1,5 +1,9 @@
 import AddRounded from "@mui/icons-material/AddRounded";
 import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
+import NewReleasesRounded from "@mui/icons-material/NewReleasesRounded";
+import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
+import WarningRounded from "@mui/icons-material/WarningRounded";
+import WarningAmberRounded from "@mui/icons-material/WarningAmberRounded";
 import { LinearProgress, Typography } from "@mui/joy";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
@@ -28,6 +32,7 @@ import {
   uploadImageStyle,
   uploadItemStyle,
 } from "./deck-slide-upload.styles";
+import SyncRounded from "@mui/icons-material/SyncRounded";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
@@ -44,8 +49,8 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   onEdit = () => {},
 }) => {
   const buttonSx = {
-    fontSize: 11,
-    lineHeight: 1.1,
+    fontSize: 10,
+    lineHeight: "12px",
     minHeight: "unset",
     textTransform: "uppercase",
     borderRadius: "calc(var(--border-radius)/2)",
@@ -270,7 +275,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         )}
         {saved && !ignore && (
           <Box sx={{ ...ignoreBoxStyle, p: 0 }}>
-            <Button
+            {/* <Button
               sx={editButtonSx}
               color="warning"
               fullWidth
@@ -279,6 +284,34 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               disabled={loading || disabled}
             >
               Change
+            </Button> */}
+            {/* <Button
+              sx={editButtonSx}
+              color="neutral"
+              fullWidth
+              startDecorator={<SyncRounded sx={{ fontSize: 12, animation: "spin 2s infinite linear" }} />}
+              onClick={onEdit}
+              disabled={loading || disabled}
+            >
+              Uploading
+            </Button> */}
+            {/* <Button
+              sx={editButtonSx}
+              color="success"
+              fullWidth
+              startDecorator={<DoneAllRounded sx={{ fontSize: 12 }} />}
+              onClick={onEdit}
+            >
+              SUCCESS
+            </Button> */}
+            <Button
+              sx={editButtonSx}
+              color="danger"
+              fullWidth
+              startDecorator={<WarningRounded sx={{ fontSize: 12, lineHeight: 1.2 }} />}
+              onClick={onEdit}
+            >
+              ERROR
             </Button>
           </Box>
         )}

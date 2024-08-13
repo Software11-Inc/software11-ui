@@ -1,5 +1,10 @@
 import { ILibrarySlide } from "../models/library-slide.model";
 
+export enum UploadGeneralState {
+  INIT = "INIT",
+  LOADED = "LOADED",
+}
+
 export interface IDeckSlideUploadItem {
   slideName?: string;
   previewImage?: string;
