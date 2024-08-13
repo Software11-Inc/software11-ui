@@ -54,10 +54,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
     alignItems: "center",
     justifyContent: "center",
   };
-  const uploadButtonSx = {
-    ...buttonSx,
-    flex: 1,
-  };
   const editButtonSx = {
     ...buttonSx,
     borderRadius: "0 0 calc(var(--border-radius)/2) calc(var(--border-radius)/2)",
