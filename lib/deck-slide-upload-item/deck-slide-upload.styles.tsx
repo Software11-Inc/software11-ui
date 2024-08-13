@@ -35,6 +35,7 @@ export const uploadImageStyle = (ignore = false): SxProps => ({
     width: "100%",
     height: "100%",
     filter: ignore ? "grayscale(50%)" : "none",
+    objectFit: "cover",
   },
 
   [`&:hover .${imageOverlayClass}`]: {
