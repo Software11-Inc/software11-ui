@@ -1,6 +1,6 @@
-import EditNoteRounded from "@mui/icons-material/EditNoteRounded";
+import AddRounded from "@mui/icons-material/AddRounded";
 import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
-import PlaylistAddRounded from "@mui/icons-material/PlaylistAddRounded";
+import { LinearProgress, Typography } from "@mui/joy";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
@@ -28,8 +28,6 @@ import {
   uploadImageStyle,
   uploadItemStyle,
 } from "./deck-slide-upload.styles";
-import { LinearProgress, Typography } from "@mui/joy";
-import AddRounded from "@mui/icons-material/AddRounded";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
