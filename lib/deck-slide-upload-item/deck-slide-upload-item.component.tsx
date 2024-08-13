@@ -218,10 +218,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                       text: valid ? name : slideName,
                       limit: 1,
                     }}
-                    description={{
-                      text: valid ? slideName : "Enter a new name",
-                      limit: 1,
-                    }}
                   />
                 </Box>
               </Box>
@@ -273,10 +269,10 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
           </Box>
         )}
         {saved && !ignore && (
-          <Box sx={ignoreBoxStyle}>
+          <Box sx={{ ...ignoreBoxStyle, p: 0 }}>
             <Button
               sx={editButtonSx}
-              color="primary"
+              color="warning"
               fullWidth
               startDecorator={<SettingsSuggestRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
               onClick={onEdit}
