@@ -26,10 +26,10 @@ export const uploadItemStyle = (ignore = false, loading = false): SxProps => ({
 export const uploadImageStyle = (ignore = false): SxProps => ({
   display: "flex",
   aspectRatio: "16/9",
-  maxWidth: ignore ? "4.5rem" : "auto",
   transition: ".3s",
   position: "relative",
   overflow: "hidden",
+  flex: 1,
 
   img: {
     width: "100%",
@@ -99,4 +99,5 @@ export const ignoreBoxStyle = {
   display: "flex",
   justifyContent: "center",
   flex: 1,
+  p: 1,
 };

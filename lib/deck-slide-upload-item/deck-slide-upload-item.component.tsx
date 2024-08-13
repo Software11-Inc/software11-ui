@@ -56,7 +56,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   };
   const uploadButtonSx = {
     ...buttonSx,
-    borderRadius: "0 calc(var(--border-radius)/2) calc(var(--border-radius)/2) 0",
     flex: 1,
   };
   const editButtonSx = {
@@ -190,7 +189,9 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
           />
         )}
       </Box>
-      {!ignore && <Divider orientation={"horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />}
+      {!ignore && (
+        <Divider orientation={ignore ? "vertical" : "horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />
+      )}
       <Box
         sx={{
           display: "flex",
@@ -201,7 +202,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
       >
         <AccordionGroup
           className={className}
-          sx={accordionGroupStyles(className, true, 0, "sm", false, 0, ignore)}
+          sx={accordionGroupStyles(className, true, 0, "sm", false, 0)}
           transition={accordionTransition}
         >
           <Accordion defaultExpanded={true} expanded={!ignore && !saved} disabled={ignore}>
@@ -264,7 +265,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         {ignore && (
           <Box sx={ignoreBoxStyle}>
             <Button
-              sx={uploadButtonSx}
+              sx={buttonSx}
               color="primary"
               fullWidth
               startDecorator={<AddRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
