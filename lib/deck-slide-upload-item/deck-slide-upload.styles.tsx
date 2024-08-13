@@ -6,7 +6,7 @@ export const imageOverlayClass = "deck-slide-upload-item-overlay";
 export const uploadItemStyle = (ignore = false, loading = false): SxProps => ({
   display: "flex",
   flexDirection: ignore ? "row" : "column",
-  borderRadius: "var(--border-radius)",
+  borderRadius: `calc(var(--border-radius) / ${ignore ? 2 : 1})`,
   overflow: "hidden",
   boxShadow: ignore ? "none" : "var(--shadow)",
   bgcolor: ignore ? "var(--joy-palette-background-surface)" : "var(--joy-palette-background-body)",
@@ -21,25 +21,26 @@ export const uploadItemStyle = (ignore = false, loading = false): SxProps => ({
   ...(loading && {
     boxShadow: "var(--focus-shadow)",
   }),
-
-  [`&:hover .${imageOverlayClass}`]: {
-    backdropFilter: "blur(2px)",
-    opacity: 1,
-  },
 });
 
 export const uploadImageStyle = (ignore = false): SxProps => ({
   display: "flex",
   aspectRatio: "16/9",
-  maxWidth: ignore ? "8.5rem" : "auto",
+  maxWidth: ignore ? "4.5rem" : "auto",
   transition: ".3s",
   position: "relative",
-  flexGrow: 1,
+  overflow: "hidden",
+
   img: {
     width: "100%",
     height: "100%",
-    objectFit: "contain",
-    filter: ignore ? "grayscale(25%)" : "none",
+    filter: ignore ? "grayscale(50%)" : "none",
+  },
+
+  [`&:hover .${imageOverlayClass}`]: {
+    backdropFilter: "blur(2px)",
+    bgcolor: "rgba(255, 255, 255, 0.7)",
+    opacity: 1,
   },
 });
 
@@ -49,9 +50,8 @@ export const uploadImageOverlay: SxProps = {
   bottom: 0,
   left: 0,
   right: 0,
-  gap: 1,
   pb: 2,
-
+  gap: 0.5,
   opacity: 0,
 
   display: "flex",
@@ -98,6 +98,5 @@ export const saveButtonBoxStyle = {
 export const ignoreBoxStyle = {
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
-  p: 1,
+  flex: 1,
 };

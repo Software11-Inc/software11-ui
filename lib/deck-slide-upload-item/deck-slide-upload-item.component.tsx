@@ -1,5 +1,6 @@
-import AddRounded from "@mui/icons-material/AddRounded";
 import EditNoteRounded from "@mui/icons-material/EditNoteRounded";
+import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
+import PlaylistAddRounded from "@mui/icons-material/PlaylistAddRounded";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
@@ -27,7 +28,8 @@ import {
   uploadImageStyle,
   uploadItemStyle,
 } from "./deck-slide-upload.styles";
-import { LinearProgress } from "@mui/joy";
+import { LinearProgress, Typography } from "@mui/joy";
+import AddRounded from "@mui/icons-material/AddRounded";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
@@ -44,13 +46,25 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   onEdit = () => {},
 }) => {
   const buttonSx = {
-    fontSize: 10,
-    py: 0.5,
-    px: 1.5,
+    fontSize: 11,
+    lineHeight: 1.1,
     minHeight: "unset",
     textTransform: "uppercase",
     borderRadius: "calc(var(--border-radius)/2)",
     whiteSpace: "nowrap",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+  const uploadButtonSx = {
+    ...buttonSx,
+    borderRadius: "0 calc(var(--border-radius)/2) calc(var(--border-radius)/2) 0",
+    flex: 1,
+  };
+  const editButtonSx = {
+    ...buttonSx,
+    borderRadius: "0 0 calc(var(--border-radius)/2) calc(var(--border-radius)/2)",
+    flex: 1,
   };
   const className = "deck-slide-upload-item";
   const [name, setName] = React.useState("");
@@ -109,10 +123,35 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         {loaded ? (
           <React.Fragment>
             {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
+            {loading ? (
+              <Box
+                sx={{
+                  position: "absolute",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "100%",
+                  bgcolor: "rgba(255,255,255, 0.7)",
+                  minWidth: "4.5rem",
+                  flex: 1,
+                }}
+              >
+                <CircularProgress size="sm" />
+              </Box>
+            ) : null}
             {ignore || disabled ? null : (
               <Box sx={uploadImageOverlay} className={imageOverlayClass}>
-                <Button color="warning" onClick={onIgnore} sx={buttonSx}>
-                  Remove from queue
+                <Typography
+                  sx={{
+                    fontSize: 9,
+                    fontStyle: "italic",
+                  }}
+                >
+                  If you want to skip this slide, click on the button below
+                </Typography>
+                <Button size="sm" color="warning" onClick={onIgnore} sx={buttonSx} disabled={loading || disabled}>
+                  SKIP
                 </Button>
               </Box>
             )}
@@ -126,11 +165,12 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               width: "100%",
               height: "100%",
               bgcolor: "var(--joy-palette-background-surface)",
-              minWidth: "8.5rem",
+              minWidth: "4.5rem",
+              aspectRatio: "16/9",
               flex: 1,
             }}
           >
-            <CircularProgress />
+            <CircularProgress size="sm" />
           </Box>
         )}
         {loading && (
@@ -152,17 +192,18 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
           />
         )}
       </Box>
-      <Divider orientation={ignore ? "vertical" : "horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />
+      {!ignore && <Divider orientation={"horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          flex: 1,
         }}
       >
         <AccordionGroup
           className={className}
-          sx={accordionGroupStyles(className, true, 0, "sm", false)}
+          sx={accordionGroupStyles(className, true, 0, "sm", false, 0, ignore)}
           transition={accordionTransition}
         >
           <Accordion defaultExpanded={true} expanded={!ignore && !saved} disabled={ignore}>
@@ -188,11 +229,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
                     }}
                   />
                 </Box>
-                {ignore || disabled ? null : !saved ? null : (
-                  <Button sx={buttonSx} onClick={onEdit} startDecorator={<EditNoteRounded sx={{ fontSize: 14 }} />}>
-                    Change name
-                  </Button>
-                )}
               </Box>
             </AccordionSummary>
             <AccordionDetails>
@@ -220,7 +256,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               </Box>
               <Divider sx={{ bgcolor: "var(--joy-palette-divider" }} />
               <Box sx={saveButtonBoxStyle}>
-                <Button size="sm" sx={{ fontSize: 10 }} onClick={save} disabled={!valid}>
+                <Button size="sm" sx={{ fontSize: 10 }} disabled={!valid || loading || disabled} onClick={save}>
                   SAVE
                 </Button>
               </Box>
@@ -230,13 +266,28 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
         {ignore && (
           <Box sx={ignoreBoxStyle}>
             <Button
-              sx={buttonSx}
-              color="neutral"
+              sx={uploadButtonSx}
+              color="primary"
               fullWidth
-              startDecorator={<AddRounded sx={{ fontSize: 14 }} />}
+              startDecorator={<AddRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
               onClick={onContinue}
+              disabled={loading || disabled}
             >
-              Add to queue
+              ADD
+            </Button>
+          </Box>
+        )}
+        {saved && !ignore && (
+          <Box sx={ignoreBoxStyle}>
+            <Button
+              sx={editButtonSx}
+              color="primary"
+              fullWidth
+              startDecorator={<SettingsSuggestRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
+              onClick={onContinue}
+              disabled={loading || disabled}
+            >
+              Change
             </Button>
           </Box>
         )}
