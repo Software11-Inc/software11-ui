@@ -9,9 +9,9 @@ import Select from "@mui/joy/Select";
 import React from "react";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckRepeaterSelectFigureDrawer } from "../deck-repeater-select-figure-drawer";
+import { getInputFocusStyle } from "../theming";
 import { filterGroupStyles } from "./deck-repeater-form-filter.styles";
 import { DeckRepeaterFormFilterProps } from "./deck-repeater-form-filter.types";
-import { getInputFocusStyle } from "../theming";
 
 export const DeckRepeaterFormFilter: React.FC<DeckRepeaterFormFilterProps> = ({
   figures = [],

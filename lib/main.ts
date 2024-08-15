@@ -58,5 +58,5 @@ export * from "./deck-repeater-select-figure-drawer";
 export * from "@models";
 
 export * from "./accordion.style";
-export * from "./utils";
 export * from "./theming";
+export * from "./utils";

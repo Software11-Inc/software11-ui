@@ -5,9 +5,9 @@ import Option from "@mui/joy/Option";
 import Select from "@mui/joy/Select";
 import React from "react";
 import { ISortItem, SortOperatorType } from "../models/template.model";
+import { getInputFocusStyle } from "../theming";
 import { sortGroupStyles, textStyle } from "./deck-repeater-form-sort.styles";
 import { DeckRepeaterFormSortProps } from "./deck-repeater-form-sort.types";
-import { getInputFocusStyle } from "../theming";
 
 export const DeckRepeaterFormSort: React.FC<DeckRepeaterFormSortProps> = ({
   headers = [],

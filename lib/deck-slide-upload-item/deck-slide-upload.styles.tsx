@@ -41,9 +41,17 @@ export const getGeneralStyles: SxProps = {
       height: "0px",
     },
   },
+  [`&.${UploadGeneralState.EDIT}, &.${UploadGeneralState.SAVED}`]: {
+    [`& .${itemImageSectionClass}:hover`]: {
+      [`& .${itemImageHoverClass}`]: {
+        opacity: 1,
+        transform: "translateY(0)",
+      },
+    },
+  },
 };
 
-const transition = ".125s ease-in-out";
+const transition = ".3s ease-in-out";
 
 export const getStyles = (): SxProps => ({
   ...getGeneralStyles,
@@ -51,7 +59,6 @@ export const getStyles = (): SxProps => ({
 
 export const itemBoxStyle: SxProps = {
   position: "relative",
-  border: "1px solid var(--joy-palette-divider)",
   borderRadius: "var(--border-radius)",
   boxShadow: "var(--shadow)",
 
@@ -112,7 +119,7 @@ export const itemBoxStyle: SxProps = {
     [`& .${itemErrorOverlayClass}`]: {
       justifyContent: "flex-end",
       alignItems: "flex-start",
-      background: "linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,0.8) 75%)",
+      background: "linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 75%)",
       padding: 1,
       flexDirection: "column",
     },
@@ -138,17 +145,14 @@ export const itemBoxStyle: SxProps = {
       gap: 0.5,
       opacity: 0,
 
-      background: "linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,0.8) 75%)",
+      background: "linear-gradient(to bottom, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 75%)",
+      transform: "translateY(100%)",
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-end",
       alignItems: "center",
 
       transition,
-
-      "&:hover": {
-        opacity: 1,
-      },
     },
   },
 
@@ -187,48 +191,6 @@ export const editButtonSx = {
   borderRadius: "0 0 calc(var(--border-radius)/2) calc(var(--border-radius)/2)",
   flex: 1,
 };
-
-export const uploadItemStyle = (ignore = false, loading = false): SxProps => ({
-  display: "flex",
-  flexDirection: ignore ? "row" : "column",
-  borderRadius: `calc(var(--border-radius) / ${ignore ? 2 : 1})`,
-  overflow: "hidden",
-  boxShadow: ignore ? "none" : "var(--shadow)",
-  bgcolor: ignore ? "var(--joy-palette-background-surface)" : "var(--joy-palette-background-body)",
-  transition: ".3s",
-  border: "1px solid var(--joy-palette-divider)",
-  position: "relative",
-
-  ...(ignore && {
-    borderColor: "var(--joy-palette-background-level1)",
-  }),
-
-  ...(loading && {
-    boxShadow: "var(--focus-shadow)",
-  }),
-});
-
-export const uploadImageStyle = (ignore = false): SxProps => ({
-  display: "flex",
-  aspectRatio: "16/9",
-  transition: ".3s",
-  position: "relative",
-  overflow: "hidden",
-  flex: 1,
-
-  img: {
-    width: "100%",
-    height: "100%",
-    filter: ignore ? "grayscale(50%)" : "none",
-    objectFit: "cover",
-  },
-
-  [`&:hover .${imageOverlayClass}`]: {
-    backdropFilter: "blur(2px)",
-    bgcolor: "rgba(255, 255, 255, 0.7)",
-    opacity: 1,
-  },
-});
 
 export const accordionBoxStyle = {
   display: "flex",

@@ -7,9 +7,9 @@ import FormControl from "@mui/joy/FormControl";
 import Input from "@mui/joy/Input";
 import React from "react";
 import { DeckLabel } from "../deck-label";
+import { inputFocusStyle } from "../input.style";
 import { addOutlinedSx, boxSx, buttonSx } from "./deck-select-tags.styles";
 import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
-import { inputFocusStyle } from "../input.style";
 
 export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckSelectTagsState> {
   constructor(props: IDeckSelectTagsProps, context: IDeckSelectTagsState) {

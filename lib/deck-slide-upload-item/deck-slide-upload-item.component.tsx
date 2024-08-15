@@ -1,7 +1,6 @@
-import AddRounded from "@mui/icons-material/AddRounded";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
-import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
 import HourglassTopRounded from "@mui/icons-material/HourglassTopRounded";
+import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
 import SyncRounded from "@mui/icons-material/SyncRounded";
 import WarningRounded from "@mui/icons-material/WarningRounded";
 import Accordion from "@mui/joy/Accordion";
@@ -13,6 +12,8 @@ import Button from "@mui/joy/Button";
 import CircularProgress from "@mui/joy/CircularProgress";
 import Divider from "@mui/joy/Divider";
 import Input from "@mui/joy/Input";
+import LinearProgress from "@mui/joy/LinearProgress";
+import Typography from "@mui/joy/Typography";
 import React from "react";
 import { accordionGroupStyles, accordionTransition } from "../accordion.style";
 import { DeckLabel } from "../deck-label";
@@ -38,8 +39,6 @@ import {
   itemStatusSectionClass,
   saveButtonBoxStyle,
 } from "./deck-slide-upload.styles";
-import Typography from "@mui/joy/Typography";
-import LinearProgress from "@mui/joy/LinearProgress";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
@@ -85,7 +84,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
             // clearInterval(interval);
             return getRandomBetween(0, 75);
           }
-          const diff = getRandomBetween(1, 12);
+          const diff = getRandomBetween(1, 5);
           return Math.min(oldProgress + diff, 95);
         });
       }, 250);
@@ -236,7 +235,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
             </React.Fragment>
           </Box>
           <Box className={itemAddButtonClass}>
-            <Button color="success" variant="plain" {...addButtonProps}>
+            <Button color="primary" variant="plain" {...addButtonProps}>
               ADD
             </Button>
           </Box>
