@@ -1,10 +1,9 @@
 import AddRounded from "@mui/icons-material/AddRounded";
-import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
-import NewReleasesRounded from "@mui/icons-material/NewReleasesRounded";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
+import SettingsSuggestRounded from "@mui/icons-material/SettingsSuggestRounded";
+import HourglassTopRounded from "@mui/icons-material/HourglassTopRounded";
+import SyncRounded from "@mui/icons-material/SyncRounded";
 import WarningRounded from "@mui/icons-material/WarningRounded";
-import WarningAmberRounded from "@mui/icons-material/WarningAmberRounded";
-import { LinearProgress, Typography } from "@mui/joy";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
@@ -19,65 +18,65 @@ import { accordionGroupStyles, accordionTransition } from "../accordion.style";
 import { DeckLabel } from "../deck-label";
 import { DeckSelectTags } from "../deck-select-tags";
 import { DeckStatus } from "../deck-status";
-import { Status } from "../deck-status/deck-status.types";
-import { IDeckSlideUploadItem } from "./deck-slide-upload-item.types";
+import { IDeckSlideUploadItem, UploadGeneralState, UploadLoadingState } from "./deck-slide-upload-item.types";
 import {
   accordionBoxStyle,
   accordionDetailsBoxStyle,
-  ignoreBoxStyle,
-  imageOverlayClass,
+  accordionHeaderStyle,
+  buttonSx,
+  editButtonSx,
   inputStyle,
+  itemAddButtonClass,
+  itemBoxStyle,
+  itemContentSectionClass,
+  itemErrorOverlayClass,
+  itemImageClass,
+  itemImageHoverClass,
+  itemImageOverlayClass,
+  itemImageSectionClass,
+  itemLinearProgressStyle,
+  itemStatusSectionClass,
   saveButtonBoxStyle,
-  uploadImageOverlay,
-  uploadImageStyle,
-  uploadItemStyle,
 } from "./deck-slide-upload.styles";
-import SyncRounded from "@mui/icons-material/SyncRounded";
+import Typography from "@mui/joy/Typography";
+import LinearProgress from "@mui/joy/LinearProgress";
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
   base64Image,
   item,
   loaded = false,
-  saved = false,
-  ignore = false,
-  loading = false,
   disabled = false,
   onSave = () => {},
   onIgnore = () => {},
   onContinue = () => {},
   onEdit = () => {},
+  onReset = () => {},
+  onRetry = () => {},
+  onCancel = () => {},
+  errorMessage = null,
+  generalState = UploadGeneralState.NONE,
+  loadingState = UploadLoadingState.NONE,
 }) => {
-  const buttonSx = {
-    fontSize: 10,
-    lineHeight: "12px",
-    minHeight: "unset",
-    textTransform: "uppercase",
-    borderRadius: "calc(var(--border-radius)/2)",
-    whiteSpace: "nowrap",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-  const editButtonSx = {
-    ...buttonSx,
-    borderRadius: "0 0 calc(var(--border-radius)/2) calc(var(--border-radius)/2)",
-    flex: 1,
-  };
   const className = "deck-slide-upload-item";
   const [name, setName] = React.useState("");
   const [tags, setTags] = React.useState<string[]>([]);
 
   const [progress, setProgress] = React.useState(0);
+
   React.useEffect(() => {
     if (item) {
       setName(item?.name || "");
       setTags(item?.tags || []);
     }
   }, [item]);
+
   const getRandomBetween = (a: number, b: number) => {
     return Math.floor(Math.random() * b) + a;
   };
+
+  const loading = loadingState === UploadLoadingState.LOADING;
+
   React.useEffect(() => {
     if (loading) {
       const interval = setInterval(() => {
@@ -93,8 +92,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
       return () => clearInterval(interval);
     }
   }, [loading]);
-
-  const status = ignore ? Status.WAITING : saved ? Status.PROCESSING : Status.WAITING;
 
   const accordionSummarySlotProps = {
     button: {
@@ -115,207 +112,235 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
 
   const valid = name.length > 0;
 
+  const getBase64Image = (base64?: string) => {
+    if (!base64 || !loaded) {
+      return null;
+    }
+    return <img src={`data:image/png;base64,${base64}`} alt="Slide preview" />;
+  };
+
+  const getState = (state: UploadLoadingState) => {
+    if (generalState === UploadGeneralState.NONE) {
+      return null;
+    }
+    switch (state) {
+      case UploadLoadingState.NONE:
+        if (generalState === UploadGeneralState.PROCESSING) {
+          return <WaitingStatus onClick={onEdit} />;
+        }
+        return <UpdateStatus onClick={onEdit} />;
+      case UploadLoadingState.LOADING:
+        return <ProcessingStatus onClick={onCancel} />;
+      case UploadLoadingState.LOADED:
+        return <SuccessStatus onClick={onReset} />;
+      case UploadLoadingState.ERROR:
+        return <ErrorStatus onClick={onRetry} />;
+      default:
+        return null;
+    }
+  };
+
+  let status = -1;
+
+  const isIgnored = generalState === UploadGeneralState.NONE;
+
+  const hasError = UploadLoadingState.ERROR === loadingState;
+  const isLoading = UploadLoadingState.LOADING === loadingState;
+
+  let open = false;
+
+  switch (generalState) {
+    case UploadGeneralState.EDIT: {
+      open = true;
+      break;
+    }
+    case UploadGeneralState.SAVED: {
+      status = 1;
+      break;
+    }
+    case UploadGeneralState.PROCESSING: {
+      status = 3;
+      break;
+    }
+    default: {
+      break;
+    }
+  }
+
+  switch (loadingState) {
+    case UploadLoadingState.ERROR: {
+      status = 2;
+      break;
+    }
+    case UploadLoadingState.LOADED: {
+      status = 0;
+      break;
+    }
+    case UploadLoadingState.LOADING: {
+      status = -1;
+      break;
+    }
+    default: {
+      break;
+    }
+  }
+
+  const addButtonProps = {
+    sx: buttonSx,
+    // startDecorator: <AddRounded sx={{ fontSize: 12, lineHeight: 1.2 }} />,
+    onClick: onContinue,
+    disabled: isLoading || disabled || !loaded,
+  };
+
   return (
-    <Box sx={uploadItemStyle(ignore, loading)}>
-      <Box sx={uploadImageStyle(ignore)}>
-        {loaded ? (
-          <React.Fragment>
-            {base64Image ? <img src={`data:image/png;base64,${base64Image}`} alt="Slide preview" /> : null}
-            {loading ? (
-              <Box
-                sx={{
-                  position: "absolute",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                  height: "100%",
-                  bgcolor: "rgba(255,255,255, 0.7)",
-                  minWidth: "4.5rem",
-                  flex: 1,
-                }}
-              >
-                <CircularProgress size="sm" />
-              </Box>
-            ) : null}
-            {ignore || disabled ? null : (
-              <Box sx={uploadImageOverlay} className={imageOverlayClass}>
+    <React.Fragment>
+      <Box sx={itemBoxStyle} className={[generalState, loadingState].join(" ")}>
+        <Box className={itemImageSectionClass}>
+          <Box className={itemImageClass}>
+            <React.Fragment>
+              {getBase64Image(base64Image)}
+              {!loaded && (
+                <Box className={itemImageOverlayClass}>
+                  <CircularProgress size="sm" />
+                </Box>
+              )}
+
+              {hasError && !isIgnored && (
+                <Box className={itemErrorOverlayClass}>
+                  <WarningRounded sx={{ color: "var(--joy-palette-danger-500)" }} />
+                  <DeckLabel
+                    title={{
+                      text: errorMessage?.message || "",
+                    }}
+                    description={{
+                      text: errorMessage?.detail || "",
+                    }}
+                    color="danger"
+                  />
+                </Box>
+              )}
+
+              <Box className={itemImageHoverClass}>
+                <Button size="sm" color="warning" onClick={onIgnore} sx={buttonSx} disabled={loading || disabled}>
+                  SKIP
+                </Button>
                 <Typography
                   sx={{
                     fontSize: 9,
                     fontStyle: "italic",
                   }}
                 >
-                  If you want to skip this slide, click on the button below
+                  * slide will be ignored and not uploaded
                 </Typography>
-                <Button size="sm" color="warning" onClick={onIgnore} sx={buttonSx} disabled={loading || disabled}>
-                  SKIP
-                </Button>
               </Box>
-            )}
-          </React.Fragment>
-        ) : (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "100%",
-              bgcolor: "var(--joy-palette-background-surface)",
-              minWidth: "4.5rem",
-              aspectRatio: "16/9",
-              flex: 1,
-            }}
-          >
-            <CircularProgress size="sm" />
+            </React.Fragment>
           </Box>
-        )}
-        {loading && (
-          <LinearProgress
-            determinate
-            value={progress}
-            size="sm"
-            sx={{
-              height: "2px",
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-
-              "&:before": {
-                transition: "1s",
-              },
-            }}
-          />
-        )}
-      </Box>
-      {!ignore && (
-        <Divider orientation={ignore ? "vertical" : "horizontal"} sx={{ bgcolor: "var(--joy-palette-divider" }} />
-      )}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          flex: 1,
-        }}
-      >
-        <AccordionGroup
-          className={className}
-          sx={accordionGroupStyles(className, true, 0, "sm", false, 0)}
-          transition={accordionTransition}
-        >
-          <Accordion defaultExpanded={true} expanded={!ignore && !saved} disabled={ignore}>
-            <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
-              <Box sx={accordionBoxStyle}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flex: 1,
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <DeckStatus status={status} loading={loading} />
-                  <DeckLabel
-                    title={{
-                      text: valid ? name : slideName,
-                      limit: 1,
-                    }}
-                  />
-                </Box>
-              </Box>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Box sx={accordionDetailsBoxStyle}>
-                <DeckLabel
-                  title={{
-                    text: "Name",
-                  }}
-                  description={{
-                    text: "Enter a descriptive name for this slide",
-                  }}
-                />
-                <Input
-                  variant="soft"
-                  size="sm"
-                  placeholder="Enter name..."
-                  color="primary"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  sx={inputStyle}
-                />
-              </Box>
-              <Box sx={accordionDetailsBoxStyle}>
-                <DeckSelectTags tags={tags} onChange={(tags) => setTags(tags)} />
-              </Box>
-              <Divider sx={{ bgcolor: "var(--joy-palette-divider" }} />
-              <Box sx={saveButtonBoxStyle}>
-                <Button size="sm" sx={{ fontSize: 10 }} disabled={!valid || loading || disabled} onClick={save}>
-                  SAVE
-                </Button>
-              </Box>
-            </AccordionDetails>
-          </Accordion>
-        </AccordionGroup>
-        {ignore && (
-          <Box sx={ignoreBoxStyle}>
-            <Button
-              sx={buttonSx}
-              color="primary"
-              fullWidth
-              startDecorator={<AddRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
-              onClick={onContinue}
-              disabled={loading || disabled}
-            >
+          <Box className={itemAddButtonClass}>
+            <Button color="success" variant="plain" {...addButtonProps}>
               ADD
             </Button>
           </Box>
-        )}
-        {saved && !ignore && (
-          <Box sx={{ ...ignoreBoxStyle, p: 0 }}>
-            {/* <Button
-              sx={editButtonSx}
-              color="warning"
-              fullWidth
-              startDecorator={<SettingsSuggestRounded sx={{ fontSize: 14, lineHeight: 1.2 }} />}
-              onClick={onEdit}
-              disabled={loading || disabled}
-            >
-              Change
-            </Button> */}
-            {/* <Button
-              sx={editButtonSx}
-              color="neutral"
-              fullWidth
-              startDecorator={<SyncRounded sx={{ fontSize: 12, animation: "spin 2s infinite linear" }} />}
-              onClick={onEdit}
-              disabled={loading || disabled}
-            >
-              Uploading
-            </Button> */}
-            {/* <Button
-              sx={editButtonSx}
-              color="success"
-              fullWidth
-              startDecorator={<DoneAllRounded sx={{ fontSize: 12 }} />}
-              onClick={onEdit}
-            >
-              SUCCESS
-            </Button> */}
-            <Button
-              sx={editButtonSx}
-              color="danger"
-              fullWidth
-              startDecorator={<WarningRounded sx={{ fontSize: 12, lineHeight: 1.2 }} />}
-              onClick={onEdit}
-            >
-              ERROR
-            </Button>
-          </Box>
-        )}
+          {isLoading && <LinearProgress determinate value={progress} size="sm" sx={itemLinearProgressStyle} />}
+        </Box>
+
+        <Box className={itemContentSectionClass}>
+          <AccordionGroup
+            className={className}
+            sx={accordionGroupStyles(className, true, 0, "sm", false, 0)}
+            transition={accordionTransition}
+          >
+            <Accordion defaultExpanded={true} expanded={open} disabled={true}>
+              <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
+                <Box sx={accordionBoxStyle}>
+                  <Box sx={accordionHeaderStyle}>
+                    <DeckStatus status={status} loading={isLoading} />
+                    <DeckLabel title={{ text: valid ? name : slideName }} />
+                  </Box>
+                </Box>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box sx={accordionDetailsBoxStyle}>
+                  <DeckLabel
+                    title={{
+                      text: "Name",
+                    }}
+                    description={{
+                      text: "Enter a descriptive name for this slide",
+                    }}
+                  />
+                  <Input
+                    variant="soft"
+                    size="sm"
+                    placeholder="Enter name..."
+                    color="primary"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    sx={inputStyle}
+                  />
+                </Box>
+                <Box sx={accordionDetailsBoxStyle}>
+                  <DeckSelectTags tags={tags} onChange={(tags) => setTags(tags)} />
+                </Box>
+                <Divider sx={{ bgcolor: "var(--joy-palette-divider" }} />
+                <Box sx={saveButtonBoxStyle}>
+                  <Button size="sm" sx={{ fontSize: 10 }} disabled={!valid || loading || disabled} onClick={save}>
+                    SAVE
+                  </Button>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+          </AccordionGroup>
+        </Box>
+        <Box className={itemStatusSectionClass}>{getState(loadingState)}</Box>
       </Box>
-    </Box>
+    </React.Fragment>
   );
 };
+
+// Centralized icon styling
+const iconStyle = { fontSize: 12, lineHeight: 1.2 };
+
+// Improved type safety for colors
+type ButtonColor = "warning" | "neutral" | "success" | "danger";
+
+// Mapping icons to statuses for easier extension and maintenance
+const statusIcons = {
+  update: <SettingsSuggestRounded sx={iconStyle} />,
+  change: <SettingsSuggestRounded sx={iconStyle} />,
+  uploading: <SyncRounded sx={{ ...iconStyle, animation: "spin 2s infinite linear" }} />,
+  success: <DoneAllRounded sx={iconStyle} />,
+  error: <WarningRounded sx={iconStyle} />,
+  waiting: <HourglassTopRounded sx={iconStyle} />,
+};
+
+// Factory function to create status components
+const createStatusComponent = (status: keyof typeof statusIcons, color: ButtonColor, label: string) => {
+  return ({ onClick }: { onClick: () => void }) => (
+    <StatusButton onClick={onClick} label={label} color={color} startIcon={statusIcons[status]} />
+  );
+};
+
+// Define a type for the props to ensure type safety
+type StatusButtonProps = {
+  onClick: () => void;
+  label: string;
+  color: ButtonColor;
+  startIcon: React.ReactNode;
+};
+
+// A single component to handle different statuses by passing props
+const StatusButton: React.FC<StatusButtonProps> = ({ onClick, label, color, startIcon }) => {
+  return (
+    <Button sx={editButtonSx} color={color} fullWidth startDecorator={startIcon} onClick={onClick}>
+      {label}
+    </Button>
+  );
+};
+
+// Usage examples using the factory function
+export const UpdateStatus = createStatusComponent("update", "warning", "Update");
+export const ChangeStatus = createStatusComponent("change", "warning", "Change");
+export const ProcessingStatus = createStatusComponent("uploading", "neutral", "Uploading");
+export const SuccessStatus = createStatusComponent("success", "success", "SUCCESS");
+export const ErrorStatus = createStatusComponent("error", "danger", "ERROR");
+export const WaitingStatus = createStatusComponent("waiting", "neutral", "Waiting");
