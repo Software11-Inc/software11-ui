@@ -4,7 +4,7 @@ import { IDeckSlideUploadItem, UploadGeneralState, UploadLoadingState } from "./
 import { base64Image } from "./image-example";
 
 export default {
-  title: "lib/deck-slide-upload-item",
+  title: "Pages/Library/Slides/Upload Slide",
   component: DeckSlideUploadItem,
   argTypes: {
     onSave: { action: "onSave" },

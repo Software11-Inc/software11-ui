@@ -31,13 +31,13 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
   switch (state) {
     case ItemState.INSERTING: {
       loading = true;
-      buttonText = "Getting slide";
+      buttonText = "Loading";
       icon = <SyncRounded sx={{ fontSize: "12px", animation: "spin 1s linear infinite" }} />;
       break;
     }
     case ItemState.SUCCESS: {
       loading = false;
-      buttonText = "Inserted";
+      buttonText = "Success";
       color = "success";
       icon = <DoneAllRounded sx={{ fontSize: "12px" }} />;
       break;
