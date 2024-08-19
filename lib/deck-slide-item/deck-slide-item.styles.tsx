@@ -21,6 +21,25 @@ export const slideItemImageStyle: SxProps = {
     width: "100%",
     height: "auto",
     objectFit: "cover",
+
+    "&:empty": {
+      display: "flex",
+      height: "100%",
+      color: "transparent",
+
+      "&::before": {
+        content: "'No Preview'",
+        display: "flex",
+        color: "text.secondary",
+        height: "100%",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        textTransform: "uppercase",
+        fontWeight: "bold",
+        fontSize: "10px",
+      },
+    },
   },
 };
 
