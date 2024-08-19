@@ -1,3 +1,4 @@
+import { IErrorMessage } from "../models/error-message.model";
 import { ILibrarySlide } from "../models/library-slide.model";
 
 export enum UploadGeneralState {
@@ -12,12 +13,6 @@ export enum UploadLoadingState {
   LOADING = "loading-state-loading",
   LOADED = "loading-state-loaded",
   ERROR = "loading-state-error",
-}
-
-export interface IErrorMessage {
-  error?: string;
-  message?: string;
-  detail?: string;
 }
 
 export interface IDeckSlideUploadItem {
