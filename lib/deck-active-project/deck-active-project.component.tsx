@@ -91,7 +91,6 @@ export const DeckActiveProject: React.FC<DeckActiveProjectProps> = ({
               }}
               tabIndex={-1}
               onClick={onDisconnect}
-              disabled={loading}
             >
               {"Disconnect".toUpperCase()}
             </Button>
