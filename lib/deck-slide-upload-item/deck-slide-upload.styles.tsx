@@ -21,6 +21,8 @@ export const getGeneralStyles: SxProps = {
 
     [`& .${itemImageSectionClass}`]: {
       [`& .${itemImageClass}`]: {
+        height: "3rem",
+
         "&::after": {
           backgroundPositionX: "100%",
         },
@@ -78,6 +80,7 @@ export const itemBoxStyle: SxProps = {
       display: "flex",
       flex: 1,
       aspectRatio: "16/9",
+      height: "9rem",
       overflow: "hidden",
       position: "relative",
       transition,

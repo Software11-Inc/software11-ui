@@ -76,22 +76,6 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
 
   const loading = loadingState === UploadLoadingState.LOADING;
 
-  React.useEffect(() => {
-    if (loading) {
-      const interval = setInterval(() => {
-        setProgress((oldProgress) => {
-          if (oldProgress === 95) {
-            // clearInterval(interval);
-            return getRandomBetween(0, 75);
-          }
-          const diff = getRandomBetween(1, 5);
-          return Math.min(oldProgress + diff, 95);
-        });
-      }, 250);
-      return () => clearInterval(interval);
-    }
-  }, [loading]);
-
   const accordionSummarySlotProps = {
     button: {
       component: "div",
