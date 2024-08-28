@@ -61,18 +61,12 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   const [name, setName] = React.useState("");
   const [tags, setTags] = React.useState<string[]>([]);
 
-  const [progress, setProgress] = React.useState(0);
-
   React.useEffect(() => {
     if (item) {
       setName(item?.name || "");
       setTags(item?.tags || []);
     }
   }, [item]);
-
-  const getRandomBetween = (a: number, b: number) => {
-    return Math.floor(Math.random() * b) + a;
-  };
 
   const loading = loadingState === UploadLoadingState.LOADING;
 
@@ -223,7 +217,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               ADD
             </Button>
           </Box>
-          {isLoading && <LinearProgress determinate value={progress} size="sm" sx={itemLinearProgressStyle} />}
+          {isLoading && <LinearProgress size="sm" sx={itemLinearProgressStyle} />}
         </Box>
 
         <Box className={itemContentSectionClass}>
