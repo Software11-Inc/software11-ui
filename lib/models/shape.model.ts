@@ -34,7 +34,13 @@ export interface IDynamicShape extends IShape {
    * Identifier of the slide that contains this shape.
    * This links the shape to its specific location within the deck.
    */
-  slideID: string;
+  containerID: string;
+
+  /**
+   * Index of the container that contains the shape.
+   *
+   */
+  containerIndex: number;
 
   /**
    * Name of the figure associated with the shape.
