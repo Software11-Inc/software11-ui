@@ -28,12 +28,6 @@ export default {
         type: "number",
       },
     },
-    hasChanges: {
-      description: "Has changes in the project",
-      control: {
-        type: "boolean",
-      },
-    },
     loading: {
       description: "Loading state",
       control: {
@@ -52,6 +46,5 @@ Default.args = {
   projectDescription:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac lobortis dui. Duis a suscipit leo, vel imperdiet mi. Nulla facilisi. Sed tempor mi id sem ornare elementum. Praesent tempus turpis at consectetur lobortis.",
   projectStatus: 0,
-  hasChanges: true,
   loading: false,
 };

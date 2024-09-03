@@ -3,7 +3,6 @@ import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
-import Badge from "@mui/joy/Badge";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import React from "react";
@@ -18,7 +17,6 @@ export const DeckActiveProject: React.FC<DeckActiveProjectProps> = ({
   projectName,
   projectDescription,
   projectStatus,
-  hasChanges,
   loading,
   onSync,
   onDisconnect,
