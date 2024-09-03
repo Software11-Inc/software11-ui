@@ -27,7 +27,6 @@ export const projectCardStyle: SxProps = {
     justifyContent: "center",
     flex: 1,
     height: "auto",
-    bgcolor: "background.surface",
     borderRight: "1px solid",
     borderColor: "divider",
   },
