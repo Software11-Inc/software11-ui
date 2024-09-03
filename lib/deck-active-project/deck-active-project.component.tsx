@@ -59,23 +59,19 @@ export const DeckActiveProject: React.FC<DeckActiveProjectProps> = ({
                 limit: 2,
               }}
             />
-            <Badge size="sm" color="warning" invisible={!hasChanges || loading}>
-              <DeckIconButton
-                size="sm"
-                icon={
-                  <SyncRounded
-                    sx={{
-                      animation: loading ? "spin 2s linear infinite" : "unset",
-                    }}
-                  />
-                }
-                disabled={loading}
-                variant={hasChanges ? "soft" : "plain"}
-                color={hasChanges ? "warning" : "primary"}
-                rounded={true}
-                onClick={onSync}
-              />
-            </Badge>
+            <DeckIconButton
+              size="sm"
+              icon={
+                <SyncRounded
+                  sx={{
+                    animation: "spin 2s linear infinite",
+                  }}
+                />
+              }
+              hidden={!loading}
+              rounded={true}
+              onClick={onSync}
+            />
           </Box>
         </AccordionSummary>
         <AccordionDetails>

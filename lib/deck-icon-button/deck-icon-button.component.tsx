@@ -15,7 +15,7 @@ export const DeckIconButton: React.FC<DeckIconButtonProps> = ({
 }) => {
   return (
     <IconButton
-      sx={iconButtonStyle(rounded, size)}
+      sx={iconButtonStyle(rounded, size, hidden)}
       size={size}
       color={color}
       variant={variant}
