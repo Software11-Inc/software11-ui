@@ -16,7 +16,7 @@ export interface IShapeSource {
   datasetID: string;
 
   /** Unique identifier for the specific figure within the dataset */
-  datasetFigureID: string;
+  figureID: string;
 }
 
 /**
