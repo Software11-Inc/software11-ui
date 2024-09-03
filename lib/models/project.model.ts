@@ -1,5 +1,6 @@
 import { IDate } from "./date.model";
 import { IDefaultItem } from "./default-item.model";
+import { IDynamicShape } from "./shape.model";
 
 /** Defines the type of projects supported */
 export type ProjectType = "spreadsheet" | "presentation";
@@ -29,6 +30,7 @@ export interface IWorkspaceFile {
   generationUser?: string; // Optional user who generated the file
   generationDate?: IDate; // Optional date when the file was generated
   description?: string; // Optional description of the file
+  dynamicShapes?: IDynamicShape[]; // Optional array of dynamic shapes
 }
 
 /** Interface for master file details, extending from IDefaultItem partially */
