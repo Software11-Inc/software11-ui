@@ -19,6 +19,11 @@ export interface IShapeSource {
   figureID: string;
 }
 
+export interface IShapeSourceCreation {
+  datasetID: string;
+  datasetFigureID: string;
+}
+
 /**
  * Extends the IShape interface to represent dynamic shapes within a slide deck.
  * Dynamic shapes are linked to data sources and can reflect updates from these sources.
@@ -113,7 +118,7 @@ export interface IDynamicShapeCreation {
   /** Data specific to the shape being created */
   shapeData: IShapeData;
   /** Source dataset from which the shape is derived */
-  sourceDataset: IShapeSource;
+  sourceDataset: IShapeSourceCreation;
 }
 
 /**

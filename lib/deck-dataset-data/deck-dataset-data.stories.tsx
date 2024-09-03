@@ -224,7 +224,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-1",
+          figureID: "figure-1",
         },
       },
     ],
@@ -240,7 +240,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-2",
+          figureID: "figure-2",
         },
       },
     ],
@@ -256,7 +256,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-3",
+          figureID: "figure-3",
         },
       },
     ],
@@ -272,7 +272,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-6",
+          figureID: "figure-6",
         },
       },
     ],
@@ -288,7 +288,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-8",
+          figureID: "figure-8",
         },
       },
     ],
@@ -304,7 +304,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-9",
+          figureID: "figure-9",
         },
       },
     ],
@@ -320,7 +320,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-12",
+          figureID: "figure-12",
         },
       },
     ],
@@ -552,7 +552,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-1",
+          figureID: "figure-1",
         },
       },
     ],
@@ -568,7 +568,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-2",
+          figureID: "figure-2",
         },
       },
     ],
@@ -584,7 +584,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-3",
+          figureID: "figure-3",
         },
       },
     ],
@@ -600,7 +600,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-6",
+          figureID: "figure-6",
         },
       },
     ],
@@ -616,7 +616,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-8",
+          figureID: "figure-8",
         },
       },
     ],
@@ -632,7 +632,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-9",
+          figureID: "figure-9",
         },
       },
     ],
@@ -648,7 +648,7 @@ Matrix.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-12",
+          figureID: "figure-12",
         },
       },
     ],

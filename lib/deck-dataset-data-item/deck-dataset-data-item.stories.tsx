@@ -91,7 +91,7 @@ ExcelFigureInserted.args = {
       synced: false,
       sourceDataset: {
         datasetID: "dataset-1",
-        datasetFigureID: "figure-1",
+        figureID: "figure-1",
       },
     },
     {
@@ -105,7 +105,7 @@ ExcelFigureInserted.args = {
       synced: false,
       sourceDataset: {
         datasetID: "dataset-1",
-        datasetFigureID: "figure-1",
+        figureID: "figure-1",
       },
     },
   ],
@@ -153,7 +153,7 @@ ExcelFigureApiChanges.args = {
       synced: false,
       sourceDataset: {
         datasetID: "dataset-1",
-        datasetFigureID: "figure-1",
+        figureID: "figure-1",
       },
     },
   ],
@@ -201,7 +201,7 @@ ExcelFigureUserChanges.args = {
       synced: false,
       sourceDataset: {
         datasetID: "dataset-1",
-        datasetFigureID: "figure-1",
+        figureID: "figure-1",
       },
     },
   ],

@@ -75,7 +75,7 @@ Default.args = {
         synced: true,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-1",
+          figureID: "figure-1",
         },
       },
       {
@@ -89,7 +89,7 @@ Default.args = {
         synced: true,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-1",
+          figureID: "figure-1",
         },
       },
     ],
@@ -105,7 +105,7 @@ Default.args = {
         synced: false,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-2",
+          figureID: "figure-2",
         },
       },
     ],
@@ -121,7 +121,7 @@ Default.args = {
         synced: true,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-3",
+          figureID: "figure-3",
         },
       },
     ],
@@ -137,7 +137,7 @@ Default.args = {
         synced: true,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-4",
+          figureID: "figure-4",
         },
       },
     ],
@@ -153,7 +153,7 @@ Default.args = {
         synced: true,
         sourceDataset: {
           datasetID: "dataset-1",
-          datasetFigureID: "figure-5",
+          figureID: "figure-5",
         },
       },
     ],
