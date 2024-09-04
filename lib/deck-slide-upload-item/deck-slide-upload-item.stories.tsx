@@ -34,6 +34,7 @@ const Template: StoryFn<IDeckSlideUploadItem> = (args) => <DeckSlideUploadItem {
 export const Default = Template.bind({});
 
 Default.args = {
+  progress: 50,
   loaded: true,
   disabled: false,
   generalState: UploadGeneralState.NONE,

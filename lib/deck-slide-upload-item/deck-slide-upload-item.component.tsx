@@ -42,6 +42,7 @@ import {
 
 export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   slideName = "",
+  progress = 0,
   base64Image,
   item,
   loaded = false,
@@ -217,7 +218,7 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
               ADD
             </Button>
           </Box>
-          {isLoading && <LinearProgress size="sm" sx={itemLinearProgressStyle} />}
+          {isLoading && <LinearProgress size="sm" determinate value={progress} sx={itemLinearProgressStyle} />}
         </Box>
 
         <Box className={itemContentSectionClass}>

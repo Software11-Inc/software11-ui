@@ -251,6 +251,6 @@ export const itemLinearProgressStyle = {
   zIndex: 2,
 
   "&:before": {
-    transition: "1s",
+    transition: ".3s",
   },
 };
