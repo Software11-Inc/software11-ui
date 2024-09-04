@@ -179,7 +179,7 @@ export const itemBoxStyle: SxProps = {
 
 export const buttonSx = {
   fontSize: 10,
-  lineHeight: "12px",
+  lineHeight: "1.2",
   minHeight: "unset",
   textTransform: "uppercase",
   borderRadius: "calc(var(--border-radius)/2)",

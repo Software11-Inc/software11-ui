@@ -316,7 +316,7 @@ const StatusButton: React.FC<StatusButtonProps> = ({ onClick, label, color, star
 };
 
 // Usage examples using the factory function
-export const UpdateStatus = createStatusComponent("update", "warning", "Update");
+export const UpdateStatus = createStatusComponent("update", "warning", "Edit");
 export const ChangeStatus = createStatusComponent("change", "warning", "Change");
 export const ProcessingStatus = createStatusComponent("uploading", "neutral", "Uploading");
 export const SuccessStatus = createStatusComponent("success", "success", "SUCCESS");
