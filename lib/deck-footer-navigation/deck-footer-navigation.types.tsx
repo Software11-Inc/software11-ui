@@ -4,4 +4,5 @@ export interface IDeckFooterNavigationProps {
   activeIndex: number;
   items: INavItem[];
   onTabChange?: (index: number) => void;
+  className?: string;
 }

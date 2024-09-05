@@ -22,8 +22,9 @@ export const DeckFooterNavigation: React.FC<IDeckFooterNavigationProps> = ({
   activeIndex = 0,
   items = [],
   onTabChange,
+  className: inputClassName,
 }) => {
-  const classList = [classNames.base, classNames.state.sticky].join(" ");
+  const classList = [inputClassName, classNames.base, classNames.state.sticky].join(" ").trim();
 
   return (
     <React.Fragment>
