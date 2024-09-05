@@ -20,3 +20,4 @@ export * from "./template-shape.model";
 export * from "./template.model";
 export * from "./user.model";
 export * from "./error-message.model";
+export * from "./nav-item.model";

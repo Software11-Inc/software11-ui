@@ -3,6 +3,8 @@
 
   --header-height: calc(var(--spacing) * 2 + 2rem);
 
+  --scrollbar-width: 20px;
+
   --border-radius: 0.5rem;
 
   --shadow: 0 0 4px var(--joy-palette-primary-100);
@@ -17,6 +19,28 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+
+  /* Footer Navigation */
+  --footer-nav-item-width: 3rem;
+  --footer-nav-item-height: 3rem;
+  --footer-nav-icon-size: 1.2rem;
+  --footer-nav-text-size: 0.75rem;
+  --footer-nav-text-height: 1rem;
+  --footer-nav-indicator-size: 3rem;
+
+  --footer-nav-tabs-width: calc(
+    100vw - var(--scrollbar-width)
+  ); /* Width of the footer navigation, 100% works, but Safari */
+  --footer-nav-tabs-count: 3; /* Number of tabs, it changes by component */
+  --footer-nav-tab-width: calc(var(--footer-nav-tabs-width) / var(--footer-nav-tabs-count));
+  --footer-nav-indicator-width: 3rem;
+  --footer-nav-indicator-border-width: 6px;
+  --footer-nav-indicator-spacing: calc((var(--footer-nav-tab-width) - var(--footer-nav-indicator-width)) / 2);
+  --footer-nav-indicator-position: 0; /* Current tab index, it changes by component */
+  --footer-nav-indicator-position-x: calc(
+    var(--footer-nav-indicator-position) * var(--footer-nav-tab-width) + var(--footer-nav-indicator-spacing)
+  );
+  --footer-nav-background: var(--joy-palette-primary-100);
 }
 
 .flex-spacer {
@@ -247,7 +271,7 @@ body {
 
 /** SCROLLBAR */
 ::-webkit-scrollbar {
-  width: 20px;
+  width: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-track {
@@ -341,4 +365,27 @@ body {
 }
 .pp-st6 {
   fill: #ffffff;
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25%) scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: translateY(-50%) rotate(0) scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  90% {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
