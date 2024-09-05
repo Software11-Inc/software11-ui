@@ -19,6 +19,7 @@ const generateClassNames = (base: string) => ({
     text: `${base}-item-text`,
     icon: `${base}-item-icon`,
   },
+  spacer: `${base}-spacer`,
   state: {
     active: "deck-active",
     sticky: "deck-sticky",
@@ -179,6 +180,12 @@ const indicatorStyle = {
     boxSizing: "border-box",
     left: styleVariables.indicatorPositionX,
     transition,
+  },
+};
+
+export const deckFooterSpacerStyle: SxProps = {
+  [`&.${classNames.spacer}`]: {
+    height: "var(--footer-nav-height)",
   },
 };
 

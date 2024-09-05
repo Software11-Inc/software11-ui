@@ -28,6 +28,7 @@ export const DeckFooterNavigation: React.FC<IDeckFooterNavigationProps> = ({
 
   return (
     <React.Fragment>
+      <div className={classNames.spacer} />
       <Box
         className={classList}
         sx={{
