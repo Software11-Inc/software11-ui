@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@mui/joy/Box";
-import { classNames, deckFooterNavigationStyle } from "./deck-footer-navigation.styles";
+import { classNames, deckFooterNavigationStyle, deckFooterSpacerStyle } from "./deck-footer-navigation.styles";
 import { IDeckFooterNavigationProps } from "./deck-footer-navigation.types";
 import { INavItem } from "@models";
 import { TabMaskIcon } from "./tab-mask.icon";
@@ -28,7 +28,7 @@ export const DeckFooterNavigation: React.FC<IDeckFooterNavigationProps> = ({
 
   return (
     <React.Fragment>
-      <div className={classNames.spacer} />
+      <Box className={classNames.spacer} sx={deckFooterSpacerStyle} />
       <Box
         className={classList}
         sx={{

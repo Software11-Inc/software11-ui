@@ -185,7 +185,7 @@ const indicatorStyle = {
 
 export const deckFooterSpacerStyle: SxProps = {
   [`&.${classNames.spacer}`]: {
-    height: "var(--footer-nav-height)",
+    height: "var(--footer-nav-item-height)",
   },
 };
 
