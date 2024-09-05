@@ -8,6 +8,9 @@ import Box from "@mui/joy/Box";
 export default {
   title: "UI/Footer Navigation",
   component: DeckFooterNavigation,
+  argTypes: {
+    onTabChange: { action: "tabChange" },
+  },
 } as Meta<typeof DeckFooterNavigation>;
 
 const Template: StoryFn<typeof DeckFooterNavigation> = (args) => (

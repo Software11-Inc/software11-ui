@@ -88,9 +88,11 @@ const footerInnerStyles = {
     [`& > li`]: {
       position: "relative",
       listStyle: "none",
-      width: "var(--footer-nav-item-width)",
       height: "var(--footer-nav-item-height)",
       zIndex: 1,
+      display: "flex",
+      flexDirection: "column",
+      flexGrow: 1,
       "& > a": {
         position: "relative",
         display: "flex",
@@ -99,6 +101,8 @@ const footerInnerStyles = {
         alignItems: "center",
         textAlign: "center",
         fontWeight: "bold",
+        cursor: "pointer",
+        textDecoration: "none",
         [`& > .${classNames.item.icon}`]: {
           position: "relative",
           height: "var(--footer-nav-item-height)",
@@ -135,6 +139,20 @@ const footerInnerStyles = {
           [`& > .${classNames.item.text}`]: {
             transform: styleVariables.activeTextTransform,
             color: "var(--joy-palette-primary-500)",
+            opacity: 1,
+          },
+        },
+      },
+      [`&:hover:not(.${classNames.state.active})`]: {
+        "& > a": {
+          [`& > .${classNames.item.icon}`]: {
+            "--Icon-color": "var(--joy-palette-primary-500)",
+            transform: `translateY(-15%) scale(0.9)`,
+          },
+          [`& > .${classNames.item.text}`]: {
+            transform: "translateY(10px)",
+            color: "var(--joy-palette-primary-500)",
+            fontSize: "0.5rem",
             opacity: 1,
           },
         },
