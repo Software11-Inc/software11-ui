@@ -45,6 +45,8 @@ const styleVariables = {
   indicatorMargin: "var(--footer-nav-indicator-border-width)",
   indicatorPositionX:
     "calc(var(--footer-nav-indicator-position) * var(--footer-nav-tab-width) + var(--footer-nav-indicator-spacing))",
+  tabWidth: "calc(var(--footer-nav-tabs-width) / var(--footer-nav-tabs-count))",
+  indicatorSpacing: "calc((var(--footer-nav-tab-width) - var(--footer-nav-indicator-width)) / 2)",
 };
 
 // Refactored styles to use centralized style variables
@@ -198,6 +200,8 @@ export const deckFooterNavigationStyle: SxProps = {
     },
     width: "100%",
     "--footer-nav-indicator-position-x": styleVariables.indicatorPositionX,
+    "--footer-nav-tab-width": styleVariables.tabWidth,
+    "--footer-nav-indicator-spacing": styleVariables.indicatorSpacing,
     [`& > .${classNames.indicator.background}`]: indicatorBackgroundStyles,
     [`& > .${classNames.inner}`]: footerInnerStyles,
     [`& > .${classNames.indicator.base}`]: indicatorStyle,
