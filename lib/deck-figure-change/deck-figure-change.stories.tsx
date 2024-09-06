@@ -25,7 +25,7 @@ Default.args = {
       profilePhoto:
         "https://firebasestorage.googleapis.com/v0/b/sw11dev.appspot.com/o/profile-photos%2Funnamed.jpg?alt=media&token=80eb432a-0c12-43da-b793-27a1d3810b00&_gl=1*1o9jxfg*_ga*MTA3OTc0NDc0MS4xNjk1OTEzODM2*_ga_CW55HF8NVT*MTY5NzA3ODkwOC4yNS4xLjE2OTcwNzkyMjYuMjcuMC4w",
       username: "vs",
-      userId: "3PJaCmuEv2f09tLbRYXHS32LaT43",
+      userID: "3PJaCmuEv2f09tLbRYXHS32LaT43",
     },
     generationDate: {
       _seconds: 1716315613,
