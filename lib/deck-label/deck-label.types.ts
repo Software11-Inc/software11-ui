@@ -1,5 +1,5 @@
 interface RowProperties {
-  text: string;
+  text?: string;
   limit?: number;
   bold?: boolean;
 }
@@ -13,4 +13,5 @@ export interface DeckLabelProps {
   order?: number;
   gap?: number;
   required?: boolean;
+  separator?: React.ReactNode;
 }

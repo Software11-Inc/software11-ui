@@ -3,7 +3,17 @@ import React from "react";
 import { className, deckLabelStyle, textStyle } from "./deck-label.styles";
 import { DeckLabelProps } from "./deck-label.types";
 
-export const DeckLabel: React.FC<DeckLabelProps> = ({ title, description, color, size, order, mt, gap, required }) => {
+export const DeckLabel: React.FC<DeckLabelProps> = ({
+  title,
+  description,
+  color,
+  size,
+  order,
+  mt,
+  gap,
+  required,
+  separator,
+}) => {
   return (
     <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap)}>
       {title?.text && (
@@ -12,6 +22,7 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({ title, description, color,
           {required && <span className="deck-required">*</span>}
         </Box>
       )}
+      {Boolean(separator) && <Box className={`${className}__separator`}>{separator}</Box>}
       {description?.text && (
         <Box className={`${className}__description`} sx={textStyle(description.limit, description?.bold)}>
           <span>{description.text}</span>
