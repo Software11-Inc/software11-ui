@@ -10,7 +10,7 @@ const baseBoxStyle = {
 
 const headerBoxStyle = {
   display: "grid",
-  gridTemplateColumns: "1fr 1.5rem",
+  gridTemplateColumns: "2rem 1fr 1.5rem",
   gap: 1,
   alignItems: "center",
   p: 1,
@@ -32,6 +32,18 @@ const mediaIconStyle = {
   color: "var(--joy-palette-primary-500)",
 };
 
+const tagBoxStyle = {
+  display: "flex",
+  gap: 0.5,
+};
+
+export const tagStyle = {
+  maxWidth: "5rem",
+  padding: "0.15rem 0.5rem",
+  bgcolor: "var(--joy-palette-primary-100)",
+  borderRadius: "0.5rem",
+};
+
 // 2) Classes
 export const classes = {
   baseBox: "deck-album-card-base",
@@ -48,4 +60,6 @@ export const styles = {
   [`.${classes.headerBox}`]: headerBoxStyle,
   [`.${classes.contentBox}`]: contentBoxStyle,
   [`.${classes.mediaIcon}`]: mediaIconStyle,
+  [`.${classes.tagBox}`]: tagBoxStyle,
+  [`.${classes.tag}`]: tagStyle,
 };

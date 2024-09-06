@@ -1,29 +1,42 @@
-import ChevronRight from "@mui/icons-material/ChevronRight";
-import PermMediaRounded from "@mui/icons-material/PermMediaRounded";
-import Box from "@mui/joy/Box";
+import React from "react";
+import { IDeckFolderCardProps } from "./deck-folder-card.types";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
-import React from "react";
-import { DeckAuthor } from "../deck-author";
-import { DeckIconButton } from "../deck-icon-button";
+import { classes, styles } from "./deck-folder-card.styles";
+import Box from "@mui/joy/Box";
 import { DeckLabel } from "../deck-label";
-import { IDeckAlbumCardProps } from "./deck-album-card.types";
-import { classes, styles } from "./deck-album-card.styles";
+import { DeckIconButton } from "../deck-icon-button";
+import PermMediaRounded from "@mui/icons-material/PermMediaRounded";
+import { DeckAuthor } from "../deck-author";
+import ChevronRight from "@mui/icons-material/ChevronRight";
 import { DeckTags } from "../deck-tags";
+import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
 
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item, onOpen }) => {
+export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", item, onOpen }) => {
   return (
     <React.Fragment>
       <Box className={classes.baseBox} sx={styles}>
         <Box className={classes.headerBox}>
+          <PermMediaRounded
+            sx={{
+              fontSize: "1rem",
+              alignSelf: "center",
+              justifySelf: "center",
+              color: "var(--joy-palette-primary-500)",
+              bgcolor: "var(--joy-palette-primary-100)",
+              borderRadius: "var(--border-radius)",
+              boxSizing: "content-box",
+              padding: "0.5rem",
+            }}
+          />
           <DeckLabel
             title={{
               text: item?.name || "Untitled",
             }}
-            separator={Boolean(item?.tags?.length) && <DeckTags tags={item?.tags || []} limit={4} size={size} />}
+            separator={Boolean(item?.tags?.length) && <DeckTags tags={item?.tags || []} size={size} />}
             gap={0.5}
             size={size}
           />
@@ -52,10 +65,10 @@ export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item
                 justifyContent: "flex-start",
               }}
             >
-              <PermMediaRounded className={classes.mediaIcon} />
+              <PanoramaRounded className={classes.mediaIcon} />
               <DeckLabel
                 description={{
-                  text: item?.itemsCount?.toString() || "0",
+                  text: "0",
                   limit: 1,
                   bold: true,
                 }}

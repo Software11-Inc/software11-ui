@@ -7,7 +7,7 @@ import { IDeckAuthorProps } from "./deck-author.types";
 
 export const DeckAuthor: React.FC<IDeckAuthorProps> = ({ user, showName = true }): React.ReactElement => {
   if (!user) {
-    throw new Error("User is required");
+    return <React.Fragment />;
   }
 
   return (

@@ -1,43 +1,34 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckAlbumCard } from "./deck-album-card.component";
+import { DeckFolderCard } from "./deck-folder-card.component";
+import { sizes } from "../story-types";
 
 export default {
-  title: "Pages/Library/Gallery/Album Card",
-  component: DeckAlbumCard,
+  title: "Pages/Library/Gallery/Folder Card",
+  component: DeckFolderCard,
   argTypes: {
+    onClick: { action: "click" },
     size: {
       control: {
         type: "select",
       },
-      options: ["sm", "md", "lg"],
+      options: sizes,
     },
-    onClick: { action: "onClick" },
-    onOpen: { action: "onOpen" },
   },
-} as Meta<typeof DeckAlbumCard>;
+} as Meta<typeof DeckFolderCard>;
 
-const Template: StoryFn<typeof DeckAlbumCard> = (args) => <DeckAlbumCard {...args} />;
+const Template: StoryFn<typeof DeckFolderCard> = (args) => <DeckFolderCard {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
   size: "sm",
   item: {
-    id: "a2ZDWkWsYnTFS6IgE6Yn",
-    name: "Album Name",
+    name: "Folder Name",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit sollicitudin massa ut tincidunt. Aenean volutpat iaculis odio id semper. Praesent hendrerit neque interdum, commodo metus a, vulputate metus. Ut elit dolor, malesuada at euismod et, dapibus id tortor. Sed tincidunt porta magna, ac auctor enim luctus non. Quisque rhoncus urna a sem tristique elementum. Integer libero dui, hendrerit ac dui a, feugiat bibendum purus.",
-    tags: ["Risk Assessment", "Growth Plan", "Operational Efficiency", "Stakeholder Briefing"],
-    itemsCount: Math.round(Math.random() * 1000),
-    folders: [],
-    generationDate: {
-      _seconds: 1725618910,
-      _nanoseconds: 215000000,
-    },
-    lastUpdated: {
-      _seconds: 1725618910,
-      _nanoseconds: 215000000,
-    },
+    albumID: "albumID",
+    tags: ["Quarterly Review", "Investment Strategy"],
+    library: "library",
     generationUser: {
       firstName: "John",
       lastName: "Doe",
@@ -45,6 +36,10 @@ Default.args = {
       profilePhoto: "https://picsum.photos/50",
       username: "user",
       role: "user",
+    },
+    lastUpdated: {
+      _seconds: 1725618910,
+      _nanoseconds: 215000000,
     },
   },
 };
