@@ -32,10 +32,6 @@ Default.args = {
     { icon: <AllInboxRounded />, text: "Data", key: "data" },
     { icon: <PanoramaRounded />, text: "Slides", key: "slides" },
     { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
-    { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
-    { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
-    { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
-    { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
   ],
 };
 

@@ -29,6 +29,7 @@
   --footer-nav-text-size: 0.65rem;
   --footer-nav-text-height: 1rem;
   --footer-nav-indicator-size: 3rem;
+  --footer-nav-spacing: 1rem;
 
   --footer-nav-tabs-width: calc(
     100vw - var(--scrollbar-width)
