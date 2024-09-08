@@ -50,6 +50,7 @@ export * from "./deck-project-item";
 export * from "./deck-slide-item";
 export * from "./deck-slide-upload-item";
 export * from "./deck-album-card";
+export * from "./deck-folder-card";
 
 export * from "./deck-repeater-form";
 export * from "./deck-repeater-form-field";
