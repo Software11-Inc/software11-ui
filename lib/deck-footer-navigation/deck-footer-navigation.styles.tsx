@@ -34,7 +34,7 @@ const transition = ".3s ease-in-out";
 const styleVariables = {
   baseIconSize: "var(--footer-nav-icon-size)",
   baseTextColor: "var(--joy-palette-text-secondary)",
-  activeIconTransform: "translateY(-50%)",
+  activeIconTransform: "translateY(-1.5rem)",
   activeTextTransform: "translateY(10px)",
   inactiveTextTransform: "translateY(20px)",
   baseFontSize: "var(--footer-nav-text-size)",
@@ -64,7 +64,7 @@ const indicatorBackgroundStyles = {
     transition,
   },
   "&:before": {
-    width: `calc(${styleVariables.indicatorPositionX} - 1rem + 1px + 8px)`,
+    width: `calc(${styleVariables.indicatorPositionX} - 0.5rem + 1px + 8px)`,
     marginRight: "-1px",
   },
   "&:after": {
@@ -87,6 +87,7 @@ const footerInnerStyles = {
     justifyContent: "space-around",
     listStyle: "none",
     padding: 0,
+    paddingInline: 1,
     margin: 0,
     [`& > li`]: {
       position: "relative",
@@ -106,18 +107,38 @@ const footerInnerStyles = {
         fontWeight: "bold",
         cursor: "pointer",
         textDecoration: "none",
+        height: "var(--footer-nav-item-height)",
         [`& > .${classNames.item.icon}`]: {
           position: "relative",
-          height: "var(--footer-nav-item-height)",
+          height: styleVariables.indicatorSize,
+          width: styleVariables.indicatorSize,
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          alignItems: "center",
           transition,
           "--Icon-fontSize": styleVariables.baseIconSize,
           "--Icon-color": styleVariables.baseTextColor,
+
           [`& > .${svgIconClasses.root}`]: {
             transition,
+            zIndex: 1,
+          },
+
+          "&:before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bgcolor: "var(--footer-nav-background)",
+            borderRadius: "50%",
+            transition,
+
+            height: styleVariables.indicatorSize,
+            width: styleVariables.indicatorSize,
           },
         },
         [`& > .${classNames.item.text}`]: {
@@ -137,7 +158,16 @@ const footerInnerStyles = {
           [`& > .${classNames.item.icon}`]: {
             animation: "slide-up .3s ease-in-out",
             transform: styleVariables.activeIconTransform,
+            "@supports (font: -apple-system-body) and (-webkit-appearance: none)": {
+              animation: "unset"
+            },
+
             "--Icon-color": "var(--footer-nav-background)",
+
+            "&:before": {
+              bgcolor: "var(--joy-palette-primary-500)",
+              boxShadow: "var(--shadow)",
+            },
           },
           [`& > .${classNames.item.text}`]: {
             transform: styleVariables.activeTextTransform,

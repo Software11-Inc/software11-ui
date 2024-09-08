@@ -1,7 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckFooterNavigation } from "./deck-footer-navigation.component";
 import AllInboxRounded from "@mui/icons-material/AllInboxRounded";
-import CollectionsRounded from "@mui/icons-material/CollectionsRounded";
+import CollectionsRounded from "@mui/icons-material/CollectionsRounded"; import AcUnitRounded from '@mui/icons-material/AcUnitRounded'; import AdminPanelSettingsRounded from '@mui/icons-material/AdminPanelSettingsRounded';
+import AddToDriveRounded from '@mui/icons-material/AddToDriveRounded';
 import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
 import Box from "@mui/joy/Box";
 
@@ -18,6 +19,7 @@ const Template: StoryFn<typeof DeckFooterNavigation> = (args) => (
     sx={{
       width: "100vw",
       height: "100vh",
+      bgcolor: "var(--joy-palette-background-level3)",
     }}
   >
     <DeckFooterNavigation {...args} />
@@ -32,6 +34,9 @@ Default.args = {
     { icon: <AllInboxRounded />, text: "Data", key: "data" },
     { icon: <PanoramaRounded />, text: "Slides", key: "slides" },
     { icon: <CollectionsRounded />, text: "Gallery", key: "gallery" },
+    { icon: <AcUnitRounded />, text: "Stuff", key: "cool-stuff" },
+    { icon: <AddToDriveRounded />, text: "Drive", key: "drive" },
+    { icon: <AdminPanelSettingsRounded />, text: "Settings", key: "settings" },
   ],
 };
 

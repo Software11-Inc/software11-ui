@@ -58,9 +58,9 @@ export const DeckFooterNavigation: React.FC<IDeckFooterNavigationProps> = ({
             ))}
           </ul>
         </Box>
-        <Box className={classNames.indicator.base}>
+        {/* <Box className={classNames.indicator.base}>
           <div className={classNames.indicator.inner}></div>
-        </Box>
+        </Box> */}
       </Box>
     </React.Fragment>
   );

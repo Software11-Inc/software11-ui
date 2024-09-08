@@ -32,7 +32,7 @@
   --footer-nav-spacing: 1rem;
 
   --footer-nav-tabs-width: calc(
-    100vw - var(--scrollbar-width)
+    100vw - var(--scrollbar-width) - 1rem
   ); /* Width of the footer navigation, 100% works, but Safari */
   --footer-nav-tabs-count: 3; /* Number of tabs, it changes by component */
   --footer-nav-tab-width: calc(var(--footer-nav-tabs-width) / var(--footer-nav-tabs-count));
@@ -373,22 +373,23 @@ body {
 @keyframes slide-up {
   0% {
     transform: translateY(0);
+    opacity: 1;
   }
   50% {
-    transform: translateY(-25%) scale(0);
+    transform: translateY(-0.5rem) scale(0);
     opacity: 0;
   }
   80% {
-    transform: translateY(-50%) rotate(0) scale(1);
+    transform: translateY(-1.5rem) scale(1);
     opacity: 1;
   }
   85% {
-    transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-1.5rem) rotate(45deg);
   }
   90% {
-    transform: translateY(-50%) rotate(-45deg);
+    transform: translateY(-1.5rem) rotate(-45deg);
   }
   100% {
-    transform: translateY(-50%);
+    transform: translateY(-1.5rem);
   }
 }
