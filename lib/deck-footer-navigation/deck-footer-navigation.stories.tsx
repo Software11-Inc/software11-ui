@@ -1,10 +1,12 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { DeckFooterNavigation } from "./deck-footer-navigation.component";
-import AllInboxRounded from "@mui/icons-material/AllInboxRounded";
-import CollectionsRounded from "@mui/icons-material/CollectionsRounded"; import AcUnitRounded from '@mui/icons-material/AcUnitRounded'; import AdminPanelSettingsRounded from '@mui/icons-material/AdminPanelSettingsRounded';
+import AcUnitRounded from '@mui/icons-material/AcUnitRounded';
 import AddToDriveRounded from '@mui/icons-material/AddToDriveRounded';
+import AdminPanelSettingsRounded from '@mui/icons-material/AdminPanelSettingsRounded';
+import AllInboxRounded from "@mui/icons-material/AllInboxRounded";
+import CollectionsRounded from "@mui/icons-material/CollectionsRounded";
 import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
 import Box from "@mui/joy/Box";
+import { Meta, StoryFn } from "@storybook/react";
+import { DeckFooterNavigation } from "./deck-footer-navigation.component";
 
 export default {
   title: "UI/Footer Navigation",

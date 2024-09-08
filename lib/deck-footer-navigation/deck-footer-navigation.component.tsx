@@ -1,8 +1,8 @@
-import React from "react";
+import { INavItem } from "@models";
 import Box from "@mui/joy/Box";
+import React from "react";
 import { classNames, deckFooterNavigationStyle, deckFooterSpacerStyle } from "./deck-footer-navigation.styles";
 import { IDeckFooterNavigationProps } from "./deck-footer-navigation.types";
-import { INavItem } from "@models";
 import { TabMaskIcon } from "./tab-mask.icon";
 
 const ListItem: React.FC<{

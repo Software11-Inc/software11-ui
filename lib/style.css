@@ -372,7 +372,7 @@ body {
 
 @keyframes slide-up {
   0% {
-    transform: translateY(0);
+    transform: translateY(-15%) scale(0.9);
     opacity: 1;
   }
   50% {
