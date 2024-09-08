@@ -64,7 +64,7 @@ const indicatorBackgroundStyles = {
     transition,
   },
   "&:before": {
-    width: `calc(${styleVariables.indicatorPositionX} - 1rem + 1px)`,
+    width: `calc(${styleVariables.indicatorPositionX} - 1rem + 1px + 8px)`,
     marginRight: "-1px",
   },
   "&:after": {
@@ -76,7 +76,7 @@ const indicatorBackgroundStyles = {
     maskImage: "url(#mask-tab), url(#mask-outer)",
     maskMode: "alpha",
     maskComposite: "exclude",
-    width: "5rem",
+    width: "4rem",
     transition,
   },
 };
