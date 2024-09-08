@@ -133,7 +133,7 @@ const footerInnerStyles = {
             left: 0,
             right: 0,
             bottom: 0,
-            bgcolor: "var(--footer-nav-background)",
+            bgcolor: "transparent",
             borderRadius: "50%",
             transition,
 
