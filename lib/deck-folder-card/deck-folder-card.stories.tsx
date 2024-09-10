@@ -41,5 +41,6 @@ Default.args = {
       _seconds: 1725618910,
       _nanoseconds: 215000000,
     },
+    images: [],
   },
 };
