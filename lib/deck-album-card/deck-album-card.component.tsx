@@ -10,6 +10,8 @@ import { IDeckAlbumCardProps } from "./deck-album-card.types";
 import { classes, styles } from "./deck-album-card.styles";
 import { DeckTags } from "../deck-tags";
 
+import en from "javascript-time-ago/locale/en";
+TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item, onOpen }) => {

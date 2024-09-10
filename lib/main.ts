@@ -1,9 +1,5 @@
 import "./style.css";
 
-import en from "javascript-time-ago/locale/en";
-import TimeAgo from "javascript-time-ago";
-TimeAgo.addDefaultLocale(en);
-
 export * from "./deck-active-page";
 export * from "./deck-active-project";
 

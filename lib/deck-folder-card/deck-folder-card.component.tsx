@@ -10,7 +10,8 @@ import { DeckAuthor } from "../deck-author";
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import { DeckTags } from "../deck-tags";
 import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
-
+import en from "javascript-time-ago/locale/en";
+TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", item, onOpen }) => {

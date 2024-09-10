@@ -8,6 +8,10 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "../lib/style.css";
 
+import en from "javascript-time-ago/locale/en";
+import TimeAgo from "javascript-time-ago";
+TimeAgo.addDefaultLocale(en);
+
 /* TODO: update import for your custom theme configurations */
 import CssBaseline from "@mui/joy/CssBaseline";
 import { CssVarsProvider } from "@mui/joy/styles/CssVarsProvider";
@@ -42,7 +46,7 @@ const preview: Preview = {
   },
 
   decorators,
-  tags: ["autodocs"]
+  tags: ["autodocs"],
 };
 
 export default preview;
