@@ -4,6 +4,7 @@ export const className = "deck-label";
 
 export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0, gap = 0.25): SxProps => {
   const fontSizeMap = {
+    xs: { title: "10px", description: "8px" },
     sm: { title: "12px", description: "9px" },
     md: { title: "14px", description: "10px" },
     lg: { title: "16px", description: "11px" },

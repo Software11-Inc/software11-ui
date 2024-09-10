@@ -16,7 +16,7 @@ export default {
       control: {
         type: "radio",
       },
-      options: sizes,
+      options: ["xs", ...sizes],
     },
     color: {
       description: "Color of the button",
