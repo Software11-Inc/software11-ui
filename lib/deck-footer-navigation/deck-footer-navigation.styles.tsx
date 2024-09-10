@@ -76,6 +76,12 @@ const indicatorBackgroundStyles = {
     maskImage: "url(#mask-tab), url(#mask-outer)",
     maskMode: "alpha",
     maskComposite: "exclude",
+    "@supports (font: -apple-system-body) and (-webkit-appearance: none)": {
+      bgcolor: "var(--footer-nav-background)",
+      maskImage: "none",
+      maskMode: "unset",
+      maskComposite: "unset",
+    },
     width: "4rem",
     transition,
   },
@@ -176,7 +182,7 @@ const footerInnerStyles = {
           },
         },
       },
-      [`&:hover:not(.${classNames.state.active})`]: {
+      [`&:not(.${classNames.state.active})`]: {
         "& > a": {
           [`& > .${classNames.item.icon}`]: {
             "--Icon-color": "var(--joy-palette-primary-500)",

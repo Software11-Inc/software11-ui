@@ -43,13 +43,18 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", it
           <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" onClick={onOpen} />
         </Box>
         <Box className={classes.contentBox}>
-          <DeckLabel
-            description={{
-              text: item?.description,
-              limit: 3,
-            }}
-            size={size}
-          />
+          {
+            item?.description && (
+              <DeckLabel
+                description={{
+                  text: item?.description,
+                  limit: 3,
+                }}
+                size={size}
+              />
+            )
+          }
+
           <Box
             sx={{
               display: "flex",
