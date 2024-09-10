@@ -4,12 +4,12 @@ export const breadcrumbItemStyles: SxProps = {
   bgcolor: "var(--joy-palette-primary-100)",
   borderRadius: "1rem",
   maxWidth: "45vw",
-  p: 0.5,
+  p: 0.25,
   pl: 1.5,
 
   display: "flex",
   alignItems: "center",
-  gap: 1,
+  gap: 0.5,
 
   boxShadow: "var(--shadow)",
 

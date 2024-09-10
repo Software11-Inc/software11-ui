@@ -21,7 +21,7 @@ export const DeckBreadcrumbItem: React.FC<IDeckBreadcrumbItemProps> = ({ item })
           text: item.title,
           limit: 1,
         }}
-        size="sm"
+        size="xs"
       />
       <DeckIconButton
         rounded
