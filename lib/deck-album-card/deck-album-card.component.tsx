@@ -2,7 +2,6 @@ import ChevronRight from "@mui/icons-material/ChevronRight";
 import PermMediaRounded from "@mui/icons-material/PermMediaRounded";
 import Box from "@mui/joy/Box";
 import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
 import React from "react";
 import { DeckAuthor } from "../deck-author";
 import { DeckIconButton } from "../deck-icon-button";
@@ -11,7 +10,6 @@ import { IDeckAlbumCardProps } from "./deck-album-card.types";
 import { classes, styles } from "./deck-album-card.styles";
 import { DeckTags } from "../deck-tags";
 
-TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item, onOpen }) => {

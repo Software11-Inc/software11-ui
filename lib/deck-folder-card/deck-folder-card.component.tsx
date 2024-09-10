@@ -1,7 +1,6 @@
 import React from "react";
 import { IDeckFolderCardProps } from "./deck-folder-card.types";
 import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en";
 import { classes, styles } from "./deck-folder-card.styles";
 import Box from "@mui/joy/Box";
 import { DeckLabel } from "../deck-label";
@@ -12,7 +11,6 @@ import ChevronRight from "@mui/icons-material/ChevronRight";
 import { DeckTags } from "../deck-tags";
 import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
 
-TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
 export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", item, onOpen }) => {
@@ -43,17 +41,15 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", it
           <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" onClick={onOpen} />
         </Box>
         <Box className={classes.contentBox}>
-          {
-            item?.description && (
-              <DeckLabel
-                description={{
-                  text: item?.description,
-                  limit: 3,
-                }}
-                size={size}
-              />
-            )
-          }
+          {item?.description && (
+            <DeckLabel
+              description={{
+                text: item?.description,
+                limit: 3,
+              }}
+              size={size}
+            />
+          )}
 
           <Box
             sx={{

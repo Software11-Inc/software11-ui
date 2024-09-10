@@ -1,5 +1,9 @@
 import "./style.css";
 
+import en from "javascript-time-ago/locale/en";
+import TimeAgo from "javascript-time-ago";
+TimeAgo.addDefaultLocale(en);
+
 export * from "./deck-active-page";
 export * from "./deck-active-project";
 
@@ -18,6 +22,8 @@ export * from "./deck-header-user-dropdown";
 export * from "./deck-header-user-profile";
 export * from "./deck-section";
 export * from "./deck-footer-navigation";
+export * from "./deck-breadcrumb-item";
+export * from "./deck-breadcrumbs";
 
 export * from "./deck-alphabetical-view";
 export * from "./deck-author";

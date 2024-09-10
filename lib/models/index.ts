@@ -22,3 +22,4 @@ export * from "./user.model";
 export * from "./error-message.model";
 export * from "./nav-item.model";
 export * from "./album.model";
+export * from "./breadcrumbs.model";
