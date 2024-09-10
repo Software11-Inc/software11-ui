@@ -9,3 +9,5 @@ export interface IAlbum extends Partial<IDefaultItem> {
   folders: IFolder[];
   itemsCount: number;
 }
+
+export interface IImage extends Partial<IDefaultItem> {}

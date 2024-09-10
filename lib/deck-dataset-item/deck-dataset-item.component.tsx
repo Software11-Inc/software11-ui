@@ -2,6 +2,7 @@ import ChevronRight from "@mui/icons-material/ChevronRight";
 import SyncRounded from "@mui/icons-material/SyncRounded";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
+import TimeAgo from "javascript-time-ago";
 import React from "react";
 import { KeyValueIcon, TableIcon } from "../deck-icons";
 import { DeckLabel } from "../deck-label";
@@ -9,6 +10,10 @@ import { DatasetType } from "../models/dataset.model";
 import * as fromUtils from "../utils";
 import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
+
+import en from "javascript-time-ago/locale/en";
+TimeAgo.addLocale(en);
+const timeAgo = new TimeAgo("en-US");
 
 export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
   switch (type) {
@@ -49,7 +54,7 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
             text: item.name,
           }}
           description={{
-            text: `Updated at ${fromUtils.formatDate(item?.lastUpdated?._seconds * 1000)}`,
+            text: `Updated ${timeAgo.format(item?.lastUpdated?._seconds * 1000)}`,
           }}
         />
         <div className="flex-spacer"></div>
