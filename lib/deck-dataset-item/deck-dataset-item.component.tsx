@@ -7,7 +7,6 @@ import React from "react";
 import { KeyValueIcon, TableIcon } from "../deck-icons";
 import { DeckLabel } from "../deck-label";
 import { DatasetType } from "../models/dataset.model";
-import * as fromUtils from "../utils";
 import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
 
