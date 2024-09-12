@@ -12,6 +12,12 @@ export const headerStyle: SxProps = {
     position: "sticky",
     top: 0,
     zIndex: 10,
+    transition: "all 0.3s ease-in-out",
+
+    "&.hidden": {
+      opacity: 0,
+      transform: "translateY(-100%)",
+    },
 
     [`& .${className}-content`]: {
       display: "flex",

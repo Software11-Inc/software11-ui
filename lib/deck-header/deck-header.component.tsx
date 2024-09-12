@@ -14,11 +14,13 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
   email,
   avatarUrl,
   showNavigation,
+  hidden = false,
   onLogout,
   onBack,
 }) => {
+  const classList = [className, hidden ? "hidden" : ""].join(" ").trim();
   return (
-    <Box className={className} sx={headerStyle}>
+    <Box className={classList} sx={headerStyle}>
       <Box className={`${className}-content`}>
         <div className={["animation", "animation-navigation", showNavigation ? "visible" : "hidden"].join(" ")}>
           <DeckHeaderNavigation title={title} description={description} onBack={onBack} />

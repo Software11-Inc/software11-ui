@@ -58,6 +58,7 @@ export const Default = Template.bind({});
 
 Default.args = {
   // Add props here
+  hidden: false,
   showNavigation: false,
   title: "Home Page",
   description: "Welcome to the home page",

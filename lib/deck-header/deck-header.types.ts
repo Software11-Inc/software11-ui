@@ -6,6 +6,7 @@ export interface DeckHeaderProps {
   email: string;
   avatarUrl: string;
   showNavigation: boolean;
+  hidden: boolean;
   onLogout: () => void;
   onBack: () => void;
 }
