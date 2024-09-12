@@ -12,6 +12,7 @@ const DeckSnackbar = memo(
     description,
     startDecorator = null,
     endDecorator = null,
+    autoHideDuration = 3000,
     handleClose,
   }: IDeckSnackbarProps) => {
     const safeHandleClose = (_: any, reason: SnackbarCloseReason) => {
@@ -37,7 +38,7 @@ const DeckSnackbar = memo(
         }}
         color={color}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={autoHideDuration}
         onClose={safeHandleClose}
         sx={snackbarStyles}
         startDecorator={memoizedStartDecorator}

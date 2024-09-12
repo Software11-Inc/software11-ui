@@ -4,6 +4,7 @@ import { ColorPaletteProp } from "@mui/joy/styles/types";
 export interface IDeckSnackbarProps {
   open: boolean;
   color: ColorPaletteProp;
+  autoHideDuration?: number;
   title?: string;
   description?: string;
   startDecorator?: React.ReactElement | null;
