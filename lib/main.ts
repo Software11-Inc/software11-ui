@@ -20,6 +20,7 @@ export * from "./deck-section";
 export * from "./deck-footer-navigation";
 export * from "./deck-breadcrumb-item";
 export * from "./deck-breadcrumbs";
+export * from "./deck-snackbar";
 
 export * from "./deck-alphabetical-view";
 export * from "./deck-author";
