@@ -96,7 +96,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
    */
   private _getStickyContainersHeight = (): number => {
     // Select all elements with the "deck-sticky" class
-    const stickyContainers = document.querySelectorAll(".deck-sticky");
+    const stickyContainers = document.querySelectorAll(".page-section.deck-sticky");
 
     // Accumulate the total height of these elements
     return Array.from(stickyContainers).reduce((totalHeight, container) => totalHeight + container.clientHeight, 0);
@@ -120,6 +120,27 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
   };
 
   /**
+   * Automatically sets the style attributes for the navigation container.
+   */
+  public setNavAttributes = (): void => {
+    const headerHeight = this._getHeaderHeight();
+    const stickyContainersHeight = this._getStickyContainersHeight();
+    const footerHeight = this._getFooterHeight();
+    const bodyPadding = this._getBodyPadding();
+
+    const nav = document.querySelector(`.${alphabeticalViewNavClass}`);
+    if (!nav) {
+      return;
+    }
+
+    const top = `calc(${headerHeight}px + ${stickyContainersHeight}px + 1rem)`;
+    const bottom = `calc(${footerHeight}px + 1rem)`;
+    const right = bodyPadding.length > 0 ? `calc(${bodyPadding} + 0.5rem)` : "0.5rem";
+
+    nav.setAttribute("style", `top: ${top}; bottom: ${bottom}; right: ${right};`);
+  };
+
+  /**
    * This method is used to adjust the position of the alphabetical navigation container based on the scroll position.
    * It listens to the scroll events of the window and the internal trigger observable.
    * When either of these observables emit a new value, it calculates the new top, bottom, and right positions of the navigation container and updates its style.
@@ -131,24 +152,9 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
       fromEvent(window, "scroll").pipe(startWith(0), debounceTime(100)),
       this.internalTrigger.asObservable(),
     ]).pipe(
-      debounceTime(1),
+      debounceTime(10),
       map(() => {
-        const headerHeight = this._getHeaderHeight();
-        const stickyContainersHeight = this._getStickyContainersHeight();
-        const footerHeight = this._getFooterHeight();
-        const bodyPadding = this._getBodyPadding();
-
-        const nav = document.querySelector(`.${alphabeticalViewNavClass}`);
-        if (!nav) {
-          return;
-        }
-
-        const top = `calc(${headerHeight}px + ${stickyContainersHeight}px + 1rem)`;
-        const bottom = `calc(${footerHeight}px + 1rem)`;
-
-        const right = bodyPadding.length > 0 ? `calc(${bodyPadding} + 0.5rem)` : "0.5rem";
-
-        nav.setAttribute("style", `top: ${top}; bottom: ${bottom}; right: ${right};`);
+        this.setNavAttributes();
       })
     );
   };
