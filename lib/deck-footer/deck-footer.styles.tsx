@@ -11,15 +11,17 @@ export const mainBoxSxProps = (fit: boolean = false) => ({
   boxShadow: "var(--shadow)",
   zIndex: 999,
   overflow: "hidden",
-  transition: "height 0.2s ease-in-out",
+  transition: "0.2s ease-in-out",
 
   bgcolor: "var(--joy-palette-primary-100)",
   borderTop: "1px solid",
   borderColor: "primary.100",
   py: 1,
+  height: "3.25rem",
 
   "&.hidden": {
     height: 0,
+    py: 0,
     borderColor: "transparent",
   },
 
