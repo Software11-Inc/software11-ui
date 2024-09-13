@@ -13,7 +13,7 @@ export const mainBoxSxProps = (fit: boolean = false) => ({
   overflow: "hidden",
   transition: "height 0.2s ease-in-out",
 
-  bgcolor: "background.body",
+  bgcolor: "var(--joy-palette-primary-100)",
   borderTop: "1px solid",
   borderColor: "primary.100",
 
