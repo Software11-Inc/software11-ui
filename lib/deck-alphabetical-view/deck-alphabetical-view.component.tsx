@@ -107,7 +107,7 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
   };
 
   render(): React.ReactNode {
-    const { items, itemTemplate, loaded, emptyTemplate } = this.props;
+    const { items, itemTemplate, loaded, loading, emptyTemplate } = this.props;
     const { letters, activeLetter } = this.state;
 
     const entries = Object.entries(items);
@@ -118,7 +118,7 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
     return (
       <Box sx={alphabeticalViewStyle}>
         <Box className={alphabeticalViewContentClass}>
-          {!loaded && !Boolean(emptyTemplate) && (
+          {!loaded && loading && (
             <Box className={alphabeticalViewLoadingClass}>
               <DeckLottieLoading />
             </Box>
@@ -136,7 +136,7 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
                 </React.Fragment>
               );
             })}
-          {!loaded && emptyTemplate}
+          {loaded && !entries.length && emptyTemplate}
         </Box>
         <Box className={alphabeticalViewNavClass}>
           <Box className={alphabeticalViewNavInnerClass}>

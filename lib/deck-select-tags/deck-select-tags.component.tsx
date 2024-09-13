@@ -55,7 +55,13 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
   };
 
   render() {
-    const { tags = [] } = this.props;
+    const {
+      tags = [],
+      size,
+      title = "Tags",
+      description = "Tag with descriptive words so you can index and search them later, ie. revenue, cogs, costs, people, etc.",
+      placeholder = "Enter tag",
+    } = this.props;
     const { inputTag } = this.state;
     return (
       <React.Fragment>
@@ -65,11 +71,9 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
           }}
         >
           <DeckLabel
+            size={size}
             title={{
-              text: "Tags",
-            }}
-            description={{
-              text: "Tag with descriptive words so you can index and search them later, ie. revenue, cogs, costs, people, etc.",
+              text: title,
             }}
           />
           {tags.length ? (
@@ -98,7 +102,7 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
 
           <Input
             name="tags"
-            placeholder="Enter tag"
+            placeholder={placeholder}
             size="sm"
             variant="soft"
             color="primary"
@@ -120,6 +124,12 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
                 <span>ADD</span>
               </Button>
             }
+          />
+          <DeckLabel
+            size={size}
+            description={{
+              text: description,
+            }}
           />
         </FormControl>
       </React.Fragment>
