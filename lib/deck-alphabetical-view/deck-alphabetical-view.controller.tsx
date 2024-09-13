@@ -133,7 +133,8 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
     ]).pipe(
       debounceTime(1),
       map(() => {
-        const headerHeight = this._getHeaderHeight() + this._getStickyContainersHeight();
+        const headerHeight = this._getHeaderHeight();
+        const stickyContainersHeight = this._getStickyContainersHeight();
         const footerHeight = this._getFooterHeight();
         const bodyPadding = this._getBodyPadding();
 
@@ -142,7 +143,7 @@ export class DeckAlphabeticalController implements IDeckAlphabeticalController {
           return;
         }
 
-        const top = `calc(${headerHeight}px + 1rem)`;
+        const top = `calc(${headerHeight}px + ${stickyContainersHeight}px + 1rem)`;
         const bottom = `calc(${footerHeight}px + 1rem)`;
 
         const right = bodyPadding.length > 0 ? `calc(${bodyPadding} + 0.5rem)` : "0.5rem";
