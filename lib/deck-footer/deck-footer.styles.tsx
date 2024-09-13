@@ -3,12 +3,12 @@ import { SxProps } from "@mui/joy/styles/types";
 export const mainBoxSxProps = (fit: boolean = false) => ({
   position: "sticky",
   bottom: 0,
-  height: "4.25rem",
   display: "flex",
   alignItems: "center",
   paddingInline: "var(--spacing)",
   backgroundColor: "transparent",
   boxSizing: "border-box",
+  boxShadow: "var(--shadow)",
   zIndex: 999,
   overflow: "hidden",
   transition: "height 0.2s ease-in-out",
@@ -16,6 +16,7 @@ export const mainBoxSxProps = (fit: boolean = false) => ({
   bgcolor: "var(--joy-palette-primary-100)",
   borderTop: "1px solid",
   borderColor: "primary.100",
+  py: 1,
 
   "&.hidden": {
     height: 0,

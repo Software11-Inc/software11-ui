@@ -1,8 +1,8 @@
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
-import { DeckTextButton } from "../deck-text-button";
 import { DeckFooter } from "./deck-footer.component";
+import Button from "@mui/joy/Button";
 
 export default {
   title: "Layout/Footer",
@@ -29,7 +29,18 @@ Default.args = {
   className: "deck-footer",
   actions: (
     <React.Fragment>
-      <DeckTextButton text="TEXT BUTTON" variant="solid" color="success" action={() => console.log("Cancel")} />
+      <Button
+        size="sm"
+        sx={{
+          minHeight: "unset",
+          py: 1,
+          fontSize: "0.75rem",
+          lineHeight: "1rem",
+        }}
+        fullWidth
+      >
+        TEXT BUTTON
+      </Button>
     </React.Fragment>
   ),
   back: {
