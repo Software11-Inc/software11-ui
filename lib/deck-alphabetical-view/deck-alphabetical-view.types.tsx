@@ -2,7 +2,7 @@ import { Observable } from "rxjs/internal/Observable";
 import { Subject } from "rxjs/internal/Subject";
 
 export enum Alphabet {
-  ANY = "#",
+  "#" = "#",
   A = "A",
   B = "B",
   C = "C",

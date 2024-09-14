@@ -34,7 +34,7 @@ export class DeckAlphabeticalView<T> extends React.Component<IAlphabeticalViewPr
     this._controller = props.controller;
     this.state = {
       letters: this._controller.alphabet,
-      activeLetter: "ANY",
+      activeLetter: "#",
     };
   }
 
