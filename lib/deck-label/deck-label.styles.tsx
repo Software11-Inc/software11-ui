@@ -22,7 +22,6 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       gap,
 
       [`& > .${className}__title`]: {
-        lineHeight: "1.2",
         fontWeight: "bold",
         color: `var(--joy-palette-${color}-500)`,
         fontSize: titleFontSize,
@@ -35,7 +34,6 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       },
 
       [`& > .${className}__description`]: {
-        lineHeight: "1.2",
         color: `${color}.700`,
         fontSize: descriptionFontSize,
       },
