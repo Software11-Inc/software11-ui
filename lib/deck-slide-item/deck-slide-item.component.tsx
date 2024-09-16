@@ -2,7 +2,6 @@ import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import React from "react";
 import { DeckLabel } from "../deck-label";
-import * as fromUtils from "../utils";
 import {
   slideItemButtonStyle,
   slideItemContentStyle,
@@ -16,6 +15,11 @@ import AddRounded from "@mui/icons-material/AddRounded";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
 import { ColorPaletteProp } from "@mui/joy";
 import WarningRounded from "@mui/icons-material/WarningRounded";
+import en from "javascript-time-ago/locale/en";
+import TimeAgo from "javascript-time-ago";
+
+TimeAgo.addLocale(en);
+const timeAgo = new TimeAgo("en-US");
 
 export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
   item,
@@ -57,7 +61,7 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
     <React.Fragment>
       <Box sx={slideItemStyle}>
         <Box sx={slideItemImageStyle}>
-          <img src={item?.previewImageURL} alt={item.name} />
+          <img src={item?.previewImageURL || item?.storedFileURL} alt={item.name} />
           <Box sx={slideItemOverlayStyle} className={[hasError ? "deck-error" : null].join(" ")}>
             <WarningRounded sx={{ color: "var(--joy-palette-danger-500)" }} />
             <DeckLabel
@@ -77,9 +81,7 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
               text: item.name,
             }}
             description={{
-              text: `Updated at ${fromUtils.formatDate(
-                (item?.latestUpdateTime?._seconds ?? 0) * 1000 || new Date().getTime() / 1000
-              )}`,
+              text: `Updated ${timeAgo.format(item?.lastUpdated?._seconds * 1000)}`,
             }}
           />
           <Button
