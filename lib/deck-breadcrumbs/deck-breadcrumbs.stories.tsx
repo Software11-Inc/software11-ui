@@ -16,13 +16,11 @@ Default.args = {
       title: "Album name",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       action: () => console.log("Action clicked"),
-      onRemove: () => console.log("Remove clicked"),
     },
     {
       title: "Folder Name",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       action: () => console.log("Action clicked"),
-      onRemove: () => console.log("Remove clicked"),
     },
   ],
 };
