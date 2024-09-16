@@ -1,3 +1,12 @@
+export const classes = {
+  baseBox: "deck-album-card-base",
+  headerBox: "deck-album-card-header",
+  contentBox: "deck-album-card-content",
+  mediaIcon: "deck-album-card-media-icon",
+  tagBox: "deck-album-card-tag-box",
+  tag: "deck-album-card-tag",
+};
+
 const baseBoxStyle = {
   display: "flex",
   flexDirection: "column",
@@ -6,6 +15,12 @@ const baseBoxStyle = {
   boxShadow: "var(--shadow)",
   position: "relative",
   overflow: "hidden",
+
+  "&:hover": {
+    [`.${classes.contentBox}`]: {
+      bgcolor: "var(--joy-palette-background-level1)",
+    },
+  },
 };
 
 const headerBoxStyle = {
@@ -44,17 +59,6 @@ export const tagStyle = {
   borderRadius: "0.5rem",
 };
 
-// 2) Classes
-export const classes = {
-  baseBox: "deck-album-card-base",
-  headerBox: "deck-album-card-header",
-  contentBox: "deck-album-card-content",
-  mediaIcon: "deck-album-card-media-icon",
-  tagBox: "deck-album-card-tag-box",
-  tag: "deck-album-card-tag",
-};
-
-// 3) Unified style object
 export const styles = {
   [`&.${classes.baseBox}`]: baseBoxStyle,
   [`.${classes.headerBox}`]: headerBoxStyle,
