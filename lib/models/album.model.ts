@@ -8,11 +8,13 @@ export interface IFolder extends Partial<IDefaultItem> {
 
 export interface IAlbum extends Partial<IDefaultItem> {
   folders: IFolder[];
+  folderID?: string;
   itemsCount: number;
 }
 
 export interface IImage extends Partial<IDefaultItem> {
   storedFileURL?: string;
-  folder?: string; // TODO: Change to folderID
+  folderID?: string;
+  albumID?: string;
   previewImageURL?: string;
 }
