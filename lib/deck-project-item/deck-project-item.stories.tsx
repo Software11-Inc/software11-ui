@@ -1,4 +1,4 @@
-import { Dataset, IFileSheet } from "@models";
+import { Dataset, IFile, IFileSheet } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetItem } from "../deck-dataset-item";
 import { DeckFileGroupItem } from "../deck-file-group-item";
@@ -10,7 +10,7 @@ export default {
   component: DeckProjectItem,
 } as Meta<typeof DeckProjectItem>;
 
-const Template: StoryFn<typeof DeckProjectItem> = (args) => <DeckProjectItem {...args} />;
+const Template: StoryFn<typeof DeckProjectItem<IFile>> = (args) => <DeckProjectItem {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

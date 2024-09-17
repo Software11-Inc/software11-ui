@@ -1,6 +1,9 @@
-import { IFile, IProjectGroup } from "../models/dataset-tree.model";
+import { IKeyData } from "../models/dataset-tree.model";
 
-export interface IDeckProjectItemProps {
-  project: IProjectGroup;
-  itemTemplate: (item: IFile) => React.ReactElement;
+export interface IDeckProjectItemProps<T> {
+  project: {
+    header: IKeyData;
+    data: T[];
+  };
+  itemTemplate: (item: T) => React.ReactElement;
 }

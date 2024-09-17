@@ -3,7 +3,7 @@ import React from "react";
 import { DeckLabel } from "../deck-label";
 import { IDeckProjectItemProps } from "./deck-project-item.types";
 
-export const DeckProjectItem: React.FC<IDeckProjectItemProps> = ({ project, itemTemplate }) => {
+export const DeckProjectItem = <T,>({ project, itemTemplate }: IDeckProjectItemProps<T>) => {
   return (
     <React.Fragment key={project.header.label}>
       <Box
@@ -30,9 +30,7 @@ export const DeckProjectItem: React.FC<IDeckProjectItemProps> = ({ project, item
             gap: 1,
           }}
         >
-          {project?.data?.map((item, index) => (
-            <React.Fragment key={index + item?.header?.label}>{itemTemplate(item)}</React.Fragment>
-          ))}
+          {project?.data?.map((item: T) => itemTemplate(item))}
         </Box>
       </Box>
     </React.Fragment>
