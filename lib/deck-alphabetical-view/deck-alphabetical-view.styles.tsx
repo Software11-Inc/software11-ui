@@ -63,8 +63,8 @@ export const alphabeticalViewStyle: SxProps = {
   [`& .${alphabeticalViewNavClass}`]: {
     position: "fixed",
     right: ".5rem",
-    bottom: "1rem",
-    top: "1rem",
+    top: "calc(var(--header-height) + var(--subheaders-height) + 0.5rem);",
+    bottom: "calc(var(--footer-height) + 0.5rem)",
     zIndex: 1000,
     transition: "0.125s ease-in-out",
 

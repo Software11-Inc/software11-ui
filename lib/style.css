@@ -2,6 +2,8 @@
   --spacing: 1rem;
 
   --header-height: calc(var(--spacing) * 2 + 2rem);
+  --subheaders-height: 0px; /* Will be updated by the component */
+  --footer-height: 0px; /* Will be updated by the component */
 
   --scrollbar-width: 20px;
 

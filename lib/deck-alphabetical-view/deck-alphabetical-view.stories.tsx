@@ -1,11 +1,13 @@
 import Box from "@mui/joy/Box";
 import Skeleton from "@mui/joy/Skeleton";
 import { Meta, StoryFn } from "@storybook/react";
-import React from "react";
+import React, { useRef } from "react";
 import { DeckHeader } from "../deck-header";
 import { DeckLabel } from "../deck-label";
 import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
-import { DeckAlphabeticalController } from "./deck-alphabetical-view.controller";
+import { DeckFooter } from "../deck-footer";
+import { DeckTextButton } from "../deck-text-button";
+import { DeckAlphabeticalViewHandle } from "./deck-alphabetical-view.types";
 
 export default {
   title: "UI/Alphabetical View",
@@ -20,46 +22,61 @@ type ExampleItem = {
   name: string;
 };
 
-export const Default: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args) => (
-  <React.Fragment>
-    <div className="app">
-      <main className="app-content">
-        <div className="page">
-          <DeckHeader
-            title={""}
-            description={""}
-            fullName={""}
-            role={""}
-            email={""}
-            avatarUrl={""}
-            showNavigation={false}
-            onLogout={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-            onBack={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-          <div className="page-content">
-            <Box
-              className="page-section sticky deck-sticky"
-              sx={{
-                display: "flex",
-                pb: "1rem !important",
-                height: "2.5rem",
+export const Default: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args) => {
+  const deckViewRef = useRef<DeckAlphabeticalViewHandle>(null);
+
+  const triggerUpdateHeights = () => {
+    if (deckViewRef.current) {
+      console.log("updateHeights");
+      deckViewRef.current.updateHeights();
+    }
+  };
+
+  return (
+    <React.Fragment>
+      <div className="app">
+        <main className="app-content">
+          <div className="page">
+            <DeckHeader
+              title={""}
+              description={""}
+              fullName={""}
+              role={""}
+              email={""}
+              avatarUrl={""}
+              showNavigation={false}
+              onLogout={function (): void {
+                throw new Error("Function not implemented.");
               }}
-            >
-              <Skeleton height={"1.5rem"} sx={{ position: "relative" }} />
-            </Box>
-            <div className="page-section active">
-              <DeckAlphabeticalView<ExampleItem> {...args} />
+              onBack={function (): void {
+                throw new Error("Function not implemented.");
+              }}
+            />
+            <div className="page-content">
+              <Box
+                className="page-section sticky deck-sticky"
+                sx={{
+                  display: "flex",
+                  pb: "1rem !important",
+                  height: "2.5rem",
+                }}
+              >
+                <Skeleton height={"1.5rem"} sx={{ position: "relative" }} />
+              </Box>
+              <div className="page-section active">
+                <DeckAlphabeticalView<ExampleItem> ref={deckViewRef} {...args} />
+              </div>
+              <DeckFooter
+                className="deck-footer"
+                actions={<DeckTextButton action={triggerUpdateHeights} text="UPDATE LETTER HEIGHT" />}
+              />
             </div>
           </div>
-        </div>
-      </main>
-    </div>
-  </React.Fragment>
-);
+        </main>
+      </div>
+    </React.Fragment>
+  );
+};
 
 Default.parameters = {
   layout: "fullscreen",
@@ -68,7 +85,6 @@ Default.parameters = {
 Default.args = {
   loaded: true,
   loading: false,
-  controller: new DeckAlphabeticalController(),
   type: "page",
   items: {
     "#": [
