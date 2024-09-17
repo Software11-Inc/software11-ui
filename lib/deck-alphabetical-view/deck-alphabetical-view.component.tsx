@@ -27,7 +27,7 @@ function DeckAlphabeticalViewComponent<T>(
 
   // Use useCallback to memoize the function
   const updateHeights = useCallback(() => {
-    const subheaderElements = document.querySelectorAll(".page-content > .deck-sticky");
+    const subheaderElements = document.querySelectorAll(".page-section.deck-sticky");
     let subheadersHeight = 0;
     subheaderElements.forEach((el) => {
       console.log(el, el.getBoundingClientRect().height);
@@ -38,7 +38,7 @@ function DeckAlphabeticalViewComponent<T>(
     document.documentElement.style.setProperty("--subheaders-height", `${subheadersHeight}px`);
 
     // Calculate footer height
-    const footerElement = document.querySelector(".page-content > .deck-footer");
+    const footerElement = document.querySelector(".deck-footer");
     const footerHeight = footerElement ? footerElement.getBoundingClientRect().height : 0;
 
     // Update CSS variable for footer height
