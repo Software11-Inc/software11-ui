@@ -30,6 +30,7 @@ function DeckAlphabeticalViewComponent<T>(
     const subheaderElements = document.querySelectorAll(".page-content > .deck-sticky");
     let subheadersHeight = 0;
     subheaderElements.forEach((el) => {
+      console.log(el, el.getBoundingClientRect().height);
       subheadersHeight += el.getBoundingClientRect().height;
     });
 
