@@ -2,12 +2,13 @@ import { Dataset } from "./dataset.model";
 import { IDate } from "./date.model";
 import { IUser } from "./user.model";
 
-export interface IDatasetSourceProject {
+export interface ISourceProject {
   id: string;
   name: string;
+  description?: string;
 }
 
-export interface IDatasetSourceFile {
+export interface ISourceFile {
   name: string;
   tab: string;
   type: string;
@@ -16,8 +17,8 @@ export interface IDatasetSourceFile {
 export interface IDatasetTreeResponse {
   id: string;
   name: string;
-  sourceProject?: IDatasetSourceProject;
-  sourceFile?: IDatasetSourceFile;
+  sourceProject?: ISourceProject;
+  sourceFile?: ISourceFile;
   user?: IUser;
   lastUpdated: IDate;
 }
