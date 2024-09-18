@@ -67,6 +67,7 @@ export interface IDefaultDataset extends IDefaultItem, IMetaDataset {
  */
 export interface ITableDataset extends IDefaultItem, IMetaDataset {
   data?: IExcelFigure[]; // Optional array of Excel figures in the dataset
+  latestData?: IExcelFigure[]; // Optional array of the latest Excel figures in the dataset
 }
 
 /**
