@@ -47,6 +47,10 @@ export const accordionGroupStyles = (
       border: "unset",
       order,
 
+      "&:hover": {
+        zIndex: 3,
+      },
+
       ...(hidden && {
         display: "none",
       }),
