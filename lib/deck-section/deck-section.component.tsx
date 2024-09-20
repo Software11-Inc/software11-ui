@@ -45,7 +45,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
 
   return (
     <AccordionGroup className={[className, hidden ? "hidden" : ""].join(" ")} sx={sectionStyle}>
-      <Accordion expanded={hasItems && expanded}>
+      <Accordion expanded={expanded}>
         <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
           {separatorIcon && <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>}
           <DeckLabel
