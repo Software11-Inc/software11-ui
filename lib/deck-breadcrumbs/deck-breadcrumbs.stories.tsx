@@ -4,6 +4,9 @@ import { DeckBreadcrumbs } from "./deck-breadcrumbs.component";
 export default {
   title: "Deck Breadcrumbs",
   component: DeckBreadcrumbs,
+  argTypes: {
+    onHomeClick: { action: "click" },
+  },
 } as Meta<typeof DeckBreadcrumbs>;
 
 const Template: StoryFn<typeof DeckBreadcrumbs> = (args) => <DeckBreadcrumbs {...args} />;
