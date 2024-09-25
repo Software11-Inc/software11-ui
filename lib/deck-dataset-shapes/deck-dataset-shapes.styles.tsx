@@ -49,7 +49,7 @@ const highlightOuterColor = "var(--joy-palette-primary-500)";
 
 export const itemInnerStyle: SxProps = {
   display: "grid",
-  gridTemplateColumns: "1.5rem auto 2rem 1.5rem",
+  gridTemplateColumns: "1.5rem minmax(100px, auto) 2rem 1.5rem",
   gap: 1,
   px: 1,
   py: 0.5,

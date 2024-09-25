@@ -70,7 +70,7 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", it
               <PanoramaRounded className={classes.mediaIcon} />
               <DeckLabel
                 description={{
-                  text: "0",
+                  text: item?.itemsCount?.toString() || "0",
                   limit: 1,
                   bold: true,
                 }}

@@ -4,6 +4,7 @@ export interface IFolder extends Partial<IDefaultItem> {
   albumID: string;
   library: any; // TODO: Figure out what this is
   images: IImage[];
+  itemsCount: number;
 }
 
 export interface IAlbum extends Partial<IDefaultItem> {
