@@ -14,7 +14,7 @@ import en from "javascript-time-ago/locale/en";
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item, onOpen }) => {
+export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", tagLimit = 2, item, onOpen }) => {
   return (
     <React.Fragment>
       <Box className={classes.baseBox} sx={styles}>
@@ -23,7 +23,7 @@ export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", item
             title={{
               text: item?.name || "Untitled",
             }}
-            separator={Boolean(item?.tags?.length) && <DeckTags tags={item?.tags || []} limit={4} size={size} />}
+            separator={Boolean(item?.tags?.length) && <DeckTags tags={item?.tags || []} limit={tagLimit} size={size} />}
             gap={0.5}
             size={size}
           />

@@ -14,7 +14,7 @@ import en from "javascript-time-ago/locale/en";
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", item, onOpen }) => {
+export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", tagLimit = 2, item, onOpen }) => {
   return (
     <React.Fragment>
       <Box className={classes.baseBox} sx={styles}>
@@ -35,7 +35,7 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", it
             title={{
               text: item?.name || "Untitled",
             }}
-            separator={Boolean(item?.tags?.length) && <DeckTags tags={item?.tags || []} size={size} />}
+            separator={Boolean(item?.tags?.length) && <DeckTags limit={tagLimit} tags={item?.tags || []} size={size} />}
             gap={0.5}
             size={size}
           />

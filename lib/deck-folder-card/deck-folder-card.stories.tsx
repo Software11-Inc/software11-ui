@@ -42,5 +42,6 @@ Default.args = {
       _nanoseconds: 215000000,
     },
     images: [],
+    itemsCount: 10,
   },
 };
