@@ -40,7 +40,7 @@ export const itemStyle: SxProps = {
     order: -2,
   },
   "&.deck-highlighted": {
-    order: -3,
+    // order: -3,
   },
 };
 
