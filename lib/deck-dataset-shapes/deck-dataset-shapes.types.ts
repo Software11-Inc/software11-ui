@@ -18,5 +18,6 @@ export interface DeckDatasetShapesProps {
   onSyncDataset: () => void;
   onResetFigure: (figureID: string, shapeIDs: IShapeChange[]) => void;
   onSyncFigure: (figureID: string, shapeIDs: IShapeChange[]) => void;
-  onSelectShapes: (shapeIDs: string[]) => void;
+  onSelectShapes?: (shapeIDs: string[]) => void;
+  onSettings: (figureID: string) => void;
 }

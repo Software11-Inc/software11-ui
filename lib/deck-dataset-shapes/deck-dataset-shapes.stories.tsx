@@ -9,6 +9,7 @@ export default {
     onSyncFigure: { action: "sync-figure" },
     onOpenDataset: { action: "open-dataset" },
     onSelectShapes: { action: "select-shapes" },
+    onSettings: { action: "settings" },
   },
 } as Meta<typeof DeckDatasetShapes>;
 

@@ -45,7 +45,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   onSyncFigure,
   onResetFigure,
   onOpenDataset,
-  onSelectShapes,
+  onSettings,
   disabled = false,
   loaded,
   apiChanges: apiChangesInput,
@@ -309,7 +309,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                           color="neutral"
                           size="sm"
                           variant="plain"
-                          onClick={() => onSelectShapes(shapeIDs)}
+                          onClick={() => onSettings(figureID)}
                           disabled={disabled || loading}
                         />
                       </Box>
