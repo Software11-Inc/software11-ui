@@ -27,7 +27,7 @@ export const DeckProjectItem = <T,>({ project, itemTemplate }: IDeckProjectItemP
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: 1,
+            gap: 2,
           }}
         >
           {project?.data?.map((item: T) => itemTemplate(item))}
