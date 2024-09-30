@@ -61,7 +61,7 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
     <React.Fragment>
       <Box sx={slideItemStyle}>
         <Box sx={slideItemImageStyle}>
-          <img src={item?.previewImageURL || item?.storedFileURL} alt={item.name} />
+          <img src={item?.previewImageURL || item?.storedFileURL} alt={item.name} loading="lazy" />
           <Box sx={slideItemOverlayStyle} className={[hasError ? "deck-error" : null].join(" ")}>
             <WarningRounded sx={{ color: "var(--joy-palette-danger-500)" }} />
             <DeckLabel
