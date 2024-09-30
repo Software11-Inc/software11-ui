@@ -41,6 +41,7 @@ export const getGeneralStyles: SxProps = {
   [`&.${UploadGeneralState.NONE}, &.${UploadGeneralState.EDIT}`]: {
     [`& .${itemStatusSectionClass}`]: {
       height: "0px",
+      overflow: "hidden",
     },
   },
   [`&.${UploadGeneralState.EDIT}, &.${UploadGeneralState.SAVED}`]: {
