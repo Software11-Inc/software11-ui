@@ -22,7 +22,8 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
   onCopy,
   onMouseEnter,
 }) => {
-  const order = hasUserChanges ? -3 : hasApiChanges ? -2 : -1;
+  // const order = hasUserChanges ? -3 : hasApiChanges ? -2 : -1;
+  const order = 0;
   const status = hasUserChanges ? 2 : hasApiChanges ? 1 : 0;
   const hasChanges = hasApiChanges || hasUserChanges;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
