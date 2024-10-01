@@ -3,7 +3,12 @@ import React from "react";
 import { IDeckProjectItemProps } from "./deck-project-item.types";
 import { DeckSection } from "../deck-section";
 
-export const DeckProjectItem = <T,>({ project, itemTemplate, defaultExpanded = true }: IDeckProjectItemProps<T>) => {
+export const DeckProjectItem = <T,>({
+  project,
+  itemTemplate,
+  defaultExpanded = true,
+  onChange = () => {},
+}: IDeckProjectItemProps<T>) => {
   return (
     <React.Fragment key={project.header.label}>
       <DeckSection
@@ -20,6 +25,7 @@ export const DeckProjectItem = <T,>({ project, itemTemplate, defaultExpanded = t
         }}
         hasLine={false}
         defaultExpanded={defaultExpanded}
+        onChange={onChange}
         content={
           <Box
             sx={{

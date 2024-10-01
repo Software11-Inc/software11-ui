@@ -26,6 +26,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
   hidden = false,
   immutable = false,
   hasLine = true,
+  onChange = () => null,
 }) => {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
   hidden;
@@ -39,7 +40,10 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
         if (target.classList.contains(actionClassName) || target.classList.contains("MuiSvgIcon-root")) {
           return;
         }
-        !immutable ? setExpanded(!expanded) : null;
+        if (!immutable) {
+          setExpanded(!expanded);
+          onChange(!expanded);
+        }
       },
     },
   } as any;

@@ -27,4 +27,5 @@ export interface DeckSectionProps {
   defaultExpanded?: boolean;
   immutable?: boolean;
   hasLine?: boolean;
+  onChange?: (expanded: boolean) => void;
 }

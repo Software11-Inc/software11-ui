@@ -7,4 +7,5 @@ export interface IDeckProjectItemProps<T> {
   };
   itemTemplate: (item: T) => React.ReactElement;
   defaultExpanded?: boolean;
+  onChange?: (expanded: boolean) => void;
 }
