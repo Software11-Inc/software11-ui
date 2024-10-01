@@ -25,6 +25,7 @@ export interface IDatasetTreeResponse {
 
 export interface IKeyData {
   label: string;
+  id?: string;
   type?: string;
   description: string;
 }
