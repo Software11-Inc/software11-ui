@@ -18,6 +18,18 @@ export const sectionStyle: SxProps = {
       display: "none",
     },
 
+    "&.with-line": {
+      [`& > .${accordionClasses.root}`]: {
+        [`& > .${accordionSummaryClasses.root}`]: {
+          [`& > .${accordionSummaryClasses.button}`]: {
+            "&:before, &:after": {
+              bgcolor: "background.level1",
+            },
+          },
+        },
+      },
+    },
+
     [`& > .${accordionClasses.root}`]: {
       p: 0,
 
@@ -42,7 +54,7 @@ export const sectionStyle: SxProps = {
             content: "''",
             display: "flex",
             height: "1px",
-            bgcolor: "background.level1",
+            bgcolor: "transparent",
           },
           "&:before": {
             width: "var(--spacing)",

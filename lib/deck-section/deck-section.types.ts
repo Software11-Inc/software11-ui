@@ -26,4 +26,5 @@ export interface DeckSectionProps {
   hidden?: boolean;
   defaultExpanded?: boolean;
   immutable?: boolean;
+  hasLine?: boolean;
 }

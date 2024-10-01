@@ -6,4 +6,5 @@ export interface IDeckProjectItemProps<T> {
     data: T[];
   };
   itemTemplate: (item: T) => React.ReactElement;
+  defaultExpanded?: boolean;
 }

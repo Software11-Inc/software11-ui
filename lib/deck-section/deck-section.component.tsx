@@ -25,6 +25,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
   defaultExpanded = false,
   hidden = false,
   immutable = false,
+  hasLine = true,
 }) => {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
   hidden;
@@ -44,13 +45,16 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
   } as any;
 
   return (
-    <AccordionGroup className={[className, hidden ? "hidden" : ""].join(" ")} sx={sectionStyle}>
+    <AccordionGroup
+      className={[className, hidden ? "hidden" : "", hasLine ? "with-line" : ""].join(" ").trim()}
+      sx={sectionStyle}
+    >
       <Accordion expanded={expanded}>
         <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
           {separatorIcon && <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>}
           <DeckLabel
             title={{
-              text: separator.title.toUpperCase(),
+              text: separator.title,
               limit: 1,
             }}
             description={{

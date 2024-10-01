@@ -1,38 +1,37 @@
 import Box from "@mui/joy/Box";
 import React from "react";
-import { DeckLabel } from "../deck-label";
 import { IDeckProjectItemProps } from "./deck-project-item.types";
+import { DeckSection } from "../deck-section";
 
-export const DeckProjectItem = <T,>({ project, itemTemplate }: IDeckProjectItemProps<T>) => {
+export const DeckProjectItem = <T,>({ project, itemTemplate, defaultExpanded = true }: IDeckProjectItemProps<T>) => {
   return (
     <React.Fragment key={project.header.label}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 1,
+      <DeckSection
+        action={{
+          text: "",
+          onClick: () => null,
+          hidden: true,
         }}
-      >
-        <DeckLabel
-          key={project?.header?.label}
-          color="primary"
-          title={{
-            text: project?.header?.label,
-          }}
-          description={{
-            text: project?.header?.description,
-          }}
-        />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
-        >
-          {project?.data?.map((item: T) => itemTemplate(item))}
-        </Box>
-      </Box>
+        separator={{
+          title: project?.header?.label,
+          description: project?.header?.description,
+          color: "primary",
+          count: project?.data?.length,
+        }}
+        hasLine={false}
+        defaultExpanded={defaultExpanded}
+        content={
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
+            {project?.data?.map((item: T) => itemTemplate(item))}
+          </Box>
+        }
+      />
     </React.Fragment>
   );
 };
