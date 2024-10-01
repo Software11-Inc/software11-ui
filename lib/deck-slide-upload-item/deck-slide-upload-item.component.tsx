@@ -164,8 +164,12 @@ export const DeckSlideUploadItem: React.FC<IDeckSlideUploadItem> = ({
   }
 
   const addButtonProps = {
-    sx: buttonSx,
-    // startDecorator: <AddRounded sx={{ fontSize: 12, lineHeight: 1.2 }} />,
+    sx: {
+      ...buttonSx,
+      height: "100%",
+      width: "100%",
+      borderRadius: "0 calc(var(--border-radius) / 2) calc(var(--border-radius) / 2) 0",
+    },
     onClick: onContinue,
     disabled: isLoading || disabled || !loaded,
   };

@@ -132,7 +132,6 @@ export const itemBoxStyle: SxProps = {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      p: 1,
       px: 0,
       flex: 0,
       transition,
