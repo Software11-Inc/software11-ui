@@ -29,7 +29,6 @@ export const getGeneralStyles: SxProps = {
       },
       [`& .${itemAddButtonClass}`]: {
         flex: 2,
-        px: 1,
       },
     },
 
