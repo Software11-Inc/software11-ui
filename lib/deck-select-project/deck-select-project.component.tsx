@@ -12,7 +12,7 @@ export const DeckSelectProject: React.FC<IDeckSelectProjectProps> = ({ project, 
   const types = files.map((file) => file.fileType);
   return (
     <React.Fragment>
-      <Sheet sx={projectCardStyle} component="label" onClick={onClick}>
+      <Sheet sx={projectCardStyle} component="div" onClick={onClick}>
         <Box className={projectCardActionClass}>
           <Radio size="lg" variant="soft" checked={checked} />
         </Box>

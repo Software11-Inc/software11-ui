@@ -13,11 +13,11 @@ export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({ shape, dynami
       <Sheet
         sx={selectShapeStyle}
         className={[isDynamic ? "select-shape--dynamic" : "select-shape--static"].join(" ")}
-        component="label"
+        component="div"
         onClick={onClick}
       >
         <Box className={selectShapeActionClass}>
-          <Radio size="lg" variant="soft" checked={checked} onChange={onClick} />
+          <Radio size="lg" variant="soft" checked={checked} />
         </Box>
         <Box className={selectShapeContentClass}>
           <DeckLabel
