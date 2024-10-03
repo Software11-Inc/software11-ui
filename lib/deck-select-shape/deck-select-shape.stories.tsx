@@ -14,6 +14,7 @@ const Template: StoryFn<typeof DeckSelectShape> = (args) => <DeckSelectShape {..
 export const Default = Template.bind({});
 
 Default.args = {
+  loading: false,
   checked: false,
   datasetName: "Dataset Name",
   shape: {

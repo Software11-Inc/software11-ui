@@ -12,6 +12,8 @@ export const dynamicClass = "select-shape--dynamic";
 
 export const staticClass = "select-shape--static";
 
+export const loadingClass = "select-shape--loading";
+
 export const selectShapeStyle: SxProps = {
   display: "flex",
   flexDirection: "column",
