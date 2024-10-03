@@ -1,3 +1,5 @@
+import { SupportedShapeType } from "./template-shape.model";
+
 export interface IShape {
   /** Unique identifier for the shape */
   shapeID: string;
@@ -174,4 +176,6 @@ export interface ISelectedShape {
   source?: IShapeSource;
 
   shapeID?: string;
+
+  type?: SupportedShapeType;
 }
