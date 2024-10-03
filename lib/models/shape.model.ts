@@ -23,7 +23,7 @@ export interface IShapeSource {
 
 export interface IShapeSourceCreation {
   datasetID: string;
-  datasetFigureID: string;
+  figureID: string;
 }
 
 /**
