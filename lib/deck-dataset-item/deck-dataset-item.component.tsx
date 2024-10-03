@@ -1,7 +1,6 @@
 import ChevronRight from "@mui/icons-material/ChevronRight";
 import SyncRounded from "@mui/icons-material/SyncRounded";
 import Box from "@mui/joy/Box";
-import IconButton from "@mui/joy/IconButton";
 import TimeAgo from "javascript-time-ago";
 import React from "react";
 import { KeyValueIcon, TableIcon } from "../deck-icons";
