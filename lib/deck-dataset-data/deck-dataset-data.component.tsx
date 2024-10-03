@@ -21,6 +21,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   size = "sm",
   disabled = false,
   loading = false,
+  hasSelectedShapes = false,
   onAddShape,
   onResetShapes,
   onSettings,
@@ -60,6 +61,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   figureLoadingIDs={groupLoadingIDs}
                   loading={loading}
                   disabled={disabled}
+                  hasSelectedShapes={hasSelectedShapes}
                 />
               );
             }

@@ -9,6 +9,7 @@ import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
 import { actionButtonsStyle, className, columnStyle, dataItemStyle } from "./deck-dataset-data-item.styles";
 import { DeckDatasetDataItemProps } from "./deck-dataset-data-item.types";
+import FindReplaceRoundedIcon from "@mui/icons-material/FindReplaceRounded";
 
 export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   figure,
@@ -23,6 +24,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   size = "sm",
   loading = false,
   disabled = false,
+  hasSelectedShapes = false,
   onAdd,
   onReset,
   onSettings,
@@ -50,7 +52,18 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
         </Box>
         {hasActions && (
           <DeckDatasetDataItemActions
-            {...{ hasShapes, hasApiChanges, hasUserChanges, disabled, loading, onAdd, onReset, onSettings, onSync }}
+            {...{
+              hasShapes,
+              hasApiChanges,
+              hasUserChanges,
+              hasSelectedShapes,
+              disabled,
+              loading,
+              onAdd,
+              onReset,
+              onSettings,
+              onSync,
+            }}
           />
         )}
       </Box>
@@ -143,12 +156,14 @@ export const DeckDatasetDataItemActions: React.FC<{
   onReset: () => void;
   onSettings: () => void;
   onSync: () => void;
+  hasSelectedShapes?: boolean;
 }> = ({
   hasShapes,
   hasApiChanges,
   hasUserChanges,
   loading = false,
   disabled = false,
+  hasSelectedShapes = false,
   onAdd,
   onReset,
   onSettings,
@@ -158,9 +173,19 @@ export const DeckDatasetDataItemActions: React.FC<{
   return (
     <React.Fragment>
       <Box sx={actionButtonsStyle}>
-        {!hasChanges && (
+        {!hasChanges && !hasSelectedShapes && (
           <DeckIconButton
             icon={<AddRounded />}
+            size="sm"
+            variant={hasShapes ? "plain" : "soft"}
+            color="success"
+            onClick={onAdd}
+            disabled={disabled || loading}
+          />
+        )}
+        {!hasChanges && hasSelectedShapes && (
+          <DeckIconButton
+            icon={<FindReplaceRoundedIcon />}
             size="sm"
             variant={hasShapes ? "plain" : "soft"}
             color="success"

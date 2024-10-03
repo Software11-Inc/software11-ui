@@ -36,6 +36,7 @@ Default.args = {
   level: 0,
   size: "sm",
   type: "excel-table",
+  hasSelectedShapes: true,
   data: {
     "Group 1": [
       {

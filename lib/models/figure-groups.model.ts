@@ -30,6 +30,7 @@ export interface IDataCommonProps {
   level?: number; // Optional level for hierarchical data representation
   loading?: boolean; // Optional flag indicating if data is loading
   disabled?: boolean; // Optional flag indicating if data is disabled
+  hasSelectedShapes?: boolean; // Optional flag indicating if selected shapes are available
 }
 
 /**
@@ -47,4 +48,5 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   onResetShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for resetting shapes
   onSyncShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for syncing shapes
   onSettings?: (figure: ITableFigure) => void; // Optional handler for accessing settings
+  hasSelectedShapes?: boolean; // Optional flag indicating if selected shapes are available
 }

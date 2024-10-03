@@ -26,6 +26,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   disabled = false,
   loading = false,
   figureLoadingIDs = [],
+  hasSelectedShapes = false,
   onAddShape,
   onResetShapes,
   onSyncShapes,
@@ -115,6 +116,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   onReset={createHandler(onResetShapes, ID, userShapeIDs)}
                   onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}
                   onSettings={createHandler(onSettings, item)}
+                  hasSelectedShapes={hasSelectedShapes}
                 />
               );
             })}

@@ -44,6 +44,7 @@ ExcelFigure.storyName = "Table Figure (default)";
 
 ExcelFigure.args = {
   type: "excel-table",
+  hasSelectedShapes: true,
   hasStatus: true,
   hasActions: true,
   compact: false,
