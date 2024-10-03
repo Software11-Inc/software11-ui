@@ -10,7 +10,8 @@ export const DeckIconButton: React.FC<DeckIconButtonProps> = ({
   variant = "soft",
   disabled,
   hidden,
-  onClick,
+  onClick = () => {},
+  onMouseEnter = () => {},
   icon,
 }) => {
   return (
@@ -23,6 +24,7 @@ export const DeckIconButton: React.FC<DeckIconButtonProps> = ({
       hidden={hidden}
       className={[className, hidden ? "hidden" : ""].join(" ")}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
     >
       {icon}
     </IconButton>

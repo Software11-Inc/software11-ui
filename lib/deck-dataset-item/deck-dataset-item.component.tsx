@@ -11,6 +11,7 @@ import { iconBoxStyle, mainBoxStyle } from "./deck-dataset-item.styles";
 import { IDeckDatasetItemProps } from "./deck-dataset-item.types";
 
 import en from "javascript-time-ago/locale/en";
+import { DeckIconButton } from "../deck-icon-button";
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
@@ -29,8 +30,8 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
   loaded = false,
   loading = false,
   actionIcon,
-  onClick,
-  onMouseEnter,
+  onClick = () => {},
+  onMouseEnter = () => {},
   hasAction = true,
 }) => {
   return (
@@ -58,15 +59,12 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
         />
         <div className="flex-spacer"></div>
         {hasAction && (
-          <IconButton
-            size="sm"
+          <DeckIconButton
+            icon={actionIcon || <ChevronRight />}
             variant="plain"
-            sx={{ display: "flex", p: 0 }}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
-          >
-            {actionIcon || <ChevronRight />}
-          </IconButton>
+          />
         )}
       </Box>
     </React.Fragment>
