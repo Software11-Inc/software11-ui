@@ -145,7 +145,7 @@ function DeckAlphabeticalViewComponent<T>(
                 key={key}
                 data-id={key}
                 className={[alphabeticalViewNavButtonClass, activeClass, disabledClass].join(" ").trim()}
-                onClick={() => scrollToLetter(key)}
+                onMouseEnter={() => scrollToLetter(key)}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {
