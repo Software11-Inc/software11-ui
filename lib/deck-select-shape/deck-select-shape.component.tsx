@@ -17,16 +17,18 @@ import { DeckStatus } from "../deck-status";
 import { DeckIconButton } from "../deck-icon-button";
 import OpenInNewRounded from "@mui/icons-material/OpenInNewRounded";
 
-export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({ shape, figure, checked, datasetName, onClick }) => {
+export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({
+  shape,
+  figure,
+  checked,
+  datasetName,
+  onOpen,
+  onClick,
+}) => {
   const isDynamic = figure !== undefined;
   return (
     <React.Fragment>
-      <Sheet
-        sx={selectShapeStyle}
-        className={[isDynamic ? dynamicClass : staticClass].join(" ")}
-        component="div"
-        onClick={onClick}
-      >
+      <Sheet sx={selectShapeStyle} className={[isDynamic ? dynamicClass : staticClass].join(" ")} component="div">
         {isDynamic && (
           <Box className={selectShapeFigureClass}>
             <DeckStatus status={0} />
@@ -40,16 +42,10 @@ export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({ shape, figure
               size="sm"
             />
             <div className="flex-spacer" />
-            <DeckIconButton
-              color="primary"
-              icon={<OpenInNewRounded />}
-              size="sm"
-              variant="plain"
-              onClick={() => console.log("Open figure")}
-            />
+            <DeckIconButton color="primary" icon={<OpenInNewRounded />} size="sm" variant="plain" onClick={onOpen} />
           </Box>
         )}
-        <Box className={selectShapeInnerClass}>
+        <Box className={selectShapeInnerClass} onClick={onClick}>
           <Box className={selectShapeActionClass}>
             <Radio size="md" variant="soft" checked={checked} />
           </Box>

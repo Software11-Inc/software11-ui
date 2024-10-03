@@ -7,5 +7,6 @@ export interface IDeckSelectShapeProps {
   figure?: ITableFigure;
   datasetName?: string;
   checked?: boolean;
+  onOpen?: () => void;
   onClick?: () => void;
 }
