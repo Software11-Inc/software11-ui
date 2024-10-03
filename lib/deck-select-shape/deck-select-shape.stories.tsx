@@ -15,9 +15,21 @@ export const Default = Template.bind({});
 
 Default.args = {
   checked: false,
+  datasetName: "Dataset Name",
   shape: {
     value: "Shape Name",
     slideID: "1",
     shapeIndex: 1,
+  },
+  figure: {
+    id: "1",
+    name: {
+      cell: "D1",
+      value: "Figure Name",
+    },
+    figure: {
+      cell: "D7",
+      value: "TypeScript-based framework for building web.",
+    },
   },
 };
