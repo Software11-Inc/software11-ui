@@ -25,7 +25,7 @@ export interface IWorkspaceFile {
   fileName: string; // Name of the file
   fileRoute: string; // Route/path of the file
   fileType: string; // Type of the file
-  fileID?: string; // Optional file ID
+  id?: string; // Optional file ID
   fileContainers?: IWorkspaceFileContainer[]; // Optional array of file containers
   generationUser?: string; // Optional user who generated the file
   generationDate?: IDate; // Optional date when the file was generated
