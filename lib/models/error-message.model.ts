@@ -1,5 +1,5 @@
 export interface IErrorMessage {
-  error?: string;
+  status?: string;
   message?: string;
   detail?: string;
 }
