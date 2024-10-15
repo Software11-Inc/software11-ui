@@ -13,6 +13,41 @@ const Template: StoryFn<typeof DeckFileGroupItem> = (args) => <DeckFileGroupItem
 
 export const Default = Template.bind({});
 
+const datasetMap: Record<string, Dataset> = {
+  "1": {
+    id: "1",
+    name: "Dataset Name",
+    type: "default",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "2": {
+    id: "2",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "3": {
+    id: "3",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "4": {
+    id: "4",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+};
+
 Default.args = {
   file: {
     header: {
@@ -26,52 +61,18 @@ Default.args = {
           label: "Sheet Name",
           description: "",
         },
-        data: [
-          {
-            id: "1",
-            name: "Dataset Name",
-            type: "default",
-            lastUpdated: {
-              _seconds: 1632201600,
-            },
-          } as Dataset,
-          {
-            id: "2",
-            name: "Dataset Name",
-            type: "excel-table",
-            lastUpdated: {
-              _seconds: 1632201600,
-            },
-          } as Dataset,
-        ],
+        data: ["1", "2"],
       } as IFileSheet,
       {
         header: {
           label: "Sheet Name 2",
           description: "",
         },
-        data: [
-          {
-            id: "3",
-            name: "Dataset Name",
-            type: "default",
-            lastUpdated: {
-              _seconds: 1632201600,
-            },
-          } as Dataset,
-          {
-            id: "4",
-            name: "Dataset Name",
-            type: "excel-table",
-            lastUpdated: {
-              _seconds: 1632201600,
-            },
-          } as Dataset,
-        ],
+        data: ["3", "4"],
       } as IFileSheet,
     ],
   },
   itemTemplate: (item: IFileSheet) => (
-    <DeckFileSheetItem sheet={item} itemTemplate={(item: Dataset) => <DeckDatasetItem item={item} loaded />} />
+    <DeckFileSheetItem sheet={item} itemTemplate={(id: string) => <DeckDatasetItem item={datasetMap[id]} loaded />} />
   ),
 };

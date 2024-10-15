@@ -1,6 +1,6 @@
-import { Dataset, IFileSheet } from "@models";
+import { IFileSheet } from "@models";
 
 export interface IDeckFileSheetItemProps {
   sheet: IFileSheet;
-  itemTemplate: (item: Dataset) => JSX.Element;
+  itemTemplate: (ID: string) => JSX.Element;
 }

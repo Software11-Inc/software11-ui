@@ -1,7 +1,7 @@
-import { Dataset } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetItem } from "../deck-dataset-item";
 import { DeckFileSheetItem } from "./deck-file-sheet-item.component";
+import { Dataset } from "@models";
 
 export default {
   title: "Pages/Library/Data/Sheet",
@@ -12,30 +12,48 @@ const Template: StoryFn<typeof DeckFileSheetItem> = (args) => <DeckFileSheetItem
 
 export const Default = Template.bind({});
 
+const datasetMap: Record<string, Dataset> = {
+  "1": {
+    id: "1",
+    name: "Dataset Name",
+    type: "default",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "2": {
+    id: "2",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "3": {
+    id: "3",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+  "4": {
+    id: "4",
+    name: "Dataset Name",
+    type: "excel-table",
+    lastUpdated: {
+      _seconds: 1632201600,
+    },
+  } as Dataset,
+};
+
 Default.args = {
   sheet: {
     header: {
       label: "Sheet Name",
       description: "",
     },
-    data: [
-      {
-        id: "1",
-        name: "Dataset Name",
-        type: "default",
-        lastUpdated: {
-          _seconds: 1632201600,
-        },
-      } as Dataset,
-      {
-        id: "2",
-        name: "Dataset Name",
-        type: "excel-table",
-        lastUpdated: {
-          _seconds: 1632201600,
-        },
-      } as Dataset,
-    ],
+    data: ["1", "2"],
   },
-  itemTemplate: (item: Dataset) => <DeckDatasetItem item={item} loaded />,
+  itemTemplate: (id: string) => <DeckDatasetItem item={datasetMap[id]} loaded />,
 };

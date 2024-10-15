@@ -12,9 +12,7 @@ export const DeckFileSheetItem: React.FC<IDeckFileSheetItemProps> = ({ sheet, it
           text: sheet?.header?.label,
         }}
       />
-      {sheet?.data?.map((item, index) => (
-        <React.Fragment key={index + (item?.id || "id")}>{itemTemplate(item)}</React.Fragment>
-      ))}
+      {sheet?.data?.map((item) => <React.Fragment key={item}>{itemTemplate(item)}</React.Fragment>)}
     </React.Fragment>
   );
 };

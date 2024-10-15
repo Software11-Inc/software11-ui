@@ -42,5 +42,5 @@ export interface IFile {
 
 export interface IFileSheet {
   header: IKeyData;
-  data: Dataset[];
+  data: string[];
 }
