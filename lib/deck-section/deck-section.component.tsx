@@ -86,7 +86,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
             </Box>
           )}
         </AccordionSummary>
-        <AccordionDetails>{content}</AccordionDetails>
+        <AccordionDetails>{expanded && content}</AccordionDetails>
       </Accordion>
     </AccordionGroup>
   );
