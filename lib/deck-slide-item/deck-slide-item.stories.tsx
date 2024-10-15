@@ -24,7 +24,7 @@ export const Default = Template.bind({});
 Default.args = {
   state: ItemState.DEFAULT,
   errorMessage: {
-    error: "error-001",
+    status: "warning",
     message: "Example of error message",
     detail: "Make sure that you enter some descriptive details of error",
   },

@@ -40,7 +40,7 @@ Default.args = {
   generalState: UploadGeneralState.NONE,
   loadingState: UploadLoadingState.NONE,
   errorMessage: {
-    error: "error-001",
+    status: "warning",
     message: "Example of error message",
     detail: "Make sure that you enter some descriptive details of error",
   },
