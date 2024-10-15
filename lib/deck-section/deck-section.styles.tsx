@@ -61,6 +61,7 @@ export const sectionStyle: SxProps = {
           },
           "&:after": {
             flex: 1,
+            minWidth: "var(--spacing)",
           },
 
           "&:hover": {

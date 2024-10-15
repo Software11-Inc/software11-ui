@@ -56,6 +56,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
       <Accordion expanded={expanded}>
         <AccordionSummary indicator={null} slotProps={accordionSummarySlotProps}>
           {separatorIcon && <Box sx={iconStyle(separator.color)}>{separatorIcon}</Box>}
+
           <DeckLabel
             title={{
               text: separator.title,
@@ -66,6 +67,7 @@ export const DeckSection: React.FC<DeckSectionProps> = ({
               limit: 1,
             }}
           />
+
           {hasItems && (
             <Box className={indicatorClassName} sx={{ color: `${separator.color}.100` }}>
               {separator.count}
