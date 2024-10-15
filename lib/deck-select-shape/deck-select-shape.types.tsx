@@ -8,6 +8,7 @@ export interface IDeckSelectShapeProps {
   datasetName?: string;
   checked?: boolean;
   loading?: boolean;
+  emptyMessage?: string;
   onOpen?: () => void;
   onClick?: () => void;
 }

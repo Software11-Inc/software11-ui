@@ -13,9 +13,10 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
   gap,
   required,
   separator,
+  italic,
 }) => {
   return (
-    <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap)}>
+    <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap, italic)}>
       {title?.text && (
         <Box className={`${className}__title`} sx={textStyle(title.limit, true)}>
           <span>{title.text}</span>

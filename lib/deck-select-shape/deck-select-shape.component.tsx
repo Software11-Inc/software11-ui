@@ -27,8 +27,10 @@ export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({
   loading = false,
   onOpen,
   onClick,
+  emptyMessage = "Shape is empty",
 }) => {
   const isDynamic = figure !== undefined;
+  const hasText = Boolean(shape?.value);
   return (
     <React.Fragment>
       <Sheet
@@ -74,9 +76,11 @@ export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({
           <Box className={selectShapeContentClass}>
             <DeckLabel
               title={{
-                text: String(shape?.value),
+                text: hasText ? String(shape?.value) : emptyMessage,
               }}
               size="sm"
+              color={hasText ? "primary" : "neutral"}
+              italic={!hasText}
             />
           </Box>
         </Box>

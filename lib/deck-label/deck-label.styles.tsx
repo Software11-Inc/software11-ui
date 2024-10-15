@@ -2,7 +2,7 @@ import { SxProps } from "@mui/joy/styles/types";
 
 export const className = "deck-label";
 
-export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0, gap = 0): SxProps => {
+export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0, gap = 0, italic = false): SxProps => {
   const fontSizeMap = {
     xs: { title: "10px", description: "8px" },
     sm: { title: "12px", description: "9px" },
@@ -25,6 +25,7 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
         fontWeight: "bold",
         color: `var(--joy-palette-${color}-500)`,
         fontSize: titleFontSize,
+        fontStyle: italic ? "italic" : "normal",
 
         "& > .deck-required": {
           color: "var(--joy-palette-danger-500)",

@@ -13,5 +13,6 @@ export interface DeckLabelProps {
   order?: number;
   gap?: number;
   required?: boolean;
+  italic?: boolean;
   separator?: React.ReactNode;
 }

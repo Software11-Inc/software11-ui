@@ -43,4 +43,5 @@ Default.args = {
   },
   color: "primary",
   size: "md",
+  italic: false,
 };
