@@ -58,6 +58,7 @@ export const sectionStyle: SxProps = {
           },
           "&:before": {
             width: "var(--spacing)",
+            minWidth: "var(--spacing)",
           },
           "&:after": {
             flex: 1,
