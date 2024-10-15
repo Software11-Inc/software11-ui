@@ -18,7 +18,18 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
   defaultExpanded = false,
   emptyTemplate = null,
 }) => {
+  const [expanded, setExpanded] = React.useState(defaultExpanded);
   const hasTemplate = !!itemTemplate;
+
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: () => {
+        setExpanded(!expanded);
+      },
+    },
+  } as any;
+
   const getIcon = (type?: string) => {
     if (!type) {
       return null;
@@ -64,8 +75,8 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
           bgcolor: "background.body",
         }}
       >
-        <Accordion defaultExpanded={defaultExpanded}>
-          <AccordionSummary>
+        <Accordion expanded={expanded} defaultExpanded={defaultExpanded}>
+          <AccordionSummary slotProps={accordionSummarySlotProps}>
             <Box sx={fileHeaderStyle}>
               <Box sx={fileIconStyle}>{getIcon(file.header?.type)}</Box>
               <DeckLabel
@@ -79,14 +90,14 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
             </Box>
           </AccordionSummary>
           <AccordionDetails>
-            {hasTemplate && (
+            {expanded && hasTemplate && (
               <Box sx={fileGroupDataStyle}>
                 {file.data.map((sheet, index) => (
                   <React.Fragment key={index + sheet.header.label}>{itemTemplate(sheet)}</React.Fragment>
                 ))}
               </Box>
             )}
-            {!hasTemplate && emptyTemplate}
+            {expanded && !hasTemplate && emptyTemplate}
           </AccordionDetails>
         </Accordion>
       </AccordionGroup>
