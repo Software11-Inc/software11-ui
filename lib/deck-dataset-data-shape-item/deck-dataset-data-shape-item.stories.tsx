@@ -26,6 +26,14 @@ Default.args = {
     latestFigureValue: "Latest Figure Value",
   } as IDynamicShape,
   isSelected: false,
-  hasApiChanges: false,
-  hasUserChanges: false,
+  apiChange: {
+    shapeID: "Shape ID",
+    shapeIndex: 0,
+    value: "API Change Value",
+  },
+  userChange: {
+    shapeID: "Shape ID",
+    shapeIndex: 0,
+    value: "User Change Value",
+  },
 };
