@@ -209,6 +209,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                 {Object.keys(shapes).map((figureID) => {
                   const figureShapes = shapes[figureID];
                   const shapeIDs = figureShapes?.map((s) => s.shapeID);
+                  const shapeIndexes = figureShapes?.map((s) => s.shapeIndex);
                   const loading = shapeIDs.some((id) => loadingShapes.includes(id));
                   const name = figureShapes[0]?.figureName;
                   const value = figureShapes[0]?.latestFigureValue;
@@ -248,7 +249,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                         .join(" ")
                         .trim()}
                       onMouseEnter={() => onMouseEnter(figureID, figureApiChanges, figureUserChanges)}
-                      onMouseLeave={() => onMouseLeave(figureID, shapeIDs)}
+                      onMouseLeave={() => onMouseLeave(figureID, shapeIndexes)}
                     >
                       <Box sx={itemInnerStyle} className={[highlight ? highlightedClass : null].join(" ").trim()}>
                         {apiChanged && !userChanged && (

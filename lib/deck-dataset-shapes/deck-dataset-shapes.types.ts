@@ -21,5 +21,5 @@ export interface DeckDatasetShapesProps {
   onSelectShapes?: (shapeIDs: string[]) => void;
   onSettings: (figureID: string) => void;
   onMouseEnter?: (figureID: string, apiChanges: IShapeChange[], userChanges: IShapeChange[]) => void;
-  onMouseLeave?: (figureID: string, shapeIDs: string[]) => void;
+  onMouseLeave?: (figureID: string, shapeIDs: number[]) => void;
 }
