@@ -51,6 +51,8 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
   apiChanges: apiChangesInput,
   userChanges: userChangesInput,
   loadingShapes = [],
+  onMouseEnter = () => {},
+  onMouseLeave = () => {},
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
@@ -245,6 +247,8 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                       ]
                         .join(" ")
                         .trim()}
+                      onMouseEnter={() => onMouseEnter(figureID, shapeIDs)}
+                      onMouseLeave={() => onMouseLeave(figureID, shapeIDs)}
                     >
                       <Box sx={itemInnerStyle} className={[highlight ? highlightedClass : null].join(" ").trim()}>
                         {apiChanged && !userChanged && (
