@@ -247,7 +247,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                       ]
                         .join(" ")
                         .trim()}
-                      onMouseEnter={() => onMouseEnter(figureID, shapeIDs)}
+                      onMouseEnter={() => onMouseEnter(figureID, figureApiChanges, figureUserChanges)}
                       onMouseLeave={() => onMouseLeave(figureID, shapeIDs)}
                     >
                       <Box sx={itemInnerStyle} className={[highlight ? highlightedClass : null].join(" ").trim()}>
