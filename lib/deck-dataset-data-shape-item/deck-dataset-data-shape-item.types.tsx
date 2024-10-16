@@ -1,11 +1,11 @@
-import { IDynamicShape } from "@models";
+import { IDynamicShape, IShapeChange } from "@models";
 
 export interface IDeckDatasetDataShapeItemProps {
   figureName?: string;
   shape?: IDynamicShape;
   isSelected?: boolean;
-  hasApiChanges?: boolean;
-  hasUserChanges?: boolean;
+  apiChange?: IShapeChange;
+  userChange?: IShapeChange;
   loading?: boolean;
   onReset?: () => void;
   onSync?: () => void;

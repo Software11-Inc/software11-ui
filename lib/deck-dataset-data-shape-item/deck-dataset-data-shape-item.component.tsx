@@ -13,8 +13,8 @@ import { IDeckDatasetDataShapeItemProps } from "./deck-dataset-data-shape-item.t
 export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> = ({
   figureName,
   shape,
-  hasApiChanges,
-  hasUserChanges,
+  apiChange,
+  userChange,
   loading = false,
   onReset,
   onSync,
@@ -24,12 +24,25 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
 }) => {
   // const order = hasUserChanges ? -3 : hasApiChanges ? -2 : -1;
   const order = 0;
+  const hasApiChanges = Boolean(apiChange);
+  const hasUserChanges = Boolean(userChange);
   const status = hasUserChanges ? 2 : hasApiChanges ? 1 : 0;
   const hasChanges = hasApiChanges || hasUserChanges;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const itemClassName = [className, hasApiChanges ? "has-api-changes" : "", hasUserChanges ? "has-user-changes" : ""]
     .join(" ")
     .trim();
+
+  const getShapeValue = () => {
+    switch (true) {
+      case hasUserChanges:
+        return userChange?.value;
+      case hasApiChanges:
+        return apiChange?.value;
+      default:
+        return shape?.latestFigureValue;
+    }
+  };
   return (
     <React.Fragment>
       <Box sx={dataItemStyle(className, 0, "sm", false, order)} className={itemClassName} onMouseEnter={onMouseEnter}>
@@ -56,7 +69,7 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
         )}
         <DeckLabel
           title={{
-            text: shape?.latestFigureValue || "",
+            text: getShapeValue(),
           }}
           description={{
             text: figureName || "",
