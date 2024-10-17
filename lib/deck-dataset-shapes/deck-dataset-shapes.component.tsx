@@ -29,7 +29,6 @@ import {
   hintStyle,
   horizontalBoxStyle,
   itemInnerStyle,
-  itemStyle,
 } from "./deck-dataset-shapes.styles";
 import { DeckDatasetShapesProps } from "./deck-dataset-shapes.types";
 
@@ -240,7 +239,6 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   return (
                     <Box
                       key={figureID}
-                      sx={itemStyle}
                       className={[
                         highlight ? highlightedClass : null,
                         apiChanged ? "deck-api-changed" : null,
