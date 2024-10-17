@@ -29,6 +29,7 @@ import {
   hintStyle,
   horizontalBoxStyle,
   itemInnerStyle,
+  itemStyle,
 } from "./deck-dataset-shapes.styles";
 import { DeckDatasetShapesProps } from "./deck-dataset-shapes.types";
 
@@ -86,12 +87,11 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
 
   const hasUserChanges = Object.keys(userChanges).length > 0;
   const hasApiChanges = Object.keys(apiChanges).length > 0;
-  const order = hasUserChanges ? -3 : hasApiChanges ? -2 : 0;
   return (
     <AccordionGroup
       className={classList}
       sx={{
-        ...accordionGroupStyles(className, false, 1, "sm", !loading, order),
+        ...accordionGroupStyles(className, false, 1, "sm", !loading),
         [`& .${accordionSummaryClasses.button}`]: {
           bgcolor: getBackgroundColor(loading ? 2 : 0),
         },
@@ -239,6 +239,7 @@ export const DeckDatasetShapes: React.FC<DeckDatasetShapesProps> = ({
                   return (
                     <Box
                       key={figureID}
+                      sx={itemStyle}
                       className={[
                         highlight ? highlightedClass : null,
                         apiChanged ? "deck-api-changed" : null,

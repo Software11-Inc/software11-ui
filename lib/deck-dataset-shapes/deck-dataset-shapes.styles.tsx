@@ -34,10 +34,10 @@ export const contentStyle: SxProps = {
 
 export const itemStyle: SxProps = {
   "&.deck-api-changed": {
-    order: -1,
+    // order: -1,
   },
   "&.deck-user-changed": {
-    order: -2,
+    // order: -2,
   },
   "&.deck-highlighted": {
     // order: -3,
