@@ -99,7 +99,7 @@ export const actionContainerStyle: SxProps = {
 
   [`& .${buttonClasses.root}`]: {
     fontSize: "12px",
-    lineHeight: "14px",
+    lineHeight: "12px",
     p: "0.25rem 0.75rem",
     m: 0,
     borderRadius: "1rem",
@@ -108,7 +108,7 @@ export const actionContainerStyle: SxProps = {
     textTransform: "uppercase",
     alignItems: "center",
 
-    "--Icon-fontSize": "12px",
+    "--Icon-fontSize": "14px",
     boxShadow: "var(--shadow)",
   },
 };
