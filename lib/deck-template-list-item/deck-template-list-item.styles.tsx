@@ -46,7 +46,7 @@ export const imageStyle: SxProps = {
 
 export const contentStyle: SxProps = {
   display: "grid",
-  gridTemplateColumns: "auto 2rem",
+  gridTemplateColumns: "auto 1.5rem",
   flex: 1,
   alignItems: "center",
   padding: 1,
