@@ -3,7 +3,6 @@ import { DeckTemplateTourProps } from "./deck-template-tour.types";
 import React from "react";
 import Typography from "@mui/joy/Typography";
 import { DeckLottieInfo } from "../deck-lottie-info";
-import { DeckLottieBuild } from "../deck-lottie-build";
 import {
   closeIconStyle,
   drawerSlotProps,
