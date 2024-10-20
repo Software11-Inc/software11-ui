@@ -115,7 +115,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
                   text: "Open details",
                 }}
                 description={{
-                  text: "Modify your template on details page",
+                  text: "Modify the template on details page",
                 }}
               />
             </MenuItem>
@@ -147,7 +147,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
                   text: "Generate slides",
                 }}
                 description={{
-                  text: "Generate slides based on your template",
+                  text: "Generate slides based on the template",
                 }}
               />
             </MenuItem>
@@ -163,7 +163,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
                   text: "Manage permissions",
                 }}
                 description={{
-                  text: "Manage access to your template",
+                  text: "Manage access to the template",
                 }}
               />
             </MenuItem>
@@ -179,7 +179,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
                   text: "Remove",
                 }}
                 description={{
-                  text: "Remove your template",
+                  text: "Remove the template",
                 }}
               />
             </MenuItem>
