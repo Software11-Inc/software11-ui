@@ -89,6 +89,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
                 px: 1,
                 [`& .${svgIconClasses.root}`]: {
                   opacity: 0.5,
+                  fontSize: "14px",
                 },
               },
               [`& .${menuItemClasses.root}:hover`]: {
