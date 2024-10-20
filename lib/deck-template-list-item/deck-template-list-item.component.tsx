@@ -68,6 +68,7 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
           <Menu
             size="sm"
             color="primary"
+            onMouseLeave={() => setOpen(false)}
             popperOptions={{
               modifiers: [
                 {
