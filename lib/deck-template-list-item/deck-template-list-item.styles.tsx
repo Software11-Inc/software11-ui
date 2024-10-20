@@ -48,5 +48,6 @@ export const contentStyle: SxProps = {
   display: "grid",
   gridTemplateColumns: "auto 2rem",
   flex: 1,
+  alignItems: "center",
   padding: 1,
 };
