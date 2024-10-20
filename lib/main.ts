@@ -62,6 +62,7 @@ export * from "./deck-repeater-form-filter";
 export * from "./deck-repeater-form-sort";
 export * from "./deck-repeater-select-figure-drawer";
 export * from "./deck-template-tour";
+export * from "./deck-template-message";
 
 export * from "@models";
 
