@@ -159,7 +159,7 @@ export const TemplateTourStep3: React.FC = () => {
       </Box>
 
       <Box sx={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", height: "5rem" }}>
-        <DeckLottieBuild />
+        {/* <DeckLottieBuild /> */}
       </Box>
     </Box>
   );

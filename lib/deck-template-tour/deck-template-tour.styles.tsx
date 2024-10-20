@@ -52,6 +52,7 @@ export const sepatorStyle: SxProps = {
 
 export const stepsStyle: SxProps = {
   fontSize: "16px",
+  lineHeight: "16px",
   fontWeight: 600,
   color: "primary.500",
 };
