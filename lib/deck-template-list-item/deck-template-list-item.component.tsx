@@ -102,7 +102,11 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
             }}
           >
             <MenuItem onClick={onOpen}>
-              <AirplayRounded color="primary" />
+              <AirplayRounded
+                sx={{
+                  color: "var(--joy-palette-primary-500)",
+                }}
+              />
               <DeckLabel
                 size="sm"
                 title={{
@@ -114,7 +118,11 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
               />
             </MenuItem>
             <MenuItem onClick={onEdit}>
-              <SettingsRounded color="primary" />
+              <SettingsRounded
+                sx={{
+                  color: "var(--joy-palette-primary-500)",
+                }}
+              />
               <DeckLabel
                 size="sm"
                 title={{
@@ -126,7 +134,11 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
               />
             </MenuItem>
             <MenuItem onClick={onRun} disabled>
-              <RocketLaunchRounded color="primary" />
+              <RocketLaunchRounded
+                sx={{
+                  color: "var(--joy-palette-primary-500)",
+                }}
+              />
               <DeckLabel
                 size="sm"
                 title={{
@@ -138,7 +150,11 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
               />
             </MenuItem>
             <MenuItem disabled>
-              <AdminPanelSettingsRounded color="primary" />
+              <AdminPanelSettingsRounded
+                sx={{
+                  color: "var(--joy-palette-primary-500)",
+                }}
+              />
               <DeckLabel
                 size="sm"
                 title={{
@@ -150,7 +166,11 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
               />
             </MenuItem>
             <MenuItem onClick={onRemove}>
-              <DeleteOutlineRounded color="primary" />
+              <DeleteOutlineRounded
+                sx={{
+                  color: "var(--joy-palette-primary-500)",
+                }}
+              />
               <DeckLabel
                 size="sm"
                 title={{
