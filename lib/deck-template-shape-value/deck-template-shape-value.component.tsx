@@ -25,7 +25,7 @@ const mainBoxStyle: SxProps = {
 };
 
 export const DeckTemplateShapeValue: React.FC<IDeckTemplateShapeValue> = ({ value, emptyValue }) => {
-  const formattedValue = value.replace(/\u000b/g, "\n");
+  const formattedValue = value.replace(/\u000b/g, "\n").replace("\r", "\n");
   const isEmpty = !formattedValue.trim().length;
 
   return (
