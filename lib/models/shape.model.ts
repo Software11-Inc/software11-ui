@@ -171,6 +171,8 @@ export interface ISelectedShape {
   /** Identifier for the slide containing the shape */
   slideID: string;
 
+  name?: string;
+
   value?: string;
 
   source?: IShapeSource;
