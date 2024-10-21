@@ -8,10 +8,9 @@ const mainBoxStyle: SxProps = {
   flexDirection: "column",
   gap: 1,
   p: 1,
-  bgcolor: "primary.100",
+  bgcolor: "var(--joy-palette-background-level1)",
   borderRadius: "var(--border-radius)",
   overflow: "hidden",
-  boxShadow: "inset var(--shadow)",
   fontSize: "12px",
   color: "primary.500",
 
