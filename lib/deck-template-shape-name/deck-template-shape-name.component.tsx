@@ -38,7 +38,7 @@ export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
         variant="soft"
         size={size}
         sx={{
-          ...getInputFocusStyle(),
+          ...getInputFocusStyle("primary", "soft"),
           flex: 1,
         }}
       />
