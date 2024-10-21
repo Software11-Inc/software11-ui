@@ -26,9 +26,6 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
   const [open, setOpen] = React.useState(false);
 
   const toggleOpen = () => {
-    console.log({
-      open,
-    });
     setOpen(!open);
   };
 
