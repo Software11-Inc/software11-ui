@@ -11,5 +11,7 @@ const Template: StoryFn<typeof DeckTemplateShapeName> = (args) => <DeckTemplateS
 export const Default = Template.bind({});
 
 Default.args = {
-  name: "Name",
+  value: "Name",
+  placeholder: "Enter name",
+  onChange: (value: string) => console.log(value),
 };
