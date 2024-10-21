@@ -65,6 +65,7 @@ export * from "./deck-template-tour";
 export * from "./deck-template-message";
 export * from "./deck-template-preview";
 export * from "./deck-template-list-item";
+export * from "./deck-template-shape-name";
 
 export * from "@models";
 
