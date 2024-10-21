@@ -10,7 +10,12 @@ const mainBoxStyle: SxProps = { display: "flex", flexDirection: "row", alignItem
 
 const iconStyle: SxProps = { display: "flex", alignItems: "center", width: "1.5rem", height: "1.5rem" };
 
-export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({ value, placeholder, onChange }) => {
+export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
+  value,
+  placeholder,
+  size = "sm",
+  onChange,
+}) => {
   const [inputValue, setInputValue] = React.useState(value);
 
   useEffect(() => {
@@ -31,6 +36,7 @@ export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({ value,
         placeholder={placeholder}
         onChange={handleChange}
         variant="soft"
+        size={size}
         sx={{
           ...getInputFocusStyle(),
           flex: 1,

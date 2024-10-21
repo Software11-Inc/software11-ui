@@ -12,4 +12,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   value: "Value",
+  emptyValue: "Shape has no value",
 };
