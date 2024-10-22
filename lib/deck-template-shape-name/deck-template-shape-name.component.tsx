@@ -44,10 +44,10 @@ export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
           flex: 1,
         }}
       />
-
+      {/* 
       <Box sx={iconStyle}>
         <DeckLottieInfo />
-      </Box>
+      </Box> */}
     </Box>
   );
 };
