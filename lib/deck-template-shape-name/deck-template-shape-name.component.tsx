@@ -14,6 +14,7 @@ export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
   value,
   placeholder,
   size = "sm",
+  readonly = false,
   onChange,
 }) => {
   const [inputValue, setInputValue] = React.useState(value);
@@ -37,6 +38,7 @@ export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
         onChange={handleChange}
         variant="soft"
         size={size}
+        readOnly={readonly}
         sx={{
           ...getInputFocusStyle("primary", "soft"),
           flex: 1,

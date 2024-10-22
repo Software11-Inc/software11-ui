@@ -94,6 +94,13 @@ export interface IShapeStyle {
 // Shape data connection types
 export type RepeatType = "dataset-figure" | "dataset-repeater" | "static-value" | "static-image";
 
+export enum RepeatTypeEnum {
+  DatasetFigure = "dataset-figure",
+  DatasetRepeater = "dataset-repeater",
+  StaticValue = "static-value",
+  StaticImage = "static-image",
+}
+
 /**
  * Base interface for defining a connection to data or static content.
  */
