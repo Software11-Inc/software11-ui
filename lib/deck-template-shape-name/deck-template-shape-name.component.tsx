@@ -3,12 +3,9 @@ import { IDeckTemplateShapeName } from "./deck-template-shape-name.types";
 import React, { useEffect } from "react";
 import Input from "@mui/joy/Input";
 import { getInputFocusStyle } from "../theming";
-import { DeckLottieInfo } from "../deck-lottie-info";
 import { SxProps } from "@mui/joy/styles/types";
 
 const mainBoxStyle: SxProps = { display: "flex", flexDirection: "row", alignItems: "center", gap: 1 };
-
-const iconStyle: SxProps = { display: "flex", alignItems: "center", width: "1.5rem", height: "1.5rem" };
 
 export const DeckTemplateShapeName: React.FC<IDeckTemplateShapeName> = ({
   value,
