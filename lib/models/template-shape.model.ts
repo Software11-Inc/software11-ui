@@ -158,11 +158,10 @@ export type Connection =
 export interface ITemplateShape {
   id: string;
   name?: string;
+  value?: string;
   style?: IShapeStyle;
   connection?: Connection;
   ignore?: boolean; // Indicates if the shape should be ignored during processing
-  figureID?: string; // Optional figure ID for direct figure connections
-  figureValue?: string; // Optional static value for the shape
   order: number; // Order of the shape within the template
 }
 
