@@ -68,6 +68,7 @@ export * from "./deck-template-list-item";
 export * from "./deck-template-shape-name";
 export * from "./deck-template-shape-value";
 export * from "./deck-template-shape-itterator";
+export * from "./deck-template-shape-header-static";
 
 export * from "@models";
 
