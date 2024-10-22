@@ -33,6 +33,7 @@ export const DeckTemplateShape: React.FC<PropsWithChildren<DeckTemplateShapeProp
               <DeckLabel
                 title={{
                   text: hasName ? shapeName : emptyName,
+                  limit: 1,
                 }}
                 size="sm"
                 italic={!hasName}
