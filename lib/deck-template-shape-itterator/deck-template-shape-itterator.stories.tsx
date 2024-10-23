@@ -4,8 +4,17 @@ import { DeckTemplateShapeItterator } from "./deck-template-shape-itterator.comp
 export default {
   title: "Template/Shape/Itterator",
   component: DeckTemplateShapeItterator,
+  argTypes: {
+    onNext: { action: "Next" },
+    onPrevious: { action: "Previous" },
+    onOpenFilter: { action: "Open filter" },
+  },
 } as Meta<typeof DeckTemplateShapeItterator>;
 
 const Template: StoryFn<typeof DeckTemplateShapeItterator> = (args) => <DeckTemplateShapeItterator {...args} />;
 
 export const Default = Template.bind({});
+
+Default.args = {
+  groupName: "Group name",
+};
