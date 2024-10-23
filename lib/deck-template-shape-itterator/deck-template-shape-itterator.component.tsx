@@ -5,7 +5,7 @@ import FilterListRounded from "@mui/icons-material/FilterListRounded";
 import { mainBoxStyle, valueBoxStyle, valueTextBoxStyle } from "./deck-template-shape-itterator.style";
 import { IDeckTemplateShapeItterator } from "./deck-template-shape-itterator.types";
 import React from "react";
-import IconButton from "@mui/joy/IconButton";
+import { DeckIconButton } from "../deck-icon-button";
 
 export const DeckTemplateShapeItterator: React.FC<IDeckTemplateShapeItterator> = ({
   groupName,
@@ -19,16 +19,10 @@ export const DeckTemplateShapeItterator: React.FC<IDeckTemplateShapeItterator> =
       <Box sx={valueBoxStyle}>
         <Box sx={valueTextBoxStyle}>{groupName || emptyGroupName}</Box>
       </Box>
-      <Box>
-        <IconButton size="sm" onClick={onPrevious}>
-          <ChevronLeftRounded />
-        </IconButton>
-        <IconButton size="sm" onClick={onOpenFilter}>
-          <FilterListRounded />
-        </IconButton>
-        <IconButton size="sm" onClick={onNext}>
-          <ChevronRightRounded />
-        </IconButton>
+      <Box sx={mainBoxStyle}>
+        <DeckIconButton size="md" onClick={onPrevious} icon={<ChevronLeftRounded />}></DeckIconButton>
+        <DeckIconButton size="md" onClick={onOpenFilter} icon={<FilterListRounded />}></DeckIconButton>
+        <DeckIconButton size="md" onClick={onNext} icon={<ChevronRightRounded />}></DeckIconButton>
       </Box>
     </Box>
   );
