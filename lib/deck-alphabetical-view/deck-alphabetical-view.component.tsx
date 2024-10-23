@@ -14,6 +14,7 @@ import {
   alphabeticalViewStyle,
 } from "./deck-alphabetical-view.styles";
 import { DeckAlphabeticalViewHandle, IAlphabeticalViewProps, defaultLetters } from "./deck-alphabetical-view.types";
+import { debounce } from "lodash";
 
 function DeckAlphabeticalViewComponent<T>(
   props: IAlphabeticalViewProps<T>,
@@ -54,10 +55,11 @@ function DeckAlphabeticalViewComponent<T>(
   );
 
   useEffect(() => {
-    updateHeights();
-    window.addEventListener("resize", updateHeights);
+    const debouncedUpdateHeights = debounce(updateHeights, 100);
+    window.addEventListener("resize", debouncedUpdateHeights);
+    debouncedUpdateHeights();
     return () => {
-      window.removeEventListener("resize", updateHeights);
+      window.removeEventListener("resize", debouncedUpdateHeights);
     };
   }, [updateHeights]);
 
