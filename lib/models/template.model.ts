@@ -86,5 +86,7 @@ export type DatasetRepeater = Record<string, IRepeater>;
 export interface ITemplate extends IDefaultItem {
   repeaters: DatasetRepeater;
   shapes: TemplateShapes;
+  previewImageBase64?: string;
+  previewImageBlob?: Blob;
   previewImage?: string;
 }

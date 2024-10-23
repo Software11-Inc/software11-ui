@@ -16,6 +16,8 @@ import Menu from "@mui/joy/Menu";
 import MenuItem, { menuItemClasses } from "@mui/joy/MenuItem";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
 
+type imageType = "url" | "base64" | "blob";
+
 export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
   template = {},
   onOpen = () => {},
@@ -36,9 +38,42 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
     return <img src={`data:image/png;base64,${base64}`} alt="Slide preview" />;
   };
 
+  const getBlobImage = (blob?: Blob) => {
+    if (!blob) {
+      return null;
+    }
+    return <img src={URL.createObjectURL(blob)} alt="Slide preview" />;
+  };
+  const [type, setType] = React.useState<imageType>("url");
+
+  React.useEffect(() => {
+    switch (true) {
+      case Boolean(template?.previewImage):
+        setType("url");
+        break;
+      case Boolean(template?.previewImageBlob):
+        setType("blob");
+        break;
+      case Boolean(template?.previewImageBase64):
+        setType("base64");
+        break;
+    }
+  }, [template]);
+
+  const getImage = () => {
+    switch (type) {
+      case "url":
+        return <Box sx={imageStyle}>{getBase64Image(template?.previewImageBase64)}</Box>;
+      case "base64":
+        return <Box sx={imageStyle}>{getBase64Image(template?.previewImageBase64)}</Box>;
+      case "blob":
+        return <Box sx={imageStyle}>{getBlobImage(template?.previewImageBlob)}</Box>;
+    }
+  };
+
   return (
     <Box sx={mainBoxStyle}>
-      <Box sx={imageStyle}>{getBase64Image(template?.previewImage)}</Box>
+      {getImage()}
       <Box sx={contentStyle}>
         <DeckLabel
           title={{
