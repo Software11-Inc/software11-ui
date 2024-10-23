@@ -38,21 +38,12 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
     return <img src={`data:image/png;base64,${base64}`} alt="Slide preview" />;
   };
 
-  const getBlobImage = (blob?: Blob) => {
-    if (!blob) {
-      return null;
-    }
-    return <img src={URL.createObjectURL(blob)} alt="Slide preview" />;
-  };
   const [type, setType] = React.useState<imageType>("url");
 
   React.useEffect(() => {
     switch (true) {
       case Boolean(template?.previewImage):
         setType("url");
-        break;
-      case Boolean(template?.previewImageBlob):
-        setType("blob");
         break;
       case Boolean(template?.previewImageBase64):
         setType("base64");
@@ -66,8 +57,6 @@ export const DeckTemplateListItem: React.FC<DeckTemplateListItemProps> = ({
         return <Box sx={imageStyle}>{getBase64Image(template?.previewImageBase64)}</Box>;
       case "base64":
         return <Box sx={imageStyle}>{getBase64Image(template?.previewImageBase64)}</Box>;
-      case "blob":
-        return <Box sx={imageStyle}>{getBlobImage(template?.previewImageBlob)}</Box>;
     }
   };
 
