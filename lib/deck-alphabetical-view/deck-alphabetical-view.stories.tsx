@@ -8,6 +8,13 @@ import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
 import { DeckFooter } from "../deck-footer";
 import { DeckTextButton } from "../deck-text-button";
 import { DeckAlphabeticalViewHandle } from "./deck-alphabetical-view.types";
+import Drawer from "@mui/joy/Drawer";
+import DialogTitle, { dialogTitleClasses } from "@mui/joy/DialogTitle";
+import DialogContent, { dialogContentClasses } from "@mui/joy/DialogContent";
+import Divider from "@mui/joy/Divider";
+import DialogActions, { dialogActionsClasses } from "@mui/joy/DialogActions";
+import LinearProgress from "@mui/joy/LinearProgress";
+import ModalClose from "@mui/joy/ModalClose";
 
 export default {
   title: "UI/Alphabetical View",
@@ -192,4 +199,84 @@ Default.args = {
       </Box>
     );
   },
+};
+
+const drawerSlotProps = {
+  root: {
+    sx: {
+      [`& .${dialogActionsClasses.root}`]: {
+        p: 1,
+        bgcolor: "primary.100",
+      },
+    },
+  },
+  content: {
+    sx: {
+      height: "75vh",
+      borderRadius: "var(--border-radius) var(--border-radius) 0 0",
+      bgcolor: "background.surface",
+
+      [`& .${dialogContentClasses.root}`]: {
+        bgcolor: "background.body",
+        position: "relative",
+      },
+    },
+  },
+} as any;
+
+export const DrawerStory: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args) => {
+  const deckViewRef = useRef<DeckAlphabeticalViewHandle>(null);
+  const [open, setOpen] = React.useState(false);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+  return (
+    <React.Fragment>
+      <DeckTextButton action={toggleDrawer} text="Open Drawer" />
+      <Drawer open={open} onClose={onClose} slotProps={drawerSlotProps} anchor="bottom" size="sm">
+        <DialogTitle sx={{ p: 1, pb: 0, pr: 4 }}>
+          <DeckLabel
+            title={{
+              text: "modal.figure.title",
+            }}
+            description={{
+              text: "modal.figure.description",
+            }}
+          />
+        </DialogTitle>
+        <ModalClose
+          color="primary"
+          sx={{
+            right: "1rem",
+            top: "1.25rem",
+          }}
+        />
+        <Divider />
+        <LinearProgress sx={{ height: "2px" }} />
+        <DialogContent className="small-scroll">
+          <React.Fragment>
+            <DeckAlphabeticalView<ExampleItem> ref={deckViewRef} {...args} />
+          </React.Fragment>
+        </DialogContent>
+        <DialogActions className="deck-footer">
+          <DeckTextButton action={() => {}} text="Close" />
+        </DialogActions>
+      </Drawer>
+    </React.Fragment>
+  );
+};
+
+DrawerStory.args = Default.args;
+
+DrawerStory.args = {
+  ...DrawerStory.args,
+  type: "drawer",
+};
+
+DrawerStory.parameters = {
+  layout: "padded",
 };

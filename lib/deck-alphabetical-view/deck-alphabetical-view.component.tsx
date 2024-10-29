@@ -20,7 +20,7 @@ function DeckAlphabeticalViewComponent<T>(
   props: IAlphabeticalViewProps<T>,
   ref: React.Ref<DeckAlphabeticalViewHandle>
 ) {
-  const { items, itemTemplate, loaded, loading, emptyTemplate } = props;
+  const { items, itemTemplate, type, loaded, loading, emptyTemplate } = props;
 
   const letters = defaultLetters;
   const [activeLetter, setActiveLetter] = useState<string>("#");
@@ -28,23 +28,55 @@ function DeckAlphabeticalViewComponent<T>(
 
   // Use useCallback to memoize the function
   const updateHeights = useCallback(() => {
-    const subheaderElements = document.querySelectorAll(".page-section.deck-sticky");
-    let subheadersHeight = 0;
-    subheaderElements.forEach((el) => {
-      console.log(el, el.getBoundingClientRect().height);
-      subheadersHeight += el.getBoundingClientRect().height;
-    });
+    switch (type) {
+      case "page": {
+        // Select subheader elements for "page" mode
+        const subheaderElements = document.querySelectorAll(".page-section.deck-sticky");
+        let subheadersHeight = 0;
+        subheaderElements.forEach((el) => {
+          console.log(el, el.getBoundingClientRect().height);
+          subheadersHeight += el.getBoundingClientRect().height;
+        });
 
-    // Update CSS variable for subheaders height
-    document.documentElement.style.setProperty("--subheaders-height", `${subheadersHeight}px`);
+        // Update CSS variable for subheaders height
+        document.documentElement.style.setProperty("--subheaders-height", `${subheadersHeight}px`);
 
-    // Calculate footer height
-    const footerElement = document.querySelector(".deck-footer");
-    const footerHeight = footerElement ? footerElement.getBoundingClientRect().height : 0;
+        // Calculate footer height for "page" mode
+        const footerElement = document.querySelector(".deck-footer");
+        const footerHeight = footerElement ? footerElement.getBoundingClientRect().height : 0;
 
-    // Update CSS variable for footer height
-    document.documentElement.style.setProperty("--footer-height", `${footerHeight}px`);
-  }, []);
+        // Update CSS variable for footer height
+        document.documentElement.style.setProperty("--footer-height", `${footerHeight}px`);
+        break;
+      }
+      case "drawer": {
+        // Select subheader elements for "drawer" mode inside ".MuiDrawer-root"
+        const drawerElement = document.querySelector(".MuiDrawer-root");
+        if (drawerElement) {
+          const subheaderElements = drawerElement.querySelectorAll(".page-section.deck-sticky");
+          let subheadersHeight = 0;
+          subheaderElements.forEach((el) => {
+            console.log(el, el.getBoundingClientRect().height);
+            subheadersHeight += el.getBoundingClientRect().height;
+          });
+
+          // Update CSS variable for subheaders height in drawer mode
+          document.documentElement.style.setProperty("--subheaders-height", `${subheadersHeight}px`);
+
+          // Calculate footer height for "drawer" mode inside ".MuiDrawer-root"
+          const footerElement = drawerElement.querySelector(".deck-footer");
+          const footerHeight = footerElement ? footerElement.getBoundingClientRect().height : 0;
+
+          // Update CSS variable for footer height in drawer mode
+          document.documentElement.style.setProperty("--footer-height", `${footerHeight}px`);
+        }
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }, [type]);
 
   useImperativeHandle(
     ref,
