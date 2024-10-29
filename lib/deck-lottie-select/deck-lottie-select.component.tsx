@@ -18,6 +18,7 @@ export const DeckLottieSelect: React.FC<{ active: boolean }> = ({ active }) => {
   }, [active]);
 
   const onSelect = () => {
+    ref.current?.setSpeed(2);
     ref.current?.playSegments([0, 50], true);
   };
 
