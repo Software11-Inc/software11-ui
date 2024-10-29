@@ -9,7 +9,7 @@ import { DeckFooter } from "../deck-footer";
 import { DeckTextButton } from "../deck-text-button";
 import { DeckAlphabeticalViewHandle } from "./deck-alphabetical-view.types";
 import Drawer from "@mui/joy/Drawer";
-import DialogTitle, { dialogTitleClasses } from "@mui/joy/DialogTitle";
+import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent, { dialogContentClasses } from "@mui/joy/DialogContent";
 import Divider from "@mui/joy/Divider";
 import DialogActions, { dialogActionsClasses } from "@mui/joy/DialogActions";
