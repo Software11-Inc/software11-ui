@@ -8,9 +8,9 @@ export const mainBoxStyle = {
 
 export const valueBoxStyle = {
   flex: 1,
-  p: 1,
-  bgcolor: "var(--joy-palette-background-level1)",
-  borderRadius: "var(--border-radius)",
+  // p: 1,
+  // bgcolor: "var(--joy-palette-background-level1)",
+  // borderRadius: "var(--border-radius)",
 };
 export const valueTextBoxStyle = {
   overflow: "hidden",

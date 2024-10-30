@@ -17,4 +17,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   groupName: "Group name",
+  hint: "You may change the value though groups",
 };
