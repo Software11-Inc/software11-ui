@@ -3,7 +3,7 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
-import React from "react";
+import React, { useEffect } from "react";
 import { accordionGroupStyles } from "../accordion.style";
 import { ExcelIcon, GoogleSheetIcon, GoogleSlidesIcon, PowerpointIcon } from "../deck-icons";
 import { DeckLabel } from "../deck-label";
@@ -17,9 +17,14 @@ export const DeckFileGroupItem: React.FC<IDeckFileGroupItemProps> = ({
   itemTemplate,
   defaultExpanded = false,
   emptyTemplate = null,
+  open = false,
 }) => {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
   const hasTemplate = !!itemTemplate;
+
+  useEffect(() => {
+    setExpanded(open);
+  }, [open]);
 
   const accordionSummarySlotProps = {
     button: {
