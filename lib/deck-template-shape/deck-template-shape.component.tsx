@@ -17,18 +17,20 @@ const headerStyle: SxProps = {
 
 export const DeckTemplateShape: React.FC<PropsWithChildren<DeckTemplateShapeProps>> = ({
   status = 0,
+  statusIcon = null,
   shapeName = "",
   emptyName = "Shape name not defined",
   subheaderContent,
   children,
 }) => {
   const hasName = Boolean(shapeName);
+  const hasStatusIcon = Boolean(statusIcon);
   return (
     <React.Fragment>
       <Accordion>
         <AccordionSummary>
           <Box sx={headerStyle}>
-            <DeckStatus status={status} />
+            {hasStatusIcon ? statusIcon : <DeckStatus status={status} />}
             <Box>
               <DeckLabel
                 title={{
