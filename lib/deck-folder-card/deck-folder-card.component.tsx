@@ -18,7 +18,7 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", ta
   return (
     <React.Fragment>
       <Box className={classes.baseBox} sx={styles}>
-        <Box className={classes.headerBox}>
+        <Box className={classes.headerBox} onClick={onOpen}>
           <PermMediaRounded
             sx={{
               fontSize: "1rem",
@@ -39,7 +39,7 @@ export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", ta
             gap={0.5}
             size={size}
           />
-          <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" onClick={onOpen} />
+          <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" />
         </Box>
         <Box className={classes.contentBox}>
           {item?.description && (

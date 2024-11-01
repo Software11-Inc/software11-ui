@@ -18,7 +18,7 @@ export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", tagL
   return (
     <React.Fragment>
       <Box className={classes.baseBox} sx={styles}>
-        <Box className={classes.headerBox}>
+        <Box className={classes.headerBox} onClick={onOpen}>
           <DeckLabel
             title={{
               text: item?.name || "Untitled",
@@ -27,7 +27,7 @@ export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", tagL
             gap={0.5}
             size={size}
           />
-          <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" onClick={onOpen} />
+          <DeckIconButton icon={<ChevronRight sx={{ fontSize: 16 }} />} variant="plain" />
         </Box>
         <Box className={classes.contentBox}>
           {Boolean(item?.description) && (
