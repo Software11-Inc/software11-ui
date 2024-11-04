@@ -27,14 +27,19 @@ export const DeckTemplateShape: React.FC<PropsWithChildren<DeckTemplateShapeProp
   const hasStatusIcon = Boolean(statusIcon);
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
+  const accordionSummarySlotProps = {
+    button: {
+      component: "div",
+      onClick: () => {
+        setOpen(!open);
+      },
+    },
+  } as any;
 
   return (
     <React.Fragment>
-      <Accordion expanded={open} onChange={() => handleOpen}>
-        <AccordionSummary>
+      <Accordion expanded={open}>
+        <AccordionSummary slotProps={accordionSummarySlotProps}>
           <Box sx={headerStyle}>
             {hasStatusIcon ? statusIcon : <DeckStatus status={status} />}
             <Box>
