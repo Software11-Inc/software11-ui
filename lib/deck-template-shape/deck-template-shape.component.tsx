@@ -25,9 +25,15 @@ export const DeckTemplateShape: React.FC<PropsWithChildren<DeckTemplateShapeProp
 }) => {
   const hasName = Boolean(shapeName);
   const hasStatusIcon = Boolean(statusIcon);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <React.Fragment>
-      <Accordion>
+      <Accordion expanded={open} onChange={() => handleOpen}>
         <AccordionSummary>
           <Box sx={headerStyle}>
             {hasStatusIcon ? statusIcon : <DeckStatus status={status} />}
@@ -45,7 +51,7 @@ export const DeckTemplateShape: React.FC<PropsWithChildren<DeckTemplateShapeProp
             </Box>
           </Box>
         </AccordionSummary>
-        <AccordionDetails>{children}</AccordionDetails>
+        <AccordionDetails>{open && children}</AccordionDetails>
       </Accordion>
     </React.Fragment>
   );
