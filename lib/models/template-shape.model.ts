@@ -77,7 +77,26 @@ export interface IShapeStyleText {
 /**
  * Enumerates supported shape types within a template.
  */
-export type SupportedShapeType = "Unsupported" | "Image" | "GeometricShape" | "Group" | "Line" | "Table";
+export type SupportedShapeType =
+  | "Unsupported"
+  | "Image"
+  | "GeometricShape"
+  | "Group"
+  | "Line"
+  | "Table"
+  | "Callout" // Preview type
+  | "Chart" // Preview type
+  | "ContentApp" // Preview type
+  | "Diagram" // Preview type
+  | "Freeform" // Preview type
+  | "Graphic" // Preview type
+  | "Ink" // Preview type
+  | "Media" // Preview type
+  | "Model3D" // Preview type
+  | "Ole" // Preview type
+  | "Placeholder" // Preview type
+  | "SmartArt" // Preview type
+  | "TextBox"; // Preview type;
 
 /**
  * Describes the style properties of a shape, including its type, position, fill, and text properties.
