@@ -9,6 +9,7 @@ export const typographySlotProps = {
     sx: {
       fontSize: "9px",
       lineHeight: "1.2",
+      whiteSpace: "nowrap",
     },
   },
 };
