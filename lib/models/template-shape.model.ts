@@ -143,6 +143,7 @@ export interface IDatasetRepeaterConnection extends IDefaultConnection {
   type: "dataset-repeater";
   datasetID: string;
   groupCell: string;
+  groupCellName?: string;
   repeaterID: string;
 }
 
