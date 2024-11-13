@@ -17,8 +17,8 @@ const baseBoxStyle = {
   overflow: "hidden",
 
   "&:hover": {
+    cursor: "pointer",
     [`.${classes.headerBox}`]: {
-      cursor: "pointer",
       bgcolor: "var(--joy-palette-background-surface)",
     },
     [`.${classes.contentBox}`]: {

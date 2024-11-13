@@ -17,8 +17,8 @@ const timeAgo = new TimeAgo("en-US");
 export const DeckAlbumCard: React.FC<IDeckAlbumCardProps> = ({ size = "sm", tagLimit = 2, item, onOpen }) => {
   return (
     <React.Fragment>
-      <Box className={classes.baseBox} sx={styles}>
-        <Box className={classes.headerBox} onClick={onOpen}>
+      <Box className={classes.baseBox} sx={styles} onClick={onOpen}>
+        <Box className={classes.headerBox}>
           <DeckLabel
             title={{
               text: item?.name || "Untitled",
