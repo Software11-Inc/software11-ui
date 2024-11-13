@@ -17,8 +17,8 @@ const timeAgo = new TimeAgo("en-US");
 export const DeckFolderCard: React.FC<IDeckFolderCardProps> = ({ size = "sm", tagLimit = 2, item, onOpen }) => {
   return (
     <React.Fragment>
-      <Box className={classes.baseBox} sx={styles}>
-        <Box className={classes.headerBox} onClick={onOpen}>
+      <Box className={classes.baseBox} sx={styles} onClick={onOpen}>
+        <Box className={classes.headerBox}>
           <PermMediaRounded
             sx={{
               fontSize: "1rem",
