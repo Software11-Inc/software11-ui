@@ -27,7 +27,7 @@ export type HeaderPosition = "top" | "left";
  */
 export interface IMetaDataset {
   type: DatasetType; // The type of dataset
-  sheetId?: string; // Optional ID of the Excel sheet (for Excel-based datasets)
+  sheetID?: string; // Optional ID of the Excel sheet (for Excel-based datasets)
   changes?: IDatasetChange[]; // Optional array of changes made to the dataset
 
   // Information about the project from which the dataset originates
