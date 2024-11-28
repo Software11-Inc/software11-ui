@@ -34,3 +34,5 @@ export interface IDatasetChange {
 export interface IDatasetChanges {
   [key: string]: IDatasetChange; // Map of dataset changes, keyed by an identifier
 }
+
+export type DatasetFigureChangeMap = Record<string, IFigureChange>;
