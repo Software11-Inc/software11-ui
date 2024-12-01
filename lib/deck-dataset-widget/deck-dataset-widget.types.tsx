@@ -7,4 +7,5 @@ export interface DeckDatasetWidgetProps {
   loading?: boolean;
   changes?: DatasetFigureChangeMap;
   onSelectCell?: (cell: string) => void;
+  onOpen?: () => void;
 }

@@ -5,7 +5,28 @@ export default {
   title: "Pages/Home/DeckDatasetWidget",
   component: DeckDatasetWidget,
   argTypes: {
+    name: {
+      control: {
+        type: "text",
+      },
+    },
+    description: {
+      control: {
+        type: "text",
+      },
+    },
     onSelectCell: { action: "onSelectCell" },
+    onOpen: { action: "onOpen" },
+    changes: {
+      control: {
+        type: "object",
+      },
+    },
+    highlighted: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as Meta<typeof DeckDatasetWidget>;
 

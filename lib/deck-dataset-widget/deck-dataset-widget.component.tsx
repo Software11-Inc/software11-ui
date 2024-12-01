@@ -34,6 +34,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   loading = false,
   changes = {},
   onSelectCell = () => {},
+  onOpen = () => {},
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
@@ -103,7 +104,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
               italic={!hasName}
             />
           </Box>
-          {!hasChanges && <DeckIconButton variant="plain" icon={<ChevronRightRounded />} />}
+          {!hasChanges && <DeckIconButton variant="plain" icon={<ChevronRightRounded />} onClick={onOpen} />}
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={contentStyle} className="small-scroll">
