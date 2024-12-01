@@ -1,3 +1,5 @@
+import { SupportedShapeType } from "./library-slide.model";
+
 /**
  * Defines the position and size of a shape within a slide.
  */
@@ -73,30 +75,6 @@ export interface IShapeStyleText {
   };
   value: string; // Text content of the shape
 }
-
-/**
- * Enumerates supported shape types within a template.
- */
-export type SupportedShapeType =
-  | "Unsupported"
-  | "Image"
-  | "GeometricShape"
-  | "Group"
-  | "Line"
-  | "Table"
-  | "Callout" // Preview type
-  | "Chart" // Preview type
-  | "ContentApp" // Preview type
-  | "Diagram" // Preview type
-  | "Freeform" // Preview type
-  | "Graphic" // Preview type
-  | "Ink" // Preview type
-  | "Media" // Preview type
-  | "Model3D" // Preview type
-  | "Ole" // Preview type
-  | "Placeholder" // Preview type
-  | "SmartArt" // Preview type
-  | "TextBox"; // Preview type;
 
 /**
  * Describes the style properties of a shape, including its type, position, fill, and text properties.
