@@ -1,4 +1,4 @@
-import { SupportedShapeType } from "./template-shape.model";
+import { SupportedShapeType } from "./library-slide.model";
 
 export interface IShape {
   /** Unique identifier for the shape */
