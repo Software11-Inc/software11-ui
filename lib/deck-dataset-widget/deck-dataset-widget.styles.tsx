@@ -28,6 +28,7 @@ export const contentHeaderStyle: SxProps = {
 export const contentStyle: SxProps = {
   display: "flex",
   flexDirection: "column",
+  maxHeight: "calc(2.25rem * 4)",
 };
 
 export const itemStyle: SxProps = {
@@ -79,6 +80,7 @@ export const horizontalBoxStyle: SxProps = {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
+  my: 0.25,
 };
 
 export const counterStyle: SxProps = {

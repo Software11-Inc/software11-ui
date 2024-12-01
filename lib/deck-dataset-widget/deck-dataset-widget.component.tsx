@@ -1,6 +1,6 @@
 import AccordionGroup from "@mui/joy/AccordionGroup";
 import { DeckDatasetWidgetProps } from "./deck-dataset-widget.types";
-import React from "react";
+import React, { useEffect } from "react";
 import { accordionGroupStyles, accordionTransition, getBackgroundColor } from "../accordion.style";
 import AccordionSummary, { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
 import DoubleArrowRounded from "@mui/icons-material/DoubleArrowRounded";
@@ -24,6 +24,8 @@ import Typography from "@mui/joy/Typography";
 import { ColorPaletteProp } from "@mui/joy/styles/types";
 
 import * as fromUtils from "../utils";
+import { DeckIconButton } from "../deck-icon-button";
+import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 
 export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   name = null,
@@ -37,7 +39,17 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   const highlightedClass = `deck-highlighted`;
   const classList = [className, highlighted ? highlightedClass : ``].join(" ").trim();
 
+  const hasChanges = Object.keys(changes).length > 0;
+
+  const status = hasChanges ? 1 : 0;
+
   const hasName = name && name.length > 0;
+
+  const [open, setOpen] = React.useState(hasChanges);
+
+  useEffect(() => {
+    setOpen(hasChanges);
+  }, [hasChanges]);
 
   return (
     <AccordionGroup
@@ -50,10 +62,32 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
       }}
       transition={accordionTransition}
     >
-      <Accordion>
-        <AccordionSummary>
+      <Accordion expanded={open}>
+        <AccordionSummary
+          slotProps={{
+            button: {
+              component: "div",
+              onClick: (e) => {
+                const target = e.target as HTMLElement;
+                if (target.classList.contains("MuiSvgIcon-root")) {
+                  return;
+                }
+                if (!hasChanges) {
+                  return;
+                }
+                setOpen(!open);
+              },
+            },
+            indicator: {
+              onClick: () => setOpen(!open),
+              sx: {
+                display: hasChanges ? "flex" : "none",
+              },
+            },
+          }}
+        >
           <Box sx={headerStyle}>
-            <DeckStatus status={0} />
+            <DeckStatus status={status} />
 
             <DeckLabel
               title={{
@@ -69,6 +103,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
               italic={!hasName}
             />
           </Box>
+          {!hasChanges && <DeckIconButton variant="plain" icon={<ChevronRightRounded />} />}
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={contentStyle}>
@@ -104,7 +139,6 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
           alignItems: "center",
           flex: 1,
           gap: 1,
-          my: 0.5,
         }}
       >
         <Box
