@@ -112,7 +112,7 @@ export const actionButtonStyle: SxProps = {
 };
 
 export const cellStyle: SxProps = {
-  fontSize: "clamp(9px, 12px, 24px)",
+  fontSize: "clamp(9px, 22px, 24px)",
   lineHeight: "24px",
   fontWeight: "bold",
   color: "warning.200",

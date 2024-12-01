@@ -21,6 +21,9 @@ import { DeckStatus } from "../deck-status";
 import { DeckLabel } from "../deck-label";
 import { IFigureChange } from "../models/dataset-changes.model";
 import Typography from "@mui/joy/Typography";
+import { ColorPaletteProp } from "@mui/joy/styles/types";
+
+import * as fromUtils from "../utils";
 
 export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   name = null,
@@ -86,6 +89,10 @@ interface IFigureChangeProps {
 }
 
 export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCell = () => {} }) => {
+  const isNameChanged = fromUtils.isValueDifferent(change.initialName, change.finalName);
+  const isValueChanged = fromUtils.isValueDifferent(change.initialValue, change.finalValue);
+  const nameColor: ColorPaletteProp = isNameChanged ? "warning" : "neutral";
+  const valueColor: ColorPaletteProp = isValueChanged ? "warning" : "neutral";
   return (
     <Box sx={horizontalBoxStyle}>
       <Typography sx={cellStyle} onMouseEnter={() => onSelectCell(change.cell)}>
@@ -96,6 +103,8 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
           ...horizontalBoxStyle,
           alignItems: "center",
           flex: 1,
+          gap: 1,
+          my: 0.5,
         }}
       >
         <Box
@@ -105,8 +114,12 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
             alignItems: "flex-end",
           }}
         >
-          <Typography sx={figureValuesStyle}>{change.initialValue}</Typography>
-          <Typography sx={figureNameStyle}>{change.initialName}</Typography>
+          <Typography sx={figureValuesStyle} color="neutral">
+            {change.initialValue}
+          </Typography>
+          <Typography sx={figureNameStyle} color="neutral">
+            {change.initialName}
+          </Typography>
         </Box>
         <DoubleArrowRounded color="warning" />
         <Box
@@ -116,8 +129,12 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
             alignItems: "flex-start",
           }}
         >
-          <Typography sx={figureValuesStyle}>{change.finalValue}</Typography>
-          <Typography sx={figureNameStyle}>{change.finalName}</Typography>
+          <Typography sx={figureValuesStyle} color={valueColor}>
+            {change.finalValue}
+          </Typography>
+          <Typography sx={figureNameStyle} color={nameColor}>
+            {change.finalName}
+          </Typography>
         </Box>
       </Box>
     </Box>

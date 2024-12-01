@@ -4,6 +4,9 @@ import { DeckDatasetWidget } from "./deck-dataset-widget.component";
 export default {
   title: "Pages/Home/DeckDatasetWidget",
   component: DeckDatasetWidget,
+  argTypes: {
+    onSelectCell: { action: "onSelectCell" },
+  },
 } as Meta<typeof DeckDatasetWidget>;
 
 const Template: StoryFn<typeof DeckDatasetWidget> = (args) => <DeckDatasetWidget {...args} />;
