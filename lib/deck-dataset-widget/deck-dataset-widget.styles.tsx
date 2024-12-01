@@ -29,6 +29,7 @@ export const contentStyle: SxProps = {
   display: "flex",
   flexDirection: "column",
   maxHeight: "calc(2.25rem * 4)",
+  overflowY: "auto",
 };
 
 export const itemStyle: SxProps = {

@@ -106,7 +106,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
           {!hasChanges && <DeckIconButton variant="plain" icon={<ChevronRightRounded />} />}
         </AccordionSummary>
         <AccordionDetails>
-          <Box sx={contentStyle}>
+          <Box sx={contentStyle} className="small-scroll">
             {Object.keys(changes).map((key) => {
               const change = changes[key];
               return <FigureChange key={change.id} change={change} onSelectCell={onSelectCell} />;
