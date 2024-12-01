@@ -15,8 +15,8 @@ import { DeckDatasetDataSubcategoryProps } from "./deck-dataset-data-subcategory
 
 export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProps> = ({
   groupName,
-  items,
-  type,
+  items = {},
+  type = "excel-matrix",
   shapes = {},
   apiChanges = {},
   userChanges = {},
@@ -28,10 +28,11 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   hasActions = false,
   disabled = false,
   loading = false,
-  onAddShape,
-  onResetShapes,
-  onSettings,
-  onSyncShapes,
+  defaultStatus = 0,
+  onAddShape = () => {},
+  onResetShapes = () => {},
+  onSettings = () => {},
+  onSyncShapes = () => {},
 }) => {
   const groupClassName = "deck-dataset-data-subcategory";
   const [open, setOpen] = React.useState(false);
@@ -40,7 +41,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   const hasApiChanges = Object.keys(apiChanges).length > 0;
   const hasUserChanges = Object.keys(userChanges).length > 0;
 
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 

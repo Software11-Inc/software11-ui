@@ -8,7 +8,7 @@ import { dataColumn } from "./deck-dataset-data.styles";
 import { DeckDatasetDataProps } from "./deck-dataset-data.types";
 
 export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
-  data,
+  data = {},
   shapes = {},
   apiChanges = {},
   userChanges = {},
@@ -19,13 +19,14 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   hasStatus = false,
   level = 0,
   size = "sm",
+  defaultStatus = 0,
   disabled = false,
   loading = false,
   hasSelectedShapes = false,
-  onAddShape,
-  onResetShapes,
-  onSettings,
-  onSyncShapes,
+  onAddShape = () => {},
+  onResetShapes = () => {},
+  onSettings = () => {},
+  onSyncShapes = () => {},
 }) => {
   const entries = Object.entries(data || {});
   return (
@@ -62,6 +63,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   loading={loading}
                   disabled={disabled}
                   hasSelectedShapes={hasSelectedShapes}
+                  defaultStatus={defaultStatus}
                 />
               );
             }
@@ -96,6 +98,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   figureLoadingIDs={groupLoadingIDs}
                   loading={loading}
                   disabled={disabled}
+                  defaultStatus={defaultStatus}
                 />
               );
             }

@@ -31,6 +31,7 @@ export interface IDataCommonProps {
   loading?: boolean; // Optional flag indicating if data is loading
   disabled?: boolean; // Optional flag indicating if data is disabled
   hasSelectedShapes?: boolean; // Optional flag indicating if selected shapes are available
+  defaultStatus?: number; // Optional default status
 }
 
 /**
@@ -38,11 +39,12 @@ export interface IDataCommonProps {
  * Includes dataset type, shape maps for figures, and event handlers for shape management.
  */
 export interface IDataGroupCommonProps extends IDataCommonProps {
-  type: DatasetType; // Type of the dataset
-  shapes: FigureShapeMap; // Map of figure shapes
-  apiChanges: ShapeChangeMap; // Map of changes from the API
-  userChanges: ShapeChangeMap; // Map of changes made by the user
+  type?: DatasetType; // Type of the dataset
+  shapes?: FigureShapeMap; // Map of figure shapes
+  apiChanges?: ShapeChangeMap; // Map of changes from the API
+  userChanges?: ShapeChangeMap; // Map of changes made by the user
   figureLoadingIDs?: string[]; // Optional list of figure IDs that are loading
+  defaultStatus?: number;
 
   onAddShape?: (figureID: string) => void; // Optional handler for adding a shape
   onResetShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for resetting shapes

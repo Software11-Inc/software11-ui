@@ -13,8 +13,8 @@ import { DeckDatasetDataGroupProps } from "./deck-dataset-data-group.types";
 
 export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   groupName,
-  items,
-  type,
+  items = [],
+  type = "excel-table",
   hasActions = false,
   hasStatus = false,
   level = 0,
@@ -27,6 +27,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   loading = false,
   figureLoadingIDs = [],
   hasSelectedShapes = false,
+  defaultStatus = 0,
   onAddShape,
   onResetShapes,
   onSyncShapes,
@@ -37,7 +38,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const hasShapes = Object.keys(shapes).length > 0;
   const hasApiChanges = Object.keys(apiChanges).length > 0;
   const hasUserChanges = Object.keys(userChanges).length > 0;
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 
@@ -117,6 +118,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}
                   onSettings={createHandler(onSettings, item)}
                   hasSelectedShapes={hasSelectedShapes}
+                  defaultStatus={defaultStatus}
                 />
               );
             })}

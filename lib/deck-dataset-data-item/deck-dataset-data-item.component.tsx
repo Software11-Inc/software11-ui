@@ -13,7 +13,7 @@ import FindReplaceRoundedIcon from "@mui/icons-material/FindReplaceRounded";
 
 export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   figure,
-  type,
+  type = "default",
   shapes = [],
   apiChanges = [],
   userChanges = [],
@@ -25,15 +25,16 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   loading = false,
   disabled = false,
   hasSelectedShapes = false,
-  onAdd,
-  onReset,
-  onSettings,
-  onSync,
+  defaultStatus = 0,
+  onAdd = () => {},
+  onReset = () => {},
+  onSettings = () => {},
+  onSync = () => {},
 }) => {
   const hasShapes = shapes && shapes.length > 0;
   const hasApiChanges = apiChanges && apiChanges.length > 0;
   const hasUserChanges = userChanges && userChanges.length > 0;
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
   const figureClassName = [
     className,
@@ -72,12 +73,12 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
 };
 
 export const DataItem: React.FC<{
-  item: IFigure;
-  type: DatasetType;
-  size: Size;
+  item?: IFigure;
+  type?: DatasetType;
+  size?: Size;
   hasUserChanges?: boolean;
   hasApiChanges?: boolean;
-}> = ({ item, type, size, hasApiChanges, hasUserChanges }) => {
+}> = ({ item = null, type = "default", size = "sm", hasApiChanges = false, hasUserChanges = false }) => {
   const props = { ...{ size, hasApiChanges, hasUserChanges } } as any;
   switch (type) {
     case "default":
@@ -92,11 +93,11 @@ export const DataItem: React.FC<{
 };
 
 export const DeckDatasetDataDefaultItem: React.FC<{
-  item: IDefaultFigure;
-  size: Size;
+  item?: IDefaultFigure;
+  size?: Size;
   hasUserChanges?: boolean;
   hasApiChanges?: boolean;
-}> = ({ item, size, hasApiChanges, hasUserChanges }) => {
+}> = ({ item = null, size = "sm", hasApiChanges = false, hasUserChanges = false }) => {
   return (
     <React.Fragment>
       <DeckLabel
@@ -117,16 +118,16 @@ export const DeckDatasetDataDefaultItem: React.FC<{
 };
 
 export const DeckDatasetDataExcelItem: React.FC<{
-  item: ITableFigure;
-  size: Size;
+  item?: ITableFigure;
+  size?: Size;
   hasUserChanges?: boolean;
   hasApiChanges?: boolean;
-}> = ({ item, size, hasApiChanges, hasUserChanges }) => {
+}> = ({ item = null, size = "sm", hasApiChanges = false, hasUserChanges = false }) => {
   const value =
     item?.figure?.value && String(item?.figure?.value).length
       ? item.figure.value
       : `Cell ${item?.figure?.cell} is empty`;
-  const name = item?.name?.value && String(item?.name?.value).length ? item.name.value : item.name.cell;
+  const name = item?.name?.value && String(item?.name?.value).length ? item.name.value : item?.name?.cell;
   return (
     <React.Fragment>
       <DeckLabel
@@ -152,10 +153,10 @@ export const DeckDatasetDataItemActions: React.FC<{
   hasUserChanges?: boolean;
   loading?: boolean;
   disabled?: boolean;
-  onAdd: () => void;
-  onReset: () => void;
-  onSettings: () => void;
-  onSync: () => void;
+  onAdd?: () => void;
+  onReset?: () => void;
+  onSettings?: () => void;
+  onSync?: () => void;
   hasSelectedShapes?: boolean;
 }> = ({
   hasShapes,
@@ -164,10 +165,10 @@ export const DeckDatasetDataItemActions: React.FC<{
   loading = false,
   disabled = false,
   hasSelectedShapes = false,
-  onAdd,
-  onReset,
-  onSettings,
-  onSync,
+  onAdd = () => {},
+  onReset = () => {},
+  onSettings = () => {},
+  onSync = () => {},
 }) => {
   const hasChanges = hasApiChanges || hasUserChanges;
   return (
