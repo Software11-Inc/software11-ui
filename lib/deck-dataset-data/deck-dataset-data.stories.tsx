@@ -20,6 +20,9 @@ export default {
   loading: {
     control: { type: "boolean" },
   },
+  defaultStatus: {
+    control: { type: "number" },
+  },
 } as Meta<typeof DeckDatasetData>;
 
 export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
@@ -348,6 +351,7 @@ Default.args = {
   onResetShapes: (figureID: string, shapeIDs: string[]) => console.log("Reset shapes", figureID, shapeIDs),
   onSyncShapes: (figureID: string, shapeIDs: string[]) => console.log("Sync shapes", figureID, shapeIDs),
   onSettings: (figure: ITableFigure) => console.log("Open settings", figure),
+  defaultStatus: 0,
 };
 
 export const Matrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;

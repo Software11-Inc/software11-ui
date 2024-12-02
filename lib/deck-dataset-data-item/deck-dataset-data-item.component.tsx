@@ -25,7 +25,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   loading = false,
   disabled = false,
   hasSelectedShapes = false,
-  defaultStatus = 0,
+  defaultStatus = -1,
   onAdd = () => {},
   onReset = () => {},
   onSettings = () => {},
@@ -34,7 +34,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   const hasShapes = shapes && shapes.length > 0;
   const hasApiChanges = apiChanges && apiChanges.length > 0;
   const hasUserChanges = userChanges && userChanges.length > 0;
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
   const figureClassName = [
     className,

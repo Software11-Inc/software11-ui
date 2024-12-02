@@ -28,7 +28,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   hasActions = false,
   disabled = false,
   loading = false,
-  defaultStatus = 0,
+  defaultStatus = -1,
   onAddShape = () => {},
   onResetShapes = () => {},
   onSettings = () => {},
@@ -41,7 +41,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   const hasApiChanges = Object.keys(apiChanges).length > 0;
   const hasUserChanges = Object.keys(userChanges).length > 0;
 
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 

@@ -27,7 +27,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   loading = false,
   figureLoadingIDs = [],
   hasSelectedShapes = false,
-  defaultStatus = 0,
+  defaultStatus = -1,
   onAddShape,
   onResetShapes,
   onSyncShapes,
@@ -38,7 +38,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const hasShapes = Object.keys(shapes).length > 0;
   const hasApiChanges = Object.keys(apiChanges).length > 0;
   const hasUserChanges = Object.keys(userChanges).length > 0;
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : defaultStatus) : -1;
+  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
 
