@@ -43,7 +43,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
 
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
-  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
+  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : defaultStatus;
 
   const accordionSummarySlotProps = {
     button: {
