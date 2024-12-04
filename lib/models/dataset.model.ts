@@ -75,3 +75,44 @@ export interface ITableDataset extends IDefaultItem, IMetaDataset {
  * allowing for a flexible data structure that can accommodate various types of datasets.
  */
 export type Dataset = IDefaultDataset & ITableDataset;
+
+export interface ICell {
+  column: string;
+  row: number;
+}
+
+export interface ITableColumn {
+  cell: ICell;
+  value: string;
+}
+
+export type SheetID = string;
+export type DatasetID = string;
+
+export interface IDataConnection {
+  range: string;
+  containerID: string;
+  values: Array<Array<string>>;
+  type: DatasetType;
+  primaryColumn?: ITableColumn;
+  secondaryColumn?: ITableColumn;
+}
+
+export type DataConnections = Record<DatasetID, IDataConnection>;
+export type DatasetMapping = Record<SheetID, DataConnections>;
+
+export interface IAddDataset {
+  sheetID: SheetID;
+  datasetID: DatasetID;
+  range: string;
+  containerID: string;
+  values: Array<Array<string>>;
+  type: DatasetType;
+  primaryColumn?: ITableColumn;
+  secondaryColumn?: ITableColumn;
+}
+
+export interface IRemoveDataset {
+  sheetID: SheetID;
+  datasetID: DatasetID;
+}
