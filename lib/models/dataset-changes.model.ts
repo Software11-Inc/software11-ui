@@ -1,3 +1,4 @@
+import { DatasetID } from "./dataset.model";
 import { IDate } from "./date.model";
 import { IUser } from "./user.model";
 
@@ -35,4 +36,8 @@ export interface IDatasetChanges {
   [key: string]: IDatasetChange; // Map of dataset changes, keyed by an identifier
 }
 
-export type DatasetFigureChangeMap = Record<string, IFigureChange>;
+type FigureID = string;
+
+export type DatasetFigureChangeMap = Record<FigureID, IFigureChange>;
+
+export type DatasetChangeMap = Record<DatasetID, DatasetFigureChangeMap>;
