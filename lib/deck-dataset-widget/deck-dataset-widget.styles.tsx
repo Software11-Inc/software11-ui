@@ -120,7 +120,7 @@ export const cellStyle: SxProps = {
   fontWeight: "bold",
   color: "warning.200",
   minHeight: "2rem",
-  mr: 1,
+  pr: 1,
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
@@ -130,7 +130,7 @@ export const cellStyle: SxProps = {
     cursor: "pointer",
   },
 
-  width: "4rem",
+  width: "3rem",
 };
 
 export const figureValuesStyle: SxProps = {
