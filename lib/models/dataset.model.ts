@@ -116,3 +116,9 @@ export interface IRemoveDataset {
   sheetID: SheetID;
   datasetID: DatasetID;
 }
+
+interface IBindingContext {
+  datasetID: string;
+  sheetID: string;
+  range: string;
+}
