@@ -52,6 +52,6 @@ export interface IFigureUserChange {
 export type FigureUserChangeMap = Record<FigureID, IFigureUserChange>;
 export type DatasetUserChangeMap = Record<DatasetID, FigureUserChangeMap>;
 
-export interface DatasetUpdateFigure extends ITableFigure {
+export interface IDatasetUpdateFigure extends ITableFigure {
   id: string;
 }
