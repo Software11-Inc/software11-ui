@@ -14,7 +14,7 @@ import { DeckIconButton } from "../deck-icon-button";
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
-export const DatasetIcon: React.FC<{ type: DatasetType }> = ({ type }) => {
+export const DatasetIcon: React.FC<{ type?: DatasetType }> = ({ type }) => {
   switch (type) {
     case "default":
     case "excel-default":

@@ -71,6 +71,7 @@ export * from "./deck-template-shape-itterator";
 export * from "./deck-template-shape-name";
 export * from "./deck-template-shape-value";
 export * from "./deck-template-tour";
+export * from "./deck-template";
 
 export * from "@models";
 
