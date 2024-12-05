@@ -5,7 +5,7 @@ export interface DeckDatasetDataItemProps extends IDataCommonProps {
   shapes?: IDynamicShape[];
   shapeApiChanges?: IShapeChange[];
   shapeUserChanges?: IShapeChange[];
-  figureUserChange: IFigureUserChange;
+  figureUserChange?: IFigureUserChange;
   type?: DatasetType;
   onAdd?: () => void;
   onReset?: () => void;
