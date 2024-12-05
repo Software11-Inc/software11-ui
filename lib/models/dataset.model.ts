@@ -108,10 +108,10 @@ export interface IAddDataset {
   datasetID: DatasetID;
   range: string;
   containerID: string;
-  values: Array<Array<string>>;
   type: DatasetType;
   primaryColumn?: ITableColumn;
   secondaryColumn?: ITableColumn;
+  direction?: RangeDirection;
 }
 
 export interface IRemoveDataset {
