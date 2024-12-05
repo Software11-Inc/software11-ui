@@ -24,6 +24,9 @@ export const isValueEqual = (a: string, b: string) => {
   return String(a) === String(b);
 };
 
-export const isValueDifferent = (prev: string, curr: string) => {
+export const isValueDifferent = (prev?: string, curr?: string) => {
+  if (!prev && !curr) {
+    return false;
+  }
   return String(prev).trim() !== String(curr).trim();
 };

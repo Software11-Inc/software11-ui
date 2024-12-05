@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetWidget } from "./deck-dataset-widget.component";
+import { FigureUserChangeMap } from "../models/dataset-changes.model";
 
 export default {
   title: "Pages/Home/DeckDatasetWidget",
@@ -42,95 +43,104 @@ Default.args = {
 
 export const Changed = Template.bind({});
 
-Changed.args = {
-  changes: {
-    "figure-1": {
-      id: "figure-1",
-      cell: "A1",
-      initialValue: "100",
-      initialName: "Figure 1",
-      finalValue: "200",
-      finalName: "Figure 1",
+const mockChanges: FigureUserChangeMap = {
+  figure1: {
+    id: "figure1",
+    old: {
+      id: "figure1",
+      name: {
+        cell: "A1",
+        value: "Old Name 1",
+      },
+      figure: {
+        cell: "B1",
+        value: "100",
+      },
+      groupName: "Group 1",
+      isGroupName: true,
+      subgroupName: "Subgroup A",
+      isSubgroupName: false,
     },
-    "figure-2": {
-      id: "figure-2",
-      cell: "B123",
-      initialValue: "200",
-      initialName: "Figure 2",
-      finalValue: "300",
-      finalName: "Figure 2",
-    },
-    "figure-3": {
-      id: "figure-3",
-      cell: "C1",
-      initialValue: "300",
-      initialName: "Figure 3",
-      finalValue: "400",
-      finalName: "Figure 3",
-    },
-    "figure-4": {
-      id: "figure-4",
-      cell: "D1",
-      initialValue: "400",
-      initialName: "Figure 4",
-      finalValue: "500",
-      finalName: "Figure 4",
-    },
-    "figure-5": {
-      id: "figure-5",
-      cell: "E1",
-      initialValue: "500",
-      initialName: "Figure 5",
-      finalValue: "600",
-      finalName: "Figure 5",
-    },
-    "figure-6": {
-      id: "figure-6",
-      cell: "F1",
-      initialValue: "600",
-      initialName: "Figure 6",
-      finalValue: "700",
-      finalName: "Figure 6",
-    },
-    "figure-7": {
-      id: "figure-7",
-      cell: "G1",
-      initialValue: "700",
-      initialName: "Figure 7",
-      finalValue: "800",
-      finalName: "Figure 7",
-    },
-    "figure-8": {
-      id: "figure-8",
-      cell: "H1",
-      initialValue: "800",
-      initialName: "Figure 8",
-      finalValue: "900",
-      finalName: "Figure 8",
-    },
-    "figure-9": {
-      id: "figure-9",
-      cell: "I1",
-      initialValue: "900",
-      initialName: "Figure 9",
-      finalValue: "1000",
-      finalName: "Figure 9",
-    },
-    "figure-10": {
-      id: "figure-10",
-      cell: "J1",
-      initialValue: "1000",
-      initialName: "Figure 10",
-      finalValue: "1100",
-      finalName: "Figure 10",
-    },
-    "figure-11": {
-      id: "figure-11",
-      cell: "K1",
-      initialValue: "1100",
-      initialName: "Figure 11",
-      finalValue: "1200",
-      finalName: "Figure 11",
+    new: {
+      id: "figure1",
+      name: {
+        cell: "A1",
+        value: "New Name 1",
+      },
+      figure: {
+        cell: "B1",
+        value: "150",
+      },
+      groupName: "Group 1",
+      isGroupName: true,
+      subgroupName: "Subgroup A",
+      isSubgroupName: false,
     },
   },
+  figure2: {
+    id: "figure2",
+    old: {
+      id: "figure2",
+      name: {
+        cell: "A2",
+        value: "Old Name 2",
+      },
+      figure: {
+        cell: "B2",
+        value: "200",
+      },
+      groupName: "Group 2",
+      isGroupName: false,
+      subgroupName: "Subgroup B",
+      isSubgroupName: true,
+    },
+    new: {
+      id: "figure2",
+      name: {
+        cell: "A2",
+        value: "Old Name 2",
+      },
+      figure: {
+        cell: "B2",
+        value: "250",
+      },
+      groupName: "Group 2",
+      isGroupName: false,
+      subgroupName: "Subgroup B",
+      isSubgroupName: true,
+    },
+  },
+  figure3: {
+    id: "figure3",
+    old: {
+      id: "figure3",
+      name: {
+        cell: "A3",
+        value: "Old Name 3",
+      },
+      figure: {
+        cell: "B3",
+        value: "300",
+      },
+      groupName: "Group 3",
+      isGroupName: false,
+    },
+    new: {
+      id: "figure3",
+      name: {
+        cell: "A3",
+        value: "New Name 3",
+      },
+      figure: {
+        cell: "B3",
+        value: "300",
+      },
+      groupName: "Group 3",
+      isGroupName: false,
+    },
+  },
+};
+
+Changed.args = {
+  changes: mockChanges,
 };

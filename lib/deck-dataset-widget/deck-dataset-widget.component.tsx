@@ -19,7 +19,7 @@ import {
 import Box from "@mui/joy/Box";
 import { DeckStatus } from "../deck-status";
 import { DeckLabel } from "../deck-label";
-import { IFigureChange } from "../models/dataset-changes.model";
+import { IFigureUserChange } from "../models/dataset-changes.model";
 import Typography from "@mui/joy/Typography";
 import { ColorPaletteProp } from "@mui/joy/styles/types";
 
@@ -120,19 +120,28 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
 };
 
 interface IFigureChangeProps {
-  change: IFigureChange;
+  change: IFigureUserChange;
   onSelectCell: (cell: string) => void;
 }
 
 export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCell = () => {} }) => {
-  const isNameChanged = fromUtils.isValueDifferent(change.initialName, change.finalName);
-  const isValueChanged = fromUtils.isValueDifferent(change.initialValue, change.finalValue);
+  const oldNameValue = change.old.name.value;
+  const newNameValue = change.new.name.value;
+  const oldFigureValue = change.old.figure.value;
+  const newFigureValue = change.new.figure.value;
+
+  const isNameChanged = fromUtils.isValueDifferent(oldNameValue, newNameValue);
+  const isValueChanged = fromUtils.isValueDifferent(oldFigureValue, newFigureValue);
+
   const nameColor: ColorPaletteProp = isNameChanged ? "warning" : "neutral";
   const valueColor: ColorPaletteProp = isValueChanged ? "warning" : "neutral";
+
+  const cell = change.new.figure.cell || change.old.figure.cell || change.new.name.cell || change.old.name.cell || "";
+
   return (
     <Box sx={horizontalBoxStyle}>
-      <Typography sx={cellStyle} onMouseEnter={() => onSelectCell(change.cell)}>
-        {change.cell}
+      <Typography sx={cellStyle} onMouseEnter={() => onSelectCell(cell)}>
+        {cell}
       </Typography>
       <Box
         sx={{
@@ -150,10 +159,10 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
           }}
         >
           <Typography sx={figureValuesStyle} color="neutral">
-            {change.initialValue}
+            {oldFigureValue}
           </Typography>
           <Typography sx={figureNameStyle} color="neutral">
-            {change.initialName}
+            {oldNameValue}
           </Typography>
         </Box>
         <DoubleArrowRounded color="warning" />
@@ -165,10 +174,10 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
           }}
         >
           <Typography sx={figureValuesStyle} color={valueColor}>
-            {change.finalValue}
+            {newFigureValue}
           </Typography>
           <Typography sx={figureNameStyle} color={nameColor}>
-            {change.finalName}
+            {newNameValue}
           </Typography>
         </Box>
       </Box>
