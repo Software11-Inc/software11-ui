@@ -1,4 +1,4 @@
-import { IDynamicShape, IShapeChange, ITableFigure } from "@models";
+import { IDynamicShape, IFigureUserChange, IShapeChange, ITableFigure } from "@models";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionGroup from "@mui/joy/AccordionGroup";
@@ -20,6 +20,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   shapes = {},
   shapeApiChanges = {},
   shapeUserChanges = {},
+  figureUserChanges = {},
   figureLoadingIDs = [],
   compact = false,
   level = 0,
@@ -33,12 +34,13 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   onResetShapes = () => {},
   onSettings = () => {},
   onSyncShapes = () => {},
+  onSelectCell = () => {},
 }) => {
   const groupClassName = "deck-dataset-data-subcategory";
   const [open, setOpen] = React.useState(false);
 
-  const hasShapes = Object.keys(shapes).length > 0;
-  const hasApiChanges = Object.keys(shapeApiChanges).length > 0;
+  const hasShapes = Object.keys(shapes).length > 0 || defaultStatus === 0;
+  const hasApiChanges = Object.keys(shapeApiChanges).length > 0 || Object.keys(figureUserChanges).length > 0;
   const hasUserChanges = Object.keys(shapeUserChanges).length > 0;
 
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
@@ -88,8 +90,10 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
               {entites.map(([subcategoryName, subcategoryItems]) => {
                 const figureIDs = subcategoryItems.map((item: ITableFigure) => String(item?.id));
                 const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-                const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
-                const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+                const groupShapeApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+                const groupShapeUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+                const groupFigureUserChanges = createGroupMap<IFigureUserChange>(figureIDs, figureUserChanges);
+
                 const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
                 return (
                   <DeckDatasetDataGroup
@@ -102,8 +106,9 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     hasStatus={hasStatus}
                     level={level + 1}
                     size={size}
-                    shapeApiChanges={groupApiChanges}
-                    shapeUserChanges={groupUserChanges}
+                    shapeApiChanges={groupShapeApiChanges}
+                    shapeUserChanges={groupShapeUserChanges}
+                    figureUserChanges={groupFigureUserChanges}
                     shapes={groupShapes}
                     loading={loading}
                     figureLoadingIDs={groupLoadingIDs}
@@ -113,6 +118,7 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     onResetShapes={onResetShapes}
                     onSyncShapes={onSyncShapes}
                     onSettings={onSettings}
+                    onSelectCell={onSelectCell}
                   />
                 );
               })}

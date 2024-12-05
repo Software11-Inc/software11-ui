@@ -34,7 +34,6 @@ export const Default: StoryFn<typeof DeckAlphabeticalView<ExampleItem>> = (args)
 
   const triggerUpdateHeights = () => {
     if (deckViewRef.current) {
-      console.log("updateHeights");
       deckViewRef.current.updateHeights();
     }
   };

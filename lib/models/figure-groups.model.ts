@@ -1,4 +1,5 @@
 import { Size } from "./common.model";
+import { FigureUserChangeMap } from "./dataset-changes.model";
 import { DatasetType } from "./dataset.model";
 import { ITableFigure } from "./figure.model";
 import { FigureShapeMap, ShapeChangeMap } from "./shape.model";
@@ -43,6 +44,7 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   shapes?: FigureShapeMap; // Map of figure shapes
   shapeApiChanges?: ShapeChangeMap; // Map of changes from the API
   shapeUserChanges?: ShapeChangeMap; // Map of changes made by the user
+  figureUserChanges?: FigureUserChangeMap; // Map of changes made by the user
   figureLoadingIDs?: string[]; // Optional list of figure IDs that are loading
   defaultStatus?: number;
 
@@ -50,5 +52,6 @@ export interface IDataGroupCommonProps extends IDataCommonProps {
   onResetShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for resetting shapes
   onSyncShapes?: (figureID: string, shapeIDs: string[]) => void; // Optional handler for syncing shapes
   onSettings?: (figure: ITableFigure) => void; // Optional handler for accessing settings
+  onSelectCell?: (cell: string) => void; // Optional handler for selecting a cell
   hasSelectedShapes?: boolean; // Optional flag indicating if selected shapes are available
 }

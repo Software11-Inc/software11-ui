@@ -23,6 +23,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   shapes = {},
   shapeApiChanges = {},
   shapeUserChanges = {},
+  figureUserChanges = {},
   disabled = false,
   loading = false,
   figureLoadingIDs = [],
@@ -32,11 +33,12 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   onResetShapes,
   onSyncShapes,
   onSettings,
+  onSelectCell,
 }) => {
   const groupClassName = "deck-dataset-data-group";
   const [open, setOpen] = React.useState(false);
-  const hasShapes = Object.keys(shapes).length > 0;
-  const hasApiChanges = Object.keys(shapeApiChanges).length > 0;
+  const hasShapes = Object.keys(shapes).length > 0 || defaultStatus === 0;
+  const hasApiChanges = Object.keys(shapeApiChanges).length > 0 || Object.keys(figureUserChanges).length > 0;
   const hasUserChanges = Object.keys(shapeUserChanges).length > 0;
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
@@ -84,12 +86,13 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
             {items.map((item) => {
               if (!item || !item?.id) return null;
               const figureShapes = shapes[item.id] || [];
-              const figureApiChanges = shapeApiChanges[item.id] || [];
-              const figureUserChanges = shapeUserChanges[item.id] || [];
+              const figureShapeApiChanges = shapeApiChanges[item.id] || [];
+              const figureShapeUserChanges = shapeUserChanges[item.id] || [];
+              const figureUserChange = figureUserChanges[item.id] || null;
 
               const ID = String(item.id);
-              const apiShapeIDs = figureApiChanges.map((change) => change.shapeID);
-              const userShapeIDs = figureUserChanges.map((change) => change.shapeID);
+              const apiShapeIDs = figureShapeApiChanges.map((change) => change.shapeID);
+              const userShapeIDs = figureShapeUserChanges.map((change) => change.shapeID);
 
               const isLoading = figureLoadingIDs.includes(ID) || loading;
 
@@ -106,8 +109,9 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   key={ID}
                   figure={item}
                   shapes={figureShapes}
-                  shapeApiChanges={figureApiChanges}
-                  shapeUserChanges={figureUserChanges}
+                  shapeApiChanges={figureShapeApiChanges}
+                  shapeUserChanges={figureShapeUserChanges}
+                  figureUserChange={figureUserChange}
                   type={type}
                   compact={true}
                   {...{ hasActions, hasStatus, level: level + 1, size }}
@@ -117,6 +121,7 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   onReset={createHandler(onResetShapes, ID, userShapeIDs)}
                   onSync={createHandler(onSyncShapes, ID, apiShapeIDs)}
                   onSettings={createHandler(onSettings, item)}
+                  onSelectCell={onSelectCell}
                   hasSelectedShapes={hasSelectedShapes}
                   defaultStatus={defaultStatus}
                 />

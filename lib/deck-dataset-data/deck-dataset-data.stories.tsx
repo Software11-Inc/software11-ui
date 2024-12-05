@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { ITableFigure } from "../models/figure.model";
 import { DeckDatasetData } from "./deck-dataset-data.component";
+import { FigureUserChangeMap } from "../models/dataset-changes.model";
 
 export default {
   title: "Powerpoint/Dataset Details/Data",
@@ -16,6 +17,9 @@ export default {
   },
   onSettings: {
     action: "open-settings",
+  },
+  onSelectCell: {
+    action: "select-cell",
   },
   loading: {
     control: { type: "boolean" },
@@ -685,6 +689,74 @@ export const ExcelMatrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatas
 
 ExcelMatrix.storyName = "Excel | Excel Matrix";
 
+const figureUserChangeMap: FigureUserChangeMap = {
+  "figure-2": {
+    id: "figure-2",
+    old: {
+      id: "figure-2",
+      name: { cell: "A2", value: "Name 2" },
+      figure: { cell: "B2", value: "Value 2" },
+    },
+    new: {
+      id: "figure-2",
+      name: { cell: "A2", value: "Updated Name 2" },
+      figure: { cell: "B2", value: "Updated Value 2" },
+    },
+  },
+  "figure-5": {
+    id: "figure-5",
+    old: {
+      id: "figure-5",
+      name: { cell: "A5", value: "Name 5" },
+      figure: { cell: "B5", value: "Value 5" },
+    },
+    new: {
+      id: "figure-5",
+      name: { cell: "A5", value: "Name 5" },
+      figure: { cell: "B5", value: "Updated Value 5" },
+    },
+  },
+  "figure-9": {
+    id: "figure-9",
+    old: {
+      id: "figure-9",
+      name: { cell: "A9", value: "Name 9" },
+      figure: { cell: "B9", value: "Value 9" },
+    },
+    new: {
+      id: "figure-9",
+      name: { cell: "A9", value: "Updated Name 9" },
+      figure: { cell: "B9", value: "Value 9" },
+    },
+  },
+  "figure-12": {
+    id: "figure-12",
+    old: {
+      id: "figure-12",
+      name: { cell: "A12", value: "Name 12" },
+      figure: { cell: "B12", value: "Value 12" },
+    },
+    new: {
+      id: "figure-12",
+      name: { cell: "A12", value: "Updated Name 12" },
+      figure: { cell: "B12", value: "Updated Value 12" },
+    },
+  },
+  "figure-15": {
+    id: "figure-15",
+    old: {
+      id: "figure-15",
+      name: { cell: "A15", value: "Name 15" },
+      figure: { cell: "B15", value: "Value 15" },
+    },
+    new: {
+      id: "figure-15",
+      name: { cell: "A15", value: "Name 15" },
+      figure: { cell: "B15", value: "Updated Value 15" },
+    },
+  },
+};
+
 ExcelMatrix.args = {
   type: "excel-matrix",
   hasStatus: true,
@@ -871,4 +943,5 @@ ExcelMatrix.args = {
       ],
     },
   },
+  figureUserChanges: figureUserChangeMap,
 };

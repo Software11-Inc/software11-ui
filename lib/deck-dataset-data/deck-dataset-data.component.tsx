@@ -1,4 +1,4 @@
-import { IDynamicShape, IShapeChange, ITableFigure, OnceGroupedTableFigure } from "@models";
+import { IDynamicShape, IFigureUserChange, IShapeChange, ITableFigure, OnceGroupedTableFigure } from "@models";
 import Box from "@mui/joy/Box";
 import * as React from "react";
 import { DeckDatasetDataGroup } from "../deck-dataset-data-group/deck-dataset-data-group.component";
@@ -12,6 +12,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   shapes = {},
   shapeApiChanges = {},
   shapeUserChanges = {},
+  figureUserChanges = {},
   figureLoadingIDs = [],
   compact = false,
   type,
@@ -27,6 +28,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   onResetShapes = () => {},
   onSettings = () => {},
   onSyncShapes = () => {},
+  onSelectCell = () => {},
 }) => {
   const entries = Object.entries(data || {});
   return (
@@ -38,22 +40,25 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
             case "google-sheet-table": {
               const figureIDs = items.map((item: ITableFigure) => item?.id);
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
-              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+              const groupShapeApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+              const groupShapeUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+              const groupFigureUserChanges = createGroupMap<IFigureUserChange>(figureIDs, figureUserChanges);
               const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
               return (
                 <DeckDatasetDataGroup
                   key={groupName}
                   groupName={groupName}
                   items={items}
-                  shapeApiChanges={groupApiChanges}
-                  shapeUserChanges={groupUserChanges}
+                  shapeApiChanges={groupShapeApiChanges}
+                  shapeUserChanges={groupShapeUserChanges}
+                  figureUserChanges={groupFigureUserChanges}
                   shapes={groupShapes}
                   type={type}
                   onAddShape={onAddShape}
                   onResetShapes={onResetShapes}
                   onSettings={onSettings}
                   onSyncShapes={onSyncShapes}
+                  onSelectCell={onSelectCell}
                   compact={compact}
                   hasActions={hasActions}
                   hasStatus={hasStatus}
@@ -73,8 +78,9 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                 .map((item) => String(item.id));
 
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
-              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+              const groupShapeApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+              const groupShapeUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
+              const groupFigureUserChanges = createGroupMap<IFigureUserChange>(figureIDs, figureUserChanges);
               const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
 
               return (
@@ -84,8 +90,9 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   items={items}
                   type={type}
                   shapes={groupShapes}
-                  shapeApiChanges={groupApiChanges}
-                  shapeUserChanges={groupUserChanges}
+                  shapeApiChanges={groupShapeApiChanges}
+                  shapeUserChanges={groupShapeUserChanges}
+                  figureUserChanges={groupFigureUserChanges}
                   hasStatus={hasStatus}
                   hasActions={hasActions}
                   level={level}
@@ -95,6 +102,7 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   onResetShapes={onResetShapes}
                   onSettings={onSettings}
                   onSyncShapes={onSyncShapes}
+                  onSelectCell={onSelectCell}
                   figureLoadingIDs={groupLoadingIDs}
                   loading={loading}
                   disabled={disabled}

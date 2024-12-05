@@ -17,6 +17,7 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   shapes = [],
   shapeApiChanges = [],
   shapeUserChanges = [],
+  figureUserChange = null,
   hasStatus = false,
   hasActions = false,
   compact = false,
@@ -30,33 +31,48 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   onReset = () => {},
   onSettings = () => {},
   onSync = () => {},
+  onSelectCell = () => {},
 }) => {
-  const hasShapes = shapes && shapes.length > 0;
-  const hasApiChanges = shapeApiChanges && shapeApiChanges.length > 0;
-  const hasUserChanges = shapeUserChanges && shapeUserChanges.length > 0;
-  const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
-  const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
+  const hasShapes = (shapes && shapes.length > 0) || defaultStatus === 0;
+  const hasShapeApiChanges = shapeApiChanges && shapeApiChanges.length > 0;
+  const hasFigureUserChanges = figureUserChange !== null;
+  const hasShapeUserChanges = shapeUserChanges && shapeUserChanges.length > 0;
+  const status = hasShapes
+    ? hasShapeUserChanges
+      ? 2
+      : hasShapeApiChanges || hasFigureUserChanges
+        ? 1
+        : 0
+    : defaultStatus;
+  const order = hasShapes ? (hasShapeUserChanges ? -3 : hasShapeApiChanges || hasFigureUserChanges ? -2 : -1) : 0;
   const figureClassName = [
     className,
     hasShapes ? "has-shapes" : "",
-    hasApiChanges ? "has-api-changes" : "",
-    hasUserChanges ? "has-user-changes" : "",
+    hasShapeApiChanges || hasFigureUserChanges ? "has-api-changes" : "",
+    hasShapeUserChanges ? "has-user-changes" : "",
   ]
     .join(" ")
     .trim();
+
+  const figureCell = (figure as ITableFigure)?.figure?.cell;
+
   return (
     <React.Fragment>
-      <Box sx={dataItemStyle(className, loading ? level + 1 : level, size, compact, order)} className={figureClassName}>
+      <Box
+        sx={dataItemStyle(className, loading ? level + 1 : level, size, compact, order)}
+        className={figureClassName}
+        onMouseEnter={() => figureCell && onSelectCell(figureCell)}
+      >
         {hasStatus && <DeckStatus status={status} loading={loading} />}
         <Box sx={columnStyle}>
-          <DataItem item={figure} {...{ type, size, hasApiChanges, hasUserChanges }} />
+          <DataItem item={figure} {...{ type, size, hasShapeUserChanges, hasShapeApiChanges, hasFigureUserChanges }} />
         </Box>
         {hasActions && (
           <DeckDatasetDataItemActions
             {...{
               hasShapes,
-              hasApiChanges,
-              hasUserChanges,
+              hasApiChanges: hasShapeApiChanges,
+              hasUserChanges: hasShapeUserChanges,
               hasSelectedShapes,
               disabled,
               loading,
@@ -76,10 +92,18 @@ export const DataItem: React.FC<{
   item?: IFigure;
   type?: DatasetType;
   size?: Size;
-  hasUserChanges?: boolean;
-  hasApiChanges?: boolean;
-}> = ({ item = null, type = "default", size = "sm", hasApiChanges = false, hasUserChanges = false }) => {
-  const props = { ...{ size, hasApiChanges, hasUserChanges } } as any;
+  hasShapeUserChanges?: boolean;
+  hasShapeApiChanges?: boolean;
+  hasFigureUserChanges?: boolean;
+}> = ({
+  item = null,
+  type = "default",
+  size = "sm",
+  hasShapeApiChanges = false,
+  hasShapeUserChanges = false,
+  hasFigureUserChanges = false,
+}) => {
+  const props = { ...{ size, hasShapeApiChanges, hasShapeUserChanges, hasFigureUserChanges } } as any;
   switch (type) {
     case "default":
       return <DeckDatasetDataDefaultItem item={item as IDefaultFigure} {...props} />;
@@ -95,13 +119,20 @@ export const DataItem: React.FC<{
 export const DeckDatasetDataDefaultItem: React.FC<{
   item?: IDefaultFigure;
   size?: Size;
-  hasUserChanges?: boolean;
-  hasApiChanges?: boolean;
-}> = ({ item = null, size = "sm", hasApiChanges = false, hasUserChanges = false }) => {
+  hasShapeUserChanges?: boolean;
+  hasShapeApiChanges?: boolean;
+  hasFigureUserChanges?: boolean;
+}> = ({
+  item = null,
+  size = "sm",
+  hasShapeApiChanges = false,
+  hasShapeUserChanges = false,
+  hasFigureUserChanges = false,
+}) => {
   return (
     <React.Fragment>
       <DeckLabel
-        color={hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary"}
+        color={hasShapeUserChanges ? "danger" : hasShapeApiChanges || hasFigureUserChanges ? "warning" : "primary"}
         size={size}
         title={{
           text: item?.value as string,
