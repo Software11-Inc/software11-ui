@@ -59,6 +59,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
         ...accordionGroupStyles(className, false, 1, "sm", !loading),
         [`& .${accordionClasses.root}:not(.${accordionClasses.expanded})`]: {
           [`& .${accordionSummaryClasses.button}`]: {
+            gap: 0,
             bgcolor: getBackgroundColor(loading ? 2 : 0) + " !important",
           },
         },
@@ -85,6 +86,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
                   return;
                 }
                 if (!hasChanges) {
+                  onOpen();
                   return;
                 }
                 setOpen(!open);
@@ -93,7 +95,8 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
             indicator: {
               onClick: () => setOpen(!open),
               sx: {
-                display: hasChanges ? "flex" : "none",
+                width: hasChanges ? "auto" : 0,
+                overflow: "hidden",
               },
             },
           }}
@@ -115,7 +118,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
               italic={!hasName}
             />
           </Box>
-          {!hasChanges && <DeckIconButton variant="plain" icon={<ChevronRightRounded />} onClick={onOpen} />}
+          <DeckIconButton variant={hasChanges ? "soft" : "plain"} icon={<ChevronRightRounded />} onClick={onOpen} />
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={contentStyle} className="small-scroll">
@@ -136,10 +139,10 @@ interface IFigureChangeProps {
 }
 
 export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCell = () => {} }) => {
-  const oldNameValue = change.old.name.value;
-  const newNameValue = change.new.name.value;
-  const oldFigureValue = change.old.figure.value;
-  const newFigureValue = change.new.figure.value;
+  const oldNameValue = change?.old?.name?.value;
+  const newNameValue = change?.new?.name?.value;
+  const oldFigureValue = change?.old?.figure?.value;
+  const newFigureValue = change?.new?.figure?.value;
 
   const isNameChanged = fromUtils.isValueDifferent(oldNameValue, newNameValue);
   const isValueChanged = fromUtils.isValueDifferent(oldFigureValue, newFigureValue);
@@ -147,7 +150,8 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
   const nameColor: ColorPaletteProp = isNameChanged ? "warning" : "neutral";
   const valueColor: ColorPaletteProp = isValueChanged ? "warning" : "neutral";
 
-  const cell = change.new.figure.cell || change.old.figure.cell || change.new.name.cell || change.old.name.cell || "";
+  const cell =
+    change?.new?.figure?.cell || change?.old?.figure?.cell || change?.new?.name?.cell || change?.old?.name?.cell || "";
 
   return (
     <Box sx={horizontalBoxStyle}>
