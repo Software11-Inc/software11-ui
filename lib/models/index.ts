@@ -22,4 +22,5 @@ export * from "./sheet.model";
 export * from "./slide.model";
 export * from "./template-shape.model";
 export * from "./template.model";
+export * from "./template-excel.model";
 export * from "./user.model";
