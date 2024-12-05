@@ -3,8 +3,8 @@ import { DatasetType, IDataCommonProps, IDynamicShape, IFigure, IShapeChange } f
 export interface DeckDatasetDataItemProps extends IDataCommonProps {
   figure?: IFigure;
   shapes?: IDynamicShape[];
-  apiChanges?: IShapeChange[];
-  userChanges?: IShapeChange[];
+  shapeApiChanges?: IShapeChange[];
+  shapeUserChanges?: IShapeChange[];
   type?: DatasetType;
   onAdd?: () => void;
   onReset?: () => void;

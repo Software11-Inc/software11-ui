@@ -21,8 +21,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   compact = true,
   size = "sm",
   shapes = {},
-  apiChanges = {},
-  userChanges = {},
+  shapeApiChanges = {},
+  shapeUserChanges = {},
   disabled = false,
   loading = false,
   figureLoadingIDs = [],
@@ -36,8 +36,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   const groupClassName = "deck-dataset-data-group";
   const [open, setOpen] = React.useState(false);
   const hasShapes = Object.keys(shapes).length > 0;
-  const hasApiChanges = Object.keys(apiChanges).length > 0;
-  const hasUserChanges = Object.keys(userChanges).length > 0;
+  const hasApiChanges = Object.keys(shapeApiChanges).length > 0;
+  const hasUserChanges = Object.keys(shapeUserChanges).length > 0;
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
@@ -84,8 +84,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
             {items.map((item) => {
               if (!item || !item?.id) return null;
               const figureShapes = shapes[item.id] || [];
-              const figureApiChanges = apiChanges[item.id] || [];
-              const figureUserChanges = userChanges[item.id] || [];
+              const figureApiChanges = shapeApiChanges[item.id] || [];
+              const figureUserChanges = shapeUserChanges[item.id] || [];
 
               const ID = String(item.id);
               const apiShapeIDs = figureApiChanges.map((change) => change.shapeID);
@@ -106,8 +106,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   key={ID}
                   figure={item}
                   shapes={figureShapes}
-                  apiChanges={figureApiChanges}
-                  userChanges={figureUserChanges}
+                  shapeApiChanges={figureApiChanges}
+                  shapeUserChanges={figureUserChanges}
                   type={type}
                   compact={true}
                   {...{ hasActions, hasStatus, level: level + 1, size }}

@@ -18,8 +18,8 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   items = {},
   type = "excel-matrix",
   shapes = {},
-  apiChanges = {},
-  userChanges = {},
+  shapeApiChanges = {},
+  shapeUserChanges = {},
   figureLoadingIDs = [],
   compact = false,
   level = 0,
@@ -38,8 +38,8 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   const [open, setOpen] = React.useState(false);
 
   const hasShapes = Object.keys(shapes).length > 0;
-  const hasApiChanges = Object.keys(apiChanges).length > 0;
-  const hasUserChanges = Object.keys(userChanges).length > 0;
+  const hasApiChanges = Object.keys(shapeApiChanges).length > 0;
+  const hasUserChanges = Object.keys(shapeUserChanges).length > 0;
 
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const color = hasUserChanges ? "danger" : hasApiChanges ? "warning" : "primary";
@@ -88,8 +88,8 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
               {entites.map(([subcategoryName, subcategoryItems]) => {
                 const figureIDs = subcategoryItems.map((item: ITableFigure) => String(item?.id));
                 const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-                const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
-                const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+                const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+                const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
                 const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
                 return (
                   <DeckDatasetDataGroup
@@ -102,8 +102,8 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     hasStatus={hasStatus}
                     level={level + 1}
                     size={size}
-                    apiChanges={groupApiChanges}
-                    userChanges={groupUserChanges}
+                    shapeApiChanges={groupApiChanges}
+                    shapeUserChanges={groupUserChanges}
                     shapes={groupShapes}
                     loading={loading}
                     figureLoadingIDs={groupLoadingIDs}

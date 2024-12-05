@@ -27,7 +27,7 @@ export default {
 
 export const Default: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
 
-Default.storyName = "Excel Table";
+Default.storyName = "Powerpoint | Excel Table";
 
 Default.args = {
   disabled: false,
@@ -329,7 +329,7 @@ Default.args = {
       },
     ],
   },
-  apiChanges: {
+  shapeApiChanges: {
     "figure-8": [
       {
         shapeID: "shape-8",
@@ -338,7 +338,7 @@ Default.args = {
       },
     ],
   },
-  userChanges: {
+  shapeUserChanges: {
     "figure-12": [
       {
         shapeID: "shape-12",
@@ -356,7 +356,7 @@ Default.args = {
 
 export const Matrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
 
-Matrix.storyName = "Excel Matrix";
+Matrix.storyName = "Powerpoint | Excel Matrix";
 
 Matrix.args = {
   type: "excel-matrix",
@@ -658,7 +658,7 @@ Matrix.args = {
       },
     ],
   },
-  apiChanges: {
+  shapeApiChanges: {
     "figure-8": [
       {
         shapeID: "shape-8",
@@ -667,7 +667,7 @@ Matrix.args = {
       },
     ],
   },
-  userChanges: {
+  shapeUserChanges: {
     "figure-12": [
       {
         shapeID: "shape-12",
@@ -680,4 +680,195 @@ Matrix.args = {
   onResetShapes: (figureID: string, shapeIDs: string[]) => console.log("Reset shapes", figureID, shapeIDs),
   onSyncShapes: (figureID: string, shapeIDs: string[]) => console.log("Sync shapes", figureID, shapeIDs),
   onSettings: (figure: ITableFigure) => console.log("Open settings", figure),
+};
+export const ExcelMatrix: StoryFn<typeof DeckDatasetData> = (args) => <DeckDatasetData {...args} />;
+
+ExcelMatrix.storyName = "Excel | Excel Matrix";
+
+ExcelMatrix.args = {
+  type: "excel-matrix",
+  hasStatus: true,
+  defaultStatus: 0,
+  compact: false,
+  data: {
+    "Group 1": {
+      "Subgroup 1": [
+        {
+          id: "figure-1",
+          name: {
+            cell: "A1",
+            value: "Name 1",
+          },
+          figure: {
+            cell: "B1",
+            value: "Value 1",
+          },
+        },
+        {
+          id: "figure-2",
+          name: {
+            cell: "A2",
+            value: "Name 2",
+          },
+          figure: {
+            cell: "B2",
+            value: "Value 2",
+          },
+        },
+        {
+          id: "figure-3",
+          name: {
+            cell: "A3",
+            value: "Name 3",
+          },
+          figure: {
+            cell: "B3",
+            value: "Value 3",
+          },
+        },
+      ],
+      "Subgroup 2": [
+        {
+          id: "figure-4",
+          name: {
+            cell: "A4",
+            value: "Name 4",
+          },
+          figure: {
+            cell: "B4",
+            value: "Value 4",
+          },
+        },
+        {
+          id: "figure-5",
+          name: {
+            cell: "A5",
+            value: "Name 5",
+          },
+          figure: {
+            cell: "B5",
+            value: "Value 5",
+          },
+        },
+        {
+          id: "figure-6",
+          name: {
+            cell: "A6",
+            value: "Name 6",
+          },
+          figure: {
+            cell: "B6",
+            value: "Value 6",
+          },
+        },
+      ],
+    },
+    "Group 2": {
+      "Subgroup 1": [
+        {
+          id: "figure-7",
+          name: {
+            cell: "A7",
+            value: "Name 7",
+          },
+          figure: {
+            cell: "B7",
+            value: "Value 7",
+          },
+        },
+        {
+          id: "figure-8",
+          name: {
+            cell: "A8",
+            value: "Name 8",
+          },
+          figure: {
+            cell: "B8",
+            value: "Value 8",
+          },
+        },
+        {
+          id: "figure-9",
+          name: {
+            cell: "A9",
+            value: "Name 9",
+          },
+          figure: {
+            cell: "B9",
+            value: "Value 9",
+          },
+        },
+      ],
+      "Subgroup 2": [
+        {
+          id: "figure-10",
+          name: {
+            cell: "A10",
+            value: "Name 10",
+          },
+          figure: {
+            cell: "B10",
+            value: "Value 10",
+          },
+        },
+        {
+          id: "figure-11",
+          name: {
+            cell: "A11",
+            value: "Name 11",
+          },
+          figure: {
+            cell: "B11",
+            value: "Value 11",
+          },
+        },
+        {
+          id: "figure-12",
+          name: {
+            cell: "A12",
+            value: "Name 12",
+          },
+          figure: {
+            cell: "B12",
+            value: "Value 12",
+          },
+        },
+      ],
+      "Subgroup 3": [
+        {
+          id: "figure-13",
+          name: {
+            cell: "A13",
+            value: "Name 13",
+          },
+          figure: {
+            cell: "B13",
+            value: "Value 13",
+          },
+        },
+        {
+          id: "figure-14",
+          name: {
+            cell: "A14",
+            value: "Name 14",
+          },
+          figure: {
+            cell: "B14",
+            value: "Value 14",
+          },
+        },
+        {
+          id: "figure-15",
+          name: {
+            cell: "A15",
+            value: "Name 15",
+          },
+          figure: {
+            cell: "B15",
+            value: "Value 15",
+          },
+        },
+      ],
+    },
+  },
 };

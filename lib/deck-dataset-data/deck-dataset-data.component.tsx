@@ -10,8 +10,8 @@ import { DeckDatasetDataProps } from "./deck-dataset-data.types";
 export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   data = {},
   shapes = {},
-  apiChanges = {},
-  userChanges = {},
+  shapeApiChanges = {},
+  shapeUserChanges = {},
   figureLoadingIDs = [],
   compact = false,
   type,
@@ -38,16 +38,16 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
             case "google-sheet-table": {
               const figureIDs = items.map((item: ITableFigure) => item?.id);
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
-              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
               const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
               return (
                 <DeckDatasetDataGroup
                   key={groupName}
                   groupName={groupName}
                   items={items}
-                  apiChanges={groupApiChanges}
-                  userChanges={groupUserChanges}
+                  shapeApiChanges={groupApiChanges}
+                  shapeUserChanges={groupUserChanges}
                   shapes={groupShapes}
                   type={type}
                   onAddShape={onAddShape}
@@ -73,8 +73,8 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                 .map((item) => String(item.id));
 
               const groupShapes = createGroupMap<IDynamicShape[]>(figureIDs, shapes);
-              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, apiChanges);
-              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, userChanges);
+              const groupApiChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeApiChanges);
+              const groupUserChanges = createGroupMap<IShapeChange[]>(figureIDs, shapeUserChanges);
               const groupLoadingIDs = figureIDs.filter((ID: string) => figureLoadingIDs.includes(ID));
 
               return (
@@ -84,8 +84,8 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   items={items}
                   type={type}
                   shapes={groupShapes}
-                  apiChanges={groupApiChanges}
-                  userChanges={groupUserChanges}
+                  shapeApiChanges={groupApiChanges}
+                  shapeUserChanges={groupUserChanges}
                   hasStatus={hasStatus}
                   hasActions={hasActions}
                   level={level}

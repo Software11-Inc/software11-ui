@@ -50,8 +50,8 @@ ExcelFigure.args = {
   compact: false,
   level: 0,
   size: "sm",
-  apiChanges: [],
-  userChanges: [],
+  shapeApiChanges: [],
+  shapeUserChanges: [],
   shapes: [],
   loading: false,
   figure: {
@@ -78,8 +78,8 @@ ExcelFigureInserted.args = {
   compact: false,
   level: 0,
   size: "sm",
-  apiChanges: [],
-  userChanges: [],
+  shapeApiChanges: [],
+  shapeUserChanges: [],
   shapes: [
     {
       shapeID: "shape-1",
@@ -134,14 +134,14 @@ ExcelFigureApiChanges.args = {
   compact: false,
   level: 0,
   size: "sm",
-  apiChanges: [
+  shapeApiChanges: [
     {
       shapeID: "shape-1",
       shapeIndex: 0,
       value: "New Value",
     },
   ],
-  userChanges: [],
+  shapeUserChanges: [],
   shapes: [
     {
       shapeID: "shape-1",
@@ -182,8 +182,8 @@ ExcelFigureUserChanges.args = {
   compact: false,
   level: 0,
   size: "sm",
-  apiChanges: [],
-  userChanges: [
+  shapeApiChanges: [],
+  shapeUserChanges: [
     {
       shapeID: "shape-1",
       shapeIndex: 0,

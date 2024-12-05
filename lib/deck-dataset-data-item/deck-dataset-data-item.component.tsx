@@ -15,8 +15,8 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   figure,
   type = "default",
   shapes = [],
-  apiChanges = [],
-  userChanges = [],
+  shapeApiChanges = [],
+  shapeUserChanges = [],
   hasStatus = false,
   hasActions = false,
   compact = false,
@@ -32,8 +32,8 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   onSync = () => {},
 }) => {
   const hasShapes = shapes && shapes.length > 0;
-  const hasApiChanges = apiChanges && apiChanges.length > 0;
-  const hasUserChanges = userChanges && userChanges.length > 0;
+  const hasApiChanges = shapeApiChanges && shapeApiChanges.length > 0;
+  const hasUserChanges = shapeUserChanges && shapeUserChanges.length > 0;
   const status = hasShapes ? (hasUserChanges ? 2 : hasApiChanges ? 1 : 0) : defaultStatus;
   const order = hasShapes ? (hasUserChanges ? -3 : hasApiChanges ? -2 : -1) : 0;
   const figureClassName = [

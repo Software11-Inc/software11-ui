@@ -177,7 +177,7 @@ Default.args = {
       },
     ],
   },
-  apiChanges: {
+  shapeApiChanges: {
     "figure-1": [
       {
         shapeID: "shape-1",
@@ -186,7 +186,7 @@ Default.args = {
       },
     ],
   },
-  userChanges: {
+  shapeUserChanges: {
     "figure-6": [
       {
         shapeID: "shape-6",
