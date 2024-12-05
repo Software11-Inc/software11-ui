@@ -89,13 +89,15 @@ export interface ITableColumn {
 export type SheetID = string;
 export type DatasetID = string;
 
+export type RangeDirection = "horizontal" | "vertical" | "square";
+
 export interface IDataConnection {
   range: string;
   containerID: string;
-  values: Array<Array<string>>;
   type: DatasetType;
   primaryColumn?: ITableColumn;
   secondaryColumn?: ITableColumn;
+  direction?: RangeDirection;
 }
 
 export type DataConnections = Record<DatasetID, IDataConnection>;
