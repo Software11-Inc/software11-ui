@@ -1,5 +1,6 @@
 import { DatasetID } from "./dataset.model";
 import { IDate } from "./date.model";
+import { ITableFigure } from "./figure.model";
 import { IUser } from "./user.model";
 
 /**
@@ -41,3 +42,16 @@ type FigureID = string;
 export type DatasetFigureChangeMap = Record<FigureID, IFigureChange>;
 
 export type DatasetChangeMap = Record<DatasetID, DatasetFigureChangeMap>;
+
+export interface IFigureUserChange {
+  id: FigureID;
+  old: ITableFigure;
+  new: ITableFigure;
+}
+
+export type FigureUserChangeMap = Record<FigureID, IFigureUserChange>;
+export type DatasetUserChangeMap = Record<DatasetID, FigureUserChangeMap>;
+
+export interface DatasetUpdateFigure extends ITableFigure {
+  id: string;
+}
