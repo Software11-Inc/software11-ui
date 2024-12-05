@@ -5,8 +5,8 @@ import { accordionGroupStyles, accordionTransition, getBackgroundColor } from ".
 import AccordionSummary, { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
 import DoubleArrowRounded from "@mui/icons-material/DoubleArrowRounded";
 
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
+import Accordion, { accordionClasses } from "@mui/joy/Accordion";
+import AccordionDetails, { accordionDetailsClasses } from "@mui/joy/AccordionDetails";
 import {
   boxStyle,
   cellStyle,
@@ -57,8 +57,19 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
       className={classList}
       sx={{
         ...accordionGroupStyles(className, false, 1, "sm", !loading),
-        [`& .${accordionSummaryClasses.button}`]: {
-          bgcolor: getBackgroundColor(loading ? 2 : 0),
+        [`& .${accordionClasses.root}:not(.${accordionClasses.expanded})`]: {
+          [`& .${accordionSummaryClasses.button}`]: {
+            bgcolor: getBackgroundColor(loading ? 2 : 0) + " !important",
+          },
+        },
+        [`& .${accordionClasses.root}.${accordionClasses.expanded}`]: {
+          [`& .${accordionSummaryClasses.button}`]: {
+            bgcolor: getBackgroundColor(loading ? 3 : 1) + " !important",
+          },
+          [`& .${accordionDetailsClasses.content}`]: {
+            bgcolor: getBackgroundColor(loading ? 2 : 1) + " !important",
+            borderColor: getBackgroundColor(loading ? 4 : 2) + " !important",
+          },
         },
       }}
       transition={accordionTransition}
@@ -88,7 +99,7 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
           }}
         >
           <Box sx={headerStyle}>
-            <DeckStatus status={status} />
+            <DeckStatus status={status} loading={loading} />
 
             <DeckLabel
               title={{

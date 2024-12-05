@@ -28,6 +28,11 @@ export default {
         type: "boolean",
       },
     },
+    loading: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 } as Meta<typeof DeckDatasetWidget>;
 
