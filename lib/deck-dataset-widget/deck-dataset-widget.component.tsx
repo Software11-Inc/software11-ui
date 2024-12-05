@@ -12,7 +12,7 @@ import Typography from "@mui/joy/Typography";
 import { ColorPaletteProp } from "@mui/joy/styles/types";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
-import { IFigureUserChange } from "../models/dataset-changes.model";
+import { FigureUserChangeMap, IFigureUserChange } from "../models/dataset-changes.model";
 import {
   boxStyle,
   cellStyle,
@@ -27,6 +27,8 @@ import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 import { DeckIconButton } from "../deck-icon-button";
 import * as fromUtils from "../utils";
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   name = null,
   description,
@@ -40,7 +42,9 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   const highlightedClass = `deck-highlighted`;
   const classList = [className, highlighted ? highlightedClass : ``].join(" ").trim();
 
-  const hasChanges = Object.keys(changes).length > 0;
+  const [internalChanges, setInternalChanges] = React.useState(changes);
+
+  const hasChanges = Object.keys(internalChanges).length > 0;
 
   const status = hasChanges ? 1 : 0;
 
@@ -48,9 +52,21 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
 
   const [open, setOpen] = React.useState(hasChanges);
 
+  const handleUpdateChanges = async (changes: FigureUserChangeMap) => {
+    if (JSON.stringify(changes) !== JSON.stringify(internalChanges)) {
+      if (Object.keys(changes).length === 0) {
+        setOpen(false);
+      } else {
+        setOpen(true);
+      }
+      await delay(250);
+      setInternalChanges(changes);
+    }
+  };
+
   useEffect(() => {
-    setOpen(hasChanges);
-  }, [hasChanges]);
+    handleUpdateChanges(changes);
+  }, [changes]);
 
   return (
     <AccordionGroup
@@ -59,12 +75,13 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
         ...accordionGroupStyles(className, false, 1, "sm", !loading),
         [`& .${accordionClasses.root}:not(.${accordionClasses.expanded})`]: {
           [`& .${accordionSummaryClasses.button}`]: {
-            gap: 0,
+            gap: hasChanges ? 1 : 0,
             bgcolor: getBackgroundColor(loading ? 2 : 0) + " !important",
           },
         },
         [`& .${accordionClasses.root}.${accordionClasses.expanded}`]: {
           [`& .${accordionSummaryClasses.button}`]: {
+            gap: 1,
             bgcolor: getBackgroundColor(loading ? 3 : 1) + " !important",
           },
           [`& .${accordionDetailsClasses.content}`]: {
@@ -122,8 +139,8 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
         </AccordionSummary>
         <AccordionDetails>
           <Box sx={contentStyle} className="small-scroll">
-            {Object.keys(changes).map((key) => {
-              const change = changes[key];
+            {Object.keys(internalChanges).map((key) => {
+              const change = internalChanges[key];
               return <FigureChange key={change.id} change={change} onSelectCell={onSelectCell} />;
             })}
           </Box>
