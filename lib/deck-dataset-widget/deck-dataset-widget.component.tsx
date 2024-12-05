@@ -1,12 +1,18 @@
+import DoubleArrowRounded from "@mui/icons-material/DoubleArrowRounded";
 import AccordionGroup from "@mui/joy/AccordionGroup";
-import { DeckDatasetWidgetProps } from "./deck-dataset-widget.types";
+import AccordionSummary, { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
 import React, { useEffect } from "react";
 import { accordionGroupStyles, accordionTransition, getBackgroundColor } from "../accordion.style";
-import AccordionSummary, { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
-import DoubleArrowRounded from "@mui/icons-material/DoubleArrowRounded";
+import { DeckDatasetWidgetProps } from "./deck-dataset-widget.types";
 
 import Accordion, { accordionClasses } from "@mui/joy/Accordion";
 import AccordionDetails, { accordionDetailsClasses } from "@mui/joy/AccordionDetails";
+import Box from "@mui/joy/Box";
+import Typography from "@mui/joy/Typography";
+import { ColorPaletteProp } from "@mui/joy/styles/types";
+import { DeckLabel } from "../deck-label";
+import { DeckStatus } from "../deck-status";
+import { IFigureUserChange } from "../models/dataset-changes.model";
 import {
   boxStyle,
   cellStyle,
@@ -16,16 +22,10 @@ import {
   headerStyle,
   horizontalBoxStyle,
 } from "./deck-dataset-widget.styles";
-import Box from "@mui/joy/Box";
-import { DeckStatus } from "../deck-status";
-import { DeckLabel } from "../deck-label";
-import { IFigureUserChange } from "../models/dataset-changes.model";
-import Typography from "@mui/joy/Typography";
-import { ColorPaletteProp } from "@mui/joy/styles/types";
 
-import * as fromUtils from "../utils";
-import { DeckIconButton } from "../deck-icon-button";
 import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
+import { DeckIconButton } from "../deck-icon-button";
+import * as fromUtils from "../utils";
 
 export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   name = null,

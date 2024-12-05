@@ -1,12 +1,12 @@
-import Box from "@mui/joy/Box";
 import ChevronLeftRounded from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 import FilterListRounded from "@mui/icons-material/FilterListRounded";
-import { mainBoxStyle, valueBoxStyle } from "./deck-template-shape-itterator.style";
-import { IDeckTemplateShapeItterator } from "./deck-template-shape-itterator.types";
+import Box from "@mui/joy/Box";
 import React from "react";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
+import { mainBoxStyle, valueBoxStyle } from "./deck-template-shape-itterator.style";
+import { IDeckTemplateShapeItterator } from "./deck-template-shape-itterator.types";
 
 export const DeckTemplateShapeItterator: React.FC<IDeckTemplateShapeItterator> = ({
   groupName,

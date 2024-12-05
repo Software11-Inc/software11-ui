@@ -1,8 +1,8 @@
 import Box from "@mui/joy/Box";
-import { DeckStatus } from "../deck-status";
 import { DeckLabel } from "../deck-label";
-import { DeckTemplatePreviewProps } from "./deck-template-preview.types";
+import { DeckStatus } from "../deck-status";
 import { templatePreviewStyle } from "./deck-template-preview.styles";
+import { DeckTemplatePreviewProps } from "./deck-template-preview.types";
 
 export const DeckTemplatePreview: React.FC<DeckTemplatePreviewProps> = ({ item }) => {
   const valid = Boolean(item?.name?.length);

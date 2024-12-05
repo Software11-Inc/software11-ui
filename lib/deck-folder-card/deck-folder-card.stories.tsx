@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckFolderCard } from "./deck-folder-card.component";
 import { sizes } from "../story-types";
+import { DeckFolderCard } from "./deck-folder-card.component";
 
 export default {
   title: "Pages/Library/Gallery/Folder Card",

@@ -1,8 +1,8 @@
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import Button from "@mui/joy/Button";
 import { Meta, StoryFn } from "@storybook/react";
 import React from "react";
 import { DeckFooter } from "./deck-footer.component";
-import Button from "@mui/joy/Button";
 
 export default {
   title: "Layout/Footer",

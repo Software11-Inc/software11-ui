@@ -1,7 +1,7 @@
 import Box from "@mui/joy/Box";
-import { IDeckTemplateShapeValue } from "./deck-template-shape-value.types";
-import React from "react";
 import { SxProps } from "@mui/joy/styles/types";
+import React from "react";
+import { IDeckTemplateShapeValue } from "./deck-template-shape-value.types";
 
 const mainBoxStyle: SxProps = {
   display: "flex",

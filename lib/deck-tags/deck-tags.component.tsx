@@ -1,7 +1,7 @@
 import Box from "@mui/joy/Box";
-import { IDeckTagsProps } from "./deck-tags.types";
 import { DeckTag } from "./deck-tag.component";
 import { tagBoxStyle } from "./deck-tags.styles";
+import { IDeckTagsProps } from "./deck-tags.types";
 
 export const DeckTags: React.FC<IDeckTagsProps> = ({ tags = [], limit = 3, onClick, size = "sm" }) => {
   const handleClick = (tag: string) => {

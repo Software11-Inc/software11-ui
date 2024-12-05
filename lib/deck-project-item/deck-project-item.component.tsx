@@ -1,7 +1,7 @@
 import Box from "@mui/joy/Box";
 import React from "react";
-import { IDeckProjectItemProps } from "./deck-project-item.types";
 import { DeckSection } from "../deck-section";
+import { IDeckProjectItemProps } from "./deck-project-item.types";
 
 export const DeckProjectItem = <T,>({
   project,

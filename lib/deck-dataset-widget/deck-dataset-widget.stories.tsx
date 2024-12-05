@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckDatasetWidget } from "./deck-dataset-widget.component";
 import { FigureUserChangeMap } from "../models/dataset-changes.model";
+import { DeckDatasetWidget } from "./deck-dataset-widget.component";
 
 export default {
   title: "Pages/Home/DeckDatasetWidget",

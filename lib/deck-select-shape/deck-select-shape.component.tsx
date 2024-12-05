@@ -1,6 +1,13 @@
+import OpenInNewRounded from "@mui/icons-material/OpenInNewRounded";
+import SyncRounded from "@mui/icons-material/SyncRounded";
+import Box from "@mui/joy/Box";
+import Radio from "@mui/joy/Radio";
 import Sheet from "@mui/joy/Sheet";
-import { IDeckSelectShapeProps } from "./deck-select-shape.types";
 import React from "react";
+import { DeckIconButton } from "../deck-icon-button";
+import { DeckLabel } from "../deck-label";
+import { DeckStatus } from "../deck-status";
+import { IDeckSelectShapeProps } from "./deck-select-shape.types";
 import {
   dynamicClass,
   loadingClass,
@@ -11,13 +18,6 @@ import {
   selectShapeStyle,
   staticClass,
 } from "./deck-select.shape.styles";
-import Box from "@mui/joy/Box";
-import Radio from "@mui/joy/Radio";
-import { DeckLabel } from "../deck-label";
-import { DeckStatus } from "../deck-status";
-import { DeckIconButton } from "../deck-icon-button";
-import OpenInNewRounded from "@mui/icons-material/OpenInNewRounded";
-import SyncRounded from "@mui/icons-material/SyncRounded";
 
 export const DeckSelectShape: React.FC<IDeckSelectShapeProps> = ({
   shape,

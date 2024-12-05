@@ -6,9 +6,9 @@ import React from "react";
 import { DeckAuthor } from "../deck-author";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
-import { IDeckAlbumCardProps } from "./deck-album-card.types";
-import { classes, styles } from "./deck-album-card.styles";
 import { DeckTags } from "../deck-tags";
+import { classes, styles } from "./deck-album-card.styles";
+import { IDeckAlbumCardProps } from "./deck-album-card.types";
 
 import en from "javascript-time-ago/locale/en";
 TimeAgo.addLocale(en);

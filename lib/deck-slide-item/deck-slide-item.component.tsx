@@ -1,5 +1,12 @@
+import AddRounded from "@mui/icons-material/AddRounded";
+import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
+import SyncRounded from "@mui/icons-material/SyncRounded";
+import WarningRounded from "@mui/icons-material/WarningRounded";
+import { ColorPaletteProp } from "@mui/joy";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 import React from "react";
 import { DeckLabel } from "../deck-label";
 import {
@@ -10,13 +17,6 @@ import {
   slideItemStyle,
 } from "./deck-slide-item.styles";
 import { IDeckSlideItemProps, ItemState } from "./deck-slide-item.types";
-import SyncRounded from "@mui/icons-material/SyncRounded";
-import AddRounded from "@mui/icons-material/AddRounded";
-import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
-import { ColorPaletteProp } from "@mui/joy";
-import WarningRounded from "@mui/icons-material/WarningRounded";
-import en from "javascript-time-ago/locale/en";
-import TimeAgo from "javascript-time-ago";
 
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");

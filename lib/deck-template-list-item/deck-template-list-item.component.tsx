@@ -1,20 +1,20 @@
-import Box from "@mui/joy/Box";
-import { DeckTemplateListItemProps } from "./deck-template-list-item.types";
+import AdminPanelSettingsRounded from "@mui/icons-material/AdminPanelSettingsRounded";
 import AirplayRounded from "@mui/icons-material/AirplayRounded";
 import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
 import MoreVertRounded from "@mui/icons-material/MoreVertRounded";
 import RocketLaunchRounded from "@mui/icons-material/RocketLaunchRounded";
 import SettingsRounded from "@mui/icons-material/SettingsRounded";
-import AdminPanelSettingsRounded from "@mui/icons-material/AdminPanelSettingsRounded";
-import { contentStyle, imageStyle, mainBoxStyle } from "./deck-template-list-item.styles";
-import { DeckLabel } from "../deck-label";
-import React from "react";
-import { DeckIconButton } from "../deck-icon-button";
+import Box from "@mui/joy/Box";
 import Dropdown from "@mui/joy/Dropdown";
-import MenuButton from "@mui/joy/MenuButton";
 import Menu from "@mui/joy/Menu";
+import MenuButton from "@mui/joy/MenuButton";
 import MenuItem, { menuItemClasses } from "@mui/joy/MenuItem";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
+import React from "react";
+import { DeckIconButton } from "../deck-icon-button";
+import { DeckLabel } from "../deck-label";
+import { contentStyle, imageStyle, mainBoxStyle } from "./deck-template-list-item.styles";
+import { DeckTemplateListItemProps } from "./deck-template-list-item.types";
 
 type imageType = "url" | "base64" | "blob";
 

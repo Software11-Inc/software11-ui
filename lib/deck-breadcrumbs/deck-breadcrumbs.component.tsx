@@ -1,11 +1,11 @@
-import Box from "@mui/joy/Box";
-import { DeckBreadcrumbItem } from "../deck-breadcrumb-item";
-import { IDeckBreadcrumbsProps } from "./deck-breadcrumbs.types";
-import { breadcrumbsStyles } from "./deck-breadcrumbs.styles";
 import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 import WindowRounded from "@mui/icons-material/WindowRounded";
+import Box from "@mui/joy/Box";
 import React from "react";
+import { DeckBreadcrumbItem } from "../deck-breadcrumb-item";
 import { DeckIconButton } from "../deck-icon-button";
+import { breadcrumbsStyles } from "./deck-breadcrumbs.styles";
+import { IDeckBreadcrumbsProps } from "./deck-breadcrumbs.types";
 
 export const DeckBreadcrumbs: React.FC<IDeckBreadcrumbsProps> = ({ breadcrumbs, onHomeClick }) => {
   return (

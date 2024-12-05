@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckTemplateListItem } from "./deck-template-list-item.component";
 import { base64Image } from "../deck-slide-upload-item/image-example";
+import { DeckTemplateListItem } from "./deck-template-list-item.component";
 
 export default {
   title: "Deck Template List Item",

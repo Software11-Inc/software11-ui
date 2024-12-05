@@ -1,12 +1,12 @@
 import Accordion from "@mui/joy/Accordion";
-import { DeckTemplateShapeProps } from "./deck-template-shape.types";
-import React, { PropsWithChildren } from "react";
-import AccordionSummary from "@mui/joy/AccordionSummary";
 import AccordionDetails from "@mui/joy/AccordionDetails";
+import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
-import { DeckStatus } from "../deck-status";
-import { DeckLabel } from "../deck-label";
 import { SxProps } from "@mui/joy/styles/types";
+import React, { PropsWithChildren } from "react";
+import { DeckLabel } from "../deck-label";
+import { DeckStatus } from "../deck-status";
+import { DeckTemplateShapeProps } from "./deck-template-shape.types";
 
 const headerStyle: SxProps = {
   display: "flex",

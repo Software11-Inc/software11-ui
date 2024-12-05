@@ -1,9 +1,9 @@
 import Box from "@mui/joy/Box";
-import { IDeckTemplateShapeName } from "./deck-template-shape-name.types";
-import React, { useEffect } from "react";
 import Input from "@mui/joy/Input";
-import { getInputFocusStyle } from "../theming";
 import { SxProps } from "@mui/joy/styles/types";
+import React, { useEffect } from "react";
+import { getInputFocusStyle } from "../theming";
+import { IDeckTemplateShapeName } from "./deck-template-shape-name.types";
 
 const mainBoxStyle: SxProps = { display: "flex", flexDirection: "row", alignItems: "center", gap: 1 };
 

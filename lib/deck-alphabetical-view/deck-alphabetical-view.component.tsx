@@ -1,5 +1,6 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState, useCallback } from "react";
 import Box from "@mui/joy/Box";
+import { debounce } from "lodash";
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { DeckLottieLoading } from "../deck-lottie-loading";
 import {
   alphabeticalViewContentClass,
@@ -14,7 +15,6 @@ import {
   alphabeticalViewStyle,
 } from "./deck-alphabetical-view.styles";
 import { DeckAlphabeticalViewHandle, IAlphabeticalViewProps, defaultLetters } from "./deck-alphabetical-view.types";
-import { debounce } from "lodash";
 
 function DeckAlphabeticalViewComponent<T>(
   props: IAlphabeticalViewProps<T>,

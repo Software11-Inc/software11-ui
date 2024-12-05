@@ -1,6 +1,6 @@
+import Box from "@mui/joy/Box";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckBreadcrumbItem } from "./deck-breadcrumb-item.component";
-import Box from "@mui/joy/Box";
 
 export default {
   title: "DeckBreadcrumbItem",

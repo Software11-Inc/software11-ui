@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
+import { FigureUserChangeMap } from "../models/dataset-changes.model";
 import { ITableFigure } from "../models/figure.model";
 import { DeckDatasetData } from "./deck-dataset-data.component";
-import { FigureUserChangeMap } from "../models/dataset-changes.model";
 
 export default {
   title: "Powerpoint/Dataset Details/Data",

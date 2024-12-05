@@ -1,9 +1,9 @@
-import React from "react";
-import { DeckTemplateMessageProps } from "./deck-template-message.types";
 import Box from "@mui/joy/Box";
-import Typography from "@mui/joy/Typography";
-import { mainBoxStyle, mainContentStyle, mainHeaderStyle } from "./deck-template-message.styles";
 import Link from "@mui/joy/Link";
+import Typography from "@mui/joy/Typography";
+import React from "react";
+import { mainBoxStyle, mainContentStyle, mainHeaderStyle } from "./deck-template-message.styles";
+import { DeckTemplateMessageProps } from "./deck-template-message.types";
 
 export const DeckTemplateMessage: React.FC<DeckTemplateMessageProps> = ({
   message,

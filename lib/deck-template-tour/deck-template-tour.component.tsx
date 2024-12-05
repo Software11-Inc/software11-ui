@@ -1,7 +1,14 @@
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
+import ChevronRight from "@mui/icons-material/ChevronRight";
 import Box from "@mui/joy/Box";
-import { DeckTemplateTourProps } from "./deck-template-tour.types";
-import React from "react";
+import DialogTitle from "@mui/joy/DialogTitle";
+import Divider from "@mui/joy/Divider";
+import Drawer from "@mui/joy/Drawer";
+import IconButton from "@mui/joy/IconButton";
+import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
+import React from "react";
+import { DeckLabel } from "../deck-label";
 import { DeckLottieInfo } from "../deck-lottie-info";
 import {
   closeIconStyle,
@@ -12,14 +19,7 @@ import {
   sepatorStyle,
   stepsStyle,
 } from "./deck-template-tour.styles";
-import IconButton from "@mui/joy/IconButton";
-import ChevronLeft from "@mui/icons-material/ChevronLeft";
-import ChevronRight from "@mui/icons-material/ChevronRight";
-import Drawer from "@mui/joy/Drawer";
-import DialogTitle from "@mui/joy/DialogTitle";
-import { DeckLabel } from "../deck-label";
-import ModalClose from "@mui/joy/ModalClose";
-import Divider from "@mui/joy/Divider";
+import { DeckTemplateTourProps } from "./deck-template-tour.types";
 
 export const DeckTemplateTour: React.FC<DeckTemplateTourProps> = ({ open, onClose }) => {
   const [activeStep, setActiveStep] = React.useState(1);

@@ -165,7 +165,7 @@ const footerInnerStyles = {
             animation: "slide-up .3s ease-in-out",
             transform: styleVariables.activeIconTransform,
             "@supports (font: -apple-system-body) and (-webkit-appearance: none)": {
-              animation: "unset"
+              animation: "unset",
             },
 
             "--Icon-color": "var(--footer-nav-background)",

@@ -1,16 +1,16 @@
-import React from "react";
-import { IDeckFolderCardProps } from "./deck-folder-card.types";
-import TimeAgo from "javascript-time-ago";
-import { classes, styles } from "./deck-folder-card.styles";
-import Box from "@mui/joy/Box";
-import { DeckLabel } from "../deck-label";
-import { DeckIconButton } from "../deck-icon-button";
-import PermMediaRounded from "@mui/icons-material/PermMediaRounded";
-import { DeckAuthor } from "../deck-author";
 import ChevronRight from "@mui/icons-material/ChevronRight";
-import { DeckTags } from "../deck-tags";
 import PanoramaRounded from "@mui/icons-material/PanoramaRounded";
+import PermMediaRounded from "@mui/icons-material/PermMediaRounded";
+import Box from "@mui/joy/Box";
+import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en";
+import React from "react";
+import { DeckAuthor } from "../deck-author";
+import { DeckIconButton } from "../deck-icon-button";
+import { DeckLabel } from "../deck-label";
+import { DeckTags } from "../deck-tags";
+import { classes, styles } from "./deck-folder-card.styles";
+import { IDeckFolderCardProps } from "./deck-folder-card.types";
 TimeAgo.addLocale(en);
 const timeAgo = new TimeAgo("en-US");
 

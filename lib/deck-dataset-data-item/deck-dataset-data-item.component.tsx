@@ -1,5 +1,6 @@
 import { DatasetType, IDefaultFigure, IFigure, ITableFigure, Size } from "@models";
 import AddRounded from "@mui/icons-material/AddRounded";
+import FindReplaceRoundedIcon from "@mui/icons-material/FindReplaceRounded";
 import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
 import Box from "@mui/joy/Box";
@@ -9,7 +10,6 @@ import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
 import { actionButtonsStyle, className, columnStyle, dataItemStyle } from "./deck-dataset-data-item.styles";
 import { DeckDatasetDataItemProps } from "./deck-dataset-data-item.types";
-import FindReplaceRoundedIcon from "@mui/icons-material/FindReplaceRounded";
 
 export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   figure,

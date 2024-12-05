@@ -1,13 +1,13 @@
 import Box from "@mui/joy/Box";
-import { IDeckTemplateShapeHeaderStatic } from "./deck-template-shape-header-static.types";
-import React from "react";
 import Typography from "@mui/joy/Typography";
+import React from "react";
 import {
   boxStyle,
   emptyTypographySlotProps,
   typographySlotProps,
   valueTypographySlotProps,
 } from "./deck-template-shape-header-static.styles";
+import { IDeckTemplateShapeHeaderStatic } from "./deck-template-shape-header-static.types";
 
 export const DeckTemplateShapeHeaderStatic: React.FC<IDeckTemplateShapeHeaderStatic> = ({
   prefix = "Placeholder",
