@@ -147,6 +147,22 @@ export const accordionGroupStyles = (
             },
           },
         },
+        [`& > .${accordionClasses.root}.${accordionClasses.expanded}`]: {
+          boxShadow: `0 0 0 2px ${highlightInnerColor}, 0 0 0 4px ${highlightOuterColor}, 0 1px 2px 0 black`,
+          bgcolor: getBackgroundColor(level + 1),
+
+          [`& > .${accordionSummaryClasses.root}`]: {
+            [`& > .${accordionSummaryClasses.button}`]: {
+              "&:hover": {
+                boxShadow: "unset",
+              },
+            },
+          },
+
+          "&:hover": {
+            bgcolor: getBackgroundColor(level + 2),
+          },
+        },
       },
     },
   };
