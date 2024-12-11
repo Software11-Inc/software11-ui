@@ -12,7 +12,6 @@ export interface ISingleExcelTemplate {
   secondaryColumn?: ITableColumn;
   headers?: ITableColumn[];
   data?: Array<Array<string>>;
-  selectedSheets?: ISheet[];
 }
 
 export type TemplateConfig = ISingleExcelTemplate; // | IMultipleExcelTemplate;
@@ -21,4 +20,5 @@ export interface IExcelTemplate extends IDefaultItem {
   description?: string;
   type?: ExcelTemplateType;
   config?: TemplateConfig;
+  selectedSheets?: ISheet[];
 }
