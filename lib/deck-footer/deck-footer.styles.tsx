@@ -23,6 +23,7 @@ export const mainBoxSxProps = (fit: boolean = false) => ({
     height: 0,
     py: 0,
     borderColor: "transparent",
+    borderTop: "0px solid",
   },
 
   ...(fit && {
