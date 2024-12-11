@@ -100,6 +100,7 @@ export interface IDataConnection {
   primaryColumn?: ITableColumn;
   secondaryColumn?: ITableColumn;
   direction?: RangeDirection;
+  templateID?: string;
 }
 
 export type DataConnections = Record<DatasetID, IDataConnection>;
@@ -114,6 +115,7 @@ export interface IAddDataset {
   primaryColumn?: ITableColumn;
   secondaryColumn?: ITableColumn;
   direction?: RangeDirection;
+  templateID?: string;
 }
 
 export interface IRemoveDataset {
