@@ -76,6 +76,8 @@ export interface ITableDataset extends IDefaultItem, IMetaDataset {
  */
 export type Dataset = IDefaultDataset & ITableDataset;
 
+export type CreationDataset = ITableDataset & IDynamicDatasetAddition;
+
 export interface ICell {
   column: string;
   row: number;
@@ -123,4 +125,21 @@ export interface IBindingContext {
   datasetID: string;
   sheetID: string;
   range: string;
+}
+
+export interface IDynamicDatasetAddition {
+  /** Unique identifier for the project */
+  projectID: string;
+  /** Unique identifier for the file */
+  fileID: string;
+  /** Unique identifier for the container */
+  containerID: string;
+  /** Unique identifier for the sheet */
+  sheetID: string;
+  /** Range of the dataset */
+  range?: string;
+  /** Type of the dataset */
+  templateID?: string;
+  /** Direction of the dataset */
+  direction?: RangeDirection;
 }
