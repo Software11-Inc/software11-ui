@@ -223,6 +223,20 @@ body {
   box-shadow: var(--bottom-shadow);
 }
 
+.subheader-overlay {
+  position: absolute;
+  top: 0;
+  right: var(--spacing);
+  z-index: 1;
+  font-size: 11px;
+  color: var(--joy-palette-primary-100);
+
+  &:hover {
+    color: var(--joy-palette-primary-500);
+    cursor: help;
+  }
+}
+
 .page-spacer {
   display: flex;
   flex: 1;
