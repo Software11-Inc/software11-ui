@@ -15,6 +15,7 @@ import { DeckIconButton } from "../deck-icon-button";
 import CloseRounded from "@mui/icons-material/CloseRounded";
 import { getBackgroundColor } from "../accordion.style";
 import Divider from "@mui/joy/Divider";
+import React from "react";
 
 const boxStyle: SxProps = {
   display: "flex",
@@ -25,11 +26,9 @@ const boxStyle: SxProps = {
 };
 
 const messageStyle: SxProps = {
-  fontSize: "14px",
-  lineHeight: "20px",
-  bgcolor: getBackgroundColor(3),
-  p: 1,
-  borderRadius: "var(--border-radius)",
+  fontSize: "11px",
+  lineHeight: "14px",
+  color: "var(--joy-palette-primary-500)",
 };
 
 export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
@@ -38,12 +37,14 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   fileTypes,
   message = "",
   defaultExpanded = false,
-  expanded = false,
   onClear = () => {},
   onClick = () => {},
 }) => {
+  const hasFileTypes = fileTypes && fileTypes.length > 0;
+  const [expanded, setExpanded] = React.useState(defaultExpanded);
+
   return (
-    <Accordion defaultExpanded={defaultExpanded} expanded={expanded}>
+    <Accordion defaultExpanded={defaultExpanded} expanded={expanded} onChange={() => setExpanded(!expanded)}>
       <AccordionSummary
         indicator={null}
         slotProps={{
@@ -55,6 +56,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
                 return;
               }
               onClick();
+              setExpanded(!expanded);
             },
           },
         }}
@@ -67,7 +69,8 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
             flex: 1,
           }}
         >
-          <NearbyErrorRounded color="primary" sx={{ mx: 1 }} />
+          {hasFileTypes && <DeckFileList types={fileTypes || []} spacing={false} />}
+          {!hasFileTypes && <NearbyErrorRounded color="primary" sx={{ mx: 1 }} />}
           <DeckLabel
             title={{
               text: title,
@@ -82,8 +85,13 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
       </AccordionSummary>
       <AccordionDetails>
         <Box sx={boxStyle}>
-          <Box sx={messageStyle}>{message}</Box>
-          <Divider />
+          {message && (
+            <React.Fragment>
+              <Box sx={messageStyle}>{message}</Box>
+            </React.Fragment>
+          )}
+
+          {/* <Divider />
           <Box
             sx={{
               display: "flex",
@@ -94,16 +102,8 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
           >
             <DeckFileList types={fileTypes || []} spacing={true} />
             <div className="page-spacer" />
-            <DeckAuthor
-              showName={false}
-              user={{
-                firstName: "John",
-                lastName: "Doe",
-                role: "Admin",
-                email: "johndoe@gmail.com",
-              }}
-            />
-          </Box>
+            <DeckAuthor showName={false} />
+          </Box> */}
         </Box>
       </AccordionDetails>
     </Accordion>
