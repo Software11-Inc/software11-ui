@@ -1,21 +1,15 @@
+import ClearAllRounded from "@mui/icons-material/ClearAllRounded";
+import NearbyErrorRounded from "@mui/icons-material/NearbyErrorRounded";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
-import Typography from "@mui/joy/Typography";
-import ClearAllRounded from "@mui/icons-material/ClearAllRounded";
-import DeleteSweepRounded from "@mui/icons-material/DeleteSweepRounded";
-import { DeckNotificationItemProps } from "./deck-notification-item.types";
-import NearbyErrorRounded from "@mui/icons-material/NearbyErrorRounded";
-import { SxProps } from "@mui/joy/styles/types";
 import Box from "@mui/joy/Box";
-import { DeckLabel } from "../deck-label";
-import { DeckFileList } from "../deck-file-list";
-import { DeckAuthor } from "../deck-author";
-import { DeckIconButton } from "../deck-icon-button";
-import CloseRounded from "@mui/icons-material/CloseRounded";
-import { getBackgroundColor } from "../accordion.style";
-import Divider from "@mui/joy/Divider";
+import { SxProps } from "@mui/joy/styles/types";
 import React from "react";
+import { DeckFileList } from "../deck-file-list";
+import { DeckIconButton } from "../deck-icon-button";
+import { DeckLabel } from "../deck-label";
+import { DeckNotificationItemProps } from "./deck-notification-item.types";
 
 const boxStyle: SxProps = {
   display: "flex",

@@ -1,10 +1,10 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { DeckNotificationItemProps } from "./deck-notification-item.types";
-import { DeckNotificationItem } from "./deck-notification-item.component";
-import AccordionGroup from "@mui/joy/AccordionGroup";
-import { accordionGroupStyles, getBackgroundColor } from "../accordion.style";
 import { accordionClasses } from "@mui/joy/Accordion";
+import AccordionGroup from "@mui/joy/AccordionGroup";
 import { accordionSummaryClasses } from "@mui/joy/AccordionSummary";
+import { Meta, StoryFn } from "@storybook/react";
+import { accordionGroupStyles, getBackgroundColor } from "../accordion.style";
+import { DeckNotificationItem } from "./deck-notification-item.component";
+import { DeckNotificationItemProps } from "./deck-notification-item.types";
 
 export default {
   title: "UI/Deck Notification Item",
