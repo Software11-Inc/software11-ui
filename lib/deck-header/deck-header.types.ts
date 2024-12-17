@@ -9,4 +9,7 @@ export interface DeckHeaderProps {
   hidden?: boolean;
   onLogout: () => void;
   onBack: () => void;
+  onNotifications?: () => void;
+  notificationCount?: number;
+  notificationOpen?: boolean;
 }

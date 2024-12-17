@@ -17,6 +17,9 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
   hidden = false,
   onLogout,
   onBack,
+  notificationCount = 0,
+  notificationOpen = false,
+  onNotifications = () => {},
 }) => {
   const classList = [className, hidden ? "hidden" : ""].join(" ").trim();
   return (
@@ -36,7 +39,12 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
           />
         </div>
         <div className={[`animation`, `animation-actions`, !showNavigation ? "visible" : "hidden"].join(" ")}>
-          <DeckHeaderUserActions onLogout={onLogout} />
+          <DeckHeaderUserActions
+            onLogout={onLogout}
+            notificationCount={notificationCount}
+            notificationOpen={notificationOpen}
+            onNotifications={onNotifications}
+          />
         </div>
       </Box>
     </Box>
