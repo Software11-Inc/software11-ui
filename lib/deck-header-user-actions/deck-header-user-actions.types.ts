@@ -1,3 +1,6 @@
 export interface DeckHeaderUserActionsProps {
-  onLogout: () => void;
+  onNotifications?: () => void;
+  notificationCount?: number;
+  notificationOpen?: boolean;
+  onLogout?: () => void;
 }
