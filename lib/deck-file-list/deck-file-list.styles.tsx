@@ -12,7 +12,7 @@ export const fileListStyle: SxProps = {
   },
 };
 
-export const fileListItemStyle = (order: number) => ({
+export const fileListItemStyle = (order: number, spacing: boolean = false) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -25,16 +25,24 @@ export const fileListItemStyle = (order: number) => ({
   bgcolor: "background.surface",
 
   border: "1px solid",
-  borderColor: "divider",
+  borderColor: "background.level1",
 
   transition: "all 0.125s ease",
 
-  "&:not(:first-of-type)": {
-    marginLeft: "-0.75rem",
-  },
+  ...(spacing && {
+    "&:not(:first-of-type)": {
+      marginLeft: "0.5rem",
+    },
+  }),
 
-  "&:hover": {
-    boxShadow: "var(--shadow)",
-    transform: "scale(1.1)",
-  },
+  ...(!spacing && {
+    "&:not(:first-of-type)": {
+      marginLeft: "-0.75rem",
+    },
+  }),
+
+  // "&:hover": {
+  //   boxShadow: "var(--shadow)",
+  //   transform: "scale(1.1)",
+  // },
 });

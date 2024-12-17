@@ -6,7 +6,7 @@ import { IDeckFileListProps } from "./deck-file-list.types";
 
 const SIZE = 16;
 
-export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 }) => {
+export const DeckFileList: React.FC<IDeckFileListProps> = ({ types = [], limit = 7, spacing = false }) => {
   if (!types || types.length === 0) {
     return null;
   }
@@ -51,7 +51,7 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types, limit = 7 })
       <Box sx={fileListStyle}>
         <Box className={fileListClass}>
           {types.splice(0, limit).map((type, index) => (
-            <Box key={index} className={fileListItemClass} sx={fileListItemStyle(count - index)}>
+            <Box key={index} className={fileListItemClass} sx={fileListItemStyle(count - index, spacing)}>
               {getIcon(type)}
             </Box>
           ))}
