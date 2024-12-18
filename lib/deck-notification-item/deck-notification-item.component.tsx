@@ -46,7 +46,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
             component: "div",
             onClick: (e: any) => {
               const target = e.target as HTMLElement;
-              if (target.classList.contains("MuiSvgIcon-root")) {
+              if (target.classList.contains("MuiSvgIcon-root") || target.classList.contains("MuiIconButton-root")) {
                 return;
               }
               onClick();
@@ -58,13 +58,13 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
         <Box
           sx={{
             display: "flex",
-            gap: 0.5,
+            gap: 1,
             alignItems: "center",
             flex: 1,
           }}
         >
           {hasFileTypes && <DeckFileList types={fileTypes || []} spacing={false} />}
-          {!hasFileTypes && <NearbyErrorRounded color="primary" sx={{ mx: 1 }} />}
+          {!hasFileTypes && <NearbyErrorRounded sx={{ color: "var(--joy-palette-primary-500)" }} />}
           <DeckLabel
             title={{
               text: title,
