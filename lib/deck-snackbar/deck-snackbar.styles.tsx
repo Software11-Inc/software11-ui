@@ -3,9 +3,6 @@ import { SxProps } from "@mui/joy/styles/types";
 
 export const snackbarStyles: SxProps = {
   [`&.${snackbarClasses.root}`]: {
-    right: 0,
-    top: 0,
-    left: 0,
     minWidth: "unset",
     boxShadow: "var(--shadow)",
     borderRadius: "0",
