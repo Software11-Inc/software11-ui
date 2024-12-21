@@ -49,8 +49,6 @@ export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
 }) => {
   const [progress, setProgress] = useState(100);
 
-  console.log("Progress", progress);
-
   const hasCustomIcon = customIcon !== null;
   const hasTextIcon = textIcon !== null;
 

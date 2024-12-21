@@ -27,7 +27,7 @@ const Template: StoryFn<IDeckSnackbarMessageProps> = (args) => {
         flexDirection: "column",
       }}
     >
-      {[...Array(3)].map((_, index) => (
+      {[...Array(30)].map((_, index) => (
         <DeckSnackbarMessage key={index} first={!index} {...args} />
       ))}
     </Box>
