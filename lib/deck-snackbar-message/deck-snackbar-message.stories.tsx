@@ -41,7 +41,7 @@ Default.args = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed justo a diam feugiat condimentum. Nam ultricies, nisi eu porta porta, purus diam tempus erat, quis tristique lorem ex id turpis. Nulla sodales nulla sit amet consectetur aliquet. Vivamus augue nunc, lacinia quis turpis vel, tempus consequat felis. Proin suscipit porttitor mollis. Fusce ornare tellus sit amet lorem consectetur sagittis eget sit amet felis. Fusce id tincidunt erat. Vivamus scelerisque blandit justo, id vulputate lacus consectetur sed. Curabitur eros nisi, ultrices sed pellentesque mattis, sollicitudin non dolor. Mauris bibendum accumsan magna, convallis cursus tortor ultrices vitae.",
   message:
     "Donec ac lobortis sem. Pellentesque non magna gravida, placerat nisi ut, mattis purus. Cras sollicitudin dolor ut sapien mattis elementum. Duis aliquam quam ut auctor aliquam. Donec malesuada ex tristique fermentum mollis. Duis faucibus augue ut nunc dictum, a malesuada diam pretium. Nulla sagittis sit amet lorem ut bibendum. Vivamus pharetra neque dolor, sed ullamcorper risus vestibulum a.",
-  actions: [],
+  autoHideDuration: 5000,
 } as IDeckSnackbarMessageProps;
 
 Default.parameters = {
