@@ -4,7 +4,7 @@ import ErrorRounded from "@mui/icons-material/ErrorRounded";
 import NearbyErrorRounded from "@mui/icons-material/NearbyErrorRounded";
 import Box from "@mui/joy/Box";
 import { DeckLabel } from "../deck-label";
-import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
+import { SxProps } from "@mui/joy/styles/types";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
 import WarningRounded from "@mui/icons-material/WarningRounded";
 import Snackbar, { SnackbarCloseReason } from "@mui/joy/Snackbar";
