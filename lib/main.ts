@@ -37,6 +37,7 @@ export * from "./deck-select-tags";
 export * from "./deck-status";
 export * from "./deck-text-button";
 export * from "./deck-notification-item";
+export * from "./deck-snackbar-message";
 
 export * from "./deck-lottie-build";
 export * from "./deck-lottie-building";
