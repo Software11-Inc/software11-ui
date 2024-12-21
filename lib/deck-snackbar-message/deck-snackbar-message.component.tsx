@@ -13,7 +13,7 @@ import CloseRounded from "@mui/icons-material/CloseRounded";
 import { LinearProgress } from "@mui/joy";
 import { DeckSnackbarTextIcon } from "../models/notification.model";
 
-const messageBoxStyle = (first: boolean = false): SxProps => ({
+const messageBoxStyle = (): SxProps => ({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
@@ -121,7 +121,7 @@ export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
         }
         sx={snackbarStyles(first)}
       >
-        <Box sx={messageBoxStyle(first)}>
+        <Box sx={messageBoxStyle()}>
           {hasIcon && (
             <Box sx={messageIconStyle}>
               {hasTextIcon ? <DeckSnackbarTextIconComponent textIcon={textIcon} /> : customIcon}
