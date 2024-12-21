@@ -118,11 +118,15 @@ export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
           bottom: 0,
           left: 0,
           right: 0,
-          height: "1px",
-          bgcolor: "transparent",
         }}
       >
-        <LinearProgress determinate thickness={1} value={progress} />
+        <LinearProgress
+          determinate
+          sx={{
+            height: "1px",
+          }}
+          value={progress}
+        />
       </Box>
     </Snackbar>
   );
