@@ -7,17 +7,18 @@ import { DeckLabel } from "../deck-label";
 import { SxProps } from "@mui/joy/styles/types";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
 import WarningRounded from "@mui/icons-material/WarningRounded";
-import Snackbar, { SnackbarCloseReason } from "@mui/joy/Snackbar";
+import Snackbar, { SnackbarCloseReason, snackbarClasses } from "@mui/joy/Snackbar";
 import { DeckIconButton } from "../deck-icon-button";
 import CloseRounded from "@mui/icons-material/CloseRounded";
 import { LinearProgress } from "@mui/joy";
 
-const messageBoxStyle: SxProps = {
+const messageBoxStyle = (first: boolean = false): SxProps => ({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
   gap: "8px",
-};
+  minHeight: "2rem",
+});
 
 const messageIconStyle: SxProps = {
   display: "flex",
@@ -31,10 +32,14 @@ const snackbarStyles = (first: boolean = false): SxProps => ({
   minWidth: "unset",
   "--Snackbar-inset": "0",
   "--Snackbar-radius": "unset",
-  "--Snackbar-padding": first ? "0.5rem" : "0.25rem",
+  py: first ? "0.5rem" : "0.25rem",
   px: "0.5rem",
   border: "unset",
   bgcolor: first ? "var(--joy-palette-background-body)" : "var(--joy-palette-background-surface)",
+
+  [`&.${snackbarClasses.root}`]: {
+    minHeight: "2rem",
+  },
 });
 
 export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
@@ -88,45 +93,46 @@ export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
     <DeckIconButton icon={<CloseRounded />} variant="plain" onClick={() => handleClose("escapeKeyDown")} />
   );
   return (
-    <Snackbar
-      open
-      autoHideDuration={autoHideDuration}
-      endDecorator={endDecorator}
-      color={color}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "left",
-      }}
-      sx={snackbarStyles(first)}
-    >
-      <Box sx={messageBoxStyle}>
-        {hasIcon && (
-          <Box sx={messageIconStyle}>
-            {hasTextIcon ? <DeckSnackbarTextIconComponent textIcon={textIcon} /> : customIcon}
-          </Box>
-        )}
-        <DeckLabel
-          title={{ text: title, limit: first ? 2 : 1 }}
-          description={{ text: message, limit: first ? 4 : 1 }}
-        />
-      </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
+    <React.Fragment>
+      <Snackbar
+        open
+        autoHideDuration={autoHideDuration}
+        endDecorator={endDecorator}
+        color={color}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "left",
         }}
+        startDecorator={
+          <Box
+            sx={{
+              height: "1px",
+              minHeight: "1px",
+              maxHeight: "1px",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+          >
+            <LinearProgress size="sm" thickness={1} value={progress} determinate />
+          </Box>
+        }
+        sx={snackbarStyles(first)}
       >
-        <LinearProgress
-          determinate
-          sx={{
-            height: "1px",
-          }}
-          value={progress}
-        />
-      </Box>
-    </Snackbar>
+        <Box sx={messageBoxStyle(first)}>
+          {hasIcon && (
+            <Box sx={messageIconStyle}>
+              {hasTextIcon ? <DeckSnackbarTextIconComponent textIcon={textIcon} /> : customIcon}
+            </Box>
+          )}
+          <DeckLabel
+            title={{ text: title, limit: first ? 2 : 1 }}
+            description={{ text: message, limit: first ? 4 : 1 }}
+          />
+        </Box>
+      </Snackbar>
+    </React.Fragment>
   );
 };
 

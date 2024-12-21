@@ -37,6 +37,7 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       [`& > .${className}__description`]: {
         color: `${color}.700`,
         fontSize: descriptionFontSize,
+        lineHeight: "12px",
       },
 
       [`& > .${className}__title, & > .${className}__description`]: {
