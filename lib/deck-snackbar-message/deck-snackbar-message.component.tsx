@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { DeckSnackbarTextIcon, IDeckSnackbarMessageProps } from "./deck-snackbar-message.types";
+import { IDeckSnackbarMessageProps } from "./deck-snackbar-message.types";
 import ErrorRounded from "@mui/icons-material/ErrorRounded";
 import NearbyErrorRounded from "@mui/icons-material/NearbyErrorRounded";
 import Box from "@mui/joy/Box";
@@ -11,6 +11,7 @@ import Snackbar, { SnackbarCloseReason, snackbarClasses } from "@mui/joy/Snackba
 import { DeckIconButton } from "../deck-icon-button";
 import CloseRounded from "@mui/icons-material/CloseRounded";
 import { LinearProgress } from "@mui/joy";
+import { DeckSnackbarTextIcon } from "../models/notification.model";
 
 const messageBoxStyle = (first: boolean = false): SxProps => ({
   display: "flex",

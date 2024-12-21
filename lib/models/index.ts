@@ -24,3 +24,4 @@ export * from "./template-shape.model";
 export * from "./template.model";
 export * from "./template-excel.model";
 export * from "./user.model";
+export * from "./notification.model";

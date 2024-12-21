@@ -1,8 +1,5 @@
+import { DeckSnackbarTextIcon } from "@models";
 import { ColorPaletteProp } from "@mui/joy/styles";
-
-export type DeckSnackbarTextIcon = "success" | "error" | "warning" | "info";
-
-export const deckSnackbarTextIcon: DeckSnackbarTextIcon[] = ["success", "error", "warning", "info"];
 
 export interface IDeckSnackbarMessageProps {
   textIcon?: DeckSnackbarTextIcon;
