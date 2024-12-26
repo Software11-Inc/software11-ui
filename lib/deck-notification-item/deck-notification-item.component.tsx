@@ -43,6 +43,29 @@ const formGroupStyle: SxProps = {
   gap: 0.25,
 };
 
+const summaryOverlayStyle: SxProps = {
+  position: "absolute",
+
+  left: "-0.5rem",
+  top: 0,
+  bottom: 0,
+  display: "flex",
+  alignItems: "center",
+};
+
+const indicatorStyle: SxProps = {
+  width: "8px",
+  height: "8px",
+  borderRadius: "50%",
+  bgcolor: "var(--joy-palette-warning-500)",
+  transform: "translateX(-50%)",
+  transition: "transform 0.125s",
+
+  "&.hidden": {
+    transform: "translateX(0) scale(0)",
+  },
+};
+
 export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   title,
   description,
@@ -103,7 +126,9 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
           )}
 
           <DeckLabel title={title} description={description} color="primary" />
-          <div className="page-spacer" />
+          <Box sx={summaryOverlayStyle}>
+            <Box sx={indicatorStyle} className={fade ? "hidden" : ""}></Box>
+          </Box>
         </Box>
       </AccordionSummary>
       <AccordionDetails>
