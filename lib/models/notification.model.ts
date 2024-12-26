@@ -17,7 +17,7 @@ export interface INotification extends IDefaultItem {
 
   objectType?: DeckNotificationObjectType;
 
-  objectId?: string;
+  objectID?: string;
 
   objectName?: string;
 
