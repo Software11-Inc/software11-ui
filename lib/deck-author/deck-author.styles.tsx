@@ -1,4 +1,5 @@
 import { SxProps } from "@mui/joy/styles/types";
+import { Size } from "../models/common.model";
 
 export const boxStyle: SxProps = {
   display: "flex",
@@ -12,8 +13,15 @@ export const avatarStyle: SxProps = {
   boxShadow: "unset",
 };
 
-export const typographyStyle: SxProps = {
-  fontSize: "12px",
+const sizeMap: Record<Size, string> = {
+  sm: "11px",
+  md: "12px",
+  lg: "14px",
+};
+
+export const typographyStyle = (size: Size = "md"): SxProps => ({
+  fontSize: sizeMap[size],
+  lineHeight: sizeMap[size],
   color: "var(--joy-palette-primary-500)",
   fontWeight: "bold",
-};
+});

@@ -15,18 +15,28 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
   separator,
   italic,
 }) => {
+  const hasTitle = title?.text || title?.component;
+  const hasDescription = description?.text || description?.component;
   return (
     <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap, italic)}>
-      {title?.text && (
+      {hasTitle && (
         <Box className={`${className}__title`} sx={textStyle(title.limit, true)}>
-          <span>{title.text}</span>
+          {title?.component ? (
+            <Box className={`${className}__component`}>{title.component}</Box>
+          ) : (
+            <span>{title.text}</span>
+          )}
           {required && <span className="deck-required">*</span>}
         </Box>
       )}
       {Boolean(separator) && <Box className={`${className}__separator`}>{separator}</Box>}
-      {description?.text && (
+      {hasDescription && (
         <Box className={`${className}__description`} sx={textStyle(description.limit, description?.bold)}>
-          <span>{description.text}</span>
+          {description?.component ? (
+            <Box className={`${className}__component`}>{description.component}</Box>
+          ) : (
+            <span>{description.text}</span>
+          )}
         </Box>
       )}
     </Box>

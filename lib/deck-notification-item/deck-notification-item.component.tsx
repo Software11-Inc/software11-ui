@@ -1,15 +1,17 @@
-import ClearAllRounded from "@mui/icons-material/ClearAllRounded";
-import NearbyErrorRounded from "@mui/icons-material/NearbyErrorRounded";
 import Accordion from "@mui/joy/Accordion";
 import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
-import { SxProps } from "@mui/joy/styles/types";
+import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
 import React from "react";
 import { DeckFileList } from "../deck-file-list";
-import { DeckIconButton } from "../deck-icon-button";
 import { DeckLabel } from "../deck-label";
 import { DeckNotificationItemProps } from "./deck-notification-item.types";
+import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
+import { DeckAuthor } from "../deck-author";
+import Divider from "@mui/joy/Divider";
+import { svgIconClasses } from "@mui/joy/SvgIcon";
+import { DeckTextButton } from "../deck-text-button";
 
 const boxStyle: SxProps = {
   display: "flex",
@@ -25,30 +27,55 @@ const messageStyle: SxProps = {
   color: "var(--joy-palette-primary-500)",
 };
 
+const messageIconStyle = (color: ColorPaletteProp | null = "neutral"): SxProps => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  mx: 0.75,
+
+  [`& .${svgIconClasses.root}`]: {
+    color: `var(--joy-palette-${color}-500)`,
+  },
+});
+
 export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
-  title = "New Notification",
-  description = "Last updated 2 hours ago",
-  fileTypes,
+  title,
+  description,
+  fileTypes = [],
+  customIcon = null,
+  textIcon = null,
+  color = null,
   message = "",
   defaultExpanded = false,
-  onClear = () => {},
+  fade = false,
+  // onClear = () => {},
   onClick = () => {},
+  action = null,
 }) => {
   const hasFileTypes = fileTypes && fileTypes.length > 0;
   const [expanded, setExpanded] = React.useState(defaultExpanded);
 
+  const hasTextIcon = textIcon !== null;
+  const hasCustomIcon = customIcon !== null;
+
+  const hasIcon = hasTextIcon || hasCustomIcon;
+
+  const hasBottom = hasFileTypes || action;
+
+  const className = ["deck-notification-item", fade ? "deck-fade" : ""].join(" ");
+
   return (
-    <Accordion defaultExpanded={defaultExpanded} expanded={expanded} onChange={() => setExpanded(!expanded)}>
+    <Accordion
+      defaultExpanded={defaultExpanded}
+      expanded={expanded}
+      className={className}
+      onChange={() => setExpanded(!expanded)}
+    >
       <AccordionSummary
-        indicator={null}
         slotProps={{
           button: {
             component: "div",
-            onClick: (e: any) => {
-              const target = e.target as HTMLElement;
-              if (target.classList.contains("MuiSvgIcon-root") || target.classList.contains("MuiIconButton-root")) {
-                return;
-              }
+            onClick: () => {
               onClick();
               setExpanded(!expanded);
             },
@@ -63,18 +90,14 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
             flex: 1,
           }}
         >
-          {hasFileTypes && <DeckFileList types={fileTypes || []} spacing={false} />}
-          {!hasFileTypes && <NearbyErrorRounded sx={{ color: "var(--joy-palette-primary-500)" }} />}
-          <DeckLabel
-            title={{
-              text: title,
-            }}
-            description={{
-              text: description,
-            }}
-          />
+          {hasIcon && (
+            <Box sx={messageIconStyle(color)}>
+              {hasTextIcon ? <DeckSnackbarTextIconComponent textIcon={textIcon} /> : customIcon}
+            </Box>
+          )}
+
+          <DeckLabel title={title} description={description} color="primary" />
           <div className="page-spacer" />
-          <DeckIconButton icon={<ClearAllRounded />} variant="plain" color="primary" onClick={onClear} />
         </Box>
       </AccordionSummary>
       <AccordionDetails>
@@ -84,21 +107,46 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
               <Box sx={messageStyle}>{message}</Box>
             </React.Fragment>
           )}
-
-          {/* <Divider />
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 1,
-            }}
-          >
-            <DeckFileList types={fileTypes || []} spacing={true} />
-            <div className="page-spacer" />
-            <DeckAuthor showName={false} />
-          </Box> */}
         </Box>
+        {hasBottom && (
+          <React.Fragment>
+            <Divider />
+            <Box sx={boxStyle}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 1,
+                  justifyContent: "space-between",
+                }}
+              >
+                {hasFileTypes && <DeckFileList types={fileTypes || []} spacing={true} />}
+                <div className="page-spacer" />
+                {action && (
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    <DeckTextButton
+                      action={() => {
+                        action.action && action.action();
+                      }}
+                      text={action.text}
+                      color={action.color}
+                      variant={action.variant}
+                      disabled={action.disabled}
+                      icon={action.iconStart}
+                    />
+                  </Box>
+                )}
+              </Box>
+            </Box>
+          </React.Fragment>
+        )}
       </AccordionDetails>
     </Accordion>
   );

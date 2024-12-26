@@ -1,5 +1,7 @@
-interface RowProperties {
+// TODO: Move to a shared location
+export interface RowProperties {
   text?: string;
+  component?: React.ReactNode;
   limit?: number;
   bold?: boolean;
 }

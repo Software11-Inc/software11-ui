@@ -21,6 +21,7 @@ const messageBoxStyle = (): SxProps => ({
   minHeight: "2rem",
 });
 
+// TODO: Move to to own folder and file (probably global styles)
 const messageIconStyle: SxProps = {
   display: "flex",
   alignItems: "center",
@@ -40,6 +41,15 @@ const snackbarStyles = (first: boolean = false): SxProps => ({
 
   [`&.${snackbarClasses.root}`]: {
     minHeight: "2rem",
+  },
+
+  [`& .${snackbarClasses.startDecorator}`]: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: "2px",
+    bgcolor: "var(--joy-palette-divider)",
   },
 });
 
@@ -137,6 +147,7 @@ export const DeckSnackbarMessage: React.FC<IDeckSnackbarMessageProps> = ({
   );
 };
 
+// TODO: Move to to own folder and file
 export const DeckSnackbarTextIconComponent: React.FC<{ textIcon: DeckSnackbarTextIcon }> = ({ textIcon }) => {
   switch (textIcon) {
     case "success":

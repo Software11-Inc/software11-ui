@@ -96,6 +96,18 @@ export const accordionGroupStyles = (
             bgcolor: getBackgroundColor(level + 1),
           },
         },
+
+        ["&.deck-fade"]: {
+          [`& > .${accordionSummaryClasses.root}`]: {
+            [`& > .${accordionSummaryClasses.button}`]: {
+              opacity: 0.5,
+
+              "&:hover": {
+                opacity: 1,
+              },
+            },
+          },
+        },
       },
 
       [`& > .${accordionClasses.root}.${accordionClasses.expanded}`]: {
@@ -127,6 +139,14 @@ export const accordionGroupStyles = (
             }),
             borderTop: "1px solid",
             borderColor: "divider",
+          },
+        },
+
+        ["&.deck-fade"]: {
+          [`& > .${accordionSummaryClasses.root}`]: {
+            [`& > .${accordionSummaryClasses.button}`]: {
+              opacity: 1,
+            },
           },
         },
       },
