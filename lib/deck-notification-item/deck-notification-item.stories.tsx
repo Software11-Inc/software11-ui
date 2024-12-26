@@ -5,8 +5,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { accordionGroupStyles, getBackgroundColor } from "../accordion.style";
 import { DeckNotificationItem } from "./deck-notification-item.component";
 import { DeckNotificationItemProps } from "./deck-notification-item.types";
-import { deckSnackbarTextIcon } from "../models/notification.model";
-import { colors } from "../story-types";
+import { colors, deckSnackbarTextIcon } from "../story-types";
 
 export default {
   title: "UI/Deck Notification Item",
