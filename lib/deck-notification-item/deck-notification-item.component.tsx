@@ -8,7 +8,6 @@ import { DeckFileList } from "../deck-file-list";
 import { DeckLabel } from "../deck-label";
 import { DeckNotificationItemProps } from "./deck-notification-item.types";
 import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
-import { DeckAuthor } from "../deck-author";
 import Divider from "@mui/joy/Divider";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
 import { DeckTextButton } from "../deck-text-button";
