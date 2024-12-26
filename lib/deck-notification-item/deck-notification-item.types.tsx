@@ -20,6 +20,7 @@ export interface DeckNotificationItemProps {
   fade?: boolean;
   onClick?: () => void;
   onClear?: () => void;
+  onMouseEnter?: () => void;
   actionButton?: IActionButton;
   action?: string;
   objectName?: string;

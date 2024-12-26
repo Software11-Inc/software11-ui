@@ -77,6 +77,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   fade = false,
   sourceProject,
   onClick = () => {},
+  onMouseEnter = () => {},
   actionButton = null,
   author,
   action,
@@ -99,6 +100,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
       expanded={expanded}
       className={className}
       onChange={() => setExpanded(!expanded)}
+      onMouseEnter={onMouseEnter}
     >
       <AccordionSummary
         slotProps={{
