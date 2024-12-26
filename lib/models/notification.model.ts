@@ -13,6 +13,13 @@ export interface INotification extends IDefaultItem {
     application: DeckNotificationSource;
   };
 
+  // Information about the project from which the dataset originates
+  sourceProject?: {
+    id: string; // ID of the source project
+    name: string; // Name of the source project
+    description?: string; // Optional description of the source project
+  };
+
   action?: DeckNotificationAction;
 
   objectType?: DeckNotificationObjectType;
