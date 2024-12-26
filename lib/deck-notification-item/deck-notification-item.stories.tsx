@@ -22,6 +22,10 @@ export default {
       control: { type: "select" },
       options: colors,
     },
+    source: {
+      control: { type: "select" },
+      options: ["web", "excel", "powerpoint"],
+    },
   },
 } as Meta<DeckNotificationItemProps>;
 
@@ -50,21 +54,32 @@ const Template: StoryFn<DeckNotificationItemProps> = (args) => (
 export const Default = Template.bind({});
 
 Default.args = {
-  fileTypes: ["excel", "powerpoint"],
   title: {
     text: "This is a test title",
   },
   description: {
     text: "This is a test description",
   },
-  message: "This is a test message",
   defaultExpanded: true,
   fade: true,
-  action: {
+  actionButton: {
     text: "Action",
     variant: "solid",
     action: () => {
       console.log("Action clicked");
     },
   },
+  author: {
+    firstName: "John",
+    lastName: "Doe",
+    email: "email@email.com",
+    profilePhoto: "https://avatar.iran.liara.run/public",
+  },
+  sourceProject: {
+    id: "1",
+    name: "Example Project",
+    description: "This is an example project",
+  },
+  action: "Create dataset",
+  objectName: "Example Dataset",
 };

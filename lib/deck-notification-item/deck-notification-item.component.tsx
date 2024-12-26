@@ -4,13 +4,13 @@ import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
 import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
 import React from "react";
-import { DeckFileList } from "../deck-file-list";
 import { DeckLabel } from "../deck-label";
 import { DeckNotificationItemProps } from "./deck-notification-item.types";
 import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
 import Divider from "@mui/joy/Divider";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
 import { DeckTextButton } from "../deck-text-button";
+import { DeckAuthor } from "../deck-author";
 
 const boxStyle: SxProps = {
   display: "flex",
@@ -21,9 +21,9 @@ const boxStyle: SxProps = {
 };
 
 const messageStyle: SxProps = {
-  fontSize: "11px",
-  lineHeight: "14px",
-  color: "var(--joy-palette-primary-500)",
+  display: "flex",
+  flexDirection: "column",
+  gap: 1,
 };
 
 const messageIconStyle = (color: ColorPaletteProp | null = "neutral"): SxProps => ({
@@ -37,21 +37,28 @@ const messageIconStyle = (color: ColorPaletteProp | null = "neutral"): SxProps =
   },
 });
 
+const formGroupStyle: SxProps = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 0.25,
+};
+
 export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   title,
   description,
-  fileTypes = [],
   customIcon = null,
   textIcon = null,
   color = null,
-  message = "",
   defaultExpanded = false,
+  source = "web",
   fade = false,
-  // onClear = () => {},
+  sourceProject,
   onClick = () => {},
-  action = null,
+  actionButton = null,
+  author,
+  action,
+  objectName,
 }) => {
-  const hasFileTypes = fileTypes && fileTypes.length > 0;
   const [expanded, setExpanded] = React.useState(defaultExpanded);
 
   const hasTextIcon = textIcon !== null;
@@ -59,7 +66,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
 
   const hasIcon = hasTextIcon || hasCustomIcon;
 
-  const hasBottom = hasFileTypes || action;
+  const hasBottom = source || actionButton;
 
   const className = ["deck-notification-item", fade ? "deck-fade" : ""].join(" ");
 
@@ -101,11 +108,38 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
       </AccordionSummary>
       <AccordionDetails>
         <Box sx={boxStyle}>
-          {message && (
-            <React.Fragment>
-              <Box sx={messageStyle}>{message}</Box>
-            </React.Fragment>
-          )}
+          <React.Fragment>
+            <Box sx={messageStyle}>
+              <Box sx={formGroupStyle}>
+                <DeckLabel title={{ text: "Author" }} color="neutral" />
+                <DeckAuthor user={author} showAvatar={false} />
+              </Box>
+              {sourceProject && (
+                <Box sx={formGroupStyle}>
+                  <DeckLabel title={{ text: "Project" }} color="neutral" />
+                  <DeckLabel
+                    title={{ text: sourceProject?.name }}
+                    description={{
+                      text: sourceProject?.description,
+                    }}
+                    color="primary"
+                  />
+                </Box>
+              )}
+              {action && (
+                <Box sx={formGroupStyle}>
+                  <DeckLabel title={{ text: "Action" }} color="neutral" />
+                  <DeckLabel title={{ text: action }} color="primary" />
+                </Box>
+              )}
+              {objectName && (
+                <Box sx={formGroupStyle}>
+                  <DeckLabel title={{ text: "Name" }} color="neutral" />
+                  <DeckLabel title={{ text: objectName }} color="primary" />
+                </Box>
+              )}
+            </Box>
+          </React.Fragment>
         </Box>
         {hasBottom && (
           <React.Fragment>
@@ -120,27 +154,17 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
                   justifyContent: "space-between",
                 }}
               >
-                {hasFileTypes && <DeckFileList types={fileTypes || []} spacing={true} />}
-                <div className="page-spacer" />
-                {action && (
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
+                {actionButton && (
+                  <DeckTextButton
+                    action={() => {
+                      actionButton.action && actionButton.action();
                     }}
-                  >
-                    <DeckTextButton
-                      action={() => {
-                        action.action && action.action();
-                      }}
-                      text={action.text}
-                      color={action.color}
-                      variant={action.variant}
-                      disabled={action.disabled}
-                      icon={action.iconStart}
-                    />
-                  </Box>
+                    text={actionButton.text}
+                    color={actionButton.color}
+                    variant={actionButton.variant}
+                    disabled={actionButton.disabled}
+                    icon={actionButton.iconStart}
+                  />
                 )}
               </Box>
             </Box>

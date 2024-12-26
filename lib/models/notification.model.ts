@@ -1,8 +1,7 @@
+import { DeckApplcationType } from "./application.model";
 import { IDefaultItem } from "./default-item.model";
 
 export type DeckSnackbarTextIcon = "success" | "error" | "warning" | "info";
-
-export type DeckNotificationSource = "web" | "powerpoint" | "excel";
 
 export type DeckNotificationAction = "create" | "update" | "delete" | "upload";
 
@@ -10,7 +9,7 @@ export type DeckNotificationObjectType = "dataset" | "slide" | "project" | "temp
 
 export interface INotification extends IDefaultItem {
   source?: {
-    application: DeckNotificationSource;
+    application: DeckApplcationType;
   };
 
   // Information about the project from which the dataset originates

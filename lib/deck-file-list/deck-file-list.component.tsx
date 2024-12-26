@@ -3,6 +3,7 @@ import React from "react";
 import { ExcelIcon, GoogleSheetIcon, GoogleSlidesIcon, PowerpointIcon } from "../deck-icons";
 import { fileListClass, fileListItemClass, fileListItemStyle, fileListStyle } from "./deck-file-list.styles";
 import { IDeckFileListProps } from "./deck-file-list.types";
+import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 
 const SIZE = 16;
 
@@ -29,6 +30,17 @@ export const DeckFileList: React.FC<IDeckFileListProps> = ({ types = [], limit =
       }
       case "google slide": {
         component = <GoogleSlidesIcon />;
+        break;
+      }
+      case "web": {
+        component = (
+          <LanguageRoundedIcon
+            sx={{
+              color: "var(--joy-palette-primary-500)",
+              fontSize: "16px",
+            }}
+          />
+        );
         break;
       }
       default: {

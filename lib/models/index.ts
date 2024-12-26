@@ -1,4 +1,5 @@
 export * from "./action-button.model";
+export * from "./application.model";
 export * from "./album.model";
 export * from "./breadcrumbs.model";
 export * from "./changes.model";
