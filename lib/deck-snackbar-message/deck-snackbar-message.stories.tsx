@@ -1,9 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { IDeckSnackbarMessageProps } from "./deck-snackbar-message.types";
 import { DeckSnackbarMessage } from "./deck-snackbar-message.component";
-import { colors } from "../story-types";
+import { colors, deckSnackbarTextIcon } from "../story-types";
 import Box from "@mui/joy/Box";
-import { deckSnackbarTextIcon } from "../models/notification.model";
 
 export default {
   title: "UI/Snackbar/Message",
