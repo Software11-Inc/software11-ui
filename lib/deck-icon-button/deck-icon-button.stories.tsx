@@ -41,6 +41,7 @@ const Template: StoryFn<typeof DeckIconButton> = (args) => <DeckIconButton {...a
 export const SyncButton = Template.bind({});
 
 SyncButton.args = {
+  label: "Sync",
   size: "lg",
   variant: "soft",
   color: "primary",

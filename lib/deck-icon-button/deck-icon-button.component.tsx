@@ -10,6 +10,7 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
       size = "sm",
       color = "primary",
       variant = "soft",
+      label,
       disabled,
       hidden,
       onClick = () => {},
@@ -32,6 +33,7 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
         onMouseEnter={onMouseEnter}
       >
         {icon}
+        {label && <span className="deck-label">{label}</span>}
       </IconButton>
     );
   }

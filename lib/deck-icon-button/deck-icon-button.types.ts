@@ -5,6 +5,7 @@ type ButtonBaseProps = Pick<MuiButtonProps, "color" | "size" | "variant" | "disa
 export interface DeckIconButtonProps extends ButtonBaseProps {
   icon: React.ReactNode;
   rounded?: boolean;
+  label?: string;
   onClick?: () => void;
   onMouseEnter?: () => void;
 }

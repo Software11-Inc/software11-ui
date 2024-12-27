@@ -9,9 +9,10 @@ export const iconButtonStyle = (rounded = false, size = "sm", hidden = false): S
   padding: "0.25rem ",
   minHeight: "unset",
   minWidth: "unset",
-  borderRadius: rounded ? "50%" : "var(--border-radius)",
+  borderRadius: rounded ? "1rem" : "var(--border-radius)",
   opacity: hidden ? "0" : "1",
   transition: "opacity 0.2s ease-in-out",
+  alignItems: "center",
 
   [`&.${className} > .${svgIconClasses.root}`]: {
     fontSize: size === "sm" ? "16px" : size === "md" ? "20px" : "24px",
@@ -20,7 +21,17 @@ export const iconButtonStyle = (rounded = false, size = "sm", hidden = false): S
 
   ["&:not(:disabled):hover"]: {
     [`&.${className} > .${svgIconClasses.root}`]: {
-      transform: "scale(1.3)",
+      transform: "scale(1.25)",
+      backgroundColor: "var(--joy-palette-primary-500)",
+      color: "var(--joy-palette-background-body)",
+      borderRadius: rounded ? "1rem" : "var(--border-radius)",
     },
+  },
+
+  ["& > .deck-label"]: {
+    fontSize: "12px",
+    lineHeight: "1.2",
+    textTransform: "uppercase",
+    mx: "0.25rem",
   },
 });
