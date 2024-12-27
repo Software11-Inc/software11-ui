@@ -22,7 +22,7 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
     return (
       <IconButton
         ref={ref}
-        sx={iconButtonStyle(rounded, size, hidden)}
+        sx={iconButtonStyle(rounded, size, hidden, Boolean(label?.length))}
         size={size}
         color={color}
         variant={variant}
