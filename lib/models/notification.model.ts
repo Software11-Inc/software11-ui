@@ -7,7 +7,7 @@ export type DeckNotificationAction = "create" | "update" | "delete" | "upload";
 
 export type DeckNotificationObjectType = "dataset" | "slide" | "project" | "template" | "image" | "album" | "folder";
 
-export interface INotification extends IDefaultItem {
+export interface INotification extends Partial<IDefaultItem> {
   source?: {
     application: DeckApplcationType;
   };
