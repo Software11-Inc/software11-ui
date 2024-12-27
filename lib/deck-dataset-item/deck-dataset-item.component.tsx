@@ -29,14 +29,13 @@ export const DeckDatasetItem: React.FC<IDeckDatasetItemProps> = ({
   loaded = false,
   loading = false,
   actionIcon,
-  fullWidth = false,
   onClick = () => {},
   onMouseEnter = () => {},
   hasAction = true,
 }) => {
   return (
     <React.Fragment>
-      <Box sx={mainBoxStyle} key={item.id} onClick={() => fullWidth && onClick()}>
+      <Box sx={mainBoxStyle} key={item.id} onClick={() => onClick()}>
         <Box sx={iconBoxStyle(loaded)}>
           {!loading && <DatasetIcon type={item.type} />}
           {loading && (

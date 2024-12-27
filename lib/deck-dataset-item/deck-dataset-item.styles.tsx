@@ -14,6 +14,7 @@ export const mainBoxStyle: SxProps = {
   "&:hover": {
     bgcolor: "background.level1",
     boxShadow: "var(--focus-shadow)",
+    cursor: "pointer",
   },
 };
 
