@@ -16,7 +16,14 @@ export const DeckHeaderUserActions: React.FC<DeckHeaderUserActionsProps> = ({
   const hasNotifications = notificationCount > 0;
   return (
     <Box sx={userActionsStyles}>
-      <Badge badgeContent={notificationCount} showZero={false} badgeInset="5px 5px 0 0" size="sm" color="warning">
+      <Badge
+        badgeContent={notificationCount}
+        showZero={false}
+        badgeInset="5px 5px 0 0"
+        size="sm"
+        color="warning"
+        onClick={onNotifications}
+      >
         <DeckIconButton
           color="primary"
           variant={notificationOpen ? "soft" : "plain"}
