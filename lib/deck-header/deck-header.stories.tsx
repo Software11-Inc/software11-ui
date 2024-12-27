@@ -66,6 +66,7 @@ Default.args = {
   role: "Admin".toUpperCase(),
   email: "john.doe@gmail.com",
   avatarUrl: undefined,
+  notificationCount: 12,
 };
 
 Default.parameters = {
