@@ -23,6 +23,9 @@ export const DeckHeaderUserActions: React.FC<DeckHeaderUserActionsProps> = ({
         size="sm"
         color="warning"
         onClick={onNotifications}
+        sx={{
+          cursor: "pointer",
+        }}
       >
         <DeckIconButton
           color="primary"
