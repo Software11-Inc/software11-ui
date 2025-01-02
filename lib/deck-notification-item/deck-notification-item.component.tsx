@@ -69,19 +69,34 @@ const indicatorStyle: SxProps = {
 export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   title,
   description,
-  customIcon = null,
-  textIcon = null,
+
+  author,
+  onAuthorClick = () => {},
+  authorLabel = "Author",
+
+  sourceProject,
+  onSourceProjectClick = () => {},
+  sourceProjectLabel = "Project",
+
+  action,
+  onActionClick = () => {},
+  actionLabel = "Action",
+
+  objectName,
+  onObjectNameClick = () => {},
+  objectNameLabel = "Name",
+
+  actionButtons = [],
+
+  fade = false,
+
   color = null,
   defaultExpanded = false,
   source = "web",
-  fade = false,
-  sourceProject,
+  customIcon = null,
+  textIcon = null,
   onClick = () => {},
   onMouseEnter = () => {},
-  actionButtons = [],
-  author,
-  action,
-  objectName,
 }) => {
   const [expanded, setExpanded] = React.useState(defaultExpanded);
 
@@ -138,14 +153,14 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
           <React.Fragment>
             <Box sx={messageStyle}>
               <Box sx={formGroupStyle}>
-                <DeckLabel title={{ text: "Author" }} color="neutral" />
-                <DeckAuthor user={author} showAvatar={false} />
+                <DeckLabel title={{ text: authorLabel }} color="neutral" />
+                <DeckAuthor user={author} showAvatar={false} size="sm" isLink={true} onClick={onAuthorClick} />
               </Box>
               {sourceProject && (
                 <Box sx={formGroupStyle}>
-                  <DeckLabel title={{ text: "Project" }} color="neutral" />
+                  <DeckLabel title={{ text: sourceProjectLabel }} color="neutral" />
                   <DeckLabel
-                    title={{ text: sourceProject?.name }}
+                    title={{ text: sourceProject?.name, link: true, onClick: onSourceProjectClick }}
                     description={{
                       text: sourceProject?.description,
                     }}
@@ -155,14 +170,14 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
               )}
               {action && (
                 <Box sx={formGroupStyle}>
-                  <DeckLabel title={{ text: "Action" }} color="neutral" />
-                  <DeckLabel title={{ text: action }} color="primary" />
+                  <DeckLabel title={{ text: actionLabel }} color="neutral" />
+                  <DeckLabel title={{ text: action, link: true, onClick: onActionClick }} color="primary" />
                 </Box>
               )}
               {objectName && (
                 <Box sx={formGroupStyle}>
-                  <DeckLabel title={{ text: "Name" }} color="neutral" />
-                  <DeckLabel title={{ text: objectName }} color="primary" />
+                  <DeckLabel title={{ text: objectNameLabel }} color="neutral" />
+                  <DeckLabel title={{ text: objectName, link: true, onClick: onObjectNameClick }} color="primary" />
                 </Box>
               )}
             </Box>

@@ -7,4 +7,6 @@ export interface IDeckAuthorProps {
   showAvatar?: boolean;
   size?: Size;
   color?: ColorPaletteProp;
+  isLink?: boolean;
+  onClick?: () => void;
 }

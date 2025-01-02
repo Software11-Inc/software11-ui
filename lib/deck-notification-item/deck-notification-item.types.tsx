@@ -9,19 +9,36 @@ import { DeckApplcationType } from "../models/application.model";
 export interface DeckNotificationItemProps {
   title?: RowProperties;
   description?: RowProperties;
+
   author?: IUser;
+  onAuthorClick?: () => void;
+  authorLabel?: string;
+
   sourceProject?: ISourceProject;
+  onSourceProjectClick?: () => void;
+  sourceProjectLabel?: string;
+
+  action?: string;
+  onActionClick?: () => void;
+  actionLabel?: string;
+
+  objectName?: string;
+  onObjectNameClick?: () => void;
+  objectNameLabel?: string;
+
+  actionButtons?: IActionButton[];
+
+  expanded?: boolean;
+
+  fade?: boolean;
+
+  color?: ColorPaletteProp;
+  defaultExpanded?: boolean;
   source: DeckApplcationType;
   customIcon?: React.ReactNode;
   textIcon?: DeckSnackbarTextIcon;
-  color?: ColorPaletteProp;
-  defaultExpanded?: boolean;
-  expanded?: boolean;
-  fade?: boolean;
+
   onClick?: () => void;
   onClear?: () => void;
   onMouseEnter?: () => void;
-  actionButtons?: IActionButton[];
-  action?: string;
-  objectName?: string;
 }
