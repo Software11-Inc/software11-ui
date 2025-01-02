@@ -3,9 +3,9 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
 import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
-import React from "react";
+import React, { useImperativeHandle, useRef } from "react";
 import { DeckLabel } from "../deck-label";
-import { DeckNotificationItemProps } from "./deck-notification-item.types";
+import { DeckNotificationItemProps, INotificationRef } from "./deck-notification-item.types";
 import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
 import Divider from "@mui/joy/Divider";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
@@ -66,38 +66,40 @@ const indicatorStyle: SxProps = {
   },
 };
 
-export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
-  title,
-  description,
+function DeckTextButtonComponent(props: DeckNotificationItemProps, ref: React.Ref<INotificationRef>) {
+  const {
+    title,
+    description,
 
-  author,
-  onAuthorClick = () => {},
-  authorLabel = "Author",
+    author,
+    onAuthorClick = () => {},
+    authorLabel = "Author",
 
-  sourceProject,
-  onSourceProjectClick = () => {},
-  sourceProjectLabel = "Project",
+    sourceProject,
+    onSourceProjectClick = () => {},
+    sourceProjectLabel = "Project",
 
-  action,
-  onActionClick = () => {},
-  actionLabel = "Action",
+    action,
+    onActionClick = () => {},
+    actionLabel = "Action",
 
-  objectName,
-  onObjectNameClick = () => {},
-  objectNameLabel = "Name",
+    objectName,
+    onObjectNameClick = () => {},
+    objectNameLabel = "Name",
 
-  actionButtons = [],
+    actionButtons = [],
 
-  fade = false,
+    fade = false,
 
-  color = null,
-  defaultExpanded = false,
-  source = "web",
-  customIcon = null,
-  textIcon = null,
-  onClick = () => {},
-  onMouseEnter = () => {},
-}) => {
+    color = null,
+    defaultExpanded = false,
+    source = "web",
+    customIcon = null,
+    textIcon = null,
+    onClick = () => {},
+    onMouseEnter = () => {},
+  } = props;
+
   const [expanded, setExpanded] = React.useState(defaultExpanded);
 
   const hasTextIcon = textIcon !== null;
@@ -108,6 +110,15 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   const hasBottom = source || actionButtons.length > 0;
 
   const className = ["deck-notification-item", fade ? "deck-fade" : ""].join(" ");
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      close: () => setExpanded(false),
+      open: () => setExpanded(true),
+    }),
+    []
+  );
 
   return (
     <Accordion
@@ -219,4 +230,12 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
       </AccordionDetails>
     </Accordion>
   );
-};
+}
+
+type DeckNotificationItemType = (
+  props: DeckNotificationItemProps & { ref?: React.Ref<INotificationRef> }
+) => React.ReactElement | null;
+
+export const DeckNotificationItem: DeckNotificationItemType = React.forwardRef(
+  DeckTextButtonComponent
+) as DeckNotificationItemType;
