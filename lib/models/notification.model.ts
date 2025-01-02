@@ -33,3 +33,8 @@ export interface INotification extends Partial<IDefaultItem> {
 
   textIcon?: DeckSnackbarTextIcon;
 }
+
+export interface INotificationRef {
+  close: () => void;
+  open: () => void;
+}

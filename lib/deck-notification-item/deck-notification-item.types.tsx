@@ -42,8 +42,3 @@ export interface DeckNotificationItemProps {
   onClear?: () => void;
   onMouseEnter?: () => void;
 }
-
-export interface INotificationRef {
-  close: () => void;
-  open: () => void;
-}

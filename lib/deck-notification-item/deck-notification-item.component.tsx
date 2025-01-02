@@ -3,14 +3,15 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
 import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
-import React, { useImperativeHandle, useRef } from "react";
+import React, { useImperativeHandle } from "react";
 import { DeckLabel } from "../deck-label";
-import { DeckNotificationItemProps, INotificationRef } from "./deck-notification-item.types";
+import { DeckNotificationItemProps } from "./deck-notification-item.types";
 import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
 import Divider from "@mui/joy/Divider";
 import { svgIconClasses } from "@mui/joy/SvgIcon";
 import { DeckTextButton } from "../deck-text-button";
 import { DeckAuthor } from "../deck-author";
+import { INotificationRef } from "../models/notification.model";
 
 const boxStyle: SxProps = {
   display: "flex",
@@ -66,7 +67,7 @@ const indicatorStyle: SxProps = {
   },
 };
 
-function DeckTextButtonComponent(props: DeckNotificationItemProps, ref: React.Ref<INotificationRef>) {
+function DeckNotificationComponent(props: DeckNotificationItemProps, ref: React.Ref<INotificationRef>) {
   const {
     title,
     description,
@@ -237,5 +238,5 @@ type DeckNotificationItemType = (
 ) => React.ReactElement | null;
 
 export const DeckNotificationItem: DeckNotificationItemType = React.forwardRef(
-  DeckTextButtonComponent
+  DeckNotificationComponent
 ) as DeckNotificationItemType;
