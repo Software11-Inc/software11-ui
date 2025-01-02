@@ -8,4 +8,6 @@ export interface DeckDatasetWidgetProps {
   changes?: FigureUserChangeMap;
   onSelectCell?: (cell: string) => void;
   onOpen?: () => void;
+  groupNameChangeTitle?: string;
+  groupNameChangeDescription?: string;
 }

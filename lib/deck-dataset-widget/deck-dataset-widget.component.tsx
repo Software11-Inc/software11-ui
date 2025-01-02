@@ -26,6 +26,7 @@ import {
 import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 import { DeckIconButton } from "../deck-icon-button";
 import * as fromUtils from "../utils";
+import Tooltip from "@mui/joy/Tooltip";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -37,6 +38,8 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
   changes = {},
   onSelectCell = () => {},
   onOpen = () => {},
+  groupNameChangeTitle,
+  groupNameChangeDescription,
 }) => {
   const className = `deck-active-project`;
   const highlightedClass = `deck-highlighted`;
@@ -141,7 +144,14 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
           <Box sx={contentStyle} className="small-scroll">
             {Object.keys(internalChanges).map((key) => {
               const change = internalChanges[key];
-              return <FigureChange key={change.id} change={change} onSelectCell={onSelectCell} />;
+              return (
+                <FigureChange
+                  key={change.id}
+                  change={change}
+                  onSelectCell={onSelectCell}
+                  {...{ groupNameChangeTitle, groupNameChangeDescription }}
+                />
+              );
             })}
           </Box>
         </AccordionDetails>
@@ -153,9 +163,16 @@ export const DeckDatasetWidget: React.FC<DeckDatasetWidgetProps> = ({
 interface IFigureChangeProps {
   change: IFigureUserChange;
   onSelectCell: (cell: string) => void;
+  groupNameChangeTitle?: string;
+  groupNameChangeDescription?: string;
 }
 
-export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCell = () => {} }) => {
+export const FigureChange: React.FC<IFigureChangeProps> = ({
+  change,
+  onSelectCell = () => {},
+  groupNameChangeTitle,
+  groupNameChangeDescription,
+}) => {
   const oldNameValue = change?.old?.name?.value;
   const newNameValue = change?.new?.name?.value;
   const oldFigureValue = change?.old?.figure?.value;
@@ -167,52 +184,78 @@ export const FigureChange: React.FC<IFigureChangeProps> = ({ change, onSelectCel
   const nameColor: ColorPaletteProp = isNameChanged ? "warning" : "neutral";
   const valueColor: ColorPaletteProp = isValueChanged ? "warning" : "neutral";
 
+  const oldGroupName = change?.old?.groupName;
+  const newGroupName = change?.new?.groupName;
+
+  const isGroupNameChanged = fromUtils.isValueDifferent(oldGroupName, newGroupName);
+
   const cell =
     change?.new?.figure?.cell || change?.old?.figure?.cell || change?.new?.name?.cell || change?.old?.name?.cell || "";
 
   return (
-    <Box sx={horizontalBoxStyle}>
-      <Typography sx={cellStyle} onMouseEnter={() => onSelectCell(cell)}>
-        {cell}
-      </Typography>
-      <Box
-        sx={{
-          ...horizontalBoxStyle,
-          alignItems: "center",
-          flex: 1,
-          gap: 1,
-        }}
-      >
+    <Tooltip
+      variant="plain"
+      placement="bottom"
+      arrow
+      hidden={!isGroupNameChanged}
+      title={
+        <DeckLabel
+          title={{
+            text: groupNameChangeTitle,
+          }}
+          description={{
+            text: groupNameChangeDescription,
+          }}
+        />
+      }
+    >
+      <Box sx={horizontalBoxStyle}>
+        <Typography sx={cellStyle} onMouseEnter={() => onSelectCell(cell)}>
+          {cell}
+        </Typography>
         <Box
           sx={{
-            ...boxStyle,
+            ...horizontalBoxStyle,
+            alignItems: "center",
             flex: 1,
-            alignItems: "flex-end",
+            gap: 1,
           }}
         >
-          <Typography sx={figureValuesStyle} color="neutral">
-            {oldFigureValue}
-          </Typography>
-          <Typography sx={figureNameStyle} color="neutral">
-            {oldNameValue}
-          </Typography>
-        </Box>
-        <DoubleArrowRounded color="warning" />
-        <Box
-          sx={{
-            ...boxStyle,
-            flex: 1,
-            alignItems: "flex-start",
-          }}
-        >
-          <Typography sx={figureValuesStyle} color={valueColor}>
-            {newFigureValue}
-          </Typography>
-          <Typography sx={figureNameStyle} color={nameColor}>
-            {newNameValue}
-          </Typography>
+          <Box
+            sx={{
+              ...boxStyle,
+              flex: 1,
+              alignItems: "flex-end",
+            }}
+          >
+            <Typography sx={figureValuesStyle} color="neutral">
+              {oldFigureValue}
+            </Typography>
+            <Typography sx={figureNameStyle} color="neutral">
+              {oldNameValue}
+            </Typography>
+          </Box>
+          <DoubleArrowRounded
+            sx={{
+              color: isGroupNameChanged ? "var(--joy-palette-primary-200)" : "var(--joy-palette-warning-500)",
+            }}
+          />
+          <Box
+            sx={{
+              ...boxStyle,
+              flex: 1,
+              alignItems: "flex-start",
+            }}
+          >
+            <Typography sx={figureValuesStyle} color={valueColor}>
+              {newFigureValue}
+            </Typography>
+            <Typography sx={figureNameStyle} color={nameColor}>
+              {newNameValue}
+            </Typography>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </Tooltip>
   );
 };

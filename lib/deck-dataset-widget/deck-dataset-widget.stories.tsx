@@ -49,6 +49,35 @@ Default.args = {
 export const Changed = Template.bind({});
 
 const mockChanges: FigureUserChangeMap = {
+  figure5: {
+    id: "figure5",
+    old: {
+      id: "figure5",
+      name: {
+        cell: "A4",
+        value: "Name 5",
+      },
+      figure: {
+        cell: "B4",
+        value: "400",
+      },
+      groupName: "Group 5",
+      isGroupName: false,
+    },
+    new: {
+      id: "figure5",
+      name: {
+        cell: "A4",
+        value: "Name 5",
+      },
+      figure: {
+        cell: "B4",
+        value: "400",
+      },
+      groupName: "Group 55",
+      isGroupName: false,
+    },
+  },
   figure1: {
     id: "figure1",
     old: {
@@ -144,8 +173,39 @@ const mockChanges: FigureUserChangeMap = {
       isGroupName: false,
     },
   },
+  figure4: {
+    id: "figure4",
+    old: {
+      id: "figure4",
+      name: {
+        cell: "A4",
+        value: "Name 4",
+      },
+      figure: {
+        cell: "B4",
+        value: "400",
+      },
+      groupName: "Group 4",
+      isGroupName: false,
+    },
+    new: {
+      id: "figure4",
+      name: {
+        cell: "A4",
+        value: "Name 4",
+      },
+      figure: {
+        cell: "B4",
+        value: "400",
+      },
+      groupName: "Group 45",
+      isGroupName: false,
+    },
+  },
 };
 
 Changed.args = {
   changes: mockChanges,
+  groupNameChangeTitle: "Group name changed",
+  groupNameChangeDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 };

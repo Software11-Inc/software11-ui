@@ -81,7 +81,7 @@ export const horizontalBoxStyle: SxProps = {
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  my: 0.25,
+  py: 0.25,
 };
 
 export const counterStyle: SxProps = {
