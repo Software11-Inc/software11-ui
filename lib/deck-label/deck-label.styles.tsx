@@ -34,17 +34,33 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
         },
       },
 
-      [`& > .${className}__description`]: {
-        color: `${color}.700`,
-        fontSize: descriptionFontSize,
-        lineHeight: "12px",
-      },
-
       [`& > .${className}__title, & > .${className}__description`]: {
         display: "-webkit-box",
         overflow: "hidden",
         textOverflow: "ellipsis",
         WebkitBoxOrient: "vertical",
+
+        "&.deck-link span": {
+          fontWeight: "bold",
+          textDecoration: "underline dotted",
+          textDecorationThickness: "2px",
+          textUnderlineOffset: "3px",
+          cursor: "pointer",
+
+          "&:hover": {
+            textDecoration: "underline solid",
+          },
+        },
+      },
+
+      [`& > .${className}__description`]: {
+        color: `${color}.700`,
+        fontSize: descriptionFontSize,
+        lineHeight: "15px",
+
+        "&.deck-link span": {
+          fontWeight: "inherit",
+        },
       },
     },
   };

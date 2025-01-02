@@ -20,7 +20,11 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
   return (
     <Box className={className} sx={deckLabelStyle(color, size, order, mt, gap, italic)}>
       {hasTitle && (
-        <Box className={`${className}__title`} sx={textStyle(title.limit, true)}>
+        <Box
+          className={[`${className}__title`, title?.link ? "deck-link" : ""].join(" ").trim()}
+          sx={textStyle(title.limit, true)}
+          onClick={title?.onClick || (() => {})}
+        >
           {title?.component ? (
             <Box className={`${className}__component`}>{title.component}</Box>
           ) : (
@@ -31,7 +35,11 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
       )}
       {Boolean(separator) && <Box className={`${className}__separator`}>{separator}</Box>}
       {hasDescription && (
-        <Box className={`${className}__description`} sx={textStyle(description.limit, description?.bold)}>
+        <Box
+          className={[`${className}__description`, description?.link ? "deck-link" : ""].join(" ").trim()}
+          sx={textStyle(description.limit, description?.bold)}
+          onClick={description?.onClick || (() => {})}
+        >
           {description?.component ? (
             <Box className={`${className}__component`}>{description.component}</Box>
           ) : (

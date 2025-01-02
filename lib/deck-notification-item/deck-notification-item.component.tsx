@@ -78,7 +78,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
   sourceProject,
   onClick = () => {},
   onMouseEnter = () => {},
-  actionButton = null,
+  actionButtons = [],
   author,
   action,
   objectName,
@@ -90,7 +90,7 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
 
   const hasIcon = hasTextIcon || hasCustomIcon;
 
-  const hasBottom = source || actionButton;
+  const hasBottom = source || actionButtons.length > 0;
 
   const className = ["deck-notification-item", fade ? "deck-fade" : ""].join(" ");
 
@@ -175,24 +175,28 @@ export const DeckNotificationItem: React.FC<DeckNotificationItemProps> = ({
               <Box
                 sx={{
                   display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
+                  flexDirection: "column",
+                  alignItems: "stretch",
                   gap: 1,
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                 }}
               >
-                {actionButton && (
-                  <DeckTextButton
-                    action={() => {
-                      actionButton.action && actionButton.action();
-                    }}
-                    text={actionButton.text}
-                    color={actionButton.color}
-                    variant={actionButton.variant}
-                    disabled={actionButton.disabled}
-                    icon={actionButton.iconStart}
-                  />
-                )}
+                {actionButtons &&
+                  actionButtons.map((actionButton) => {
+                    return (
+                      <DeckTextButton
+                        key={actionButton.buttonKey}
+                        action={() => {
+                          actionButton.action && actionButton.action();
+                        }}
+                        text={actionButton.text}
+                        color={actionButton.color}
+                        variant={actionButton.variant}
+                        disabled={actionButton.disabled}
+                        icon={actionButton.iconStart}
+                      />
+                    );
+                  })}
               </Box>
             </Box>
           </React.Fragment>

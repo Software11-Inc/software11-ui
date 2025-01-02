@@ -4,6 +4,8 @@ export interface RowProperties {
   component?: React.ReactNode;
   limit?: number;
   bold?: boolean;
+  link?: boolean;
+  onClick?: () => void;
 }
 
 export interface DeckLabelProps {

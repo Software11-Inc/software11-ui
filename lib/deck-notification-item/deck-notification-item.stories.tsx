@@ -62,13 +62,32 @@ Default.args = {
   },
   defaultExpanded: true,
   fade: true,
-  actionButton: {
-    text: "Action",
-    variant: "solid",
-    action: () => {
-      console.log("Action clicked");
+  actionButtons: [
+    {
+      buttonKey: "unread",
+      text: "Mark as unread",
+      variant: "soft",
+      action: () => {
+        console.log("Mark as unread clicked");
+      },
     },
-  },
+    {
+      buttonKey: "archive",
+      text: "Archive",
+      variant: "soft",
+      action: () => {
+        console.log("Archive clicked");
+      },
+    },
+    {
+      buttonKey: "action",
+      text: "Action",
+      variant: "solid",
+      action: () => {
+        console.log("Action clicked");
+      },
+    },
+  ],
   author: {
     firstName: "John",
     lastName: "Doe",
