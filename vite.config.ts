@@ -6,7 +6,7 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths(), dts({rollupTypes: true})],
+  plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
   build: {
     // Library entry and output settings
     lib: {
@@ -32,5 +32,5 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./lib/test/setup.ts",
     css: true,
-  }
+  },
 });
