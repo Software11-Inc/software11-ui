@@ -12,7 +12,7 @@ import React from "react";
 import { accordionGroupStyles, getBackgroundColor } from "../accordion.style";
 import { DeckLabel } from "../deck-label";
 import { DeckSection } from "../deck-section";
-import { formatDate, isValueEqual } from "../utils";
+import { isValueEqual } from "../utils";
 import { changesHeaderIcon, changesHeaderStyle, valueStyle } from "./deck-figure-change.styles";
 import { IDeckFigureChangeProps } from "./deck-figure-change.types";
 
@@ -22,10 +22,6 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
     additions = [],
     deletions = [],
     edits = [],
-    generationDate = {
-      _seconds: 0,
-      _nanoseconds: 0,
-    },
   },
   defaultExpanded = false,
 }) => {
@@ -50,7 +46,7 @@ export const DeckFigureChange: React.FC<IDeckFigureChangeProps> = ({
           title: `ver. ${versionNumber}`,
           color: "primary",
           count,
-          description: formatDate(generationDate?._seconds),
+          description: "",
         }}
         action={{
           text: "",

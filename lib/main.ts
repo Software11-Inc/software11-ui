@@ -80,7 +80,3 @@ export * from "@models";
 export * from "./accordion.style";
 export * from "./theming";
 export * from "./utils";
-
-import moment from "moment";
-import "moment/locale/en-gb";
-moment.locale("en-gb");

@@ -12,14 +12,6 @@ export function createGroupMap<T>(figureIDs: string[] = [], source: Record<strin
   );
 }
 
-import moment from "moment";
-
-export const DATE_FORMAT = "MMM DD, h:mm a";
-
-export const formatDate = (timestamp: number) => {
-  return moment.unix(timestamp).format(DATE_FORMAT);
-};
-
 export const isValueEqual = (a: string, b: string) => {
   return String(a) === String(b);
 };
