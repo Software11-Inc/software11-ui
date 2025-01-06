@@ -9,7 +9,7 @@ export const mainBoxSxProps = (fit: boolean = false) => ({
   backgroundColor: "transparent",
   boxSizing: "border-box",
   boxShadow: "var(--shadow)",
-  zIndex: 999,
+  zIndex: 5,
   overflow: "hidden",
   transition: "0.2s ease-in-out",
 

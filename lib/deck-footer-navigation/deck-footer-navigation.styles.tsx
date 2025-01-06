@@ -232,7 +232,7 @@ export const deckFooterNavigationStyle: SxProps = {
     [`&.${classNames.state.sticky}`]: {
       position: "fixed",
       bottom: 0,
-      zIndex: 1000,
+      zIndex: 5,
     },
     width: "100%",
     "--footer-nav-indicator-position-x": styleVariables.indicatorPositionX,
