@@ -3,7 +3,7 @@ import AccordionDetails from "@mui/joy/AccordionDetails";
 import AccordionSummary from "@mui/joy/AccordionSummary";
 import Box from "@mui/joy/Box";
 import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
-import React, { useImperativeHandle } from "react";
+import React, { BaseSyntheticEvent, useImperativeHandle } from "react";
 import { DeckLabel } from "../deck-label";
 import { DeckNotificationItemProps } from "./deck-notification-item.types";
 import { DeckSnackbarTextIconComponent } from "../deck-snackbar-message";
@@ -133,7 +133,11 @@ function DeckNotificationComponent(props: DeckNotificationItemProps, ref: React.
         slotProps={{
           button: {
             component: "div",
-            onClick: () => {
+            onClick: (ev: any) => {
+              const target = ev.target as HTMLElement;
+              if (target.classList.contains("deck-link")) {
+                return;
+              }
               onClick();
               setExpanded(!expanded);
             },

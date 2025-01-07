@@ -55,7 +55,11 @@ export const Default = Template.bind({});
 
 Default.args = {
   title: {
-    text: "This is a test title",
+    component: (
+      <div>
+        This <a className="deck-link">is</a> a test title
+      </div>
+    ),
   },
   description: {
     text: "This is a test description",
