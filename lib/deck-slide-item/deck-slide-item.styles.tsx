@@ -6,6 +6,7 @@ export const slideItemStyle: SxProps = {
   borderRadius: "var(--border-radius)",
   overflow: "hidden",
   boxShadow: "var(--shadow)",
+  position: "relative",
 };
 
 export const slideItemImageStyle: SxProps = {
@@ -18,6 +19,11 @@ export const slideItemImageStyle: SxProps = {
   borderBottom: "1px solid",
   borderColor: "divider",
   position: "relative",
+
+  "&.deck-disabled": {
+    cursor: "progress",
+  },
+
   img: {
     width: "100%",
     height: "auto",
@@ -40,6 +46,36 @@ export const slideItemImageStyle: SxProps = {
         fontWeight: "bold",
         fontSize: "10px",
       },
+    },
+  },
+
+  "& > .deck-insert-button": {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    display: "none",
+    flexDirection: "column",
+    gap: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 1,
+    background: "rgba(0,0,0,0.5)",
+    transition: "0.3s ease-in-out",
+    cursor: "pointer",
+
+    "& > .deck-insert-button-text": {
+      color: "white",
+      fontSize: "12px",
+      fontWeight: "bold",
+      textTransform: "uppercase",
+    },
+  },
+
+  "&:not(.deck-disabled):hover": {
+    "& > .deck-insert-button": {
+      display: "flex",
     },
   },
 };
@@ -71,6 +107,7 @@ export const slideItemContentStyle: SxProps = {
   gap: 1,
   justifyContent: "space-between",
   alignItems: "center",
+  position: "relative",
 };
 
 export const slideItemButtonStyle: SxProps = {

@@ -1,4 +1,3 @@
-import { ILibrarySlide } from "@models";
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckSlideItem } from "./deck-slide-item.component";
 import { ItemState } from "./deck-slide-item.types";
@@ -28,12 +27,29 @@ Default.args = {
     message: "Example of error message",
     detail: "Make sure that you enter some descriptive details of error",
   },
-  item: {
-    id: "1",
-    name: "Slide Name",
-    previewImageURL: "https://via.placeholder.com/450",
-    latestUpdateTime: {
-      _seconds: 1632201600,
+  title: {
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Lorem ipsum dolor sit amet consectetur adipiscing elit",
+    link: true,
+    onClick: () => {
+      alert("Link clicked");
     },
-  } as ILibrarySlide,
+  },
+  description: {
+    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit Lorem ipsum dolor sit amet consectetur adipiscing elit",
+  },
+  previewImage: "https://placehold.co/400",
+
+  onImageClick: () => {
+    alert("Image clicked");
+  },
+
+  buttonText: "Click to insert",
+
+  onOpen: () => {
+    alert("Details opened");
+  },
+
+  onUpgrade: () => {
+    alert("Slide upgraded");
+  },
 };

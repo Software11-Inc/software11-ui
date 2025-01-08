@@ -1,4 +1,5 @@
 import { IErrorMessage, ILibrarySlide } from "@models";
+import { RowProperties } from "../deck-label/deck-label.types";
 
 export enum ItemState {
   DEFAULT = "DEFAULT",
@@ -10,6 +11,18 @@ export enum ItemState {
 export interface IDeckSlideItemProps {
   item: ILibrarySlide;
   errorMessage?: IErrorMessage;
-  onInsert?: () => void;
   state?: ItemState;
+
+  title?: RowProperties;
+  description?: RowProperties;
+
+  previewImage?: string;
+
+  buttonText?: string;
+  loadingText?: string;
+  successText?: string;
+
+  onImageClick?: () => void;
+  onOpen?: () => void;
+  onUpgrade?: () => void;
 }
