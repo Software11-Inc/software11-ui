@@ -7,6 +7,10 @@ export const slideItemStyle: SxProps = {
   overflow: "hidden",
   boxShadow: "var(--shadow)",
   position: "relative",
+
+  "&:hover": {
+    boxShadow: "var(--focus-shadow)",
+  },
 };
 
 export const slideItemImageStyle: SxProps = {

@@ -1,6 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckSlideItem } from "./deck-slide-item.component";
 import { ItemState } from "./deck-slide-item.types";
+import AirplayRounded from "@mui/icons-material/AirplayRounded";
+import MoveUpRounded from "@mui/icons-material/MoveUpRounded";
 
 export default {
   title: "Pages/Library/Slides/Slide",
@@ -52,4 +54,43 @@ Default.args = {
   onUpgrade: () => {
     alert("Slide upgraded");
   },
+
+  menuItems: [
+    {
+      icon: (
+        <AirplayRounded
+          sx={{
+            color: "var(--joy-palette-primary-500)",
+          }}
+        />
+      ),
+      title: {
+        text: "Open details",
+      },
+      description: {
+        text: "Open the slide details",
+      },
+      onClick: () => {
+        alert("Slide inserted");
+      },
+    },
+    {
+      icon: (
+        <MoveUpRounded
+          sx={{
+            color: "var(--joy-palette-primary-500)",
+          }}
+        />
+      ),
+      title: {
+        text: "Upload new version",
+      },
+      description: {
+        text: "Upload a new version of the slide",
+      },
+      onClick: () => {
+        alert("Slide upgraded");
+      },
+    },
+  ],
 };

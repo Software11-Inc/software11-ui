@@ -8,6 +8,14 @@ export enum ItemState {
   ERROR = "ERROR",
 }
 
+export interface IDeckMenuItem {
+  icon: JSX.Element;
+  title?: RowProperties;
+  description?: RowProperties;
+  onClick: () => void;
+  disabled?: boolean;
+}
+
 export interface IDeckSlideItemProps {
   item: ILibrarySlide;
   errorMessage?: IErrorMessage;
@@ -25,4 +33,6 @@ export interface IDeckSlideItemProps {
   onImageClick?: () => void;
   onOpen?: () => void;
   onUpgrade?: () => void;
+
+  menuItems: IDeckMenuItem[];
 }

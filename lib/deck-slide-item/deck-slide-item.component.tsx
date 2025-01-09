@@ -24,6 +24,41 @@ import {
 } from "./deck-slide-item.styles";
 import { IDeckSlideItemProps, ItemState } from "./deck-slide-item.types";
 
+const menuStyle = {
+  border: "unset",
+  boxShadow: "var(--focus-shadow)",
+  p: 0,
+  maxWidth: "75vw",
+
+  [`& .${menuItemClasses.root}`]: {
+    px: 1,
+    [`& .${svgIconClasses.root}`]: {
+      opacity: 0.5,
+      fontSize: "16px",
+    },
+  },
+  [`& .${menuItemClasses.root}:hover`]: {
+    [`& .${svgIconClasses.root}`]: {
+      opacity: 1,
+    },
+  },
+  [`& .${menuItemClasses.root}.Mui-disabled`]: {
+    opacity: 0.5,
+  },
+};
+
+const popperOptions = {
+  modifiers: [
+    {
+      name: "offset",
+      options: {
+        offset: [8, 8],
+      },
+    },
+  ],
+  placement: "bottom-end",
+} as any;
+
 export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
   state = ItemState.DEFAULT,
   errorMessage,
@@ -36,6 +71,7 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
   buttonText = "Insert",
   loadingText = "Loading...",
   successText = "Slide inserted successfully",
+  menuItems = [],
 }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -63,7 +99,6 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
       <Box sx={slideItemStyle}>
         <Box sx={slideItemImageStyle} onClick={onImageClick} className={disabled ? "deck-disabled" : ""}>
           <img src={previewImage} loading="lazy" alt={title?.text || ""} />
-
           <Box sx={slideItemOverlayStyle} className={hasError ? "deck-error" : ""}>
             <WarningRounded sx={{ color: "var(--joy-palette-danger-500)" }} />
             <DeckLabel
@@ -84,17 +119,6 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
             </Box>
           )}
           <DeckLabel title={title} description={description} />
-          {/* <Button
-            size="sm"
-            color={color}
-            sx={slideItemButtonStyle}
-            onClick={onInsert}
-            disabled={disabled}
-            startDecorator={icon}
-          >
-            {computedText.toUpperCase()}
-          </Button> */}
-
           <Dropdown open={open}>
             <MenuButton
               slots={{
@@ -113,72 +137,15 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
               size="sm"
               color="primary"
               onMouseLeave={() => setOpen(false)}
-              popperOptions={{
-                modifiers: [
-                  {
-                    name: "offset",
-                    options: {
-                      offset: [8, 8],
-                    },
-                  },
-                ],
-                placement: "bottom-end",
-              }}
-              sx={{
-                border: "unset",
-                boxShadow: "var(--focus-shadow)",
-                p: 0,
-                maxWidth: "75vw",
-
-                [`& .${menuItemClasses.root}`]: {
-                  px: 1,
-                  [`& .${svgIconClasses.root}`]: {
-                    opacity: 0.5,
-                    fontSize: "16px",
-                  },
-                },
-                [`& .${menuItemClasses.root}:hover`]: {
-                  [`& .${svgIconClasses.root}`]: {
-                    opacity: 1,
-                  },
-                },
-                [`& .${menuItemClasses.root}.Mui-disabled`]: {
-                  opacity: 0.5,
-                },
-              }}
+              popperOptions={popperOptions}
+              sx={menuStyle}
             >
-              <MenuItem onClick={onOpen}>
-                <AirplayRounded
-                  sx={{
-                    color: "var(--joy-palette-primary-500)",
-                  }}
-                />
-                <DeckLabel
-                  size="sm"
-                  title={{
-                    text: "Open details",
-                  }}
-                  description={{
-                    text: "Open the slide details",
-                  }}
-                />
-              </MenuItem>
-              <MenuItem onClick={onUpgrade}>
-                <MoveUpRounded
-                  sx={{
-                    color: "var(--joy-palette-primary-500)",
-                  }}
-                />
-                <DeckLabel
-                  size="sm"
-                  title={{
-                    text: "Upload new version",
-                  }}
-                  description={{
-                    text: "Upload a new version of the slide",
-                  }}
-                />
-              </MenuItem>
+              {menuItems.map((item, index) => (
+                <MenuItem key={index} onClick={item.onClick} disabled={item.disabled}>
+                  {item.icon}
+                  <DeckLabel size="sm" title={item.title} description={item.description} gap={-0.5} />
+                </MenuItem>
+              ))}
             </Menu>
           </Dropdown>
         </Box>
