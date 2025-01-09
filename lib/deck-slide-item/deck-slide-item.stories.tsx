@@ -47,14 +47,6 @@ Default.args = {
 
   buttonText: "Click to insert",
 
-  onOpen: () => {
-    alert("Details opened");
-  },
-
-  onUpgrade: () => {
-    alert("Slide upgraded");
-  },
-
   menuItems: [
     {
       icon: (
