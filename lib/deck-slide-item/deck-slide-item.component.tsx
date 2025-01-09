@@ -1,8 +1,6 @@
 import AddRounded from "@mui/icons-material/AddRounded";
-import AirplayRounded from "@mui/icons-material/AirplayRounded";
 import DoneAllRounded from "@mui/icons-material/DoneAllRounded";
 import MoreVertRounded from "@mui/icons-material/MoreVertRounded";
-import MoveUpRounded from "@mui/icons-material/MoveUpRounded";
 import SyncRounded from "@mui/icons-material/SyncRounded";
 import WarningRounded from "@mui/icons-material/WarningRounded";
 import Box from "@mui/joy/Box";
@@ -66,8 +64,6 @@ export const DeckSlideItem: React.FC<IDeckSlideItemProps> = ({
   description,
   previewImage,
   onImageClick = () => {},
-  onOpen = () => {},
-  onUpgrade = () => {},
   buttonText = "Insert",
   loadingText = "Loading...",
   successText = "Slide inserted successfully",

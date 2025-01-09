@@ -31,8 +31,6 @@ export interface IDeckSlideItemProps {
   successText?: string;
 
   onImageClick?: () => void;
-  onOpen?: () => void;
-  onUpgrade?: () => void;
 
   menuItems: IDeckMenuItem[];
 }
