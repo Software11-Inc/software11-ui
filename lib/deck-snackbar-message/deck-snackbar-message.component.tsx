@@ -19,6 +19,7 @@ const messageBoxStyle = (): SxProps => ({
   alignItems: "center",
   gap: "8px",
   minHeight: "2rem",
+  overflow: "hidden",
 });
 
 // TODO: Move to to own folder and file (probably global styles)
