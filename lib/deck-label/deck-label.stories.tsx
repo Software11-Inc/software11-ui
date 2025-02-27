@@ -37,6 +37,7 @@ Default.args = {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac lobortis dui.",
     limit: 1,
     link: true,
+    lineHeight: "1.5",
   },
   description: {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac lobortis dui. Duis a suscipit leo, vel imperdiet mi. Nulla facilisi. Sed tempor mi id sem ornare elementum. Praesent tempus turpis at consectetur lobortis.",
