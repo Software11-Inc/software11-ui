@@ -1,1 +1,1 @@
-export { DeckHeaderNavigation } from "./deck-header-navigation.component";
+export { DeckHeaderPage } from "./deck-header-page.component";
