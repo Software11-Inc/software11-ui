@@ -22,6 +22,7 @@ export const DeckHeaderUserProfile: React.FC<DeckHeaderUserProfileProps> = ({
           description={{ text: role, limit: 1, bold: true }}
           color="primary"
           size="sm"
+          gap={0}
         />
       </Box>
     </Box>

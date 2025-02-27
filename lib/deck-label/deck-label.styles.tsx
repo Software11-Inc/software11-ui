@@ -20,6 +20,7 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       order,
       mt,
       gap,
+      justifyContent: "center",
 
       [`& > .${className}__title`]: {
         fontWeight: "bold",
@@ -56,7 +57,6 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
       [`& > .${className}__description`]: {
         color: `${color}.700`,
         fontSize: descriptionFontSize,
-        lineHeight: "15px",
 
         "&.deck-link span": {
           fontWeight: "inherit",
@@ -66,7 +66,8 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
   };
 };
 
-export const textStyle = (limit = 2, bold = false): SxProps => ({
+export const textStyle = (limit = 2, bold = false, lineHeight = "1.2"): SxProps => ({
   WebkitLineClamp: limit,
   fontWeight: bold ? "bold" : "normal",
+  lineHeight,
 });

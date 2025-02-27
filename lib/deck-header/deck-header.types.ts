@@ -1,4 +1,7 @@
+export type DeckHeaderType = "default" | "search" | "page";
+
 export interface DeckHeaderProps {
+  type?: DeckHeaderType;
   title: string;
   description: string;
   fullName: string;
@@ -12,4 +15,12 @@ export interface DeckHeaderProps {
   onNotifications?: () => void;
   notificationCount?: number;
   notificationOpen?: boolean;
+
+  searchPlaceholder?: string;
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
+
+  onSync?: () => void;
+  onDelete?: () => void;
+  loading?: boolean;
 }

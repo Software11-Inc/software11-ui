@@ -19,6 +19,10 @@ export const headerStyle: SxProps = {
       transform: "translateY(-100%)",
     },
 
+    [`&.deck-focus .${className}-content`]: {
+      boxShadow: "var(--custom-shadow)",
+    },
+
     [`& .${className}-content`]: {
       display: "flex",
       alignItems: "center",

@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { DeckHeaderNavigation } from "./deck-header-navigation.component";
+import { DeckHeaderPage } from "./deck-header-page.component";
 
 export default {
-  title: "Layout/Header/Components/Navigation",
-  component: DeckHeaderNavigation,
+  title: "Layout/Header/Components/Page",
+  component: DeckHeaderPage,
   parameters: {
     controls: { expanded: false },
   },
@@ -21,9 +21,9 @@ export default {
       },
     },
   },
-} as Meta<typeof DeckHeaderNavigation>;
+} as Meta<typeof DeckHeaderPage>;
 
-const Template: StoryFn<typeof DeckHeaderNavigation> = (args) => <DeckHeaderNavigation {...args} />;
+const Template: StoryFn<typeof DeckHeaderPage> = (args) => <DeckHeaderPage {...args} />;
 
 export const Default = Template.bind({});
 
@@ -31,4 +31,14 @@ Default.args = {
   // Add props here
   title: "Home Page",
   description: "Welcome to the home page",
+
+  loading: false,
+
+  onSync: () => {
+    console.log("Syncing...");
+  },
+
+  onDelete: () => {
+    console.log("Deleting...");
+  },
 };

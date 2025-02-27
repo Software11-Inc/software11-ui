@@ -5,6 +5,7 @@ export interface RowProperties {
   limit?: number;
   bold?: boolean;
   link?: boolean;
+  lineHeight?: string;
   onClick?: () => void;
 }
 
