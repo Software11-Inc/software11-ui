@@ -49,7 +49,7 @@ export const deckLabelStyle = (color = "primary", size = "sm", order = 0, mt = 0
           cursor: "pointer",
 
           "&:hover": {
-            textDecoration: "underline solid",
+            textDecoration: "underline 2px solid",
           },
         },
       },
