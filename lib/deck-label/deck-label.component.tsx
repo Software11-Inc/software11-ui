@@ -22,7 +22,7 @@ export const DeckLabel: React.FC<DeckLabelProps> = ({
       {hasTitle && (
         <Box
           className={[`${className}__title`, title?.link ? "deck-link" : ""].join(" ").trim()}
-          sx={textStyle(title.limit, true)}
+          sx={textStyle(title.limit, true, title?.lineHeight)}
           onClick={title?.onClick || (() => {})}
         >
           {title?.component ? (
