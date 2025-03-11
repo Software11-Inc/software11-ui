@@ -37,3 +37,12 @@ Default.args = {
     value: "User Change Value",
   },
 };
+
+export const Empty = Template.bind({});
+
+Empty.args = {
+  figureName: "Figure Name",
+  shape: undefined,
+  isSelected: false,
+  emptyValue: "Empty Value",
+};

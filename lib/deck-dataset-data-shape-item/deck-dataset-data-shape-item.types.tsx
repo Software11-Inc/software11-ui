@@ -2,6 +2,7 @@ import { IDynamicShape, IShapeChange } from "@models";
 
 export interface IDeckDatasetDataShapeItemProps {
   figureName?: string;
+  emptyValue?: string;
   shape?: IDynamicShape;
   isSelected?: boolean;
   apiChange?: IShapeChange;

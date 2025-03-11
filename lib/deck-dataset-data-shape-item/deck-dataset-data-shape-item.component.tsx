@@ -15,6 +15,7 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
   shape,
   apiChange,
   userChange,
+  emptyValue,
   loading = false,
   onReset,
   onSync,
@@ -69,7 +70,7 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
         )}
         <DeckLabel
           title={{
-            text: getShapeValue(),
+            text: getShapeValue() || emptyValue || "",
           }}
           description={{
             text: figureName || "",
