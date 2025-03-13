@@ -1,6 +1,7 @@
 import ContentCopyRounded from "@mui/icons-material/ContentCopyRounded";
-import DeleteOutlineRounded from "@mui/icons-material/DeleteOutlineRounded";
+import DeleteSweepRoundedIcon from "@mui/icons-material/DeleteSweepRounded";
 import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
+import LinkOffRounded from "@mui/icons-material/LinkOffRounded";
 import Box from "@mui/joy/Box";
 import React from "react";
 import { dataItemStyle } from "../deck-dataset-data-item/deck-dataset-data-item.styles";
@@ -21,6 +22,7 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
   onSync,
   onDelete,
   onCopy,
+  onUnlink,
   onMouseEnter,
 }) => {
   // const order = hasUserChanges ? -3 : hasApiChanges ? -2 : -1;
@@ -95,13 +97,22 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
               icon={<ContentCopyRounded />}
             />
           )}
+          {Boolean(onUnlink) && (
+            <DeckIconButton
+              color="danger"
+              disabled={loading}
+              onClick={onUnlink}
+              variant="plain"
+              icon={<LinkOffRounded />}
+            />
+          )}
           {Boolean(onDelete) && (
             <DeckIconButton
               color="danger"
               disabled={loading}
               onClick={onDelete}
               variant="plain"
-              icon={<DeleteOutlineRounded />}
+              icon={<DeleteSweepRoundedIcon />}
             />
           )}
         </Box>

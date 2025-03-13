@@ -12,5 +12,6 @@ export interface IDeckDatasetDataShapeItemProps {
   onSync?: () => void;
   onDelete?: () => void;
   onCopy?: () => void;
+  onUnlink?: () => void;
   onMouseEnter?: () => void;
 }

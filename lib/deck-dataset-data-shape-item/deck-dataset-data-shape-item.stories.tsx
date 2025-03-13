@@ -45,4 +45,5 @@ Empty.args = {
   shape: undefined,
   isSelected: false,
   emptyValue: "Empty Value",
+  onUnlink: () => {},
 };
