@@ -36,6 +36,43 @@ Default.args = {
     shapeIndex: 0,
     value: "User Change Value",
   },
+  onUnlink: () => {},
+  syncTooltip: {
+    title: {
+      text: "Sync",
+    },
+    description: {
+      text: "Sync the shape with the dataset's figure.",
+      limit: 5,
+    },
+  },
+  resetTooltip: {
+    title: {
+      text: "Reset shape",
+    },
+    description: {
+      text: "You made changes to this shape. Reset it to the dataset's figure.",
+      limit: 5,
+    },
+  },
+  unlinkTooltip: {
+    title: {
+      text: "Remove connection",
+    },
+    description: {
+      text: "Remove the connection between this shape and the dataset's figure. It keeps the shape on the slide but removes from the cloud.",
+      limit: 5,
+    },
+  },
+  deleteTooltip: {
+    title: {
+      text: "Delete",
+    },
+    description: {
+      text: "Delete this shape from the slide and the cloud.",
+      limit: 5,
+    },
+  },
 };
 
 export const Empty = Template.bind({});

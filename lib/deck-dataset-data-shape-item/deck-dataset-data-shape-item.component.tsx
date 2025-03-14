@@ -10,6 +10,7 @@ import { className } from "../deck-icon-button/deck-icon-button.style";
 import { DeckLabel } from "../deck-label";
 import { DeckStatus } from "../deck-status";
 import { IDeckDatasetDataShapeItemProps } from "./deck-dataset-data-shape-item.types";
+import Tooltip from "@mui/joy/Tooltip";
 
 export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> = ({
   figureName,
@@ -18,6 +19,10 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
   userChange,
   emptyValue,
   loading = false,
+  resetTooltip,
+  syncTooltip,
+  unlinkTooltip,
+  deleteTooltip,
   onReset,
   onSync,
   onDelete,
@@ -51,24 +56,57 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
       <Box sx={dataItemStyle(className, 0, "sm", false, order)} className={itemClassName} onMouseEnter={onMouseEnter}>
         {!hasChanges && <DeckStatus status={status} />}
         {hasApiChanges && !hasUserChanges && Boolean(onSync) && (
-          <DeckIconButton
-            color="warning"
-            icon={<RotateLeftRounded />}
-            size="sm"
-            variant="plain"
-            disabled={loading}
-            onClick={onSync}
-          />
+          <React.Fragment>
+            <Tooltip
+              title={
+                <DeckLabel
+                  title={syncTooltip?.title}
+                  description={syncTooltip?.description}
+                  color="warning"
+                  size="sm"
+                />
+              }
+              placement="bottom-start"
+              variant="soft"
+              color="warning"
+              arrow
+              sx={{ maxWidth: "70vw" }}
+            >
+              <Box sx={{ width: "1.5rem", height: "1.5rem" }}>
+                <DeckIconButton
+                  color="warning"
+                  icon={<RotateLeftRounded />}
+                  size="sm"
+                  variant="plain"
+                  disabled={loading}
+                  onClick={onSync}
+                />
+              </Box>
+            </Tooltip>
+          </React.Fragment>
         )}
         {hasUserChanges && Boolean(onReset) && (
-          <DeckIconButton
+          <Tooltip
+            title={
+              <DeckLabel title={resetTooltip?.title} description={resetTooltip?.description} color="danger" size="sm" />
+            }
+            placement="bottom-start"
+            variant="soft"
             color="danger"
-            icon={<RotateLeftRounded />}
-            size="sm"
-            variant="plain"
-            disabled={loading}
-            onClick={onReset}
-          />
+            arrow
+            sx={{ maxWidth: "70vw" }}
+          >
+            <Box sx={{ width: "1.5rem", height: "1.5rem" }}>
+              <DeckIconButton
+                color="danger"
+                icon={<RotateLeftRounded />}
+                size="sm"
+                variant="plain"
+                disabled={loading}
+                onClick={onReset}
+              />
+            </Box>
+          </Tooltip>
         )}
         <DeckLabel
           title={{
@@ -98,22 +136,62 @@ export const DeckDatasetDataShapeItem: React.FC<IDeckDatasetDataShapeItemProps> 
             />
           )}
           {Boolean(onUnlink) && (
-            <DeckIconButton
-              color="danger"
-              disabled={loading}
-              onClick={onUnlink}
-              variant="plain"
-              icon={<LinkOffRounded />}
-            />
+            <React.Fragment>
+              <Tooltip
+                title={
+                  <DeckLabel
+                    title={unlinkTooltip?.title}
+                    description={unlinkTooltip?.description}
+                    color="danger"
+                    size="sm"
+                  />
+                }
+                placement="bottom-end"
+                variant="soft"
+                color="danger"
+                arrow
+                sx={{ maxWidth: "70vw" }}
+              >
+                <Box sx={{ width: "1.5rem", height: "1.5rem" }}>
+                  <DeckIconButton
+                    color="danger"
+                    disabled={loading}
+                    onClick={onUnlink}
+                    variant="plain"
+                    icon={<LinkOffRounded />}
+                  />
+                </Box>
+              </Tooltip>
+            </React.Fragment>
           )}
           {Boolean(onDelete) && (
-            <DeckIconButton
-              color="danger"
-              disabled={loading}
-              onClick={onDelete}
-              variant="plain"
-              icon={<DeleteSweepRoundedIcon />}
-            />
+            <React.Fragment>
+              <Tooltip
+                title={
+                  <DeckLabel
+                    title={deleteTooltip?.title}
+                    description={deleteTooltip?.description}
+                    color="danger"
+                    size="sm"
+                  />
+                }
+                placement="bottom-end"
+                variant="soft"
+                color="danger"
+                arrow
+                sx={{ maxWidth: "70vw" }}
+              >
+                <Box sx={{ width: "1.5rem", height: "1.5rem" }}>
+                  <DeckIconButton
+                    color="danger"
+                    disabled={loading}
+                    onClick={onDelete}
+                    variant="plain"
+                    icon={<DeleteSweepRoundedIcon />}
+                  />
+                </Box>
+              </Tooltip>
+            </React.Fragment>
           )}
         </Box>
       </Box>
