@@ -3,6 +3,8 @@ import AddRounded from "@mui/icons-material/AddRounded";
 import FindReplaceRoundedIcon from "@mui/icons-material/FindReplaceRounded";
 import RotateLeftRounded from "@mui/icons-material/RotateLeftRounded";
 import SettingsOutlined from "@mui/icons-material/SettingsOutlined";
+import SearchOffRounded from "@mui/icons-material/SearchOffRounded";
+import ManageSearchRounded from "@mui/icons-material/ManageSearchRounded";
 import Box from "@mui/joy/Box";
 import * as React from "react";
 import { DeckIconButton } from "../deck-icon-button";
@@ -26,6 +28,8 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
   loading = false,
   disabled = false,
   hasSelectedShapes = false,
+  hasMultipleSelectedShapes = false,
+  hasSelectedFigureShapes = false,
   defaultStatus = -1,
   onAdd = () => {},
   onReset = () => {},
@@ -74,6 +78,8 @@ export const DeckDatasetDataItem: React.FC<DeckDatasetDataItemProps> = ({
               hasApiChanges: hasShapeApiChanges,
               hasUserChanges: hasShapeUserChanges,
               hasSelectedShapes,
+              hasMultipleSelectedShapes,
+              hasSelectedFigureShapes,
               disabled,
               loading,
               onAdd,
@@ -189,6 +195,8 @@ export const DeckDatasetDataItemActions: React.FC<{
   onSettings?: () => void;
   onSync?: () => void;
   hasSelectedShapes?: boolean;
+  hasMultipleSelectedShapes?: boolean;
+  hasSelectedFigureShapes?: boolean;
 }> = ({
   hasShapes,
   hasApiChanges,
@@ -196,12 +204,21 @@ export const DeckDatasetDataItemActions: React.FC<{
   loading = false,
   disabled = false,
   hasSelectedShapes = false,
+  hasMultipleSelectedShapes = false,
+  hasSelectedFigureShapes = false,
   onAdd = () => {},
   onReset = () => {},
   onSettings = () => {},
   onSync = () => {},
 }) => {
   const hasChanges = hasApiChanges || hasUserChanges;
+
+  const ReplaceIcon = hasMultipleSelectedShapes
+    ? ManageSearchRounded
+    : hasSelectedFigureShapes
+      ? SearchOffRounded
+      : FindReplaceRoundedIcon;
+
   return (
     <React.Fragment>
       <Box sx={actionButtonsStyle}>
@@ -217,7 +234,7 @@ export const DeckDatasetDataItemActions: React.FC<{
         )}
         {!hasChanges && hasSelectedShapes && (
           <DeckIconButton
-            icon={<FindReplaceRoundedIcon />}
+            icon={<ReplaceIcon />}
             size="sm"
             variant={hasShapes ? "plain" : "soft"}
             color="success"

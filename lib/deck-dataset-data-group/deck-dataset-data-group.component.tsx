@@ -28,6 +28,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
   loading = false,
   figureLoadingIDs = [],
   hasSelectedShapes = false,
+  hasMultipleSelectedShapes = false,
+  hasSelectedFigureShapes = false,
   defaultStatus = -1,
   onAddShape,
   onResetShapes,
@@ -123,6 +125,8 @@ export const DeckDatasetDataGroup: React.FC<DeckDatasetDataGroupProps> = ({
                   onSettings={createHandler(onSettings, item)}
                   onSelectCell={onSelectCell}
                   hasSelectedShapes={hasSelectedShapes}
+                  hasMultipleSelectedShapes={hasMultipleSelectedShapes}
+                  hasSelectedFigureShapes={hasSelectedFigureShapes}
                   defaultStatus={defaultStatus}
                 />
               );

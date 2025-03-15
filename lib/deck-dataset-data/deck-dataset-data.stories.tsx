@@ -44,6 +44,8 @@ Default.args = {
   size: "sm",
   type: "excel-table",
   hasSelectedShapes: true,
+  hasSelectedFigureShapes: true,
+  hasMultipleSelectedShapes: false,
   data: {
     "Group 1": [
       {

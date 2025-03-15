@@ -32,6 +32,8 @@ export interface IDataCommonProps {
   loading?: boolean; // Optional flag indicating if data is loading
   disabled?: boolean; // Optional flag indicating if data is disabled
   hasSelectedShapes?: boolean; // Optional flag indicating if selected shapes are available
+  hasMultipleSelectedShapes?: boolean; // Optional flag indicating if multiple selected shapes are available
+  hasSelectedFigureShapes?: boolean; // Optional flag indicating if selected figure shapes are available
   defaultStatus?: number; // Optional default status
 }
 

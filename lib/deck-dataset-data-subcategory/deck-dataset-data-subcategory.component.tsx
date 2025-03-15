@@ -30,6 +30,9 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
   disabled = false,
   loading = false,
   defaultStatus = -1,
+  hasMultipleSelectedShapes = false,
+  hasSelectedShapes = false,
+  hasSelectedFigureShapes = false,
   onAddShape = () => {},
   onResetShapes = () => {},
   onSettings = () => {},
@@ -114,6 +117,9 @@ export const DeckDatasetDataSubcategory: React.FC<DeckDatasetDataSubcategoryProp
                     figureLoadingIDs={groupLoadingIDs}
                     disabled={disabled}
                     defaultStatus={defaultStatus}
+                    hasSelectedShapes={hasSelectedShapes}
+                    hasMultipleSelectedShapes={hasMultipleSelectedShapes}
+                    hasSelectedFigureShapes={hasSelectedFigureShapes}
                     onAddShape={onAddShape}
                     onResetShapes={onResetShapes}
                     onSyncShapes={onSyncShapes}

@@ -24,6 +24,8 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
   disabled = false,
   loading = false,
   hasSelectedShapes = false,
+  hasMultipleSelectedShapes = false,
+  hasSelectedFigureShapes = false,
   onAddShape = () => {},
   onResetShapes = () => {},
   onSettings = () => {},
@@ -68,6 +70,8 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   loading={loading}
                   disabled={disabled}
                   hasSelectedShapes={hasSelectedShapes}
+                  hasMultipleSelectedShapes={hasMultipleSelectedShapes}
+                  hasSelectedFigureShapes={hasSelectedFigureShapes}
                   defaultStatus={defaultStatus}
                 />
               );
@@ -107,6 +111,9 @@ export const DeckDatasetData: React.FC<DeckDatasetDataProps> = ({
                   loading={loading}
                   disabled={disabled}
                   defaultStatus={defaultStatus}
+                  hasSelectedShapes={hasSelectedShapes}
+                  hasMultipleSelectedShapes={hasMultipleSelectedShapes}
+                  hasSelectedFigureShapes={hasSelectedFigureShapes}
                 />
               );
             }
