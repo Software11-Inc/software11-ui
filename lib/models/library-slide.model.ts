@@ -209,6 +209,13 @@ export interface ISlideShape {
   shapeIndex: number;
 
   /**
+   * Z-index of the shape.
+   * @type {number}
+   * @required
+   **/
+  order: number;
+
+  /**
    * Type of the shape.
    * @type {SupportedShapeType}
    * @required
