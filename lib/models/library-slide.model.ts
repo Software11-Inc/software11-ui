@@ -83,6 +83,13 @@ export interface IUploadSlide extends IUploadAddition {
    * @required
    */
   files: File;
+
+  /**
+   * Slide metadata.
+   * @type {ISlideMetadata}
+   * @required
+   */
+  metadata: ISlideMetadata;
 }
 
 export interface ISize {
@@ -138,6 +145,20 @@ export interface ISlideMetadata {
    * @required
    **/
   shapes: ISlideShape[];
+
+  /**
+   * Images of the slide.
+   * @type {any[]}
+   * @optional
+   **/
+  images: any[];
+
+  /**
+   * Components of the slide.
+   * @type {any[]}
+   * @optional
+   **/
+  components: any[];
 }
 
 /**
@@ -175,10 +196,17 @@ export type PreviewShapeType =
 export interface ISlideShape {
   /**
    * ID of the shape.
+   * @type {string}
+   * @required
+   **/
+  shapeID: string;
+
+  /**
+   * Index of the shape.
    * @type {number}
    * @required
    **/
-  shapeID: number;
+  shapeIndex: number;
 
   /**
    * Type of the shape.
