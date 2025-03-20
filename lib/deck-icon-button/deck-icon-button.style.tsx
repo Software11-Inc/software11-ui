@@ -1,9 +1,15 @@
 import { svgIconClasses } from "@mui/joy/SvgIcon";
-import { SxProps } from "@mui/joy/styles/types";
+import { ColorPaletteProp, SxProps } from "@mui/joy/styles/types";
 
 export const className = "small-icon-button";
 
-export const iconButtonStyle = (rounded = false, size = "sm", hidden = false, hasLabel = false): SxProps => ({
+export const iconButtonStyle = (
+  rounded = false,
+  size = "sm",
+  hidden = false,
+  hasLabel = false,
+  color: ColorPaletteProp
+): SxProps => ({
   fontSize: "12px",
   lineHeight: "14px",
   padding: "0.25rem ",
@@ -22,7 +28,7 @@ export const iconButtonStyle = (rounded = false, size = "sm", hidden = false, ha
   ["&:not(:disabled):hover"]: {
     [`&.${className} > .${svgIconClasses.root}`]: {
       transform: "scale(1.25)",
-      backgroundColor: hasLabel ? "var(--joy-palette-primary-500)" : "transparent",
+      backgroundColor: hasLabel ? `var(--joy-palette-${color}-500)` : "transparent",
       color: hasLabel ? "var(--joy-palette-background-body)" : "inherit",
       borderRadius: rounded ? "1rem" : "var(--border-radius)",
     },
