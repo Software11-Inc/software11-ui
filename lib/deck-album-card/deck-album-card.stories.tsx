@@ -30,7 +30,7 @@ Default.args = {
     tags: ["Risk Assessment", "Growth Plan", "Operational Efficiency", "Stakeholder Briefing"],
     itemsCount: Math.round(Math.random() * 1000),
     folders: [],
-    generationDate: {
+    createdAt: {
       _seconds: 1725618910,
       _nanoseconds: 215000000,
     },

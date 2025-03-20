@@ -24,7 +24,7 @@ export interface IDatasetChange {
   additions?: IFigureChange[]; // Optional array of figure additions
   edits?: IFigureChange[]; // Optional array of figure edits
   deletions?: IFigureChange[]; // Optional array of figure deletions
-  generationDate: IDate; // The date when the changes were generated
+  createdAt: IDate; // The date when the changes were generated
   author: IUser; // The user who authored the changes
   versionNumber: number; // The version number of the dataset after applying the changes
 }

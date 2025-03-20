@@ -13,7 +13,7 @@ export interface IDefaultItem {
   generationUser: IUser; // User who generated/created the item
   latestUpdatedUser?: IUser; // Optional user who last updated the item (deprecated, use latestUpdateUser)
   latestUpdateUser?: IUser; // Optional user who last updated the item
-  generationDate: IDate; // Date when the item was generated/created
+  createdAt: IDate; // Date when the item was generated/created
   lastUpdated: IDate; // Date when the item was last updated
   latestUpdateTime?: IDate; // Optional time of the latest update to the item
   versionNumber: number; // Version number of the item, indicating its iteration

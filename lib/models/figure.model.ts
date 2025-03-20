@@ -12,7 +12,7 @@ export interface IMetaFigure {
   latestUpdateUser: string;
 
   /** Date when the figure was generated */
-  generationDate: Date;
+  createdAt: Date;
 
   /** Date when the figure was last updated */
   lastUpdated: Date;

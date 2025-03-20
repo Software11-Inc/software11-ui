@@ -17,7 +17,7 @@ export interface IWorkspaceFileContainer {
   containerName: string; // Name of the container
   containerIndex: number; // Index of the container
   sheetID?: string; // Optional sheet ID
-  generationDate?: IDate; // Optional date when the container was generated
+  createdAt?: IDate; // Optional date when the container was generated
 }
 
 /** Interface for workspace file details */
@@ -28,7 +28,7 @@ export interface IWorkspaceFile {
   id?: string;
   fileContainers?: IWorkspaceFileContainer[]; // Optional array of file containers
   generationUser?: string; // Optional user who generated the file
-  generationDate?: IDate; // Optional date when the file was generated
+  createdAt?: IDate; // Optional date when the file was generated
   description?: string; // Optional description of the file
   dynamicShapes?: IDynamicShape[]; // Optional array of dynamic shapes
 }

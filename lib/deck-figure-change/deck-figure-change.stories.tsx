@@ -27,7 +27,7 @@ Default.args = {
       username: "vs",
       userID: "3PJaCmuEv2f09tLbRYXHS32LaT43",
     },
-    generationDate: {
+    createdAt: {
       _seconds: 1716315613,
       _nanoseconds: 889000000,
     },
