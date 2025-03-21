@@ -1,7 +1,6 @@
 import { ISourceProject } from "./dataset-tree.model";
 import { IDefaultItem } from "./default-item.model";
 import { IShapeSource } from "./shape.model";
-import { IShapeStyleFill } from "./template-shape.model";
 import { IUser } from "./user.model";
 
 /**
