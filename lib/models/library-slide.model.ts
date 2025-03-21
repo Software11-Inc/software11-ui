@@ -1,5 +1,7 @@
 import { ISourceProject } from "./dataset-tree.model";
 import { IDefaultItem } from "./default-item.model";
+import { IShapeSource } from "./shape.model";
+import { IShapeStyleFill } from "./template-shape.model";
 import { IUser } from "./user.model";
 
 /**
@@ -145,20 +147,6 @@ export interface ISlideMetadata {
    * @required
    **/
   shapes: ISlideShape[];
-
-  /**
-   * Images of the slide.
-   * @type {any[]}
-   * @optional
-   **/
-  images: any[];
-
-  /**
-   * Components of the slide.
-   * @type {any[]}
-   * @optional
-   **/
-  components: any[];
 }
 
 /**
@@ -195,11 +183,11 @@ export type PreviewShapeType =
 
 export interface ISlideShape {
   /**
-   * ID of the shape.
-   * @type {string}
+   * ID of the shape. This is a unique identifier in cloud storage.
+   * @type {string | null}
    * @required
    **/
-  shapeID: string;
+  shapeID: string | null;
 
   /**
    * Index of the shape.
@@ -207,6 +195,20 @@ export interface ISlideShape {
    * @required
    **/
   shapeIndex: number;
+
+  /**
+   * Name of the shape.
+   * @type {string}
+   * @required
+   **/
+  name: string;
+
+  /**
+   * Text content of the shape.
+   * @type {string}
+   * @optional
+   **/
+  text?: string;
 
   /**
    * Z-index of the shape.
@@ -239,16 +241,289 @@ export interface ISlideShape {
   size: ISize;
 
   /**
-   * ID of the dataset associated with the shape.
-   * @type {string}
+   * Shape ID of the parent shape if the shape is a child of group.
+   * @type {number}
    * @optional
    */
-  datasetID?: string;
+  parent?: number;
 
   /**
-   * ID of the figure associated with the shape.
-   * @type {string}
+   * Array of children shape IDs if the shape is a group.
+   * @type {number[]}
    * @optional
    */
-  figureID?: string;
+  children?: number[];
+
+  /**
+   * Returns the level of the specified shape.
+   * A level of 0 means the shape isn't part of a group.
+   * A level of 1 means the shape is part of a top-level group.
+   * A level greater than 1 indicates the shape is a nested group.
+   * @type {number}
+   * @required
+   */
+  level: number;
+
+  /**
+   * Describes the connection between the shape and its source.
+   * @type {IShapeSource}
+   * @required
+   */
+  source: IShapeSource | null;
+
+  /**
+   * Style properties of the shape.
+   * @type {ISlideShapeStyle}
+   * @optional
+   */
+  style?: ISlideShapeStyle;
+}
+
+export interface IShapeFill {
+  /**
+   * Fill type of the shape.
+   * @type {string}
+   * @required
+   **/
+  foregroundColor: string;
+
+  /**
+   * Transparency of the shape.
+   * @type {number}
+   * @required
+   **/
+  transparency: number;
+
+  /**
+   * Fill type of the shape.
+   * @type {string}
+   * @required
+   **/
+  type: "NoFill" | "Solid" | "Gradient" | "Pattern" | "PictureAndTexture" | "SlideBackground";
+}
+
+export interface IShapeLine {
+  /**
+   * Line color of the shape.
+   * @type {string}
+   * @required
+   **/
+  color: string;
+
+  /**
+   * Transparency of the shape.
+   * @type {number}
+   * @required
+   **/
+  transparency: number;
+
+  /**
+   * Line style of the shape.
+   * @type {string}
+   * @required
+   **/
+  style: "Single" | "ThickBetweenThin" | "ThickThin" | "ThinThick" | "ThinThin";
+
+  /**
+   * Dash style of the shape.
+   * @type {string}
+   * @required
+   **/
+  dashStyle:
+    | "Dash"
+    | "DashDot"
+    | "DashDotDot"
+    | "LongDash"
+    | "LongDashDot"
+    | "RoundDot"
+    | "Solid"
+    | "SquareDot"
+    | "LongDashDotDot"
+    | "SystemDash"
+    | "SystemDot"
+    | "SystemDashDot";
+
+  /**
+   * Visibility of the line.
+   * @type {boolean}
+   * @required
+   **/
+  visible: boolean;
+
+  /**
+   * Weight of the line.
+   * @type {number}
+   * @required
+   **/
+  weight: number;
+}
+
+export interface IParagraphFormat {
+  /**
+   * Bullet visibility in the paragraph.
+   * @type {boolean}
+   * @required
+   **/
+  bullet: boolean;
+
+  /**
+   * Horizontal alignment of the paragraph.
+   * @type {string}
+   * @required
+   **/
+  horizontalAlignment: "Left" | "Center" | "Right" | "Justify" | "JustifyLow" | "Distributed" | "ThaiDistributed";
+}
+
+export interface ITextFrame {
+  /**
+   * Auto-sizing behavior of the text box.
+   * @type {string}
+   * @required
+   */
+  autoSizeSetting: "AutoSizeNone" | "AutoSizeTextToFitShape" | "AutoSizeShapeToFitText" | "AutoSizeMixed";
+
+  /**
+   * Margins around the text within the shape.
+   * @type {object}
+   * @required
+   */
+  margin: {
+    left: number;
+    top: number;
+    right: number;
+    bottom: number;
+  };
+
+  /**
+   * Vertical alignment of text.
+   * @type {string}
+   * @required
+   */
+  verticalAlignment: "Top" | "Middle" | "Bottom" | "TopCentered" | "MiddleCentered" | "BottomCentered";
+
+  /**
+   * Whether text lines break automatically to fit within the shape.
+   * @type {boolean}
+   * @required
+   */
+  wordWrap: boolean;
+}
+
+export interface ITextRangeFont {
+  /**
+   * Bold status of the font.
+   * @type {boolean}
+   * @required
+   **/
+  bold: boolean;
+
+  /**
+   * Italic status of the font.
+   * @type {boolean}
+   * @required
+   **/
+  italic: boolean;
+
+  /**
+   * Font size in points.
+   * @type {number}
+   * @required
+   **/
+  size: number;
+
+  /**
+   * Font name.
+   * @type {string}
+   * @required
+   **/
+  name: string;
+
+  /**
+   * Font color in HTML color format (#RRGGBB or named color).
+   * @type {string}
+   * @required
+   **/
+  color: string;
+}
+
+export interface ITextRange {
+  /**
+   * Font properties of the shape.
+   * @type {ITextRangeFont}
+   * @required
+   **/
+  font?: ITextRangeFont;
+}
+
+export interface IPlaceholder {
+  /**
+   * Placeholder type of the shape.
+   * @type {string}
+   * @required
+   **/
+  type:
+    | "Body"
+    | "Cameo"
+    | "CenterTitle"
+    | "Chart"
+    | "Content"
+    | "Date"
+    | "Footer"
+    | "Header"
+    | "Media"
+    | "OnlinePicture"
+    | "Picture"
+    | "SlideNumber"
+    | "SmartArt"
+    | "Subtitle"
+    | "Table"
+    | "Title"
+    | "Unsupported"
+    | "VerticalBody"
+    | "VerticalContent"
+    | "VerticalTitle";
+}
+
+export interface ISlideShapeStyle {
+  /**
+   * Fill properties of the shape.
+   * @type {IShapeFill}
+   * @optional
+   **/
+  fill?: IShapeFill;
+
+  /**
+   * Line properties of the shape.
+   * @type {IShapeLine}
+   * @optional
+   **/
+  line?: IShapeLine;
+
+  /**
+   * Paragraph format of the shape.
+   * @type {IParagraphFormat}
+   * @optional
+   */
+  paragraphFormat?: IParagraphFormat;
+
+  /**
+   * Text frame properties of the shape.
+   * @type {ITextFrame}
+   * @optional
+   */
+  textFrame?: ITextFrame;
+
+  /**
+   * Text range properties of the shape.
+   * @type {ITextRange}
+   * @optional
+   */
+  textRange?: ITextRange;
+
+  /**
+   * Placeholder properties of the shape.
+   * @type {IPlaceholder}
+   * @optional
+   */
+  placeholder?: IPlaceholder;
 }

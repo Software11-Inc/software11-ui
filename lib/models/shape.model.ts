@@ -8,6 +8,8 @@ export interface IShape {
   shapeIndex: number;
 }
 
+export type ShapeSourceType = "dataset-figure";
+
 /**
  * Defines the source of a shape within a dataset.
  * This interface is used to specify the origin of a shape by identifying
@@ -19,6 +21,9 @@ export interface IShapeSource {
 
   /** Unique identifier for the specific figure within the dataset */
   figureID: string;
+
+  /** Type of the source of the shape */
+  type?: ShapeSourceType;
 }
 
 export interface IShapeSourceCreation {
