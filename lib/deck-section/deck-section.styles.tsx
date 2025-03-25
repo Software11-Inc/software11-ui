@@ -42,6 +42,10 @@ export const sectionStyle: SxProps = {
           p: 0,
           gap: 0,
 
+          [`&:active`]: {
+            bgcolor: "transparent",
+          },
+
           [`& > .${indicatorClassName}`]: {
             display: "flex",
             mx: 1,
