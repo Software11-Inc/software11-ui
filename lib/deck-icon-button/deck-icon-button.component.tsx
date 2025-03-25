@@ -19,11 +19,12 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
     },
     ref
   ) => {
+    const buttonSize = size === "xs" ? "sm" : size;
     return (
       <IconButton
         ref={ref}
         sx={iconButtonStyle(rounded, size, hidden, Boolean(label?.length), color)}
-        size={size}
+        size={buttonSize}
         color={color}
         variant={variant}
         disabled={disabled}

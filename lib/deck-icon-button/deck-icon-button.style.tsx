@@ -21,7 +21,7 @@ export const iconButtonStyle = (
   alignItems: "center",
 
   [`&.${className} > .${svgIconClasses.root}`]: {
-    fontSize: size === "sm" ? "16px" : size === "md" ? "20px" : "24px",
+    fontSize: size === "xs" ? "12px" : size === "sm" ? "16px" : size === "md" ? "20px" : "24px",
     transition: "transform 0.2s ease-in-out",
   },
 

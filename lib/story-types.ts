@@ -1,6 +1,6 @@
 import { DeckSnackbarTextIcon } from "./models/notification.model";
 
-export const sizes = ["sm", "md", "lg"];
+export const sizes = ["xs", "sm", "md", "lg"];
 
 export const colors = ["primary", "neutral", "danger", "warning", "success"];
 
