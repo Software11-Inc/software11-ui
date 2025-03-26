@@ -8,20 +8,24 @@ import { DeckIconButton } from "../deck-icon-button";
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import { DeckHeaderSearch } from "../deck-header-search";
 import { DeckHeaderPage } from "../deck-header-page/deck-header-page.component";
+import { DeckStatus } from "../deck-status";
+import { DeckHeaderProject } from "../deck-header-project";
 
 export const DeckHeader: React.FC<DeckHeaderProps> = ({
   type = "default",
-  title,
-  description,
-  fullName,
-  role,
-  email,
-  avatarUrl,
+  infoType = "project",
+  title = "",
+  description = "",
+  fullName = "",
+  role = "",
+  email = "",
+  avatarUrl = "",
   hidden = false,
   onLogout,
   onBack,
   notificationCount = 0,
   notificationOpen = false,
+  showActions = false,
   onNotifications = () => {},
   searchPlaceholder = "Type to search",
   searchValue = "",
@@ -29,6 +33,10 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
   loading = false,
   onDelete,
   onSync,
+  projectStatus = -1,
+  onProjectStatusClick = () => {},
+  projectTitle,
+  projectDescription,
 }) => {
   const [focused, setFocused] = React.useState(false);
 
@@ -48,6 +56,10 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
   const onBlur = () => setFocused(false);
 
   const classList = [className, hidden ? "hidden" : "", focused ? "deck-focus" : ""].join(" ").trim();
+
+  const isProject = infoType === "project";
+
+  const isProfile = infoType === "user";
 
   return (
     <Box className={classList} sx={headerStyle}>
@@ -73,16 +85,31 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
           />
         </div>
         <div className={[`animation`, `animation-profile`].join(" ")}>
-          <DeckHeaderUserProfile
-            fullName={fullName}
-            role={role}
-            email={email}
-            avatarUrl={avatarUrl}
-            isRight={showNavigation}
-            onLogout={onLogout}
-          />
+          {isProfile && (
+            <DeckHeaderUserProfile
+              fullName={fullName}
+              role={role}
+              email={email}
+              avatarUrl={avatarUrl}
+              isRight={showNavigation}
+              onLogout={onLogout}
+            />
+          )}
+          {isProject && (
+            <DeckHeaderProject
+              status={projectStatus}
+              isRight={showNavigation}
+              title={projectTitle}
+              description={projectDescription}
+              onStatusClick={onProjectStatusClick}
+            />
+          )}
         </div>
-        <div className={[`animation`, `animation-actions`, !showNavigation ? "visible" : "hidden"].join(" ")}>
+        <div
+          className={[`animation`, `animation-actions`, !showNavigation && showActions ? "visible" : "hidden"].join(
+            " "
+          )}
+        >
           <DeckHeaderUserActions
             onLogout={onLogout}
             notificationCount={notificationCount}

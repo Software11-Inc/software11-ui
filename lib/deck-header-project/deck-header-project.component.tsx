@@ -1,0 +1,24 @@
+import Box from "@mui/joy/Box";
+import { deckHeaderProjectStyles } from "./deck-header-project.styles";
+import { DeckHeaderProjectProps } from "./deck-header-project.types";
+import { DeckStatus } from "../deck-status";
+import { DeckLabel } from "../deck-label";
+
+export const DeckHeaderProject: React.FC<DeckHeaderProjectProps> = ({
+  status,
+  title,
+  description,
+  isRight = false,
+  onStatusClick,
+}) => {
+  return (
+    <Box sx={deckHeaderProjectStyles.container}>
+      <Box sx={deckHeaderProjectStyles.status} onClick={onStatusClick}>
+        <DeckStatus status={status} />
+      </Box>
+      <Box sx={deckHeaderProjectStyles.title} className={!isRight ? "visible" : "hidden"}>
+        <DeckLabel {...{ title, description }} />
+      </Box>
+    </Box>
+  );
+};

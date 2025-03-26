@@ -1,14 +1,20 @@
+import { RowProperties } from "../deck-label/deck-label.types";
+
 export type DeckHeaderType = "default" | "search" | "page";
+
+export type DeckHeaderInfoType = "project" | "user";
 
 export interface DeckHeaderProps {
   type?: DeckHeaderType;
-  title: string;
-  description: string;
-  fullName: string;
-  role: string;
-  email: string;
-  avatarUrl: string;
+  infoType?: DeckHeaderInfoType;
+  title?: string;
+  description?: string;
+  fullName?: string;
+  role?: string;
+  email?: string;
+  avatarUrl?: string;
   showNavigation: boolean;
+  showActions?: boolean;
   hidden?: boolean;
   onLogout: () => void;
   onBack: () => void;
@@ -19,6 +25,11 @@ export interface DeckHeaderProps {
   searchPlaceholder?: string;
   searchValue?: string;
   onSearchChange?: (value: string) => void;
+
+  projectTitle?: RowProperties;
+  projectDescription?: RowProperties;
+  projectStatus?: number;
+  onProjectStatusClick?: () => void;
 
   onSync?: () => void;
   onDelete?: () => void;

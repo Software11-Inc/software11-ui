@@ -12,6 +12,13 @@ export default {
       },
       options: ["default", "search", "page"],
     },
+    infoType: {
+      description: "Type of the information",
+      control: {
+        type: "radio",
+      },
+      options: ["project", "user"],
+    },
     title: {
       description: "Title of the page",
       control: {
@@ -57,6 +64,7 @@ export default {
       },
     },
     onSearchChange: { action: "search" },
+    onProjectStatusClick: { action: "status" },
   },
 } as Meta<typeof DeckHeader>;
 
@@ -66,12 +74,14 @@ export const Default = Template.bind({});
 
 Default.args = {
   type: "default",
+  infoType: "user",
   searchValue: "",
   searchPlaceholder: "Enter a search term",
 
   // Add props here
   hidden: false,
   showNavigation: false,
+  showActions: true,
   title: "Home Page",
   description: "Welcome to the home page",
   fullName: "John Doe",
@@ -127,5 +137,20 @@ Page.args = {
 };
 
 Page.parameters = {
+  layout: "fullscreen",
+};
+
+export const NewHeader = Template.bind({});
+
+NewHeader.args = {
+  type: "default",
+  infoType: "project",
+  projectStatus: 1,
+  projectTitle: {
+    text: "Some Project Name",
+  },
+};
+
+NewHeader.parameters = {
   layout: "fullscreen",
 };
