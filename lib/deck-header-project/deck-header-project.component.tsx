@@ -1,8 +1,8 @@
 import Box from "@mui/joy/Box";
+import { DeckLabel } from "../deck-label";
+import { DeckStatus } from "../deck-status";
 import { deckHeaderProjectStyles } from "./deck-header-project.styles";
 import { DeckHeaderProjectProps } from "./deck-header-project.types";
-import { DeckStatus } from "../deck-status";
-import { DeckLabel } from "../deck-label";
 
 export const DeckHeaderProject: React.FC<DeckHeaderProjectProps> = ({
   status,

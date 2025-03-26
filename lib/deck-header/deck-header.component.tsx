@@ -1,15 +1,14 @@
+import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import Box from "@mui/joy/Box";
 import React from "react";
+import { DeckHeaderPage } from "../deck-header-page/deck-header-page.component";
+import { DeckHeaderProject } from "../deck-header-project";
+import { DeckHeaderSearch } from "../deck-header-search";
 import { DeckHeaderUserActions } from "../deck-header-user-actions";
 import { DeckHeaderUserProfile } from "../deck-header-user-profile";
+import { DeckIconButton } from "../deck-icon-button";
 import { className, headerStyle } from "./deck-header.styles";
 import { DeckHeaderProps } from "./deck-header.types";
-import { DeckIconButton } from "../deck-icon-button";
-import ChevronLeft from "@mui/icons-material/ChevronLeft";
-import { DeckHeaderSearch } from "../deck-header-search";
-import { DeckHeaderPage } from "../deck-header-page/deck-header-page.component";
-import { DeckStatus } from "../deck-status";
-import { DeckHeaderProject } from "../deck-header-project";
 
 export const DeckHeader: React.FC<DeckHeaderProps> = ({
   type = "default",
