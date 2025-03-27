@@ -65,7 +65,14 @@ export const DeckHeader: React.FC<DeckHeaderProps> = ({
       <Box className={`${className}-content`}>
         <div className={["animation", "animation-navigation", showNavigation ? "visible" : "hidden"].join(" ")}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <DeckIconButton size="sm" variant="plain" rounded={true} icon={<ChevronLeft />} onClick={onBack} />
+            <DeckIconButton
+              size="sm"
+              variant="plain"
+              rounded={true}
+              icon={<ChevronLeft />}
+              onClick={onBack}
+              tabIndex={-1}
+            />
           </Box>
           <DeckHeaderContent
             {...{

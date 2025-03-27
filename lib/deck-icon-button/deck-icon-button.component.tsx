@@ -13,6 +13,7 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
       label,
       disabled,
       hidden,
+      tabIndex = 0,
       onClick = () => {},
       onMouseEnter = () => {},
       icon,
@@ -32,6 +33,7 @@ export const DeckIconButton = React.forwardRef<HTMLButtonElement, DeckIconButton
         className={[className, hidden ? "hidden" : ""].join(" ")}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
+        tabIndex={tabIndex}
       >
         {icon}
         {label && <span className="deck-label">{label}</span>}

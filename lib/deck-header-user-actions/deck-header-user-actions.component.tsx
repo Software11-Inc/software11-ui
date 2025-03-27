@@ -32,6 +32,7 @@ export const DeckHeaderUserActions: React.FC<DeckHeaderUserActionsProps> = ({
           variant={notificationOpen ? "soft" : "plain"}
           icon={hasNotifications ? <NotificationsActiveRounded /> : <NotificationsNoneRounded />}
           onClick={onNotifications}
+          tabIndex={-1}
         ></DeckIconButton>
       </Badge>
       <DeckIconButton
@@ -40,6 +41,7 @@ export const DeckHeaderUserActions: React.FC<DeckHeaderUserActionsProps> = ({
         variant="plain"
         icon={<LogoutRounded />}
         onClick={onLogout}
+        tabIndex={-1}
       ></DeckIconButton>
     </Box>
   );

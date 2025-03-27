@@ -6,6 +6,7 @@ export interface DeckIconButtonProps extends ButtonBaseProps {
   icon: React.ReactNode;
   rounded?: boolean;
   label?: string;
+  tabIndex?: number;
   size?: "xs" | "sm" | "md" | "lg";
   onClick?: () => void;
   onMouseEnter?: () => void;
