@@ -1,50 +1,15 @@
+import ChevronLeftRounded from "@mui/icons-material/ChevronLeftRounded";
+import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 import { Box } from "@mui/joy";
-import { SxProps } from "@mui/joy/styles/types";
-import React, { useEffect, useMemo } from "react";
-
-const containerStyle = {
-  overflow: "hidden",
-  position: "relative",
-  width: "100%",
-};
-
-const gridStyle = (chunks: number, itemWidth: number, index: number, spacing: number): SxProps => ({
-  display: "block",
-
-  "--data-chunks": chunks,
-  "--data-item-width": `${itemWidth}px`,
-  "--spacing": `${spacing}px`,
-
-  width: "calc(var(--data-item-width) * var(--data-chunks) + var(--spacing) * (var(--data-chunks) - 1))",
-  transform: `translateX(calc(var(--data-item-width) * -${index} - var(--spacing) * ${index}))`,
-  transition: "transform 0.3s ease",
-
-  [` .deck-grid-carousel--column`]: {
-    width: "attr(data-width px)",
-    float: "left",
-    display: "flex",
-    flexDirection: "column",
-    gap: "var(--spacing)",
-  },
-
-  [` .deck-grid-carousel--column:not(:first-child)`]: {
-    marginLeft: "var(--spacing)",
-  },
-});
+import React, { useEffect, useLayoutEffect, useMemo } from "react";
+import { DeckIconButton } from "../deck-icon-button";
+import { DeckGridCarouselProps } from "./deck-grid-carousel.types";
+import { containerStyle, gridStyle } from "./deck-grid-carousel.styles";
 
 function* chunks<T>(arr: T[], n: number): Generator<T[], void> {
   for (let i = 0; i < arr.length; i += n) {
     yield arr.slice(i, i + n);
   }
-}
-
-interface DeckGridCarouselProps {
-  items?: any[];
-  columns?: number;
-  rows?: number;
-  spacing?: number;
-  activeIndex?: number;
-  itemTemplate: React.FC<any>;
 }
 
 export const DeckGridCarousel: React.FC<DeckGridCarouselProps> = ({
@@ -54,64 +19,121 @@ export const DeckGridCarousel: React.FC<DeckGridCarouselProps> = ({
   activeIndex = 0,
   spacing = 16,
   itemTemplate,
+  showControls = true,
+  header = null,
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const [containerWidth, setContainerWidth] = React.useState(0);
-  const [itemWidth, setItemWidth] = React.useState(0);
+  const [active, setActive] = React.useState(activeIndex);
 
-  const getContainerWidth = (htmlElement: HTMLDivElement | null) => {
-    if (!htmlElement) {
-      return 0;
+  const [containerWidth, setContainerWidth] = React.useState(0);
+
+  const [displayedItemsCount, setDisplayedItemsCount] = React.useState(0);
+
+  const totalItemsCount = useMemo(() => items.length, [items]);
+
+  useEffect(() => {
+    if (activeIndex !== active) {
+      setActive(activeIndex);
     }
-    return htmlElement.clientWidth;
-  };
+  }, [activeIndex]);
+
+  const [itemWidth, setItemWidth] = React.useState(0);
 
   const itemChunks = useMemo(() => {
     return [...chunks(items, rows)];
   }, [items, rows]);
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
+  useLayoutEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        // Update width immediately after DOM updates
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
 
+    updateWidth();
+
+    // Optional: Use ResizeObserver to track container size changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
     return () => {
-      window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
     };
   }, []);
 
   useEffect(() => {
-    const containerWidth = getContainerWidth(containerRef.current);
-    setContainerWidth(containerWidth);
-  }, [containerRef.current]);
-
-  useEffect(() => {
     const itemWidth = (containerWidth - (columns - 1) * spacing) / columns;
     setItemWidth(itemWidth);
-  }, [containerWidth, columns, spacing]);
 
-  const handleResize = () => {
-    const containerWidth = getContainerWidth(containerRef.current);
-    setContainerWidth(containerWidth);
+    const displayedItemsCount = columns * rows;
+    setDisplayedItemsCount(displayedItemsCount);
+  }, [containerWidth, columns, rows, spacing]);
+
+  const hasPrev = useMemo(() => active > 0, [active]);
+
+  const hasNext = useMemo(() => {
+    return rows * active + displayedItemsCount < totalItemsCount;
+  }, [displayedItemsCount, rows, totalItemsCount, active]);
+
+  const handlePrev = () => {
+    if (hasPrev) {
+      setActive(active - 1);
+    }
   };
+
+  const handleNext = () => {
+    if (hasNext) {
+      setActive(active + 1);
+    }
+  };
+
+  const startColIndex = useMemo(() => active, [active]);
+
+  const endColIndex = useMemo(() => active + columns, [active, columns]);
+
+  const ready = containerWidth > 0 && itemWidth > 0 && displayedItemsCount > 0;
 
   return (
     <React.Fragment>
       <Box className="deck-grid-container" ref={containerRef} sx={containerStyle}>
-        <Box className="deck-grid-carousel" sx={gridStyle(itemChunks.length, itemWidth, activeIndex, spacing)}>
-          {itemChunks.map((chunk, index) => {
-            return (
-              <div key={index} className="deck-grid-carousel--column" data-width={itemWidth}>
-                {chunk.map((item, index) => {
-                  return (
-                    <div key={index} className="deck-grid-carousel--item">
-                      {itemTemplate({ item })}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </Box>
+        {(header || showControls) && (
+          <Box className="deck-grid-carousel--header">
+            <Box className="deck-grid-carousel--title">{header}</Box>
+            {showControls && (
+              <Box className="deck-grid-carousel--controls">
+                <DeckIconButton size="xs" icon={<ChevronLeftRounded />} disabled={!hasPrev} onClick={handlePrev} />
+                <DeckIconButton size="xs" icon={<ChevronRightRounded />} disabled={!hasNext} onClick={handleNext} />
+              </Box>
+            )}
+          </Box>
+        )}
+        {ready && (
+          <Box className="deck-grid-carousel" sx={gridStyle(itemChunks.length, itemWidth, active, spacing)}>
+            {itemChunks.map((chunk, index) => {
+              const isHidden = index < startColIndex || index >= endColIndex;
+              return (
+                <div
+                  key={index}
+                  className={[`deck-grid-carousel--column`, isHidden ? "hidden" : ""].join(" ").trim()}
+                  data-width={itemWidth}
+                >
+                  {chunk.map((item, index) => {
+                    return (
+                      <div key={index} className={[`deck-grid-carousel--item`, isHidden ? "hidden" : ""].join(" ")}>
+                        {itemTemplate({ item })}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </Box>
+        )}
       </Box>
     </React.Fragment>
   );
