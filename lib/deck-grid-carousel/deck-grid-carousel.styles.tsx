@@ -37,7 +37,7 @@ export const gridStyle = (chunks: number, itemWidth: number, index: number, spac
   transition: "transform 0.3s ease",
 
   [` .deck-grid-carousel--column`]: {
-    width: "attr(data-width px)",
+    width: "var(--data-item-width)",
     float: "left",
     display: "flex",
     flexDirection: "column",
