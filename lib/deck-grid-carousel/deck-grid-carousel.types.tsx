@@ -4,7 +4,7 @@ export interface DeckGridCarouselProps {
   rows?: number;
   spacing?: number;
   activeIndex?: number;
-  itemTemplate: React.FC<any>;
+  itemTemplate: (props: { item: any; hidden: boolean }) => React.ReactNode;
   showControls?: boolean;
   header?: React.ReactNode;
 }

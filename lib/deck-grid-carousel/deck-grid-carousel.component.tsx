@@ -125,7 +125,7 @@ export const DeckGridCarousel: React.FC<DeckGridCarouselProps> = ({
                   {chunk.map((item, index) => {
                     return (
                       <div key={index} className={[`deck-grid-carousel--item`, isHidden ? "hidden" : ""].join(" ")}>
-                        {itemTemplate({ item })}
+                        {itemTemplate({ item, hidden: isHidden })}
                       </div>
                     );
                   })}

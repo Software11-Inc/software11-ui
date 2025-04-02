@@ -56,7 +56,7 @@ export const gridStyle = (chunks: number, itemWidth: number, index: number, spac
     },
   },
 
-  [` .deck-grid-carousel--column:not(:first-child)`]: {
+  [` .deck-grid-carousel--column:not(:first-of-type)`]: {
     marginLeft: "var(--spacing)",
   },
 });
