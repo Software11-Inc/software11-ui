@@ -79,6 +79,10 @@ export * from "./deck-template-shape-value";
 export * from "./deck-template-tour";
 export * from "./deck-template";
 
+export * from "./deck-typing-text";
+export * from "./deck-chat-action";
+export * from "./deck-chat-headline";
+
 export * from "@models";
 
 export * from "./accordion.style";
