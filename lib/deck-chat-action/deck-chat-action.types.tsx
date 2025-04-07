@@ -11,4 +11,5 @@ export interface DeckChatActionProps {
   resourceShowDelay?: number;
   onResourceClick?: () => void;
   onTypingComplete?: () => void;
+  typingSpeed?: number;
 }

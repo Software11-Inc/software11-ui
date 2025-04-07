@@ -8,13 +8,14 @@ export const DeckChatMenuButton: React.FC<DeckChatMenuButtonProps> = ({
   text,
   isTyping = false,
   icon,
+  typingSpeed,
   onClick,
   onTypingComplete,
 }) => {
   return (
     <Box className="deck-chat-menu-button" sx={menuButtonStyles} onClick={onClick}>
       <span className="deck-chat-menu-button--text">
-        <DeckTypingText isTyping={isTyping} onTypingComplete={onTypingComplete} text={text} />
+        <DeckTypingText isTyping={isTyping} onTypingComplete={onTypingComplete} text={text} typingSpeed={typingSpeed} />
       </span>
       <span className="deck-chat-menu-button--icon">{icon}</span>
     </Box>

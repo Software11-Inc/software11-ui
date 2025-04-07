@@ -21,6 +21,7 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
   resourceShowDelay = 0,
   onResourceClick = () => {},
   onTypingComplete = () => {},
+  typingSpeed,
 }) => {
   const [isActionNameTyped, setIsActionNameTyped] = React.useState(false);
   const [isResourceNameTyped, setIsResourceNameTyped] = React.useState(false);
@@ -59,7 +60,7 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
           )}
         </div>
         <div className="deck-chat-action--action">
-          <DeckTypingText text={actionName} onTypingComplete={handleTypingComplete} />
+          <DeckTypingText text={actionName} onTypingComplete={handleTypingComplete} typingSpeed={typingSpeed} />
         </div>
 
         <div className="deck-chat-action--resource">
@@ -67,7 +68,11 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
             <>
               <div className="deck-chat-action--resource-icon">{resourceIcon}</div>
               <div className="deck-chat-action--resource-name">
-                <DeckTypingText text={resourceName} onTypingComplete={handleResourceNameTypingComplete} />
+                <DeckTypingText
+                  text={resourceName}
+                  onTypingComplete={handleResourceNameTypingComplete}
+                  typingSpeed={typingSpeed}
+                />
               </div>
             </>
           )}
@@ -76,7 +81,9 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
       <div className={["deck-chat-action--footer", isResourceNameTyped ? "show" : "hide"].join(" ")}>
         <div className="deck-chat-action--location">
           <span className="deck-chat-action--location-text">
-            {isResourceNameTyped && <DeckTypingText text={resourceLocation} onTypingComplete={onTypingComplete} />}
+            {isResourceNameTyped && (
+              <DeckTypingText text={resourceLocation} onTypingComplete={onTypingComplete} typingSpeed={typingSpeed} />
+            )}
           </span>
           {resourceLocationActionIcon && (
             <div className="deck-chat-action--location-action">
