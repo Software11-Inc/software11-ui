@@ -85,11 +85,13 @@ export const chatActionStyle: SxProps = {
       alignItems: "center",
       justifyContent: "space-between",
       flex: 1,
+      overflow: "hidden",
 
       [`& > .deck-chat-action--location-text`]: {
         fontSize: "9px",
         letterSpacing: "0.3px",
         color: "var(--joy-palette-primary-500)",
+        lineBreak: "anywhere",
       },
 
       [`& > .deck-chat-action--location-action`]: {
