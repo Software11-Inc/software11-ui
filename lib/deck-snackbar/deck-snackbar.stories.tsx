@@ -6,7 +6,7 @@ import { colors } from "../story-types";
 import { DeckSnackbar } from "./deck-snackbar.component";
 
 export default {
-  title: "DeckSnackbar",
+  title: "UI/Snackbar",
   component: DeckSnackbar,
   argTypes: {
     color: {

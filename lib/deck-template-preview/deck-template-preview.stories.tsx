@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckTemplatePreview } from "./deck-template-preview.component";
 
 export default {
-  title: "Deck Template Preview",
+  title: "Pages/Template/Components/Deck Template Preview",
   component: DeckTemplatePreview,
 } as Meta<typeof DeckTemplatePreview>;
 

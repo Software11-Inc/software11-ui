@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckLottieSelect } from "./deck-lottie-select.component";
 
 export default {
-  title: "DeckLottieSelect",
+  title: "UI/Animation/DeckLottieSelect",
   component: DeckLottieSelect,
 } as Meta<typeof DeckLottieSelect>;
 

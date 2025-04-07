@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckDatasetDataShapeItem } from "./deck-dataset-data-shape-item.component";
 
 export default {
-  title: "DeckDatasetDataShapeItem",
+  title: "Powerpoint/Dataset Details/Shapes/DeckDatasetDataShapeItem",
   component: DeckDatasetDataShapeItem,
   argTypes: {
     onDelete: { action: "onDelete" },

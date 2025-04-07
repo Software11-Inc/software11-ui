@@ -3,7 +3,7 @@ import React from "react";
 import { DeckFigureChange } from "./deck-figure-change.component";
 
 export default {
-  title: "DeckFigureChange",
+  title: "Powerpoint/Dataset Details/Shapes/DeckFigureChange",
   component: DeckFigureChange,
 } as Meta<typeof DeckFigureChange>;
 

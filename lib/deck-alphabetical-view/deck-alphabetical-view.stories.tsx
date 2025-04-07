@@ -17,7 +17,7 @@ import { DeckAlphabeticalView } from "./deck-alphabetical-view.component";
 import { DeckAlphabeticalViewHandle } from "./deck-alphabetical-view.types";
 
 export default {
-  title: "UI/Alphabetical View",
+  title: "Layout/Content/Alphabetical View",
   component: DeckAlphabeticalView,
   argTypes: {
     onSearch: { action: "search" },

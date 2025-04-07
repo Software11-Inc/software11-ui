@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckRepeaterSelectFigureDrawer } from "./deck-repeater-select-figure-drawer.component";
 
 export default {
-  title: "DeckRepeaterSelectFigureDrawer",
+  title: "Pages/Template/Components/DeckRepeaterSelectFigureDrawer",
   component: DeckRepeaterSelectFigureDrawer,
   argTypes: {
     figures: {

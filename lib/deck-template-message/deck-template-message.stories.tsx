@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckTemplateMessage } from "./deck-template-message.component";
 
 export default {
-  title: "Deck Template Message",
+  title: "Pages/Template/Components/Deck Template Message",
   component: DeckTemplateMessage,
 } as Meta<typeof DeckTemplateMessage>;
 

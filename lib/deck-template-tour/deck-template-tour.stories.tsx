@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckTemplateTour } from "./deck-template-tour.component";
 
 export default {
-  title: "DeckTemplateTour",
+  title: "Pages/Template/Components/DeckTemplateTour",
   component: DeckTemplateTour,
 } as Meta<typeof DeckTemplateTour>;
 

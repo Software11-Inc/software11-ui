@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckLottieInfo } from "./deck-lottie-info.component";
 
 export default {
-  title: "DeckLottieInfo",
+  title: "UI/Animation/DeckLottieInfo",
   component: DeckLottieInfo,
 } as Meta<typeof DeckLottieInfo>;
 

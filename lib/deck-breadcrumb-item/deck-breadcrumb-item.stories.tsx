@@ -3,7 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckBreadcrumbItem } from "./deck-breadcrumb-item.component";
 
 export default {
-  title: "DeckBreadcrumbItem",
+  title: "UI/Breadcrumbs/Item",
   component: DeckBreadcrumbItem,
 } as Meta<typeof DeckBreadcrumbItem>;
 

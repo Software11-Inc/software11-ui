@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckRepeaterFormSort } from "./deck-repeater-form-sort.component";
 
 export default {
-  title: "DeckRepeaterFormSort",
+  title: "Pages/Template/Components/DeckRepeaterFormSort",
   component: DeckRepeaterFormSort,
   argTypes: {
     updateSort: { action: "updateSort" },

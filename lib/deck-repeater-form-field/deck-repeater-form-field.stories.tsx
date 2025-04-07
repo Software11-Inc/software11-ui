@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckRepeaterFormField } from "./deck-repeater-form-field.component";
 
 export default {
-  title: "DeckRepeaterFormField",
+  title: "Pages/Template/Components/DeckRepeaterFormField",
   component: DeckRepeaterFormField,
 } as Meta<typeof DeckRepeaterFormField>;
 

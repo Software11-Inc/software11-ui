@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckRepeaterFormFilter } from "./deck-repeater-form-filter.component";
 
 export default {
-  title: "DeckRepeaterFormFilter",
+  title: "Pages/Template/Components/DeckRepeaterFormFilter",
   component: DeckRepeaterFormFilter,
   argTypes: {
     updateFilter: { action: "updateFilter" },

@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { DeckBreadcrumbs } from "./deck-breadcrumbs.component";
 
 export default {
-  title: "Deck Breadcrumbs",
+  title: "UI/Breadcrumbs",
   component: DeckBreadcrumbs,
   argTypes: {
     onHomeClick: { action: "click" },

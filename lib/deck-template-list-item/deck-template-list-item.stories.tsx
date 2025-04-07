@@ -3,7 +3,7 @@ import { base64Image } from "../deck-slide-upload-item/image-example";
 import { DeckTemplateListItem } from "./deck-template-list-item.component";
 
 export default {
-  title: "Deck Template List Item",
+  title: "Pages/Template/Components/Deck Template List Item",
   component: DeckTemplateListItem,
 } as Meta<typeof DeckTemplateListItem>;
 
