@@ -1,6 +1,8 @@
+import Box from "@mui/joy/Box";
 import React from "react";
-import { DeckChatHeadlineProps } from "./deck-chat-headline.types";
 import { DeckTypingText } from "../deck-typing-text";
+import { headlineStyle } from "./deck-chat-headline.styles";
+import { DeckChatHeadlineProps } from "./deck-chat-headline.types";
 
 export const DeckChatHeadline: React.FC<DeckChatHeadlineProps> = ({
   headline,
@@ -9,7 +11,7 @@ export const DeckChatHeadline: React.FC<DeckChatHeadlineProps> = ({
   typingSpeed,
 }) => {
   return (
-    <div className="deck-chat-headline">
+    <Box className="deck-chat-headline" sx={headlineStyle}>
       <h1>
         {isTyping ? (
           <DeckTypingText text={headline} typingSpeed={typingSpeed} onTypingComplete={onTypingComplete} />
@@ -17,6 +19,6 @@ export const DeckChatHeadline: React.FC<DeckChatHeadlineProps> = ({
           <span>{headline}</span>
         )}
       </h1>
-    </div>
+    </Box>
   );
 };

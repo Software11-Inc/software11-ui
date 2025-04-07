@@ -5,7 +5,7 @@ export const DeckTypingText: React.FC<DeckTypingTextProps> = ({
   text = "",
   isTyping = true,
   typingSpeed = 50,
-  onTypingComplete = () => {},
+  onTypingComplete,
 }) => {
   const [displayText, setDisplayText] = React.useState("");
 
@@ -21,7 +21,7 @@ export const DeckTypingText: React.FC<DeckTypingTextProps> = ({
         index++;
       } else {
         clearInterval(interval);
-        onTypingComplete();
+        onTypingComplete?.();
       }
     }, typingSpeed);
 

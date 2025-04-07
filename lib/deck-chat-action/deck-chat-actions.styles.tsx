@@ -15,10 +15,10 @@ export const chatActionStyle: SxProps = {
     px: 1,
     borderRadius: "var(--border-radius)",
     border: "1px solid",
-    borderColor: getBackgroundColor(4),
-    boxShadow: "var(--shadow)",
+    borderColor: getBackgroundColor(3),
+    // boxShadow: "var(--shadow)",
 
-    bgcolor: getBackgroundColor(2),
+    bgcolor: getBackgroundColor(1),
     height: "2rem",
     zIndex: 1,
 
@@ -71,7 +71,8 @@ export const chatActionStyle: SxProps = {
     mx: 1,
     px: 1,
     py: 0.25,
-    bgcolor: getBackgroundColor(3),
+    pr: 0.25,
+    bgcolor: getBackgroundColor(2),
     borderRadius: "0 0 var(--border-radius) var(--border-radius)",
     transition: "0.1s ease-in-out",
 

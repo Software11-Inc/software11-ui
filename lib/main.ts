@@ -82,6 +82,9 @@ export * from "./deck-template";
 export * from "./deck-typing-text";
 export * from "./deck-chat-action";
 export * from "./deck-chat-headline";
+export * from "./deck-chat-body-text";
+export * from "./deck-chat-confirm-button";
+export * from "./deck-chat-menu-button";
 
 export * from "@models";
 

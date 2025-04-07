@@ -1,5 +1,6 @@
 export interface DeckChatActionProps {
   icon?: React.ReactNode;
+  showStatus?: boolean;
   status?: number;
   loading?: boolean;
   actionName?: string;
@@ -9,4 +10,5 @@ export interface DeckChatActionProps {
   resourceLocationActionIcon?: React.ReactNode;
   resourceShowDelay?: number;
   onResourceClick?: () => void;
+  onTypingComplete?: () => void;
 }

@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { DeckChatAction } from "./deck-chat-action.component";
-import TroubleshootRounded from "@mui/icons-material/TroubleshootRounded";
-import { ExcelIcon, PowerpointIcon } from "../deck-icons";
 import OpenInNewRounded from "@mui/icons-material/OpenInNewRounded";
+import TroubleshootRounded from "@mui/icons-material/TroubleshootRounded";
+import { Meta, StoryFn } from "@storybook/react";
+import { PowerpointIcon } from "../deck-icons";
+import { DeckChatAction } from "./deck-chat-action.component";
 
 export default {
   title: "Chat/Components/Action",
@@ -71,6 +71,13 @@ export default {
         category: "Events",
       },
     },
+    onTypingComplete: {
+      action: "onTypingComplete",
+      description: "Callback function triggered when the typing is complete.",
+      table: {
+        category: "Events",
+      },
+    },
     icon: {
       description: "Icon to be displayed.",
       table: {
@@ -100,10 +107,10 @@ Default.args = {
   icon: <TroubleshootRounded />,
   status: 0,
   loading: false,
-  actionName: "Searching..",
+  actionName: "Searching",
   resourceIcon: <PowerpointIcon height={12} width={12} />,
   resourceName: "Slide Templates",
-  resourceShowDelay: 500,
-  resourceLocation: "https://www.deckcraft.io",
+  resourceShowDelay: 50,
+  resourceLocation: "https://www.deckcraft.io/aseet/slide-templates/longer-name/extra-longer-name",
   resourceLocationActionIcon: <OpenInNewRounded />,
 };

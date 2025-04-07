@@ -1,16 +1,17 @@
+import Box from "@mui/joy/Box";
+import React from "react";
 import { DeckIconButton } from "../deck-icon-button";
 import { DeckStatus } from "../deck-status";
 import { DeckTypingText } from "../deck-typing-text";
 import { DeckChatActionProps } from "./deck-chat-action.types";
-import React from "react";
 import { chatActionStyle } from "./deck-chat-actions.styles";
-import Box from "@mui/joy/Box";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const DeckChatAction: React.FC<DeckChatActionProps> = ({
   icon,
   status = 0,
+  showStatus = false,
   loading = false,
   actionName,
   resourceName,
@@ -19,6 +20,7 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
   resourceLocationActionIcon,
   resourceShowDelay = 0,
   onResourceClick = () => {},
+  onTypingComplete = () => {},
 }) => {
   const [isActionNameTyped, setIsActionNameTyped] = React.useState(false);
   const [isResourceNameTyped, setIsResourceNameTyped] = React.useState(false);
@@ -50,9 +52,11 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
       <div className="deck-chat-action--content">
         <div className="deck-chat-action--icon">
           {icon}
-          <div className="deck-chat-action--icon-status">
-            <DeckStatus status={status} loading={loading} />
-          </div>
+          {showStatus && (
+            <div className="deck-chat-action--icon-status">
+              <DeckStatus status={status} loading={loading} />
+            </div>
+          )}
         </div>
         <div className="deck-chat-action--action">
           <DeckTypingText text={actionName} onTypingComplete={handleTypingComplete} />
@@ -71,7 +75,9 @@ export const DeckChatAction: React.FC<DeckChatActionProps> = ({
       </div>
       <div className={["deck-chat-action--footer", isResourceNameTyped ? "show" : "hide"].join(" ")}>
         <div className="deck-chat-action--location">
-          <span className="deck-chat-action--location-text">{resourceLocation}</span>
+          <span className="deck-chat-action--location-text">
+            {isResourceNameTyped && <DeckTypingText text={resourceLocation} onTypingComplete={onTypingComplete} />}
+          </span>
           {resourceLocationActionIcon && (
             <div className="deck-chat-action--location-action">
               <DeckIconButton icon={resourceLocationActionIcon} onClick={onResourceClick} variant="plain" size="xs" />
