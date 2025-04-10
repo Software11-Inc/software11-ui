@@ -31,6 +31,11 @@ export default {
       options: variants,
       description: "Variant of the button",
     },
+    textAlign: {
+      control: "select",
+      options: ["flex-start", "flex-end", "center"],
+      description: "Text alignment inside the button",
+    },
   },
 } as Meta<typeof DeckTextButton>;
 
