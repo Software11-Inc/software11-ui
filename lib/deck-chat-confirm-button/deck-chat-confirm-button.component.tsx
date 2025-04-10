@@ -3,6 +3,7 @@ import { DeckChatConfirmButtonProps } from "./deck-chat-confirm-button.types";
 import React from "react";
 import { DeckTypingText } from "../deck-typing-text";
 import { confirmButtonStyles } from "./deck-chat-confirm-button.styles";
+import ChevronRightRounded from "@mui/icons-material/ChevronRightRounded";
 
 export const DeckChatConfirmButton: React.FC<DeckChatConfirmButtonProps> = ({
   text,
@@ -13,6 +14,7 @@ export const DeckChatConfirmButton: React.FC<DeckChatConfirmButtonProps> = ({
 }) => {
   return (
     <Box className="deck-chat-confirm-button" sx={confirmButtonStyles} onClick={onClick}>
+      <ChevronRightRounded />
       <span className="deck-chat-confirm-button--text">
         <DeckTypingText isTyping={isTyping} typingSpeed={typingSpeed} onTypingComplete={onTypingComplete} text={text} />
       </span>
