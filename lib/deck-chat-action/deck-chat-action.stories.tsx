@@ -19,6 +19,24 @@ export default {
         category: "Props",
       },
     },
+    showStatus: {
+      control: {
+        type: "boolean",
+      },
+      description: "Show status of the action.",
+      table: {
+        category: "Props",
+      },
+    },
+    isTyping: {
+      control: {
+        type: "boolean",
+      },
+      description: "Typing state of the action.",
+      table: {
+        category: "Props",
+      },
+    },
     loading: {
       control: {
         type: "boolean",
@@ -33,6 +51,15 @@ export default {
         type: "text",
       },
       description: "Name of the action.",
+      table: {
+        category: "Props",
+      },
+    },
+    progress: {
+      control: {
+        type: "number",
+      },
+      description: "Progress of the action.",
       table: {
         category: "Props",
       },
@@ -104,13 +131,16 @@ const Template: StoryFn<typeof DeckChatAction> = (args) => <DeckChatAction {...a
 export const Default = Template.bind({});
 
 Default.args = {
-  icon: <TroubleshootRounded />,
+  showStatus: true,
+  isTyping: false,
+  progress: 33,
   status: 0,
   loading: false,
   actionName: "Searching",
-  resourceIcon: <PowerpointIcon height={12} width={12} />,
   resourceName: "Slide Templates",
   resourceShowDelay: 50,
   resourceLocation: "https://www.deckcraft.io/aseet/slide-templates/longer-name/extra-longer-name",
   resourceLocationActionIcon: <OpenInNewRounded />,
+  icon: <TroubleshootRounded />,
+  resourceIcon: <PowerpointIcon height={12} width={12} />,
 };

@@ -3,6 +3,8 @@ export interface DeckChatActionProps {
   showStatus?: boolean;
   status?: number;
   loading?: boolean;
+  progress?: number;
+  isTyping?: boolean;
   actionName?: string;
   resourceName?: string;
   resourceIcon?: React.ReactNode;

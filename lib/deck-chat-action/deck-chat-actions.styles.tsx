@@ -1,6 +1,7 @@
-import { svgIconClasses } from "@mui/joy";
 import { SxProps } from "@mui/joy/styles/types";
 import { getBackgroundColor } from "../accordion.style";
+import { svgIconClasses } from "@mui/joy/SvgIcon";
+import { linearProgressClasses } from "@mui/joy/LinearProgress";
 
 export const chatActionStyle: SxProps = {
   display: "flex",
@@ -14,11 +15,11 @@ export const chatActionStyle: SxProps = {
     p: 0.5,
     px: 1,
     borderRadius: "var(--border-radius)",
-    border: "1px solid",
-    borderColor: getBackgroundColor(3),
-    // boxShadow: "var(--shadow)",
+    // border: "1px solid",
+    borderColor: getBackgroundColor(4),
+    boxShadow: "var(--shadow)",
 
-    bgcolor: getBackgroundColor(1),
+    bgcolor: getBackgroundColor(2),
     height: "2rem",
     zIndex: 1,
 
@@ -64,6 +65,13 @@ export const chatActionStyle: SxProps = {
         color: "var(--joy-palette-primary-500)",
       },
     },
+
+    [`& > .deck-chat-action--progress`]: {
+      px: 1,
+      [`& > .${linearProgressClasses.root}`]: {
+        borderRadius: "1rem",
+      },
+    },
   },
 
   [`& > .deck-chat-action--footer`]: {
@@ -72,7 +80,7 @@ export const chatActionStyle: SxProps = {
     px: 1,
     py: 0.25,
     pr: 0.25,
-    bgcolor: getBackgroundColor(2),
+    bgcolor: getBackgroundColor(3),
     borderRadius: "0 0 var(--border-radius) var(--border-radius)",
     transition: "0.1s ease-in-out",
 
