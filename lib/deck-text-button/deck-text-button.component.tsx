@@ -30,7 +30,7 @@ export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
       onClick={action}
       fullWidth={fullWidth}
     >
-      <Box sx={{ display: "flex", flex: 1 }}>
+      <Box sx={{ display: "flex", flex: 1, justifyContent: textAlign }}>
         {icon}
         <div>{text}</div>
       </Box>
