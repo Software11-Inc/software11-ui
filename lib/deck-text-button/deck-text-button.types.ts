@@ -12,6 +12,7 @@ export interface IDeckTextButtonProps {
   color?: ColorPaletteProp;
   variant?: DefaultVariantProp;
   active?: boolean;
+  size?: "sm" | "md" | "lg";
   hasShadow?: boolean;
   fullWidth?: boolean;
   uppercase?: boolean;

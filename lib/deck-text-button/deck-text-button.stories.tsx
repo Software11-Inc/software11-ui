@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { DeckTextButton } from "./deck-text-button.component";
-import { colors, variants } from "../story-types";
+import { colors, sizes, variants } from "../story-types";
 import ShortcutRounded from "@mui/icons-material/ShortcutRounded";
 
 export default {
@@ -35,6 +35,11 @@ export default {
       control: "select",
       options: ["flex-start", "flex-end", "center"],
       description: "Text alignment inside the button",
+    },
+    size: {
+      control: "select",
+      options: sizes,
+      description: "Size of the button",
     },
   },
 } as Meta<typeof DeckTextButton>;

@@ -9,6 +9,7 @@ export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
   endIcon,
   text,
   textAlign = "center",
+  size = "sm",
   action,
   disabled,
   color,
@@ -23,9 +24,9 @@ export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
       variant={active ? "solid" : variant || "soft"}
       color={color}
       disabled={disabled}
-      size="sm"
+      size={size}
       className={`${active ? "active" : ""} `}
-      sx={iconButtonSxProps({ hasShadow, textAlign, uppercase })}
+      sx={iconButtonSxProps({ hasShadow, textAlign, uppercase, size })}
       endDecorator={endIcon}
       onClick={action}
       fullWidth={fullWidth}
