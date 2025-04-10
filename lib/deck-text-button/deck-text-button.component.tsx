@@ -6,13 +6,17 @@ import { IDeckTextButtonProps } from "./deck-text-button.types";
 
 export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
   icon,
+  endIcon,
   text,
+  textAlign = "center",
   action,
   disabled,
   color,
   variant,
   active,
   hasShadow = false,
+  fullWidth = false,
+  uppercase = true,
 }) => {
   return (
     <Button
@@ -21,10 +25,12 @@ export const DeckTextButton: React.FC<IDeckTextButtonProps> = ({
       disabled={disabled}
       size="sm"
       className={`${active ? "active" : ""} `}
-      sx={iconButtonSxProps({ hasShadow })}
+      sx={iconButtonSxProps({ hasShadow, textAlign, uppercase })}
+      endDecorator={endIcon}
       onClick={action}
+      fullWidth={fullWidth}
     >
-      <Box>
+      <Box sx={{ display: "flex", flex: 1 }}>
         {icon}
         <div>{text}</div>
       </Box>
