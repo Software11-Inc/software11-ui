@@ -103,7 +103,7 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
           <Input
             name="tags"
             placeholder={placeholder}
-            size="sm"
+            size={size}
             variant="soft"
             color="primary"
             value={inputTag}
