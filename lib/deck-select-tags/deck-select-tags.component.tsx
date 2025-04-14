@@ -132,12 +132,14 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
             }
             disabled={disabled}
           />
-          <DeckLabel
-            size={size}
-            description={{
-              text: description,
-            }}
-          />
+          {Boolean(description?.length) && (
+            <DeckLabel
+              size={size}
+              description={{
+                text: description,
+              }}
+            />
+          )}
         </FormControl>
       </React.Fragment>
     );
