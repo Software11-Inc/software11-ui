@@ -24,11 +24,6 @@ export const confirmButtonStyles: SxProps = {
     color: "var(--joy-palette-primary-500)",
   },
 
-  "&:hover": {
-    bgcolor: getBackgroundColor(3),
-    cursor: "pointer",
-  },
-
   [`& > .deck-chat-confirm-button--text`]: {
     fontSize: "14px",
     color: "var(--joy-palette-primary-500)",

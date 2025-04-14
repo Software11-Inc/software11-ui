@@ -9,7 +9,7 @@ export const DeckChatConfirmButton: React.FC<DeckChatConfirmButtonProps> = ({
   text,
   isTyping = false,
   typingSpeed,
-  onClick,
+  onClick = () => {},
   onTypingComplete,
 }) => {
   return (
