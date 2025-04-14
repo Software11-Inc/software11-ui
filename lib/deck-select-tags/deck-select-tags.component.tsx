@@ -7,7 +7,7 @@ import FormControl from "@mui/joy/FormControl";
 import Input from "@mui/joy/Input";
 import React from "react";
 import { DeckLabel } from "../deck-label";
-import { inputFocusStyle } from "../input.style";
+import { inputThemedFocusStyle } from "../input.style";
 import { addOutlinedSx, boxSx, buttonSx } from "./deck-select-tags.styles";
 import { IDeckSelectTagsProps, IDeckSelectTagsState } from "./deck-select-tags.types";
 
@@ -57,10 +57,13 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
   render() {
     const {
       tags = [],
-      size,
+      size = "sm",
       title = "Tags",
       description = "Tag with descriptive words so you can index and search them later, ie. revenue, cogs, costs, people, etc.",
       placeholder = "Enter tag",
+      color = "primary",
+      variant = "soft",
+      disabled = false,
     } = this.props;
     const { inputTag } = this.state;
     return (
@@ -81,17 +84,19 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
               {tags?.map((tag, index) => {
                 return (
                   <Chip
-                    color="primary"
+                    color={color}
                     key={tag + index}
+                    variant={variant}
+                    disabled={disabled}
                     sx={{
                       fontSize: 12,
                       lineHeight: 1.2,
                       display: "flex",
                       alignItems: "center",
-                      borderRadius: "var(--border-radius)",
+                      borderRadius: "calc(var(--border-radius) / 2)",
                       gap: 1,
                     }}
-                    endDecorator={<ChipDelete onClick={() => this.removeTag(tag)} />}
+                    endDecorator={<ChipDelete disabled={disabled} onClick={() => this.removeTag(tag)} />}
                   >
                     {tag}
                   </Chip>
@@ -104,26 +109,28 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
             name="tags"
             placeholder={placeholder}
             size={size}
-            variant="soft"
-            color="primary"
+            variant={variant}
+            color={color}
             value={inputTag}
             sx={{
-              fontSize: 12,
-              ...inputFocusStyle,
+              ...inputThemedFocusStyle(color),
             }}
             onChange={({ target }) => this.updateInputTag(target.value)}
             onKeyDown={(e) => this.onKeyDownOnTags(e)}
             endDecorator={
               <Button
-                disabled={!this.isValidTag(inputTag)}
-                size="sm"
-                sx={buttonSx}
+                variant={"solid"}
+                color={color}
+                disabled={!this.isValidTag(inputTag) || disabled}
+                size={size}
+                sx={buttonSx(size)}
                 startDecorator={<AddOutlined sx={addOutlinedSx} />}
                 onClick={() => this.addTag(inputTag)}
               >
                 <span>ADD</span>
               </Button>
             }
+            disabled={disabled}
           />
           <DeckLabel
             size={size}

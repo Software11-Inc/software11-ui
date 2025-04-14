@@ -1,3 +1,5 @@
+import { ColorPaletteProp, DefaultVariantProp } from "@mui/joy/styles/types";
+
 export interface IDeckSelectTagsProps {
   tags: string[];
   size?: "sm" | "md" | "lg";
@@ -5,6 +7,9 @@ export interface IDeckSelectTagsProps {
   title?: string;
   description?: string;
   placeholder?: string;
+  color?: ColorPaletteProp;
+  variant?: DefaultVariantProp;
+  disabled?: boolean;
 }
 
 export interface IDeckSelectTagsState {
