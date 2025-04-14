@@ -113,7 +113,7 @@ export class DeckSelectTags extends React.Component<IDeckSelectTagsProps, IDeckS
             color={color}
             value={inputTag}
             sx={{
-              ...inputThemedFocusStyle(color),
+              ...inputThemedFocusStyle(size, color),
             }}
             onChange={({ target }) => this.updateInputTag(target.value)}
             onKeyDown={(e) => this.onKeyDownOnTags(e)}
