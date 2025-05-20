@@ -4,6 +4,86 @@ import { DeckRepeaterForm } from "./deck-repeater-form.component";
 export default {
   title: "Pages/Template/Components/DeckRepeaterForm",
   component: DeckRepeaterForm,
+  argTypes: {
+    headers: {
+      control: {
+        type: "object",
+      },
+      description: "Headers for the repeater form.",
+      table: {
+        category: "Props",
+      },
+    },
+    figures: {
+      control: {
+        type: "object",
+      },
+      description: "Figures for the repeater form.",
+      table: {
+        category: "Props",
+      },
+    },
+    filter: {
+      control: {
+        type: "object",
+      },
+      description: "Filter for the repeater form.",
+      table: {
+        category: "Props",
+      },
+    },
+    sort: {
+      control: {
+        type: "object",
+      },
+      description: "Sort for the repeater form.",
+      table: {
+        category: "Props",
+      },
+    },
+    addFilter: {
+      action: "addFilter",
+      description: "Callback function when a filter is added.",
+      table: {
+        category: "Events",
+      },
+    },
+    removeFilter: {
+      action: "removeFilter",
+      description: "Callback function when a filter is removed.",
+      table: {
+        category: "Events",
+      },
+    },
+    updateFilter: {
+      action: "updateFilter",
+      description: "Callback function when a filter is updated.",
+      table: {
+        category: "Events",
+      },
+    },
+    addSort: {
+      action: "addSort",
+      description: "Callback function when a sort is added.",
+      table: {
+        category: "Events",
+      },
+    },
+    removeSort: {
+      action: "removeSort",
+      description: "Callback function when a sort is removed.",
+      table: {
+        category: "Events",
+      },
+    },
+    updateSort: {
+      action: "updateSort",
+      description: "Callback function when a sort is updated.",
+      table: {
+        category: "Events",
+      },
+    },
+  },
 } as Meta<typeof DeckRepeaterForm>;
 
 const Template: StoryFn<typeof DeckRepeaterForm> = (args) => <DeckRepeaterForm {...args} />;

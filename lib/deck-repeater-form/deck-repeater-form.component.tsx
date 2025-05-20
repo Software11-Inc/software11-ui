@@ -11,6 +11,7 @@ import { DeckRepeaterFormFilter } from "../deck-repeater-form-filter";
 import { DeckRepeaterFormSort } from "../deck-repeater-form-sort";
 import { columnStyle, repeaterStyles, rowStyle } from "./deck-repeater-form.styles";
 import { IDeckRepeaterFormProps } from "./deck-repeater-form.types";
+import { SxProps } from "@mui/joy/styles/types";
 
 export const filterOperators: IFilterOperator[] = [
   { key: "EQUAL", label: "=" },
@@ -42,14 +43,12 @@ export const DeckRepeaterForm: React.FC<IDeckRepeaterFormProps> = ({
   addSort = () => {},
   removeSort = () => {},
 }) => {
-  const buttonProps = {
-    sx: {
-      fontSize: 12,
-      p: 0,
-      py: 0.5,
-      minHeight: "unset",
-    },
-  } as any;
+  const buttonSxProps = {
+    fontSize: 12,
+    p: 0,
+    py: 0.5,
+    minHeight: "unset",
+  } as SxProps;
   return (
     <Box sx={repeaterStyles}>
       <Box sx={columnStyle}>
@@ -82,12 +81,10 @@ export const DeckRepeaterForm: React.FC<IDeckRepeaterFormProps> = ({
           />
         ))}
         <Button
-          slotProps={{
-            root: buttonProps,
-          }}
           size="sm"
           variant="soft"
           color="primary"
+          sx={buttonSxProps}
           startDecorator={<AddRounded sx={{ fontSize: 14 }} />}
           onClick={addFilter}
         >
@@ -129,12 +126,10 @@ export const DeckRepeaterForm: React.FC<IDeckRepeaterFormProps> = ({
           />
         ))}
         <Button
-          slotProps={{
-            root: buttonProps,
-          }}
           size="sm"
           variant="soft"
           color="primary"
+          sx={buttonSxProps}
           startDecorator={<AddRounded sx={{ fontSize: 14 }} />}
           onClick={addSort}
         >
